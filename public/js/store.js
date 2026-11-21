@@ -9854,6 +9854,42 @@ class Store {
     this.saveLocal();
   }
 
+  async syncState() {
+    if (this.isServerAvailable) {
+      try {
+        const res = await fetch('/api/state?t=' + Date.now(), { method: 'GET', cache: 'no-store' });
+        if (res.ok) {
+          const fresh = await res.json();
+          if (fresh && fresh.messages) {
+            this.state.messages = fresh.messages;
+          }
+          if (fresh && fresh.courses) {
+            // merge completion status
+            fresh.courses.forEach(fc => {
+              const localCourse = this.state.courses?.find(c => c.id === fc.id);
+              if (localCourse) {
+                fc.sections.forEach(fs => {
+                  const ls = localCourse.sections?.find(s => s.id === fs.id);
+                  if (ls) {
+                    fs.activities.forEach(fa => {
+                      const la = ls.activities?.find(a => a.id === fa.id);
+                      if (la) {
+                        if (fa.completed) la.completed = true;
+                        if (fa.quizResult) la.quizResult = fa.quizResult;
+                        if (fa.submission) la.submission = fa.submission;
+                      }
+                    });
+                  }
+                });
+              }
+            });
+          }
+          this.saveLocal();
+        }
+      } catch (e) {}
+    }
+  }
+
   async sendMessage(text, recipient = 'Admin') {
     const msg = {
       id: 'msg_' + Date.now(),
@@ -9874,6 +9910,9 @@ class Store {
       } catch (e) {}
     }
 
+    if (!this.state.messages) {
+      this.state.messages = [];
+    }
     this.state.messages.push(msg);
     this.saveLocal();
     return msg;

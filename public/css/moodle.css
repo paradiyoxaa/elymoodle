@@ -1018,8 +1018,9 @@ input:checked + .toggle-slider:before {
 .message-drawer {
   position: fixed;
   top: 0;
-  right: -360px;
+  right: -380px;
   width: 360px;
+  max-width: 92vw;
   height: 100vh;
   background: #ffffff;
   box-shadow: -4px 0 25px rgba(0, 0, 0, 0.15);

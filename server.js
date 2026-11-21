@@ -310,6 +310,7 @@ const server = http.createServer(async (req, res) => {
           timestamp: new Date().toISOString(),
           read: false
         };
+        db.messages = db.messages || [];
         db.messages.push(newMsg);
         saveDatabase();
         return sendJSON(res, 200, { success: true, message: newMsg });

@@ -1056,25 +1056,75 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // --- 10. MESSAGING DRAWER ---
-  btnToggleMsg?.addEventListener('click', () => {
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  let msgPollInterval = null;
+
+  btnToggleMsg?.addEventListener('click', async () => {
     msgDrawer.classList.toggle('open');
     renderMessages();
+
+    if (msgDrawer.classList.contains('open')) {
+      inputChat?.focus();
+      await window.store.syncState();
+      renderMessages();
+
+      if (!msgPollInterval) {
+        msgPollInterval = setInterval(async () => {
+          if (msgDrawer.classList.contains('open')) {
+            await window.store.syncState();
+            renderMessages();
+          }
+        }, 3000);
+      }
+    } else {
+      if (msgPollInterval) {
+        clearInterval(msgPollInterval);
+        msgPollInterval = null;
+      }
+    }
   });
 
   btnCloseMsg?.addEventListener('click', () => {
     msgDrawer.classList.remove('open');
+    if (msgPollInterval) {
+      clearInterval(msgPollInterval);
+      msgPollInterval = null;
+    }
   });
 
   function renderMessages() {
     const messages = window.store.state?.messages || [];
     const myName = window.store.currentUser ? window.store.currentUser.name : 'Elizabeth';
 
+    if (!messages || messages.length === 0) {
+      drawerMsgList.innerHTML = `
+        <div style="text-align: center; color: #94a3b8; font-size: 0.88rem; padding: 24px 12px;">
+          No messages yet.<br>Send a note below to start the conversation!
+        </div>
+      `;
+      return;
+    }
+
     drawerMsgList.innerHTML = messages.map(m => {
-      const isMine = m.sender.toLowerCase() === myName.toLowerCase();
+      const sender = m.sender || 'Elizabeth';
+      const isMine = sender.toLowerCase() === myName.toLowerCase();
+      const text = escapeHtml(m.text || '');
+      const timeStr = m.timestamp ? new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '';
+
       return `
         <div class="chat-bubble ${isMine ? 'mine' : 'theirs'}">
-          <div>${m.text}</div>
-          <div class="chat-time">${m.sender}</div>
+          <div style="font-size: 0.75rem; font-weight: 700; opacity: 0.88; margin-bottom: 2px;">${escapeHtml(sender)}</div>
+          <div style="word-break: break-word;">${text}</div>
+          <div class="chat-time">${timeStr}</div>
         </div>
       `;
     }).join('');
@@ -1087,16 +1137,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!text) return;
 
     const myName = window.store.currentUser ? window.store.currentUser.name : 'Elizabeth';
-    const recipient = myName === 'Admin' ? 'Elizabeth' : 'Admin';
+    const recipient = myName.toLowerCase() === 'admin' ? 'Elizabeth' : 'Admin';
 
     inputChat.value = '';
-    await window.store.sendMessage(text, recipient);
-    renderMessages();
+    btnSendChat.disabled = true;
+
+    try {
+      await window.store.sendMessage(text, recipient);
+      renderMessages();
+    } finally {
+      btnSendChat.disabled = false;
+      inputChat.focus();
+    }
   }
 
   btnSendChat?.addEventListener('click', handleSendChat);
-  inputChat?.addEventListener('keypress', e => {
-    if (e.key === 'Enter') handleSendChat();
+  inputChat?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSendChat();
+    }
   });
 
   // --- 11. AUTHENTIC MOODLE LOGIN MODAL ---
