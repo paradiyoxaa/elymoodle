@@ -1,0 +1,13 @@
+{
+  "name": "elizabeth-20th-birthday-moodle",
+  "version": "1.0.0",
+  "description": "Happy 20th Birthday Elizabeth - Moodle Site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["moodle", "birthday", "elizabeth"],
+  "author": "Admin",
+  "license": "ISC"
+}

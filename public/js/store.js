@@ -1,0 +1,9926 @@
+// Client Data Store & API Bridge
+class Store {
+  constructor() {
+    this.currentUser = null;
+    this.state = null;
+    this.isServerAvailable = false;
+    this.storageKey = 'elizabeth_moodle_natsci131_v10';
+    this.sessionKey = 'elizabeth_moodle_session_v10';
+  }
+
+  getDefaultData() {
+    return {
+      settings: {
+        birthdayTitle: "Happy 20th Birthday Elizabeth!",
+        letterBody: "I hope I can atleast help you in a way to achieve your dreams!"
+      },
+      users: [
+        {
+          id: "user_elizabeth",
+          username: "Elizabeth",
+          name: "Elizabeth",
+          password: "elyzabbyeth",
+          role: "student",
+          email: "elizabeth@moodle.local",
+          avatar: "👩"
+        },
+        {
+          id: "user_admin",
+          username: "Admin",
+          name: "Admin",
+          password: "Am@ngusfan123",
+          role: "admin",
+          email: "admin@moodle.local",
+          avatar: "👤"
+        }
+      ],
+      courses: [
+{
+    "id": "course_natsci131",
+    "code": "NATSCI131",
+    "title": "NATSCI131: Introductory Botany: Plants, People, and the Environment",
+    "category": "Biological Sciences",
+    "description": "A comprehensive scientific study of plant biology, cellular architecture, bioenergetics, organ morphology, genetics, organismal diversity, and environmental ecology based on Linda R. Berg's textbook. Features all 27 chapters across 5 major units and re-attemptable chapter checkpoint quizzes.",
+    "image": "🌿",
+    "progress": 5,
+    "sections": [
+        {
+            "id": "sec_bot_0",
+            "title": "Course Overview & Full Textbook",
+            "description": "Access the complete 600+ page textbook and course syllabus.",
+            "activities": [
+                {
+                    "id": "act_natsci_ebook",
+                    "type": "ebook",
+                    "title": "📖 Full Course Textbook: Introductory Botany: Plants, People, and the Environment (PDF)",
+                    "completed": true,
+                    "content": "Access the complete 27-chapter eBook for NATSCI131: Introductory Botany: Plants, People, and the Environment (Linda R. Berg, Thomson Brooks/Cole, 85.2 MB).",
+                    "fileUrl": "/ebooks/introductory-botany.pdf"
+                },
+                {
+                    "id": "act_natsci_syllabus",
+                    "type": "page",
+                    "title": "Course Syllabus & Information",
+                    "completed": true,
+                    "content": "Welcome to NATSCI131: Introductory Botany: Plants, People, and the Environment!\n\nInstructor: Admin\nStudent: Elizabeth\nTextbook: Introductory Botany: Plants, People, and the Environment (Linda R. Berg, 2nd Edition)\n\nCourse Structure & Major Units:\n• Part 1: The Plant Cell (Chapters 1–4)\n• Part 2: Plant Structures and Life Processes (Chapters 5–11)\n• Part 3: The Continuity of Plant Life (Chapters 12–17)\n• Part 4: Diversity of Organisms & The Plant Kingdom (Chapters 18–25)\n• Part 5: Plant Ecology and Global Environment (Chapters 26–27)\n\nAssessments:\n• 27 Chapter Checkpoint Quizzes (10–30 questions per chapter scaled by information density)\n• Instant scoring with detailed explanations\n• Quizzes can be re-attempted anytime (🔄 Re-attempt Quiz) for 100% mastery\n• Embedded Full 85.2 MB PDF eBook at the top of the course"
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_1",
+            "title": "Chapter 1: An Introduction to the Science of Botany",
+            "description": "The nature of scientific inquiry, characteristics of living plant organisms, plant evolution, and human reliance on plants.",
+            "activities": [
+                {
+                    "id": "act_bot_1_lesson",
+                    "type": "page",
+                    "title": "Module 1.1: The Science of Botany & The Plant Kingdom",
+                    "completed": true,
+                    "content": "### 1. What Is Botany?\nBotany is the scientific study of plants and plant-like organisms (including algae and fungi, historically studied under botanical traditions). In *Introductory Botany*, Linda R. Berg emphasizes that plants are not merely passive scenery, but active primary producers that generate the oxygen we breathe, drive global biogeochemical cycles, and form the trophic foundation of terrestrial ecosystems.\n\n### 2. Core Characteristics of Living Plant Organisms\nLiving plants display seven fundamental biological properties:\n1. **Cellular Organization:** Composed of eukaryotic cells encased in cellulose-rich cell walls.\n2. **Metabolism & Energy Capture:** Capable of autotrophic nutrition through oxygenic photosynthesis, capturing solar electromagnetic energy.\n3. **Homeostasis:** Regulating internal osmotic balance, water potential, and stomatal gas exchange.\n4. **Growth & Morphogenesis:** Sustaining indeterminate, localized growth mediated by active meristematic zones.\n5. **Responsiveness to Stimuli:** Altering growth direction via tropisms (phototropism, gravitropism, thigmotropism) and circadian rhythms.\n6. **Reproduction & Life Cycles:** Exhibiting an alternation of generations between multicellular haploid (gametophyte) and diploid (sporophyte) phases.\n7. **Evolutionary Adaptation:** Undergoing natural selection, generating morphological and physiological adaptations for terrestrial survival.\n\n### 3. The Scientific Method in Botany\nBotanical discoveries advance through empirical hypothesis testing:\n- **Observation:** Formulating questions from natural phenomena.\n- **Hypothesis:** Generating a tentative, testable, and falsifiable explanation.\n- **Controlled Experimentation:** Isolating independent variables while holding environmental factors constant across control and experimental cohorts.\n- **Theory Formulation:** Developing comprehensive conceptual frameworks supported by vast bodies of replicable empirical data.\n\n### 4. Plants, People, and the Environment (Ethnobotany)\nHuman civilization is fundamentally rooted in plant domestication. The Neolithic agricultural transition (~10,000 years ago) with wheat, barley, rice, and maize transformed nomadic foragers into settled civilizations. Plants furnish timber, textiles (cotton, linen), pharmaceuticals (aspirin from willow bark, taxol from Pacific yew), and regulate atmospheric carbon dioxide balances."
+                },
+                {
+                    "id": "quiz_bot_1",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 1 Checkpoint: Introduction to Botany & Plant Science",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What is the formal biological definition of Botany?",
+                            "options": [
+                                "The chemical manufacturing of synthetic fertilizers",
+                                "The scientific study of plants, algae, and historically related photosynthetic organisms",
+                                "The commercial retail sale of garden ornamental flowers",
+                                "The exclusive veterinary care of herbivorous farm animals"
+                            ],
+                            "correct": 1,
+                            "explanation": "Botany is the empirical scientific discipline investigating plant biology, physiology, anatomy, morphology, genetics, ecology, and human-plant relationships."
+                        },
+                        {
+                            "question": "Which of the following is a universal characteristic distinguishing plants from animals?",
+                            "options": [
+                                "Plants lack cellular nuclei and mitochondria",
+                                "Plants are multicellular autotrophic eukaryotes possessing cellulose cell walls and chloroplasts",
+                                "Plants are heterotrophic organisms that ingest preformed organic matter",
+                                "Plants reproduce exclusively through asexual budding"
+                            ],
+                            "correct": 1,
+                            "explanation": "Plants are multicellular photosynthetic eukaryotes characterized by plastids (chloroplasts), rigid cell walls containing cellulose, and alternation of generations."
+                        },
+                        {
+                            "question": "In the scientific method, what fundamental property must any valid scientific hypothesis possess?",
+                            "options": [
+                                "It must be mathematically approved by government regulators",
+                                "It must be capable of being tested and falsified by empirical evidence",
+                                "It must agree with established ancient philosophical doctrines",
+                                "It must remain unchanged even if contradictory data is observed"
+                            ],
+                            "correct": 1,
+                            "explanation": "A scientific hypothesis must be testable and falsifiable—there must be possible empirical observations that could refute it."
+                        },
+                        {
+                            "question": "What role do green plants perform in the global carbon cycle?",
+                            "options": [
+                                "They act as major carbon sinks by absorbing atmospheric carbon dioxide during photosynthesis",
+                                "They permanently convert all atmospheric carbon into radioactive isotopes",
+                                "They produce carbon dioxide continuously without releasing any oxygen",
+                                "They have zero interaction with atmospheric gases"
+                            ],
+                            "correct": 0,
+                            "explanation": "Through photosynthesis, plants fix gaseous carbon dioxide into organic carbohydrates, functioning as primary terrestrial carbon sinks."
+                        },
+                        {
+                            "question": "The subdiscipline of botany that focuses specifically on how different human cultures utilize indigenous plants for food, medicine, and textiles is:",
+                            "options": [
+                                "Paleobotany",
+                                "Ethnobotany",
+                                "Plant Cytology",
+                                "Bryology"
+                            ],
+                            "correct": 1,
+                            "explanation": "Ethnobotany investigates the traditional cultural and practical knowledge and customs concerning the utilization of indigenous plants by human societies."
+                        },
+                        {
+                            "question": "Which ancient agricultural crop was first domesticated in the Fertile Crescent, facilitating the rise of settled human civilizations?",
+                            "options": [
+                                "Wheat and Barley",
+                                "Maize (Corn)",
+                                "Potatoes",
+                                "Soybeans"
+                            ],
+                            "correct": 0,
+                            "explanation": "The domestication of emmer wheat, einkorn wheat, and barley in the Fertile Crescent around 10,000 BCE marked the dawn of Neolithic agriculture."
+                        },
+                        {
+                            "question": "In a botanical experiment testing the effect of nitrogen fertilizer concentrations on soybean yield, the nitrogen concentration represents the:",
+                            "options": [
+                                "Dependent variable",
+                                "Independent variable",
+                                "Confounding variable",
+                                "Standard deviation"
+                            ],
+                            "correct": 1,
+                            "explanation": "The independent variable is the condition systematically varied or manipulated by the experimenter (nitrogen level) to observe its effect on the measured outcome."
+                        },
+                        {
+                            "question": "The anticancer chemotherapy medication Taxol (paclitaxel) was famously discovered from which botanical species?",
+                            "options": [
+                                "The Willow tree (Salix alba)",
+                                "The Pacific Yew (Taxus brevifolia)",
+                                "The Foxglove plant (Digitalis purpurea)",
+                                "The Madagascar Periwinkle (Catharanthus roseus)"
+                            ],
+                            "correct": 1,
+                            "explanation": "Taxol, a potent inhibitor of cellular microtubule disassembly used in breast and ovarian cancer therapies, was isolated from the bark of the Pacific Yew."
+                        },
+                        {
+                            "question": "Which term describes a plant's ability to maintain a stable, balanced internal physiological state despite environmental fluctuations?",
+                            "options": [
+                                "Homeostasis",
+                                "Indeterminate growth",
+                                "Apical dominance",
+                                "Heterotrophy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Homeostasis refers to physiological mechanisms (e.g., stomatal regulation, ionic pumps) that maintain chemical and physical equilibrium within living plant tissues."
+                        },
+                        {
+                            "question": "Why are plants classified as 'primary producers' in ecological trophic webs?",
+                            "options": [
+                                "They hunt and consume herbivorous primary consumers",
+                                "They synthesize organic energy-rich molecules from inorganic raw materials using solar radiation",
+                                "They decompose rock minerals without utilizing light",
+                                "They exist at the absolute top of the food chain"
+                            ],
+                            "correct": 1,
+                            "explanation": "Plants are autotrophs; they capture sunlight to convert carbon dioxide and water into glucose, producing the organic energy base for all heterotrophic consumers."
+                        },
+                        {
+                            "question": "Which branch of botany specializes in the study of fossil plants and the evolutionary history of plant life on Earth?",
+                            "options": [
+                                "Plant Pathology",
+                                "Paleobotany",
+                                "Dendrology",
+                                "Economic Botany"
+                            ],
+                            "correct": 1,
+                            "explanation": "Paleobotany is the paleontological branch of botany recovering and identifying plant fossil remains to reconstruct evolutionary lineages and prehistoric environments."
+                        },
+                        {
+                            "question": "Which of the following environmental problems is directly exacerbated by global deforestation?",
+                            "options": [
+                                "Increased atmospheric carbon dioxide accumulation and loss of biological diversity",
+                                "Rapid global depletion of atmospheric nitrogen gas",
+                                "Excessive reduction of global soil salinity",
+                                "Immediate cessation of all tectonic volcanic activity"
+                            ],
+                            "correct": 0,
+                            "explanation": "Deforestation reduces photosynthetic carbon absorption, releases stored forest biomass carbon into the atmosphere, accelerates soil erosion, and drives species extinction."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_2",
+            "title": "Chapter 2: The Chemical Composition of Cells",
+            "description": "Inorganic and organic molecules in plant life, properties of water, carbohydrates, lipids, proteins, and nucleic acids.",
+            "activities": [
+                {
+                    "id": "act_bot_2_lesson",
+                    "type": "page",
+                    "title": "Module 2.1: Macromolecules & Biochemistry of Plant Cells",
+                    "completed": true,
+                    "content": "### 1. Water: The Biological Medium for Plant Life\nWater comprises 80% to 95% of growing plant tissue mass. Its unique chemical architecture—a polar covalent molecule capable of extensive hydrogen bonding—confers vital properties:\n- **Cohesion & Adhesion:** Cohesion (water molecules clinging to one another) and adhesion (water clinging to hydrophilic xylem walls) enable transpirational pull through capillary conduits over 100 meters high.\n- **High Specific Heat & Heat of Vaporization:** Buffers plants against rapid thermal shocks and powers evaporative cooling during transpiration.\n- **Universal Solvent:** Solubilizes essential mineral ions (nitrate, phosphate, potassium) for root uptake.\n\n### 2. Carbohydrates in Plants\nCarbohydrates are the primary structural and energy storage molecules:\n- **Monosaccharides:** Glucose ($C_6H_{12}O_6$) and fructose, generated through photosynthesis.\n- **Disaccharides:** Sucrose, the primary transport carbohydrate in phloem sap.\n- **Storage Polysaccharides:** Starch (amylose and amylopectin), stored inside amyloplasts in seeds, roots, and tubers.\n- **Structural Polysaccharides:** Cellulose, forming rigid microfibrils in cell walls, joined by $\beta$-1,4-glycosidic linkages that resist enzymatic digestion.\n\n### 3. Lipids: Membranes, Cuticles, and Energy\n- **Phospholipids:** Amphipathic molecules forming the selectively permeable lipid bilayer of organellar and plasma membranes.\n- **Triglycerides:** Fats and vegetable oils stored in oleosomes (e.g., canola, olive, sunflower seeds).\n- **Cutin, Suberin, and Waxes:** Complex hydrophobic polymers forming the protective leaf cuticle and the Casparian strip of roots, minimizing non-stomatal water evaporation.\n\n### 4. Proteins and Enzymes\nProteins are linear polymers of amino acids folded into intricate three-dimensional conformations:\n- **Enzymatic Catalysis:** Biological catalysts like Rubisco (Ribulose-1,5-bisphosphate carboxylase-oxygenase), the most abundant enzyme on Earth, catalyzing photosynthetic carbon fixation.\n- **Structural Proteins:** Glycoproteins (extensins) in cell walls that govern wall extensibility during cell elongation.\n\n### 5. Secondary Metabolites (Phytochemicals)\nPlants produce thousands of specialized non-primary chemical compounds:\n- **Alkaloids:** Nitrogenous, bitter defense compounds (caffeine, nicotine, morphine, quinine).\n- **Terpenoids:** Isoprene-derived volatile compounds (menthol, pine resins, natural rubber).\n- **Phenolics:** Aromatic compounds including flavonoids, anthocyanin pigments (red/purple floral attractants), and lignin (the hardening polymer of vascular wood)."
+                },
+                {
+                    "id": "quiz_bot_2",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 2 Checkpoint: Plant Biochemistry & Molecular Constituents",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Why is the polar nature of water molecules biologically indispensable for vascular plant transport?",
+                            "options": [
+                                "It enables water molecules to repel one another and evaporate instantly",
+                                "It allows hydrogen bonding, generating high tensile cohesive strength that pulls continuous water columns up the xylem",
+                                "It prevents water from dissolving any mineral salts",
+                                "It transforms water into an electrical insulator inside the root cortex"
+                            ],
+                            "correct": 1,
+                            "explanation": "Hydrogen bonding creates high cohesion among water molecules, allowing transpirational tension to pull unbroken water columns from roots to leaves through xylem conduits."
+                        },
+                        {
+                            "question": "What is the principal transport sugar moved through the phloem of vascular plants?",
+                            "options": [
+                                "Glucose",
+                                "Sucrose",
+                                "Starch",
+                                "Cellulose"
+                            ],
+                            "correct": 1,
+                            "explanation": "Sucrose (a non-reducing disaccharide composed of glucose and fructose) is chemically stable and serves as the universal transport sugar in phloem translocation."
+                        },
+                        {
+                            "question": "Which structural polysaccharide is the primary organic component of the plant cell wall?",
+                            "options": [
+                                "Glycogen",
+                                "Cellulose",
+                                "Chitin",
+                                "Amylose"
+                            ],
+                            "correct": 1,
+                            "explanation": "Cellulose consists of unbranched chains of beta-glucose units joined by beta-1,4-glycosidic bonds, bundling into rigid crystalline microfibrils."
+                        },
+                        {
+                            "question": "In what chemical form do plants primarily store excess energy reserves in roots, tubers, and seeds?",
+                            "options": [
+                                "Glycogen",
+                                "Starch",
+                                "Lignin",
+                                "Wax esters"
+                            ],
+                            "correct": 1,
+                            "explanation": "Plants convert glucose into starch (a mixture of amylose and branched amylopectin polysaccharides) for long-term osmotic-neutral energy storage."
+                        },
+                        {
+                            "question": "Rubisco is widely recognized by plant biochemists as:",
+                            "options": [
+                                "A structural wax that seals the stomatal pores",
+                                "The most abundant enzyme on Earth, catalyzing photosynthetic carbon dioxide fixation",
+                                "A dangerous alkaloid toxin found in potato leaves",
+                                "The pigment that gives carrots their orange hue"
+                            ],
+                            "correct": 1,
+                            "explanation": "Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) constitutes up to 50% of soluble leaf protein, fixing CO2 during the Calvin cycle."
+                        },
+                        {
+                            "question": "Which class of plant lipids forms the hydrophobic waxy layer (cuticle) that covers the aerial epidermis of leaves and stems to prevent desiccation?",
+                            "options": [
+                                "Phospholipids",
+                                "Cutin and Suberin",
+                                "Triglycerides",
+                                "Ribosomal nucleic acids"
+                            ],
+                            "correct": 1,
+                            "explanation": "Cutin and suberin, combined with surface waxes, form hydrophobic barriers that drastically restrict non-stomatal transpirational water loss."
+                        },
+                        {
+                            "question": "Which complex polyphenolic polymer impregnates secondary cell walls, providing compressive mechanical rigidity to wood and waterproof sealing to xylem vessels?",
+                            "options": [
+                                "Pectin",
+                                "Lignin",
+                                "Cellulose",
+                                "Glucan"
+                            ],
+                            "correct": 1,
+                            "explanation": "Lignin is an intricate aromatic polymer deposited in secondary cell walls; it confers structural strength to trees and prevents xylem collapse under negative pressure."
+                        },
+                        {
+                            "question": "Caffeine, nicotine, morphine, and atropine belong to which diverse group of nitrogen-containing plant secondary metabolites?",
+                            "options": [
+                                "Alkaloids",
+                                "Terpenoids",
+                                "Flavonoids",
+                                "Carotenoids"
+                            ],
+                            "correct": 0,
+                            "explanation": "Alkaloids are nitrogenous organic bases produced by plants primarily as chemical deterrents against herbivores and pathogen infections."
+                        },
+                        {
+                            "question": "The red, purple, and blue water-soluble pigments found dissolved within the central vacuoles of flower petals and autumn leaves are:",
+                            "options": [
+                                "Chlorophylls",
+                                "Anthocyanins",
+                                "Carotenes",
+                                "Xanthophylls"
+                            ],
+                            "correct": 1,
+                            "explanation": "Anthocyanins are flavonoid phenolic pigments located in the vacuolar sap, providing vibrant red to purple coloration that attracts animal pollinators."
+                        },
+                        {
+                            "question": "What is the primary biological role of plant cell phospholipids?",
+                            "options": [
+                                "Serving as the main caloric energy store in cereal grains",
+                                "Forming the selectively permeable lipid bilayer of biological membranes",
+                                "Cross-linking cellulose fibers in the middle lamella",
+                                "Transmitting genetic code to ribosomes"
+                            ],
+                            "correct": 1,
+                            "explanation": "Phospholipids have hydrophilic phosphate heads and hydrophobic fatty acid tails, naturally assembling into the bilayer foundation of cell membranes."
+                        },
+                        {
+                            "question": "Proteins are polymers composed of which repeating monomer subunits joined by peptide bonds?",
+                            "options": [
+                                "Monosaccharides",
+                                "Fatty acids",
+                                "Amino acids",
+                                "Nucleotides"
+                            ],
+                            "correct": 2,
+                            "explanation": "Proteins are constructed from linear sequences of 20 standard amino acids folded into complex functional secondary, tertiary, and quaternary structures."
+                        },
+                        {
+                            "question": "Which nucleotide acts as the universal chemical energy currency in plant cellular metabolism?",
+                            "options": [
+                                "Adenosine Triphosphate (ATP)",
+                                "Deoxyribonucleic acid (DNA)",
+                                "Ribulose biphosphate",
+                                "Nicotinamide adenine dinucleotide phosphate"
+                            ],
+                            "correct": 0,
+                            "explanation": "ATP transfers chemical energy via the hydrolysis of its high-energy phosphoanhydride bonds to drive endergonic cellular reactions."
+                        },
+                        {
+                            "question": "What chemical property explains why vegetable oils (e.g., olive oil, sunflower oil) remain liquid at room temperature whereas animal fats are solid?",
+                            "options": [
+                                "Plant oil triglycerides contain a high proportion of unsaturated fatty acids with cis-double bonds that introduce kinks",
+                                "Plant oils contain zero carbon atoms",
+                                "Plant oils are composed entirely of pure water",
+                                "Plant oils lack ester linkages"
+                            ],
+                            "correct": 0,
+                            "explanation": "Unsaturated fatty acids have carbon-carbon double bonds that produce kinks in the carbon chain, preventing tight molecular packing and lowering the melting point."
+                        },
+                        {
+                            "question": "Which plant polysaccharide is found within the middle lamella, acting as an intercellular cementing agent extracted commercially for making fruit jellies?",
+                            "options": [
+                                "Cellulose",
+                                "Pectin",
+                                "Lignin",
+                                "Chitin"
+                            ],
+                            "correct": 1,
+                            "explanation": "Pectins are acidic polysaccharides that form a gel-like matrix in the middle lamella, gluing neighboring plant cell walls together."
+                        },
+                        {
+                            "question": "Turpentine, pine resins, and natural rubber belong to which major class of phytochemicals built from five-carbon isoprene units?",
+                            "options": [
+                                "Alkaloids",
+                                "Terpenoids",
+                                "Phenolics",
+                                "Glycoproteins"
+                            ],
+                            "correct": 1,
+                            "explanation": "Terpenoids (isoprenoids) are synthesized from repeating isoprene units; they include essential oils, carotenoids, rubber, and plant defense resins."
+                        },
+                        {
+                            "question": "What type of chemical bond joins the adjacent nucleotide units in a single strand of plant DNA?",
+                            "options": [
+                                "Peptide bonds",
+                                "Phosphodiester bonds",
+                                "Hydrogen bonds",
+                                "Glycosidic bonds"
+                            ],
+                            "correct": 1,
+                            "explanation": "Phosphodiester bonds covalently link the 3' carbon of one deoxyribose sugar to the 5' phosphate group of the adjacent nucleotide in the nucleic acid backbone."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_3",
+            "title": "Chapter 3: Plant Cells",
+            "description": "Plant cellular architecture, the cell wall, central vacuole, plastids, plasmodesmata, and membrane transport.",
+            "activities": [
+                {
+                    "id": "act_bot_3_lesson",
+                    "type": "page",
+                    "title": "Module 3.1: Ultrastructure of the Plant Cell",
+                    "completed": true,
+                    "content": "### 1. Unique Features of Plant Cells\nWhile plant cells share common eukaryotic organelles (nucleus, endoplasmic reticulum, Golgi apparatus, mitochondria, ribosomes) with animal cells, they possess four distinct architectural hallmarks:\n1. **Rigid Cell Wall:** External envelope containing cellulose microfibrils, hemicellulose, and pectin.\n2. **Plastids:** Organelles specialized for photosynthesis, pigment accumulation, and storage.\n3. **Large Central Vacuole:** Membrane-bound sac occupying up to 90% of mature cell volume.\n4. **Plasmodesmata:** Microscopic cytoplasmic channels spanning cell walls for intercellular transport.\n\n### 2. The Plant Cell Wall\nThe cell wall governs cell shape, supports tissue posture, and prevents osmotic lysis:\n- **Middle Lamella:** Outermost pectin-rich cementing layer binding adjacent cells.\n- **Primary Cell Wall:** Formed during active cell division and elongation; pliable and expandable, rich in cellulose and hemicellulose.\n- **Secondary Cell Wall:** Deposited inside the primary wall after cell expansion ceases; thickened with multiple cellulose layers and reinforced with **lignin** (found in tracheids, vessels, and sclerenchyma fibers).\n\n### 3. Plastids: Metabolic Factories\n- **Chloroplasts:** Double-membrane organelles containing thylakoid membranes organized into grana stacks, embedded in aqueous stroma. Site of photosynthesis. Possess circular DNA and 70S ribosomes (endosymbiotic origin from cyanobacteria).\n- **Chromoplasts:** Synthesize and store carotenoid pigments (carotenes and xanthophylls), providing orange, yellow, and red colors to fruits (tomatoes, peppers) and flowers.\n- **Leucoplasts:** Non-pigmented plastids, including **amyloplasts** (synthesizing and storing starch grains) and **elaioplasts** (storing lipids).\n\n### 4. The Central Vacuole and Turgor Pressure\nEnclosed by a selectively permeable membrane called the **tonoplast**:\n- Maintains **turgor pressure** by accumulating potassium and malate ions, drawing water osmotically to generate outward hydrostatic pressure against the cell wall. Turgor keeps non-woody stems upright.\n- Stores metabolic wastes, defense toxins (nicotine, cardiac glycosides), and pigments (anthocyanins).\n- Functions as a cellular recycling center analogous to animal lysosomes.\n\n### 5. Plasmodesmata and Intercellular Symplast\nPlasmodesmata are plasma-membrane-lined pores crossing cell walls, containing a narrow core of modified endoplasmic reticulum called the **desmotubule**:\n- **Symplastic Pathway:** Continuous cytoplasmic network allowing transport of sugars, signaling proteins, and RNA between cells without crossing plasma membranes.\n- **Apoplastic Pathway:** Extracellular space consisting of porous cell walls and intercellular spaces."
+                },
+                {
+                    "id": "quiz_bot_3",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 3 Checkpoint: Plant Cellular Ultrastructure & Organelles",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which of the following cellular structures is present in typical plant cells but completely absent in animal cells?",
+                            "options": [
+                                "Endoplasmic reticulum",
+                                "Cellulose cell wall and plastids",
+                                "Mitochondria",
+                                "Golgi apparatus"
+                            ],
+                            "correct": 1,
+                            "explanation": "Plant cells are uniquely distinguished from animal cells by the presence of a rigid cellulose cell wall, plastids (such as chloroplasts), and a large central vacuole."
+                        },
+                        {
+                            "question": "What is the name of the selectively permeable membrane that encloses the plant cell's central vacuole?",
+                            "options": [
+                                "Plasmalemma",
+                                "Tonoplast",
+                                "Peroxisome",
+                                "Thylakoid"
+                            ],
+                            "correct": 1,
+                            "explanation": "The tonoplast (vacuolar membrane) bounds the central vacuole and contains transport proteins that regulate ion and metabolite fluxes into the vacuolar sap."
+                        },
+                        {
+                            "question": "Microscopic cytoplasmic channels traversing plant cell walls to connect the cytoplasm of adjacent cells are called:",
+                            "options": [
+                                "Tight junctions",
+                                "Desmosomes",
+                                "Plasmodesmata",
+                                "Aquaporins"
+                            ],
+                            "correct": 2,
+                            "explanation": "Plasmodesmata are membrane-lined channels connecting plant cells, facilitating direct symplastic transport of nutrients and signaling molecules."
+                        },
+                        {
+                            "question": "The endosymbiotic theory explains that chloroplasts originated through the ancient engulfment of an autotrophic:",
+                            "options": [
+                                "Cyanobacterium",
+                                "Methanogen",
+                                "Spirillum",
+                                "Virus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Chloroplasts evolved through the endosymbiosis of an ancestral photosynthetic cyanobacterium inside a eukaryotic host, supported by their circular DNA and bacterial-like ribosomes."
+                        },
+                        {
+                            "question": "Which type of plastid is specialized for the synthesis and storage of starch grains in roots, tubers, and seeds?",
+                            "options": [
+                                "Chromoplast",
+                                "Amyloplast",
+                                "Chloroplast",
+                                "Elaioplast"
+                            ],
+                            "correct": 1,
+                            "explanation": "Amyloplasts are specialized non-pigmented leucoplasts that polymerize glucose into dense starch granules in non-photosynthetic tissues."
+                        },
+                        {
+                            "question": "What physical force maintains the firmness and upright stature of herbaceous plant stems?",
+                            "options": [
+                                "Hydrostatic turgor pressure exerted by the vacuole against the rigid cell wall",
+                                "Electrostatic repulsion between secondary xylem vessels",
+                                "Atmospheric gas pressure inside intercellular cavities",
+                                "Gravitational kinetic acceleration"
+                            ],
+                            "correct": 0,
+                            "explanation": "Osmotic water entry into the vacuole generates internal hydrostatic turgor pressure pressing against the elastic cell wall, maintaining tissue rigidity."
+                        },
+                        {
+                            "question": "Which cell wall layer is synthesized first and is richest in adhesive pectin compounds that cement adjacent plant cells together?",
+                            "options": [
+                                "Secondary cell wall",
+                                "Middle lamella",
+                                "Plasma membrane",
+                                "Periderm"
+                            ],
+                            "correct": 1,
+                            "explanation": "The middle lamella is the pectin-rich cementing layer formed between the primary walls of neighboring daughter cells during cytokinesis."
+                        },
+                        {
+                            "question": "Secondary cell walls are deposited by mature cells in which location?",
+                            "options": [
+                                "Between the primary cell wall and the plasma membrane",
+                                "On the extreme outer exterior of the middle lamella",
+                                "Directly inside the lumen of the central vacuole",
+                                "Floating freely within the nucleoplasm"
+                            ],
+                            "correct": 0,
+                            "explanation": "Secondary cell walls are synthesized internally between the primary wall and the plasma membrane after cellular expansion has ceased."
+                        },
+                        {
+                            "question": "Which plastid is responsible for synthesizing and accumulating carotenoid pigments that produce bright yellow, orange, and red colors in ripening fruit?",
+                            "options": [
+                                "Chloroplast",
+                                "Chromoplast",
+                                "Leucoplast",
+                                "Proplastid"
+                            ],
+                            "correct": 1,
+                            "explanation": "Chromoplasts synthesize lipophilic carotenoid pigments that color petals and fruits to attract animal pollinators and seed dispersers."
+                        },
+                        {
+                            "question": "In chloroplasts, the stacked membrane sacs where the light-dependent reactions of photosynthesis occur are called:",
+                            "options": [
+                                "Stroma",
+                                "Thylakoids (organized into grana)",
+                                "Cristae",
+                                "Tonoplast folds"
+                            ],
+                            "correct": 1,
+                            "explanation": "Thylakoids are disc-shaped membranous sacs arranged in stacks called grana, housing chlorophyll complexes, electron transport chains, and ATP synthases."
+                        },
+                        {
+                            "question": "The fluid-filled aqueous matrix surrounding the thylakoid grana inside the chloroplast where the Calvin cycle takes place is the:",
+                            "options": [
+                                "Stroma",
+                                "Matrix",
+                                "Lumen",
+                                "Cytosol"
+                            ],
+                            "correct": 0,
+                            "explanation": "The stroma is the semi-fluid interior of the chloroplast containing soluble enzymes (including Rubisco) that synthesize sugars during the Calvin cycle."
+                        },
+                        {
+                            "question": "What structure forms during plant cell cytokinesis, derived from Golgi vesicles that fuse along the equatorial plane to build the new cell wall?",
+                            "options": [
+                                "Cleavage furrow",
+                                "Cell plate (via phragmoplast)",
+                                "Centrosome",
+                                "Casparian strip"
+                            ],
+                            "correct": 1,
+                            "explanation": "Plant cytokinesis involves the phragmoplast directing Golgi vesicles containing cell wall precursors to coalesce into the cell plate at the division plane."
+                        },
+                        {
+                            "question": "The movement of water and dissolved solutes across the extracellular network of cell walls and intercellular spaces (without crossing plasma membranes) is the:",
+                            "options": [
+                                "Symplastic pathway",
+                                "Apoplastic pathway",
+                                "Transmembrane pathway",
+                                "Vacuolar pathway"
+                            ],
+                            "correct": 1,
+                            "explanation": "The apoplast consists of the continuum of porous cell walls and water-filled intercellular spaces external to the living plasma membrane."
+                        },
+                        {
+                            "question": "When a plant cell is placed into a hypertonic (highly concentrated saline) solution, water exits the central vacuole, causing the plasma membrane to pull away from the cell wall. This is:",
+                            "options": [
+                                "Plasmolysis",
+                                "Deplasmolysis",
+                                "Turgor expansion",
+                                "Lysis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Plasmolysis occurs when hypertonic external environments draw water out of the cell, causing the vacuole to collapse and the protoplast to shrink away from the wall."
+                        },
+                        {
+                            "question": "Which organelle contains catalase enzymes specialized for breaking down toxic hydrogen peroxide ($H_2O_2$) generated during photorespiration?",
+                            "options": [
+                                "Peroxisome",
+                                "Lysosome",
+                                "Golgi dictyosome",
+                                "Ribosome"
+                            ],
+                            "correct": 0,
+                            "explanation": "Peroxisomes contain oxidative enzymes (including catalase) that metabolize glycolate produced during photorespiration and neutralize hydrogen peroxide."
+                        },
+                        {
+                            "question": "What is the narrow cylindrical core of compressed endoplasmic reticulum traversing the center of a plasmodesma called?",
+                            "options": [
+                                "Desmotubule",
+                                "Microtubule",
+                                "Microfilament",
+                                "Centriole"
+                            ],
+                            "correct": 0,
+                            "explanation": "The desmotubule is a modified tubule of endoplasmic reticulum that extends through the plasmodesma, linking the endomembrane systems of neighboring cells."
+                        },
+                        {
+                            "question": "Which enzyme complex, embedded in the plasma membrane, synthesizes cellulose microfibrils and spins them directly onto the external wall surface?",
+                            "options": [
+                                "Cellulose Synthase (Rosette complex)",
+                                "RNA Polymerase III",
+                                "ATP Synthase",
+                                "Amylase"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rosette terminal complexes of cellulose synthase embedded in the plasma membrane polymerize UDP-glucose into cellulose microfibrils directly into the cell wall."
+                        },
+                        {
+                            "question": "The orientation of freshly deposited cellulose microfibrils in the growing plant cell wall is guided internally by which cytoskeletal components?",
+                            "options": [
+                                "Cortical Microtubules",
+                                "Actin microfilaments",
+                                "Intermediate filaments",
+                                "Keratin sheaths"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cortical microtubules lying immediately beneath the plasma membrane act as guide rails that direct the trajectories of cellulose synthase complexes, dictating expansion direction."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_4",
+            "title": "Chapter 4: Metabolism in Cells",
+            "description": "Thermodynamics, enzyme kinetics, light-dependent reactions of photosynthesis, Calvin cycle (C3, C4, CAM pathways), and cellular respiration.",
+            "activities": [
+                {
+                    "id": "act_bot_4_lesson",
+                    "type": "page",
+                    "title": "Module 4.1: Bioenergetics: Photosynthesis & Respiration",
+                    "completed": true,
+                    "content": "### 1. Overview of Photosynthesis\nPhotosynthesis converts solar radiant energy into chemical bond energy in carbohydrates:\n$6CO_2 + 6H_2O + \\text{light} \\rightarrow C_6H_{12}O_6 + 6O_2$\nIt consists of two interconnected metabolic stages:\n1. **Light-Dependent Reactions:** Occurring in thylakoid membranes, generating ATP and NADPH while photolyzing water into oxygen.\n2. **Light-Independent Reactions (Calvin Cycle):** Occurring in the chloroplast stroma, fixing $CO_2$ into triose phosphate sugars.\n\n### 2. The Light-Dependent Reactions\n- **Photopigments:** Chlorophyll *a* (primary reaction-center pigment absorbing blue-violet and red wavelengths), Chlorophyll *b* (accessory pigment), and Carotenoids (photoprotective and light-harvesting).\n- **Photosystem II (P680):** Absorbs light, exciting electrons that are extracted from water ($2H_2O \\rightarrow O_2 + 4H^+ + 4e^-$). Protons accumulate in the thylakoid lumen.\n- **Electron Transport Chain:** Cytochrome $b_6f$ complex pumps protons across the thylakoid membrane, generating a proton gradient ($Delta pH$).\n- **Photosystem I (P700):** Re-energizes electrons with photons to reduce $NADP^+$ to $NADPH$ via ferredoxin-NADP+ reductase.\n- **Photophosphorylation:** Protons flow down their electrochemical gradient through **ATP Synthase** into the stroma, producing ATP (chemiosmosis).\n\n### 3. The Calvin Cycle (C3 Pathway)\nOccurs in three phases:\n1. **Carbon Fixation:** Rubisco attaches atmospheric $CO_2$ to Ribulose-1,5-bisphosphate (RuBP, a 5-carbon sugar), forming an unstable 6-carbon intermediate that cleaves into two molecules of 3-phosphoglycerate (3-PGA).\n2. **Reduction:** ATP and NADPH convert 3-PGA into glyceraldehyde-3-phosphate (G3P).\n3. **Regeneration of RuBP:** Complex enzymatic steps consume ATP to rearrange G3P back into RuBP. For every 6 turns of the cycle, one net glucose equivalent ($2 \\times G3P$) exits for starch or sucrose synthesis.\n\n### 4. Photorespiration and Evolutionary Adaptations: C4 and CAM\n- **The Problem of Photorespiration:** Rubisco can bind oxygen ($O_2$) instead of $CO_2$ when temperatures rise and stomata close, producing toxic phosphoglycolate that requires costly metabolic salvaging, wasting up to 25% of captured energy.\n- **C4 Photosynthesis (Spatial Separation):** Found in tropical grasses (maize, sugarcane). $CO_2$ is fixed in outer **mesophyll cells** by **PEP carboxylase** (which has zero affinity for $O_2$) into 4-carbon oxaloacetate/malate. Malate is pumped into tightly sealed **bundle sheath cells** (Kranz anatomy), releasing high concentrations of $CO_2$ directly to Rubisco.\n- **CAM Photosynthesis (Temporal Separation):** Found in desert succulents (cacti, agaves, pineapples). Stomata open *only at night* to minimize water loss. $CO_2$ is fixed by PEP carboxylase into malic acid stored in the large vacuole. During the day, stomata remain tightly closed while malate is decarboxylated to feed Rubisco illuminated by sunlight.\n\n### 5. Aerobic Cellular Respiration\nRespiration breaks down carbohydrates to generate ATP for cellular growth:\n$C_6H_{12}O_6 + 6O_2 \\rightarrow 6CO_2 + 6H_2O + \\sim 32\\text{ ATP}$\n- **Glycolysis (Cytosol):** Splitting glucose into 2 pyruvates, producing 2 ATP and 2 NADH.\n- **Pyruvate Oxidation & Citric Acid (Krebs) Cycle (Mitochondrial Matrix):** Generates $CO_2$, ATP, and electron carriers ($NADH, FADH_2$).\n- **Mitochondrial Electron Transport & Oxidative Phosphorylation (Inner Mitochondrial Membrane):** Chemiosmotic ATP synthesis coupled to oxygen reduction."
+                },
+                {
+                    "id": "quiz_bot_4",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 4 Checkpoint: Photosynthesis, Respiration & Plant Bioenergetics",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What is the primary source of the oxygen gas ($O_2$) released into Earth's atmosphere by photosynthetic plants?",
+                            "options": [
+                                "The splitting (photolysis) of water molecules in Photosystem II",
+                                "The breakdown of carbon dioxide in the Calvin cycle",
+                                "The decomposition of glucose in mitochondria",
+                                "The enzymatic cleavage of ATP"
+                            ],
+                            "correct": 0,
+                            "explanation": "During light reactions in Photosystem II, water molecules are enzymatically split (photolyzed) into protons, electrons, and molecular oxygen ($O_2$)."
+                        },
+                        {
+                            "question": "Which wavelengths of visible light are most strongly absorbed by chlorophyll a and chlorophyll b for photosynthesis?",
+                            "options": [
+                                "Green and yellow wavelengths",
+                                "Blue-violet and red wavelengths",
+                                "Infrared and microwave wavelengths",
+                                "Ultraviolet wavelengths exclusively"
+                            ],
+                            "correct": 1,
+                            "explanation": "Chlorophylls absorb photons primarily in the blue-violet (400-450 nm) and red (640-680 nm) regions, reflecting unabsorbed green light."
+                        },
+                        {
+                            "question": "What are the two high-energy chemical products generated by the light-dependent reactions that are consumed in the Calvin cycle?",
+                            "options": [
+                                "ATP and NADPH",
+                                "Glucose and Oxygen",
+                                "Pyruvate and FADH2",
+                                "Rubisco and RuBP"
+                            ],
+                            "correct": 0,
+                            "explanation": "The light reactions capture photon energy to generate ATP and reducing power in the form of NADPH, which drive the biosynthetic reactions of the Calvin cycle."
+                        },
+                        {
+                            "question": "In the Calvin cycle, Rubisco fixes atmospheric carbon dioxide onto which five-carbon acceptor sugar?",
+                            "options": [
+                                "Glucose-6-phosphate",
+                                "Ribulose-1,5-bisphosphate (RuBP)",
+                                "Oxaloacetate",
+                                "Phosphoenolpyruvate (PEP)"
+                            ],
+                            "correct": 1,
+                            "explanation": "Rubisco catalyzes the addition of one CO2 molecule onto the 5-carbon sugar ribulose-1,5-bisphosphate (RuBP), yielding two 3-carbon 3-PGA molecules."
+                        },
+                        {
+                            "question": "What biochemical inefficiency occurs when Rubisco binds oxygen ($O_2$) instead of carbon dioxide ($CO_2$), wasting energy and releasing fixed carbon?",
+                            "options": [
+                                "Oxidative phosphorylation",
+                                "Photorespiration",
+                                "Lactic fermentation",
+                                "Photophosphorylation"
+                            ],
+                            "correct": 1,
+                            "explanation": "Photorespiration occurs when Rubisco oxygenates RuBP, producing toxic 2-phosphoglycolate that requires energy-consuming salvage pathways across peroxisomes and mitochondria."
+                        },
+                        {
+                            "question": "How do C4 plants (such as corn and sugarcane) overcome the problem of photorespiration?",
+                            "options": [
+                                "They fix carbon exclusively in the dark during the winter",
+                                "They spatially separate initial CO2 fixation in mesophyll cells from the Calvin cycle in bundle sheath cells (Kranz anatomy)",
+                                "They perform photosynthesis without using any enzymes",
+                                "They open their stomata only during torrential downpours"
+                            ],
+                            "correct": 1,
+                            "explanation": "C4 plants use PEP carboxylase to fix CO2 into 4-carbon acids in mesophyll cells, transporting them to tightly sealed bundle sheath cells where CO2 is released around Rubisco at high concentrations."
+                        },
+                        {
+                            "question": "Which initial carbon-fixing enzyme is utilized by C4 and CAM plants because it has a high affinity for bicarbonate and zero affinity for oxygen?",
+                            "options": [
+                                "Rubisco",
+                                "PEP Carboxylase",
+                                "ATP Synthase",
+                                "Amylase"
+                            ],
+                            "correct": 1,
+                            "explanation": "Phosphoenolpyruvate (PEP) carboxylase fixes inorganic carbon into oxaloacetate without binding oxygen, preventing photorespiration entirely."
+                        },
+                        {
+                            "question": "Desert succulents utilizing Crassulacean Acid Metabolism (CAM) minimize daytime water loss by:",
+                            "options": [
+                                "Opening their stomata at night to absorb CO2 and storing it as malic acid in vacuoles, then closing stomata during the hot day",
+                                "Absorbing water through their floral petals from morning dew",
+                                "Performing photosynthesis without capturing any solar photons",
+                                "Discarding their roots during the summer"
+                            ],
+                            "correct": 0,
+                            "explanation": "CAM plants achieve temporal separation: nocturnal stomatal opening allows CO2 uptake and vacuolar malate storage, while daytime closure conserves water while solar light reactions run."
+                        },
+                        {
+                            "question": "The synthesis of ATP in both chloroplasts and mitochondria is driven by proton movement through ATP synthase, a mechanism known as:",
+                            "options": [
+                                "Substrate-level oxidation",
+                                "Chemiosmosis (Peter Mitchell's chemiosmotic hypothesis)",
+                                "Passive capillary diffusion",
+                                "Thermal conduction"
+                            ],
+                            "correct": 1,
+                            "explanation": "Chemiosmosis couples ATP synthesis to the electrochemical proton gradient generated across the thylakoid or inner mitochondrial membrane as protons flow through ATP synthase."
+                        },
+                        {
+                            "question": "In what sub-cellular compartment of the plant cell does the initial stage of cellular respiration (glycolysis) occur?",
+                            "options": [
+                                "The mitochondrial matrix",
+                                "The cytosol",
+                                "The chloroplast stroma",
+                                "The vacuolar lumen"
+                            ],
+                            "correct": 1,
+                            "explanation": "Glycolysis is an anaerobic 10-step enzymatic pathway occurring in the cytosol that cleaves one 6-carbon glucose into two 3-carbon pyruvates."
+                        },
+                        {
+                            "question": "What is the final electron acceptor in the mitochondrial electron transport chain during aerobic cellular respiration in plants?",
+                            "options": [
+                                "Carbon dioxide ($CO_2$)",
+                                "Molecular oxygen ($O_2$)",
+                                "Water ($H_2O$)",
+                                "Glucose"
+                            ],
+                            "correct": 1,
+                            "explanation": "Oxygen acts as the terminal electron acceptor, combining with electrons and protons at Complex IV (cytochrome c oxidase) to form water ($H_2O$)."
+                        },
+                        {
+                            "question": "Under flooded or anaerobic soil conditions where roots are deprived of oxygen, plant root cells must rely on which pathway to regenerate NAD+?",
+                            "options": [
+                                "Alcoholic fermentation (producing ethanol and CO2)",
+                                "Photophosphorylation",
+                                "The Calvin-Benson cycle",
+                                "C4 malate shunting"
+                            ],
+                            "correct": 0,
+                            "explanation": "In anoxic flooded soils, plant roots undergo ethanolic fermentation, converting pyruvate to ethanol and CO2 to re-oxidize NADH back to NAD+ to keep glycolysis operating."
+                        },
+                        {
+                            "question": "Which protein complex in the thylakoid membrane pumps protons from the stroma into the thylakoid lumen between Photosystems II and I?",
+                            "options": [
+                                "Cytochrome b6f complex",
+                                "Rubisco",
+                                "PEP carboxylase",
+                                "Ferredoxin-NADP+ reductase"
+                            ],
+                            "correct": 0,
+                            "explanation": "The cytochrome b6f complex transfers electrons between plastoquinone and plastocyanin while pumping protons into the lumen, building the electrochemical proton gradient."
+                        },
+                        {
+                            "question": "Cyclic electron flow in the light reactions of photosynthesis involves only Photosystem I and produces:",
+                            "options": [
+                                "ATP exclusively (without generating NADPH or releasing O2)",
+                                "NADPH and Oxygen without ATP",
+                                "Glucose and RuBP",
+                                "Carbon dioxide gas"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cyclic photophosphorylation routes electrons from ferredoxin back to the cytochrome complex to pump protons and generate extra ATP without producing NADPH or photolyzing water."
+                        },
+                        {
+                            "question": "What term describes the specialized leaf anatomy of C4 plants featuring concentric layers of mesophyll cells surrounding enlarged, chloroplast-rich bundle sheath cells?",
+                            "options": [
+                                "Kranz anatomy",
+                                "Palisade parenchyma",
+                                "Casparian strip",
+                                "Aerenchyma"
+                            ],
+                            "correct": 0,
+                            "explanation": "Kranz anatomy (from the German word for 'wreath') describes the tight floral-wreath arrangement of bundle sheath cells around vascular veins in C4 plants."
+                        },
+                        {
+                            "question": "During which phase of aerobic respiration is the vast majority of carbon dioxide ($CO_2$) released from metabolic breakdown?",
+                            "options": [
+                                "Glycolysis",
+                                "Pyruvate oxidation and the Citric Acid (Krebs) Cycle",
+                                "ATP synthase rotation",
+                                "The light reactions"
+                            ],
+                            "correct": 1,
+                            "explanation": "Decarboxylation reactions converting pyruvate to acetyl-CoA and within the mitochondrial Krebs cycle liberate the six carbon atoms of glucose as CO2."
+                        },
+                        {
+                            "question": "What is the primary function of accessory pigments, such as beta-carotene and lutein, in the photosynthetic antenna complexes?",
+                            "options": [
+                                "Absorbing light wavelengths not captured efficiently by chlorophylls and protecting against photo-oxidative damage",
+                                "Transporting sucrose to the root system",
+                                "Binding nitrogen from the atmosphere",
+                                "Digesting cellulose cell walls"
+                            ],
+                            "correct": 0,
+                            "explanation": "Carotenoids expand the absorption spectrum by transferring captured photon energy to chlorophyll a and quench reactive oxygen species to prevent photo-damage."
+                        },
+                        {
+                            "question": "What is the light compensation point in plant physiology?",
+                            "options": [
+                                "The light intensity at which the rate of photosynthetic carbon fixation exactly equals the rate of respiratory carbon loss",
+                                "The point where a leaf gets sunburned and turns brown",
+                                "The maximum speed of light inside a chloroplast",
+                                "The temperature at which chloroplast membranes melt"
+                            ],
+                            "correct": 0,
+                            "explanation": "At the light compensation point, photosynthetic CO2 uptake balances respiratory CO2 release, resulting in zero net gas exchange."
+                        },
+                        {
+                            "question": "How many net molecules of glyceraldehyde-3-phosphate (G3P) are exported from the Calvin cycle to build sugars for every six molecules of fixed CO2?",
+                            "options": [
+                                "Two G3P molecules (which combine to form one 6-carbon glucose)",
+                                "Twelve G3P molecules",
+                                "Zero G3P molecules",
+                                "Thirty-six G3P molecules"
+                            ],
+                            "correct": 0,
+                            "explanation": "Fixing 6 CO2 molecules produces 12 G3P molecules; 10 G3P are recycled to regenerate 6 RuBP, while 2 net G3P molecules exit to synthesize one glucose equivalent."
+                        },
+                        {
+                            "question": "In what part of the mitochondrion is the electron transport chain located?",
+                            "options": [
+                                "The inner mitochondrial membrane (cristae)",
+                                "The outer membrane pores",
+                                "The central nuclear pore",
+                                "The inter-membrane aqueous lumen"
+                            ],
+                            "correct": 0,
+                            "explanation": "The respiratory electron transport complexes and ATP synthases are embedded in the cristae folds of the inner mitochondrial membrane."
+                        },
+                        {
+                            "question": "Why do C4 crops typically outperform C3 crops in hot, arid agricultural climates with intense sunlight?",
+                            "options": [
+                                "C4 crops eliminate photorespiration and can maintain high photosynthetic rates with smaller stomatal openings, conserving water",
+                                "C4 crops do not require any solar sunlight",
+                                "C4 crops never undergo cellular respiration",
+                                "C4 crops absorb water vapor directly through their flowers"
+                            ],
+                            "correct": 0,
+                            "explanation": "Because PEP carboxylase eliminates photorespiration, C4 plants fix carbon rapidly even when partial stomatal closure restricts internal CO2 levels in hot climates."
+                        },
+                        {
+                            "question": "What is the name of the alternative respiratory pathway in some plants (such as skunk cabbage, Symplocarpus foetidus) that bypasses ATP synthesis to generate large amounts of heat to melt snow and vaporize pollinator-attracting odors?",
+                            "options": [
+                                "Thermogenic alternative oxidase (AOX) pathway",
+                                "Cyclic photophosphorylation",
+                                "Lactic acid fermentation",
+                                "Crassulacean acid cycle"
+                            ],
+                            "correct": 0,
+                            "explanation": "Alternative oxidase (AOX) redirects electron flow away from ATP generation, dissipating the free energy as metabolic heat (thermogenesis) to vaporize foul scents that attract flies."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_5",
+            "title": "Chapter 5: Plant Tissues and the Multicellular Plant Body",
+            "description": "Meristematic tissues, ground tissue (parenchyma, collenchyma, sclerenchyma), vascular tissues (xylem, phloem), and dermal tissues.",
+            "activities": [
+                {
+                    "id": "act_bot_5_lesson",
+                    "type": "page",
+                    "title": "Module 5.1: Tissue Systems of the Plant Body",
+                    "completed": true,
+                    "content": "### 1. Plant Meristems: Centers of Indeterminate Growth\nUnlike animals with determinate adult body plans, plants maintain lifelong growth from specialized embryonic regions called **meristems**:\n- **Apical Meristems:** Located at the tips of shoots (Shoot Apical Meristem, SAM) and roots (Root Apical Meristem, RAM), giving rise to primary growth (elongation).\n- **Primary Meristems:** Derived from apical meristems:\n  - *Protoderm:* Generates the dermal tissue system.\n  - *Ground Meristem:* Generates the ground tissue system.\n  - *Procambium:* Generates primary vascular tissues (xylem and phloem).\n- **Lateral Meristems:** Secondary meristems in woody plants responsible for secondary growth (girth expansion):\n  - *Vascular Cambium:* Produces secondary xylem (wood) and secondary phloem (inner bark).\n  - *Cork Cambium (Phellogen):* Produces protective periderm (outer bark).\n\n### 2. The Ground Tissue System\nComprises the bulk of the non-vascular, non-dermal plant body:\n- **Parenchyma:** The most versatile, abundant cell type. Living at maturity with thin primary walls. Functions in photosynthesis (chlorenchyma in leaves), nutrient storage (amyloplasts in roots/tubers), wound repair, and secretion.\n- **Collenchyma:** Living elongated cells with unevenly thickened primary walls (rich in pectin). Provides flexible, tensile structural support to growing herbaceous organs (e.g., the 'strings' along celery petioles).\n- **Sclerenchyma:** Rigid, dead cells at functional maturity with heavily lignified, thick secondary cell walls. Provides non-flexible mechanical support:\n  - *Sclereids (Stone cells):* Short, branched cells providing gritty texture in pear fruits and hard shells in walnut nutshells.\n  - *Fibers:* Long, slender tapered cells harvested commercially for textiles (hemp, jute, flax).\n\n### 3. The Vascular Tissue System\nSpecialized for long-distance bulk transport through the plant body:\n- **Xylem (Water & Minerals):** Conducts water from roots to shoots:\n  - *Tracheids:* Long, tapered cells found in all vascular plants; water moves between adjacent cells via bordered pits. Dead at maturity.\n  - *Vessel Elements:* Shorter, wider barrel-shaped cells with open perforation plates at ends, joined into continuous open tubes (vessels). Found primarily in angiosperms.\n  - *Xylem Fibers and Xylem Parenchyma.*\n- **Phloem (Sugars & Organic Nutrients):** Conducts photosynthetic photosynthate from sources to sinks:\n  - *Sieve-Tube Elements (Angiosperms):* Living elongated conducting cells with perforated end walls (**sieve plates**). Lack nuclei, vacuoles, and ribosomes at functional maturity to minimize resistance.\n  - *Companion Cells:* Nucleated cells adjacent to sieve-tube elements, connected via numerous plasmodesmata, providing metabolic support and loading/unloading sucrose.\n  - *Sieve Cells and Albuminous Cells:* The conducting and support cells of gymnosperms.\n\n### 4. The Dermal Tissue System\nForms the outer protective skin of the plant:\n- **Epidermis:** Usually a single layer of tightly packed cells covered by a cutin/wax cuticle.\n- **Guard Cells:** Specialized paired epidermal cells flanking **stomata**, regulating gas exchange and transpiration.\n- **Trichomes (Hairs):** Outgrowths of the epidermis that reduce water loss, reflect intense solar radiation, or secrete defensive chemical deterrents.\n- **Periderm:** Secondary protective tissue replacing epidermis in woody stems and roots, composed of cork cells impregnated with suberin."
+                },
+                {
+                    "id": "quiz_bot_5",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 5 Checkpoint: Plant Tissues & Tissue Systems",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which plant tissue consists of perpetually embryonic, actively dividing undifferentiated cells that sustain lifelong plant growth?",
+                            "options": [
+                                "Sclerenchyma",
+                                "Meristematic tissue",
+                                "Periderm",
+                                "Collenchyma"
+                            ],
+                            "correct": 1,
+                            "explanation": "Meristems are regions of undifferentiated cells that divide mitotically to generate new cells for primary elongation and secondary girth expansion."
+                        },
+                        {
+                            "question": "Primary growth in vascular plants, resulting in the elongation of stems and roots, originates from which meristems?",
+                            "options": [
+                                "Apical Meristems (Shoot and Root Apical Meristems)",
+                                "Vascular Cambium",
+                                "Cork Cambium",
+                                "Interfascicular cambium"
+                            ],
+                            "correct": 0,
+                            "explanation": "Apical meristems at root and shoot tips produce primary growth, extending the plant body vertically into the soil and atmosphere."
+                        },
+                        {
+                            "question": "Which ground tissue cell type is living at maturity, has thin primary cell walls, and performs photosynthesis, starch storage, and tissue regeneration?",
+                            "options": [
+                                "Parenchyma",
+                                "Sclerenchyma",
+                                "Tracheids",
+                                "Vessel elements"
+                            ],
+                            "correct": 0,
+                            "explanation": "Parenchyma cells are the most abundant living cells in plants, functioning in photosynthetic assimilation, metabolic storage, and wound repair."
+                        },
+                        {
+                            "question": "The flexible, tensile support fibers found in the 'strings' along the outer edge of a celery petiole are composed of which tissue?",
+                            "options": [
+                                "Collenchyma",
+                                "Sclerenchyma stone cells",
+                                "Xylem vessels",
+                                "Cork"
+                            ],
+                            "correct": 0,
+                            "explanation": "Collenchyma cells have unevenly thickened, non-lignified primary walls rich in pectin, providing flexible structural support to actively growing shoots."
+                        },
+                        {
+                            "question": "What distinct architectural feature characterizes mature sclerenchyma cells (such as fibers and sclereids)?",
+                            "options": [
+                                "They lack cell walls completely",
+                                "They have thick, heavily lignified secondary cell walls and are dead at functional maturity",
+                                "They contain chloroplasts for active photosynthesis",
+                                "They maintain rapid mitotic cell division"
+                            ],
+                            "correct": 1,
+                            "explanation": "Sclerenchyma cells synthesize thick secondary walls impregnated with lignin and undergo programmed cell death, leaving an empty, rigid skeletal shell."
+                        },
+                        {
+                            "question": "The gritty, sand-like texture felt when chewing the flesh of a ripe pear is caused by clusters of which sclerenchyma cell type?",
+                            "options": [
+                                "Sclereids (Stone cells)",
+                                "Sieve-tube elements",
+                                "Guard cells",
+                                "Parenchyma chlorenchyma"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sclereids (stone cells) are short, branched sclerenchyma cells with extremely thick, lignified secondary walls that provide protective hardness."
+                        },
+                        {
+                            "question": "What are the two types of water-conducting tracheary elements found in vascular plant xylem?",
+                            "options": [
+                                "Tracheids and Vessel elements",
+                                "Sieve cells and Companion cells",
+                                "Parenchyma and Collenchyma",
+                                "Guard cells and Trichomes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Xylem contains tracheids (tapered cells with bordered pits) and vessel elements (barrel-shaped cells with open perforation plates)."
+                        },
+                        {
+                            "question": "Why do mature xylem vessel elements and tracheids conduct water so efficiently?",
+                            "options": [
+                                "They actively swim through the stem using flagella",
+                                "They are dead at functional maturity, lacking cytoplasm, nuclei, and organelles, forming hollow hydrodynamic pipes",
+                                "They pump water with internal vacuolar tonoplasts",
+                                "They are lined with digestive enzymes"
+                            ],
+                            "correct": 1,
+                            "explanation": "Tracheary elements undergo programmed cell death upon completing their walls, clearing all cytoplasmic contents to create frictionless conduits for sap flow."
+                        },
+                        {
+                            "question": "In flowering plants (angiosperms), what conducting cell type transports sucrose-rich phloem sap?",
+                            "options": [
+                                "Sieve-Tube Elements",
+                                "Tracheids",
+                                "Vessel elements",
+                                "Sclereids"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sieve-tube elements are living, enucleated cells connected end-to-end through perforated sieve plates that conduct phloem sap."
+                        },
+                        {
+                            "question": "What is the function of the nucleated Companion Cell positioned adjacent to a sieve-tube element in angiosperm phloem?",
+                            "options": [
+                                "Conducting water under negative suction pressure",
+                                "Providing metabolic life support and actively loading sugars into the enucleate sieve-tube element",
+                                "Producing defensive lignin to harden the outer bark",
+                                "Photolyzing water into oxygen"
+                            ],
+                            "correct": 1,
+                            "explanation": "Because sieve-tube elements lack nuclei and ribosomes, adjacent companion cells manage their protein synthesis and actively load/unload sucrose."
+                        },
+                        {
+                            "question": "Which primary meristem gives rise directly to primary xylem and primary phloem in developing plant organs?",
+                            "options": [
+                                "Protoderm",
+                                "Procambium",
+                                "Ground meristem",
+                                "Cork cambium"
+                            ],
+                            "correct": 1,
+                            "explanation": "The procambium is the primary meristematic cylinder that differentiates into primary xylem toward the inside and primary phloem toward the outside."
+                        },
+                        {
+                            "question": "Specialized epidermal hair-like outgrowths that deter herbivory, secrete glandular oils, or trap insulating air to reduce transpiration are called:",
+                            "options": [
+                                "Trichomes",
+                                "Hydathodes",
+                                "Sclereids",
+                                "Lenticels"
+                            ],
+                            "correct": 0,
+                            "explanation": "Trichomes are epidermal appendages ranging from single hairs to complex multicellular glandular structures that defend against insects and minimize water loss."
+                        },
+                        {
+                            "question": "What regulates the opening and closing of microscopic stomatal pores on the leaf epidermis for photosynthetic gas exchange?",
+                            "options": [
+                                "A pair of flanking Guard Cells that change shape based on internal turgor pressure",
+                                "Fixed mechanical valves made of pure lignin",
+                                "Root endodermal Casparian strips",
+                                "Xylem bordered pit membranes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Guard cells bow outward when swollen with turgor pressure (opening the stoma) and collapse together when flaccid (closing the stoma)."
+                        },
+                        {
+                            "question": "In woody stems and roots, what secondary meristem produces the cork (phellem) that replaces the torn epidermis as outer bark?",
+                            "options": [
+                                "Vascular cambium",
+                                "Cork Cambium (Phellogen)",
+                                "Apical meristem",
+                                "Protoderm"
+                            ],
+                            "correct": 1,
+                            "explanation": "The cork cambium (phellogen) divides to generate suberin-impregnated dead cork cells to the exterior, forming the protective periderm."
+                        },
+                        {
+                            "question": "What lateral meristem is responsible for producing secondary xylem (wood) toward the interior and secondary phloem toward the exterior?",
+                            "options": [
+                                "Vascular Cambium",
+                                "Shoot apical meristem",
+                                "Root apical meristem",
+                                "Procambium"
+                            ],
+                            "correct": 0,
+                            "explanation": "The vascular cambium is a cylindrical lateral meristem producing rings of secondary xylem inward and secondary phloem outward during secondary growth."
+                        },
+                        {
+                            "question": "Which tissue type forms the outermost waxy, protective single-cell layer covering the primary plant body?",
+                            "options": [
+                                "Epidermis",
+                                "Endodermis",
+                                "Pericycle",
+                                "Cortex"
+                            ],
+                            "correct": 0,
+                            "explanation": "The epidermis is the primary dermal layer covering young stems, leaves, flowers, and roots, coated on aerial organs by the cuticle."
+                        },
+                        {
+                            "question": "Parenchyma tissue containing abundant chloroplasts and specialized for photosynthesis in leaf mesophyll is called:",
+                            "options": [
+                                "Chlorenchyma",
+                                "Aerenchyma",
+                                "Collenchyma",
+                                "Endosperm"
+                            ],
+                            "correct": 0,
+                            "explanation": "Chlorenchyma is specialized, chloroplast-dense parenchyma tissue situated within the leaf and green stem layers where photosynthesis occurs."
+                        },
+                        {
+                            "question": "Parenchyma tissue containing large, continuous air-filled intercellular spaces that provides buoyancy and internal aeration to aquatic plants is:",
+                            "options": [
+                                "Aerenchyma",
+                                "Collenchyma",
+                                "Sclerenchyma",
+                                "Woody xylem"
+                            ],
+                            "correct": 0,
+                            "explanation": "Aerenchyma features prominent gas channels that permit oxygen diffusion down to submerged roots and provide buoyancy to floating water lilies."
+                        },
+                        {
+                            "question": "What distinct anatomical feature differentiates angiosperm xylem vessels from gymnosperm tracheids?",
+                            "options": [
+                                "Vessel elements have open perforation plates at their end walls, allowing uninterrupted bulk water flow",
+                                "Tracheids contain nuclei and cytoplasm at maturity",
+                                "Vessels conduct sucrose, not water",
+                                "Tracheids lack secondary cell walls"
+                            ],
+                            "correct": 0,
+                            "explanation": "Vessel elements have fully perforated or open ends, stacking into long continuous tube-like pipes (vessels) that provide lower hydrodynamic resistance than tracheids."
+                        },
+                        {
+                            "question": "What substance impregnates the walls of dead cork cells in the periderm, rendering them impermeable to water and gases?",
+                            "options": [
+                                "Suberin",
+                                "Pectin",
+                                "Cellulose",
+                                "Starch"
+                            ],
+                            "correct": 0,
+                            "explanation": "Suberin is a waxy, hydrophobic lipid substance deposited in cork cell walls, preventing water loss and protecting inner tissues from microbial invasion."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_6",
+            "title": "Chapter 6: Plant Organs: Roots",
+            "description": "Root systems, internal anatomy, root cap, Casparian strip, water/nutrient uptake, mycorrhizae, and root nodules.",
+            "activities": [
+                {
+                    "id": "act_bot_6_lesson",
+                    "type": "page",
+                    "title": "Module 6.1: Form and Function of Plant Roots",
+                    "completed": true,
+                    "content": "### 1. Root System Architectures\nRoots anchor the plant, absorb water and dissolved mineral ions, synthesize hormones (cytokinins), and store carbohydrates:\n- **Taproot System:** Consists of a prominent, deep main root developing from the embryonic radicle, giving off smaller lateral roots. Found in most eudicots and gymnosperms (e.g., carrots, dandelions, oaks). Excellent for accessing deep water tables.\n- **Fibrous Root System:** Consists of a dense mat of thin, adventitious roots arising from the stem base, with the radicle dying early. Found in monocots (e.g., grasses, wheat, corn). Highly effective for preventing surface soil erosion.\n\n### 2. Longitudinal Zones of a Growing Root Tip\nMoving proximally from the tip:\n1. **Root Cap:** Thimble-shaped mass of parenchyma protecting the delicate RAM. Secretes lubricating **mucigel** and contains **statoliths** (dense amyloplasts) that settle to sense gravity (**gravitropism**).\n2. **Zone of Cell Division:** Contains the RAM and primary meristems (protoderm, procambium, ground meristem).\n3. **Zone of Elongation:** Cells absorb water into vacuoles and expand up to tenfold in length, pushing the root cap forward through soil particles.\n4. **Zone of Maturation (Differentiation):** Epidermal cells extend **root hairs** (tubular outgrowths increasing absorptive surface area thousands of times). Primary tissues differentiate into xylem, phloem, and cortex.\n\n### 3. Internal Anatomy of a Primary Eudicot Root\nIn cross-section:\n- **Epidermis:** Single outer layer bearing root hairs; lacks a thick cuticle to permit water entry.\n- **Cortex:** Wide band of loosely packed storage parenchyma cells storing starch.\n- **Endodermis:** Innermost cortical layer consisting of a tightly fitting cylinder of cells. Cell walls are ringed by the **Casparian strip**—a band of hydrophobic suberin and lignin that blocks the apoplastic movement of water and ions, forcing all soil solution to pass through selectively permeable plasma membranes (symplast). Acts as a biological checkpoint.\n- **Stele (Vascular Cylinder):**\n  - *Pericycle:* Outermost layer of the stele inside the endodermis; retains meristematic capability to initiate **lateral (branch) roots**.\n  - *Xylem:* Forms a central solid star-shaped core (often 3 to 5 radiating arms).\n  - *Phloem:* Nestled in pockets between the radiating arms of xylem.\n\n### 4. Symbiotic Mutualisms in Plant Roots\n- **Mycorrhizae:** Mutualistic associations between plant roots and soil fungi:\n  - *Ectomycorrhizae:* Fungal hyphae sheath the root exterior and penetrate intercellular spaces of the cortex (Hartig net). Common in temperate forest trees (pines, oaks).\n  - *Endomycorrhizae (Arbuscular Mycorrhizae / AMF):* Fungi penetrate cortical cell walls to form branching tree-like structures (**arbuscules**) directly against the host plasma membrane. Found in >80% of terrestrial plants, vastly increasing phosphorus and micronutrient uptake in exchange for host photosynthate.\n- **Root Nodules & Nitrogen Fixation:** Legumes (soybeans, clover, peas) form specialized root nodules inhabited by **Rhizobium** bacteria. The bacteria produce nitrogenase enzymes that reduce atmospheric $N_2$ into plant-available ammonia ($NH_3$), solving soil nitrogen depletion."
+                },
+                {
+                    "id": "quiz_bot_6",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 6 Checkpoint: Root Anatomy, Physiology & Symbioses",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which root system architecture, characteristic of grasses and monocots, consists of an extensive, dense mass of similarly sized roots originating adventitiously from the stem?",
+                            "options": [
+                                "Taproot system",
+                                "Fibrous root system",
+                                "Haustorial system",
+                                "Pneumatophore cluster"
+                            ],
+                            "correct": 1,
+                            "explanation": "Fibrous root systems feature many slender, branching adventitious roots that form a dense network in topsoil, binding soil particles and preventing erosion."
+                        },
+                        {
+                            "question": "What is the primary biological function of the Root Cap?",
+                            "options": [
+                                "Conducting photosynthetic sugars up to floral buds",
+                                "Protecting the delicate root apical meristem and sensing gravity via statoliths",
+                                "Performing rapid transpirational evaporation",
+                                "Attracting pollinating butterflies with nectar"
+                            ],
+                            "correct": 1,
+                            "explanation": "The root cap protects the root apical meristem as it pushes through abrasive soil, secretes lubricating mucigel, and contains gravity-sensing statoliths."
+                        },
+                        {
+                            "question": "Root hairs, which provide the vast majority of water and mineral absorption in plants, develop in which developmental zone of the root?",
+                            "options": [
+                                "Zone of cell division",
+                                "Zone of elongation",
+                                "Zone of maturation (differentiation)",
+                                "Root cap"
+                            ],
+                            "correct": 2,
+                            "explanation": "Root hairs are delicate tubular extensions of epidermal cells that differentiate exclusively in the zone of maturation."
+                        },
+                        {
+                            "question": "What is the physiological role of the Casparian Strip in the root endodermis?",
+                            "options": [
+                                "Blocking apoplastic water and mineral diffusion, forcing the soil solution across selectively permeable plasma membranes",
+                                "Accelerating the speed of water evaporation into air pockets",
+                                "Producing secondary xylem wood rings",
+                                "Storing vast reserves of glycogen"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Casparian strip is a waterproof suberin band sealing the radial and transverse walls of endodermal cells, functioning as a physiological checkpoint for mineral ions entering the stele."
+                        },
+                        {
+                            "question": "From which internal layer of cells within the root vascular cylinder do lateral (branch) roots originate?",
+                            "options": [
+                                "The Pericycle",
+                                "The Epidermis",
+                                "The Root cap",
+                                "The Exodermis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Lateral roots initiate endogenously from mitotic divisions within the pericycle (the outermost cell layer of the stele), pushing outward through the cortex and epidermis."
+                        },
+                        {
+                            "question": "In cross-section, a typical primary eudicot root features central vascular tissues arranged as:",
+                            "options": [
+                                "A solid central star- or cross-shaped core of xylem with phloem nestled between the arms",
+                                "A hollow circle of separate vascular bundles surrounding a large pith",
+                                "Scattered vascular bundles throughout the cortex",
+                                "No xylem tissue whatsoever"
+                            ],
+                            "correct": 0,
+                            "explanation": "Eudicot roots possess a solid central core of xylem with radiating arms (like a star or cross) with phloem patches situated between the arms, lacking a central pith."
+                        },
+                        {
+                            "question": "What mutualistic ecological relationship involves soil fungi and plant roots, vastly enhancing the root's absorption of phosphorus and water?",
+                            "options": [
+                                "Mycorrhizae",
+                                "Lichens",
+                                "Galls",
+                                "Epiphytism"
+                            ],
+                            "correct": 0,
+                            "explanation": "Mycorrhizal fungi colonize plant roots, extending vast hyphal networks into the soil that supply phosphorus and water in exchange for plant carbohydrates."
+                        },
+                        {
+                            "question": "Root nodules found in legumes (such as beans, peas, and clover) house which symbiotic bacteria capable of biological nitrogen fixation?",
+                            "options": [
+                                "Rhizobium",
+                                "Escherichia coli",
+                                "Streptococcus",
+                                "Agrobacterium"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rhizobium bacteria reside inside legume root nodules, utilizing nitrogenase to convert inert atmospheric N2 gas into ammonium (NH4+) usable by the plant."
+                        },
+                        {
+                            "question": "Dense starch-containing amyloplasts within root cap cells that settle to the lower side of the cell in response to gravity are called:",
+                            "options": [
+                                "Statoliths",
+                                "Chromoplasts",
+                                "Chloroplasts",
+                                "Desmotubules"
+                            ],
+                            "correct": 0,
+                            "explanation": "Statoliths are dense amyloplasts that sediment to the lowest point in columella root cap cells, triggering auxin redistribution that steers positive root gravitropism."
+                        },
+                        {
+                            "question": "Mangrove trees growing in waterlogged, anaerobic coastal mud produce specialized upward-growing spongy roots called _______ that absorb oxygen from the air.",
+                            "options": [
+                                "Pneumatophores",
+                                "Haustoria",
+                                "Prop roots",
+                                "Contractile roots"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pneumatophores (air roots) grow upward above the water surface, utilizing aerenchyma and lenticels to funnel atmospheric oxygen down to submerged root tissues."
+                        },
+                        {
+                            "question": "Parasitic plants such as dodder (Cuscuta) and mistletoe extract water, minerals, and carbohydrates from host plants using modified penetrating roots called:",
+                            "options": [
+                                "Haustoria",
+                                "Prop roots",
+                                "Buttress roots",
+                                "Mycorrhizae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Haustoria are specialized parasitic root structures that penetrate the host plant's stem or root tissues to tap into the vascular xylem and phloem."
+                        },
+                        {
+                            "question": "Corn plants produce prominent aerial stilt roots growing from the lower stem nodes into the soil to brace the tall stalk against heavy winds. These are:",
+                            "options": [
+                                "Prop roots",
+                                "Pneumatophores",
+                                "Storage roots",
+                                "Haustoria"
+                            ],
+                            "correct": 0,
+                            "explanation": "Prop roots are adventitious roots emerging from aerial stem nodes that penetrate the soil to provide mechanical bracing and wind stability."
+                        },
+                        {
+                            "question": "Massive, swollen triangular root flanges radiating from the bases of tall tropical rainforest trees to stabilize shallow root systems in thin soils are:",
+                            "options": [
+                                "Buttress roots",
+                                "Taproots",
+                                "Mycorrhizal nodules",
+                                "Contractile roots"
+                            ],
+                            "correct": 0,
+                            "explanation": "Buttress roots provide extensive mechanical anchorage for colossal tropical trees whose feeder roots must remain in nutrient-rich topsoil layers."
+                        },
+                        {
+                            "question": "Which root zone is primarily responsible for the physical pushing of the root tip through resisting soil particles?",
+                            "options": [
+                                "Zone of Elongation",
+                                "Zone of Maturation",
+                                "Root hair zone",
+                                "Pericycle zone"
+                            ],
+                            "correct": 0,
+                            "explanation": "The rapid longitudinal expansion of cells in the zone of elongation creates the hydrostatic thrust driving the root cap through the soil."
+                        },
+                        {
+                            "question": "The slippery polysaccharide slime secreted by the root cap to lubricate its passage through abrasive soil particles is:",
+                            "options": [
+                                "Mucigel",
+                                "Suberin",
+                                "Lignin",
+                                "Cellulose"
+                            ],
+                            "correct": 0,
+                            "explanation": "Mucigel is a viscous, carbohydrate-rich slime secreted by the outer root cap cells that lubricates root penetration and fosters beneficial rhizosphere microbes."
+                        },
+                        {
+                            "question": "What happens to the cortex and epidermis of a woody eudicot root when it undergoes secondary growth?",
+                            "options": [
+                                "They expand indefinitely and become the main photosynthetic engine",
+                                "They are split, sloughed off, and replaced by the protective periderm produced by the cork cambium",
+                                "They transform directly into secondary xylem wood",
+                                "They are pulled into the vascular cylinder by contraction"
+                            ],
+                            "correct": 1,
+                            "explanation": "Secondary thickening generated by the vascular cambium stretches and sloughs off the cortex and epidermis, which are replaced by the periderm."
+                        },
+                        {
+                            "question": "In what root tissue of eudicot taproots (such as carrots, beets, and radishes) are the vast majority of stored dietary starches and sugars deposited?",
+                            "options": [
+                                "Cortex and vascular parenchyma",
+                                "Root cap",
+                                "Endodermal Casparian strip",
+                                "Sclerenchyma fibers"
+                            ],
+                            "correct": 0,
+                            "explanation": "The parenchymal cells of the extensive cortex and ray tissues in fleshy taproots store large quantities of carbohydrates synthesized in the foliage."
+                        },
+                        {
+                            "question": "How does the internal anatomy of a monocot root (e.g., corn, grasses) differ fundamentally from a eudicot root?",
+                            "options": [
+                                "Monocot roots have a central pith composed of parenchyma surrounded by a ring of alternating xylem and phloem bundles",
+                                "Monocot roots lack an endodermis and pericycle",
+                                "Monocot roots possess secondary growth wood rings",
+                                "Monocot roots lack root hairs completely"
+                            ],
+                            "correct": 0,
+                            "explanation": "Monocot roots feature a distinct central ground-tissue pith surrounded by a ring of vascular bundles, unlike the solid star-shaped xylem core of eudicots."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_7",
+            "title": "Chapter 7: Plant Organs: Stems",
+            "description": "Primary and secondary stem growth, monocot vs eudicot vascular bundles, wood formation, annual rings, and modified stems.",
+            "activities": [
+                {
+                    "id": "act_bot_7_lesson",
+                    "type": "page",
+                    "title": "Module 7.1: Anatomy & Secondary Growth of Stems",
+                    "completed": true,
+                    "content": "### 1. Primary Stem Anatomy\nThe shoot system elevates photosynthetic leaves toward sunlight and bears reproductive flowers. Stems consist of **nodes** (points of leaf attachment) and **internodes** (regions between nodes), terminating in a **terminal bud** containing the shoot apical meristem (SAM):\n- **Eudicot Primary Stems:** Vascular bundles (xylem toward the center, phloem toward the outside) are arranged in a **concentric ring** dividing ground tissue into an outer **cortex** and an inner **pith**.\n- **Monocot Stems:** Vascular bundles are **scattered** throughout ground tissue. Monocots lack vascular cambium and typically do not undergo secondary growth.\n\n### 2. Secondary Growth and the Formation of Wood\nSecondary growth expands stem girth in woody gymnosperms and eudicots:\n- **Vascular Cambium:** Lateral meristem originating between primary xylem and primary phloem (fascicular cambium) and expanding across interfascicular regions. Each division produces **secondary xylem** (wood) toward the interior and **secondary phloem** toward the exterior.\n- **Annual Rings (Growth Rings):**\n  - *Springwood (Early Wood):* Formed during wet spring months with wide, thin-walled vessel elements optimized for maximal water conduction.\n  - *Summerwood (Late Wood):* Formed during drier late summer months with narrow, thick-walled elements providing mechanical support.\n  - The sharp contrast between late wood of one year and early wood of the next creates an **annual growth ring**.\n- **Heartwood vs. Sapwood:**\n  - *Sapwood:* Outer, lighter-colored functional wood that actively conducts water.\n  - *Heartwood:* Older central core of dead wood plugged by **tyloses** and saturated with decay-resistant tannins, resins, and oils. Provides structural support but no water conduction.\n- **Bark:** All tissues external to the vascular cambium:\n  - *Inner Bark:* Living secondary phloem.\n  - *Outer Bark (Periderm):* Cork cambium, phelloderm, and suberized cork cells interrupted by **lenticels** (porous spongy openings permitting internal gas exchange).\n\n### 3. Specialized Modified Stems\nStems have evolved diverse survival and storage adaptations:\n- **Rhizomes:** Horizontal underground stems with nodes and adventitious roots (e.g., irises, ginger).\n- **Tubers:** Enlarged, fleshy underground storage stem tips; the 'eyes' of a potato are nodes bearing axillary buds.\n- **Bulbs:** Short vertical underground stem surrounded by fleshy, overlapping leaf bases (e.g., onions, tulips).\n- **Corms:** Solid, swollen underground stem storage tissue covered by papery scales (e.g., crocuses, gladioli).\n- **Stolons (Runners):** Horizontal aboveground stems that root at nodes to propagate clonal plantlets (e.g., strawberries).\n- **Thorns:** Modified woody protective stems developing from axillary buds (distinct from epidermal prickles on roses or modified leaf spines on cacti)."
+                },
+                {
+                    "id": "quiz_bot_7",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 7 Checkpoint: Stem Anatomy, Dendrochronology & Wood Morphology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "How are primary vascular bundles arranged in a cross-section of a herbaceous eudicot stem versus a monocot stem?",
+                            "options": [
+                                "Eudicots arrange bundles in a concentric ring; monocots have vascular bundles scattered throughout ground tissue",
+                                "Monocots arrange bundles in a ring; eudicots scatter them randomly",
+                                "Both monocots and eudicots possess an identical solid core of central wood",
+                                "Neither group contains vascular bundles in stems"
+                            ],
+                            "correct": 0,
+                            "explanation": "Eudicot stems organize vascular bundles in a neat circle separating cortex from pith, whereas monocot stems feature scattered bundles throughout ground parenchyma."
+                        },
+                        {
+                            "question": "What tissue is commercially and botanically designated as 'wood' in a tree trunk?",
+                            "options": [
+                                "Secondary Xylem",
+                                "Secondary Phloem",
+                                "Periderm",
+                                "Primary Cortex"
+                            ],
+                            "correct": 0,
+                            "explanation": "Wood is composed of accumulated secondary xylem produced to the interior of the vascular cambium year after year."
+                        },
+                        {
+                            "question": "What causes the visible distinct annual growth rings in the wood of temperate zone trees?",
+                            "options": [
+                                "The stark contrast between wide, thin-walled springwood (early wood) and subsequent narrow, thick-walled summerwood (late wood)",
+                                "Layers of dirt trapped during winter storms",
+                                "Alternating layers of dead bark and live leaves",
+                                "Periodic shifts in Earth's gravitational pull"
+                            ],
+                            "correct": 0,
+                            "explanation": "Springwood develops large vessel diameters for high water flow; late summerwood has smaller lumens and thicker walls, creating a visible visual boundary each year."
+                        },
+                        {
+                            "question": "The science of dating past historical events and analyzing ancient climate patterns by measuring annual tree ring widths is called:",
+                            "options": [
+                                "Dendrochronology",
+                                "Paleoclimatology",
+                                "Palynology",
+                                "Silviculture"
+                            ],
+                            "correct": 0,
+                            "explanation": "Dendrochronology analyzes annual tree ring growth patterns; wider rings reflect favorable moist growing seasons, whereas narrow rings indicate drought or environmental stress."
+                        },
+                        {
+                            "question": "What is the key biological difference between functional Sapwood and non-functional Heartwood in a mature tree?",
+                            "options": [
+                                "Sapwood is the lighter outer wood actively conducting water; heartwood is the darker central core plugged with resins and tannins providing purely structural support",
+                                "Heartwood conducts water; sapwood conducts phloem sugars",
+                                "Sapwood is dead; heartwood is alive and dividing mitotically",
+                                "There is no difference; both conduct sap equally"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sapwood contains functional water-conducting xylem vessels, whereas heartwood vessels are blocked by tyloses and impregnated with protective chemical extracts."
+                        },
+                        {
+                            "question": "By botanical definition, what does 'bark' encompass on a woody stem?",
+                            "options": [
+                                "All tissues situated to the exterior of the vascular cambium (including living secondary phloem and the outer periderm)",
+                                "Only the dead cork layer on the surface",
+                                "The central pith and heartwood",
+                                "The vascular cambium itself"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bark consists of all tissues external to the vascular cambium, divided functionally into the inner bark (living secondary phloem) and outer bark (periderm)."
+                        },
+                        {
+                            "question": "Spongy, elevated porous openings in the woody periderm of twigs that permit gas exchange between internal living tissues and the atmosphere are:",
+                            "options": [
+                                "Lenticels",
+                                "Stomata",
+                                "Hydathodes",
+                                "Pits"
+                            ],
+                            "correct": 0,
+                            "explanation": "Lenticels are loosely packed regions of cork cells in the periderm that allow oxygen to diffuse into the metabolically active inner bark and cambium."
+                        },
+                        {
+                            "question": "What happens if a tree is 'girdled' (a complete ring of outer and inner bark is stripped around the entire circumference of the trunk)?",
+                            "options": [
+                                "The tree grows twice as fast",
+                                "The tree dies because living secondary phloem is severed, starving roots of photosynthetic sugars manufactured in the leaves",
+                                "Only the leaves die while the trunk survives indefinitely",
+                                "Water transport is immediately blocked while sugar flow increases"
+                            ],
+                            "correct": 1,
+                            "explanation": "Girdling severs the living secondary phloem ring; while xylem sap continues ascending, photosynthetic sugars cannot reach the root system, causing root death."
+                        },
+                        {
+                            "question": "An edible culinary potato is botanically classified as a modified underground stem known as a:",
+                            "options": [
+                                "Tuber",
+                                "Taproot",
+                                "Bulb",
+                                "Corm"
+                            ],
+                            "correct": 0,
+                            "explanation": "A potato is a stem tuber—a swollen underground rhizome tip specialized for starch storage; the 'eyes' are stem nodes possessing axillary buds."
+                        },
+                        {
+                            "question": "Horizontal, underground fleshy stems that produce new shoot nodes and adventitious roots (such as ginger and iris) are:",
+                            "options": [
+                                "Rhizomes",
+                                "Stolons",
+                                "Bulbs",
+                                "Pneumatophores"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rhizomes are horizontal stems growing underground or along the soil surface, serving as perennial storage and vegetative propagation organs."
+                        },
+                        {
+                            "question": "An onion bulb is constructed primarily of:",
+                            "options": [
+                                "A small conical stem plate surrounded by thick, fleshy, overlapping leaf bases storing nutrients",
+                                "A swollen fibrous root system",
+                                "A single enormous seed cotyledon",
+                                "Dead sclerenchyma stone cells"
+                            ],
+                            "correct": 0,
+                            "explanation": "A bulb consists of a compact basal stem disk surrounded by modified, layered, fleshy leaf scales that store reserves, topped by papery protective tunics."
+                        },
+                        {
+                            "question": "Strawberry plants reproduce vegetatively by sending out slender, horizontal aboveground stems that form new plantlets at nodes. These are:",
+                            "options": [
+                                "Stolons (Runners)",
+                                "Corms",
+                                "Thorns",
+                                "Haustoria"
+                            ],
+                            "correct": 0,
+                            "explanation": "Stolons (runners) are specialized aerial horizontal stems that grow along the ground surface, producing daughter clones at intervals."
+                        },
+                        {
+                            "question": "What outgrowths balloon into the lumens of older xylem vessel elements in the heartwood, sealing them against air bubbles and fungal pathogens?",
+                            "options": [
+                                "Tyloses",
+                                "Bordered pits",
+                                "Plasmodesmata",
+                                "Statoliths"
+                            ],
+                            "correct": 0,
+                            "explanation": "Tyloses are balloon-like outgrowths of adjacent xylem parenchyma cells that push through pits into vessel elements, permanently sealing non-functional heartwood."
+                        },
+                        {
+                            "question": "Hard, sharp, pointed modified stems that arise from axillary buds (such as those on honey locust trees) are classified as:",
+                            "options": [
+                                "Thorns",
+                                "Spines",
+                                "Prickles",
+                                "Trichomes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Botanical thorns are modified branches/stems originating from axillary buds (unlike spines, which are modified leaves, or prickles, which are epidermal outgrowths)."
+                        },
+                        {
+                            "question": "What lateral cell paths transport water, nutrients, and defensive chemicals horizontally across the radial axis of a woody tree trunk?",
+                            "options": [
+                                "Vascular Rays (Parenchyma rays)",
+                                "Sieve plates",
+                                "Lenticels",
+                                "Pericambial conduits"
+                            ],
+                            "correct": 0,
+                            "explanation": "Vascular rays are horizontal ribbons of parenchyma cells traversing the secondary xylem and phloem, facilitating radial transport and storage."
+                        },
+                        {
+                            "question": "What is the primary anatomical component of a solid, swollen underground stem storage organ such as a Crocus or Gladiolus corm?",
+                            "options": [
+                                "Almost entirely solid swollen stem tissue covered by thin, papery scale leaves",
+                                "Concentric layers of thick fleshy leaf scales",
+                                "A swollen primary taproot",
+                                "A cluster of air-filled aerenchyma sacs"
+                            ],
+                            "correct": 0,
+                            "explanation": "Unlike a bulb (which is mostly fleshy leaf scales), a corm consists primarily of solid swollen stem parenchyma tissue surrounded by thin, papery protective leaves."
+                        },
+                        {
+                            "question": "Hardwood lumber is harvested from _______, whereas softwood lumber is harvested from _______.",
+                            "options": [
+                                "Angiosperm eudicot trees (bearing vessel elements); Gymnosperm conifer trees (lacking vessels)",
+                                "Gymnosperms; Angiosperms",
+                                "Ferns; Mosses",
+                                "Monocot grasses; Fungi"
+                            ],
+                            "correct": 0,
+                            "explanation": "Hardwoods originate from angiosperm broadleaf trees (possessing vessels and dense fibers), while softwoods come from gymnosperm conifers whose wood consists almost entirely of tracheids."
+                        },
+                        {
+                            "question": "Which hormone, synthesized in terminal apical buds, moves down the stem to inhibit the outgrowth of nearby axillary buds, maintaining 'apical dominance'?",
+                            "options": [
+                                "Auxin",
+                                "Ethylene",
+                                "Gibberellin",
+                                "Abscisic acid"
+                            ],
+                            "correct": 0,
+                            "explanation": "Auxin synthesized by the shoot apical meristem flows basipetally down the stem, suppressing axillary lateral bud development (apical dominance)."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_8",
+            "title": "Chapter 8: Plant Organs: Leaves",
+            "description": "Leaf morphology, internal anatomy (cuticle, mesophyll, stomata), gas exchange regulation, leaf adaptations, and autumn abscission.",
+            "activities": [
+                {
+                    "id": "act_bot_8_lesson",
+                    "type": "page",
+                    "title": "Module 8.1: Architecture & Physiology of Leaves",
+                    "completed": true,
+                    "content": "### 1. External Morphology of the Leaf\nThe leaf is the primary photosynthetic solar collector of the plant. A typical eudicot leaf comprises an expanded, flattened **blade (lamina)** attached to the stem by a stalk called the **petiole** (leaves lacking petioles are termed **sessile**):\n- **Simple Leaves:** Possess a single undivided blade.\n- **Compound Leaves:** Blade is divided into distinct **leaflets** (pinnately compound like an ash tree, or palmately compound like a buckeye).\n- **Venation Patterns:** Monocots display **parallel venation**; eudicots feature **netted (reticulate) venation** (pinnate or palmate).\n\n### 2. Internal Microscopic Leaf Anatomy\nA cross-section reveals adaptations designed to balance light capture against transpirational water loss:\n- **Upper & Lower Epidermis:** Single transparent cell layer coated by a hydrophobic **cuticle**. Lacks chloroplasts (except in guard cells). Lower epidermis generally contains a higher density of stomata.\n- **Mesophyll (Ground Tissue):**\n  - *Palisade Mesophyll:* Upper layer of columnar, tightly packed parenchyma cells rich in chloroplasts, optimized for absorbing solar photons.\n  - *Spongy Mesophyll:* Lower layer of loosely packed, irregularly shaped cells with extensive air spaces, facilitating gas diffusion ($CO_2$ in, $O_2$ and $H_2O$ out) to and from stomata.\n- **Veins (Vascular Bundles):** Continuous with stem vascular cylinders:\n  - *Xylem:* Located on the upper (adaxial) side of the vein, delivering water and minerals.\n  - *Phloem:* Located on the lower (abaxial) side of the vein, loading photosynthesized sucrose.\n  - *Bundle Sheath:* Protective cylinder of parenchyma or sclerenchyma encasing the vein.\n\n### 3. Stomatal Mechanism and Regulation\nStomatal pores open and close based on osmotic changes in the flanking **guard cells**:\n- **Stomatal Opening:** Blue light activates plasma membrane $H^+$-ATPase pumps, extruding protons. The resulting membrane hyperpolarization drives potassium ($K^+$) and chloride ($Cl^-$) ions into guard cells. Water follows osmotically, increasing guard cell turgor. Due to radial cellulose micellation and thickened inner walls, guard cells bow apart, opening the pore.\n- **Stomatal Closure:** Under water stress, root synthesis of **Abscisic Acid (ABA)** triggers rapid efflux of $K^+$ and anions. Water exits, guard cells become flaccid, and the pore snaps shut.\n\n### 4. Modified Leaves & Ecological Adaptations\n- **Tendrils:** Slender coiling structures (peas) that grasp supports via thigmotropism.\n- **Spines:** Hard, non-photosynthetic leaves (cacti) that deter herbivores and reduce evaporative surface area.\n- **Bracts:** Brightly colored floral leaves (poinsettia, dogwood) that substitute for petals to attract pollinators.\n- **Insectivorous Leaves:** Pitcher plants, sundews, and Venus flytraps trap and enzymatically digest insects to obtain nitrogen in acidic bogs.\n\n### 5. Autumn Leaf Senescence and Abscission\nAs daylength shortens and temperatures drop in temperate deciduous trees:\n- Chlorophyll breaks down, unmasking yellow/orange **carotenoids**. Newly synthesized **anthocyanins** produce vibrant red and purple shades.\n- An **Abscission Zone** develops at the petiole base: an *enzymatic separation layer* breaks down while a *suberized protective scar layer* seals the stem before leaf detachment."
+                },
+                {
+                    "id": "quiz_bot_8",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 8 Checkpoint: Leaf Anatomy, Stomatal Dynamics & Senescence",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In internal leaf anatomy, which tissue layer consists of columnar, tightly packed chloroplast-rich cells positioned directly beneath the upper epidermis to maximize solar light capture?",
+                            "options": [
+                                "Palisade Mesophyll",
+                                "Spongy Mesophyll",
+                                "Cortex",
+                                "Pith"
+                            ],
+                            "correct": 0,
+                            "explanation": "The palisade mesophyll consists of vertically elongated, chloroplast-dense parenchyma cells specialized for high-efficiency photon capture."
+                        },
+                        {
+                            "question": "Why is the spongy mesophyll layer loosely organized with vast interconnected intercellular air spaces?",
+                            "options": [
+                                "To facilitate rapid diffusion of carbon dioxide, oxygen, and water vapor between stomata and photosynthetic cells",
+                                "To store heavy reserves of timber wood",
+                                "To prevent the leaf from absorbing any sunlight",
+                                "To provide habitat for nitrogen-fixing bacteria"
+                            ],
+                            "correct": 0,
+                            "explanation": "The extensive air spaces in the spongy mesophyll provide high surface-area-to-volume exposure for gas exchange with minimum resistance."
+                        },
+                        {
+                            "question": "In a vascular leaf vein, what is the relative anatomical orientation of the xylem and phloem?",
+                            "options": [
+                                "Xylem is situated on the upper (adaxial) side; phloem is situated on the lower (abaxial) side",
+                                "Phloem is on top; xylem is on the bottom",
+                                "Xylem forms an outer ring surrounding central phloem",
+                                "Veins contain phloem only, never xylem"
+                            ],
+                            "correct": 0,
+                            "explanation": "Because vascular traces diverge outward from the stem, xylem occupies the upper half of the leaf vein while phloem occupies the lower half."
+                        },
+                        {
+                            "question": "What ion fluxes trigger the osmotic swelling and opening of stomatal guard cells in daylight?",
+                            "options": [
+                                "Active proton pumping outward drives a massive influx of Potassium ($K^+$) and chloride ions into guard cells, drawing water osmotically",
+                                "Rapid loss of all water into the atmosphere",
+                                "Accumulation of toxic suberin crystals",
+                                "Efflux of all potassium ions into adjacent epidermal cells"
+                            ],
+                            "correct": 0,
+                            "explanation": "Proton extrusion hyperpolarizes guard cells, driving $K^+$ and $Cl^-$ uptake; the resulting osmotic potential draws water in, bowing guard cells open."
+                        },
+                        {
+                            "question": "Which plant hormone is synthesized under drought conditions to signal the rapid closing of stomata to prevent dehydration?",
+                            "options": [
+                                "Abscisic Acid (ABA)",
+                                "Auxin",
+                                "Gibberellin",
+                                "Cytokinin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Abscisic acid (ABA) synthesized during water stress triggers potassium and anion channel opening in guard cells, causing turgor loss and rapid stomatal closure."
+                        },
+                        {
+                            "question": "How do the parallel veins of monocot leaves (e.g., corn, grasses) differ from the netted venation of eudicot leaves?",
+                            "options": [
+                                "Monocot veins run parallel along the longitudinal axis of the blade, whereas eudicots exhibit branching reticulate networks",
+                                "Monocot leaves have no vascular veins",
+                                "Eudicot leaves contain only a single vein",
+                                "Monocot leaves have veins that run exclusively horizontally across the stem"
+                            ],
+                            "correct": 0,
+                            "explanation": "Monocot blades feature parallel primary veins traversing the length of the blade, while eudicots feature netted (reticulate) pinnate or palmate venation."
+                        },
+                        {
+                            "question": "The bright red 'petals' of a holiday Poinsettia are not true flower petals, but modified colorful leaves known as:",
+                            "options": [
+                                "Bracts",
+                                "Spines",
+                                "Tendrils",
+                                "Bud scales"
+                            ],
+                            "correct": 0,
+                            "explanation": "Floral bracts are modified, colorful leaves situated beneath small, inconspicuous true flowers to attract pollinating insects."
+                        },
+                        {
+                            "question": "The sharp, non-photosynthetic spines of a desert cactus are evolutionary modifications of which organ?",
+                            "options": [
+                                "Leaves",
+                                "Stems",
+                                "Roots",
+                                "Flower sepals"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cactus spines are modified leaves that reduce evaporative surface area and deter herbivores; the green fleshy pad is the photosynthetic stem."
+                        },
+                        {
+                            "question": "Why have carnivorous plants (such as pitcher plants and Venus flytraps) evolved specialized insect-trapping leaves?",
+                            "options": [
+                                "To obtain essential nitrogen and minerals in nutrient-poor, acidic bog soils",
+                                "Because they cannot perform photosynthesis",
+                                "To absorb water in arid deserts",
+                                "To kill all insect pests in the forest"
+                            ],
+                            "correct": 0,
+                            "explanation": "Carnivorous plants are photosynthetic autotrophs that trap insects specifically to scavenge scarce mineral nutrients (nitrogen and phosphorus) in bog soils."
+                        },
+                        {
+                            "question": "What unmasks the brilliant yellow and orange colors seen in deciduous tree leaves during autumn?",
+                            "options": [
+                                "The degradation of green chlorophyll pigments unmasks preexisting carotenoids (carotenes and xanthophylls)",
+                                "Sudden production of vast quantities of green chlorophyll",
+                                "Accumulation of toxic sulfur from rainfall",
+                                "Freezing of pure water inside xylem vessels"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cool temperatures and shorter days trigger chlorophyll breakdown; the more stable yellow and orange carotenoids already present in plastids become visible."
+                        },
+                        {
+                            "question": "Which water-soluble pigments are newly synthesized in the autumn leaves of some trees (such as sugar maples), producing deep red and purple foliage?",
+                            "options": [
+                                "Anthocyanins",
+                                "Chlorophyll b",
+                                "Carotenes",
+                                "Lignins"
+                            ],
+                            "correct": 0,
+                            "explanation": "Anthocyanins are synthesized in late autumn within leaf vacuoles as trapped sugars react under bright sunlight, yielding brilliant red-purple hues."
+                        },
+                        {
+                            "question": "The process by which leaves are shed in autumn involves the development of which specialized anatomical zone at the base of the petiole?",
+                            "options": [
+                                "The Abscission Zone",
+                                "The Casparian strip",
+                                "The Lenticel zone",
+                                "The Cambium ring"
+                            ],
+                            "correct": 0,
+                            "explanation": "The abscission zone develops at the petiole base, comprising an outer separation layer of weakened parenchyma and a suberized protective cork scar layer."
+                        },
+                        {
+                            "question": "A leaf blade that is subdivided into multiple distinct, separate leaflets attached to a central rachis or petiole is termed:",
+                            "options": [
+                                "A Compound leaf",
+                                "A Simple leaf",
+                                "A Sessile leaf",
+                                "A Bract"
+                            ],
+                            "correct": 0,
+                            "explanation": "A compound leaf has its blade divided into distinct leaflets, distinguished from simple leaves by the absence of an axillary bud at the leaflet base."
+                        },
+                        {
+                            "question": "What is the function of the waxy cuticle covering the upper and lower leaf epidermis?",
+                            "options": [
+                                "Drastically restricting non-stomatal water evaporation and resisting microbial invasion",
+                                "Absorbing liquid nitrogen from raindrops",
+                                "Conducting high-voltage electric currents",
+                                "Digesting airborne fungal spores"
+                            ],
+                            "correct": 0,
+                            "explanation": "The cuticle consists of hydrophobic cutin and waxes that restrict uncontrolled evaporative water loss and serve as a physical barrier against pathogen entry."
+                        },
+                        {
+                            "question": "Why do plants adapted to arid environments (xerophytes, such as oleander) often feature sunken stomatal crypts lined with trichome hairs?",
+                            "options": [
+                                "To create sheltered microclimates of high humidity, reducing the transpirational water vapor gradient between the leaf and air",
+                                "To trap flying insects for protein",
+                                "To allow hot desert winds to scour the stomata",
+                                "To absorb toxic carbon monoxide"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sunken stomata sheltered in hair-lined crypts trap a stagnant layer of humid air, dramatically reducing the evaporative water loss driven by dry winds."
+                        },
+                        {
+                            "question": "The coiling, sensitive climbing organs of garden peas that wrap around garden trellises are modified leaves or leaflets called:",
+                            "options": [
+                                "Tendrils",
+                                "Spines",
+                                "Thorns",
+                                "Haustoria"
+                            ],
+                            "correct": 0,
+                            "explanation": "Tendrils are specialized modified climbing leaves or stem shoots that respond thigmotropically to touch, wrapping around supports to elevate shoots."
+                        },
+                        {
+                            "question": "Leaves that completely lack a petiole, attaching their blades directly onto the stem node (such as grasses), are termed:",
+                            "options": [
+                                "Sessile",
+                                "Petiolate",
+                                "Compound",
+                                "Palmate"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sessile leaves lack a supporting stalk (petiole), having blades that attach directly to the stem node or wrap around it in a basal sheath."
+                        },
+                        {
+                            "question": "What physiological process describes the loss of liquid water droplets from hydathode pores along leaf margins under conditions of high soil moisture and zero transpiration?",
+                            "options": [
+                                "Guttation",
+                                "Transpiration",
+                                "Plasmolysis",
+                                "Abscission"
+                            ],
+                            "correct": 0,
+                            "explanation": "Guttation occurs at night when high root pressure forces liquid xylem sap out through specialized marginal leaf pores called hydathodes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_9",
+            "title": "Chapter 9: Flowers, Fruits, and Seeds",
+            "description": "Floral morphology, double fertilization, fruit development and classification, seed anatomy, dormancy, and dispersal mechanisms.",
+            "activities": [
+                {
+                    "id": "act_bot_9_lesson",
+                    "type": "page",
+                    "title": "Module 9.1: Sexual Reproduction in Angiosperms",
+                    "completed": true,
+                    "content": "### 1. The Anatomy of a Complete Flower\nThe flower is the specialized reproductive shoot of angiosperms, featuring four concentric whorls of modified floral appendages attached to the **receptacle**:\n1. **Calyx (Sepals):** Outermost green whorl protecting the floral bud prior to opening.\n2. **Corolla (Petals):** Conspicuous, colorful whorl that visually attracts animal pollinators. (Calyx + Corolla = **Perianth**).\n3. **Androecium (Stamens - Male Reproductive Organs):**\n   - *Filament:* Slender stalk supporting the anther.\n   - *Anther:* Terminal four-chambered pollen sac producing microspores via meiosis, which develop into two-celled **pollen grains** (immature microgametophytes containing a tube cell and a generative cell).\n4. **Gynoecium (Carpels/Pistil - Female Reproductive Organs):**\n   - *Stigma:* Receptive sticky terminal platform for pollen grain adhesion.\n   - *Style:* Slender neck through which the pollen tube grows.\n   - *Ovary:* Swollen basal chamber containing one or more **ovules**. Inside each ovule, a megaspore mother cell undergoes meiosis to form the 7-celled, 8-nucleate **female gametophyte (embryo sac)** containing the **egg cell** and a central cell with two **polar nuclei**.\n\n### 2. Pollination and Double Fertilization\n- **Pollination:** The physical transfer of pollen from an anther to a receptive stigma (mediated by wind, insects, birds, bats, or water).\n- **Pollen Tube Growth:** Upon landing on a compatible stigma, the pollen grain germinates, extending a pollen tube down the style into the ovary, guided by chemical signals (synergid LURE peptides) toward the ovule's **micropyle**.\n- **Double Fertilization (Hallmark of Angiosperms):**\n  - The generative cell divides mitotically to produce **two non-motile sperm cells**.\n  - *First Fertilization:* One sperm fuses with the haploid egg cell ($1n$) to form the diploid **zygote ($2n$)**, which develops into the embryo.\n  - *Second Fertilization:* The second sperm fuses with the two haploid polar nuclei ($1n + 1n$) in the central cell, creating a **triploid ($3n$) endosperm** nucleus, which divides to form nutrient-rich endosperm tissue nourishing the developing embryo.\n\n### 3. Seed Structure and Dormancy\nFollowing fertilization, the ovule matures into a **seed**, encased within a protective **seed coat (testa)**:\n- **Embryo:** Features an embryonic root (**radicle**), embryonic shoot (**epicotyl/hypocotyl**), and one (monocots) or two (eudicots) **cotyledons** (seed leaves).\n- **Dormancy:** Dehydration (down to 5-15% water) suspends metabolic activity, enforced by high abscisic acid levels until environmental triggers (cold stratification, seed coat scarification, light) initiate **germination**.\n\n### 4. Fruit Development and Classification\nThe ovary wall thickens into the **pericarp** (exocarp, mesocarp, endocarp), transforming the ovary into a **fruit** that protects seeds and facilitates dispersal:\n- **Simple Fruits:** Derived from a single ovary of a single flower:\n  - *Fleshy:* Berries (tomato, grape), Drupes (peach, cherry with stony pit), Pomes (apple, pear derived from receptacle).\n  - *Dry Dehiscent (split open at maturity):* Legumes (peas, beans), Capsules (poppy).\n  - *Dry Indehiscent (remain closed):* Achenes (sunflower), Caryopsis/Grains (corn, wheat fused to fruit wall), Nuts (acorn, hazelnut).\n- **Aggregate Fruits:** Derived from multiple separate carpels of a single flower (e.g., raspberry, blackberry, strawberry).\n- **Multiple Fruits:** Derived from the fused ovaries of many clustered flowers on an inflorescence (e.g., pineapple, fig)."
+                },
+                {
+                    "id": "quiz_bot_9",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 9 Checkpoint: Floral Anatomy, Double Fertilization & Fruit Biology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What are the four concentric whorls of organs that compose a complete angiosperm flower, from outermost to innermost?",
+                            "options": [
+                                "Sepals (calyx), Petals (corolla), Stamens (androecium), and Carpels (gynoecium)",
+                                "Roots, Stems, Leaves, and Buds",
+                                "Xylem, Phloem, Cortex, and Pith",
+                                "Endosperm, Zygote, Testa, and Cotyledon"
+                            ],
+                            "correct": 0,
+                            "explanation": "A complete flower features four whorls: sepals (protective), petals (attraction), stamens (male microsporophylls), and carpels (female megasporophylls)."
+                        },
+                        {
+                            "question": "The male reproductive organ of a flower, the stamen, is composed of which two anatomical parts?",
+                            "options": [
+                                "Filament and Anther",
+                                "Stigma and Style",
+                                "Ovary and Ovule",
+                                "Petal and Sepal"
+                            ],
+                            "correct": 0,
+                            "explanation": "The stamen consists of a supporting stalk (the filament) and a terminal pollen-producing sac (the anther)."
+                        },
+                        {
+                            "question": "The female reproductive organ of a flower (the carpel or pistil) consists of which three parts?",
+                            "options": [
+                                "Stigma, Style, and Ovary",
+                                "Anther, Filament, and Pollen",
+                                "Sepal, Petal, and Receptacle",
+                                "Radicle, Hypocotyl, and Epicotyl"
+                            ],
+                            "correct": 0,
+                            "explanation": "A carpel comprises the sticky terminal stigma for pollen reception, the neck-like style, and the basal swollen ovary containing ovules."
+                        },
+                        {
+                            "question": "What unique reproductive process defines flowering plant (angiosperm) fertilization?",
+                            "options": [
+                                "Double Fertilization (one sperm fertilizes the egg to form a 2n zygote; the second sperm fertilizes the central cell to form 3n endosperm)",
+                                "External fertilization in open rain water",
+                                "Binary fission of pollen grains",
+                                "Asexual cloning without gametes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Double fertilization is unique to angiosperms: one sperm fuses with the egg yielding the 2n zygote, while the second sperm fuses with two polar nuclei yielding the 3n endosperm."
+                        },
+                        {
+                            "question": "What is the biological ploidy level of the nutrient-rich Endosperm tissue that nourishes the developing angiosperm embryo?",
+                            "options": [
+                                "Triploid (3n)",
+                                "Haploid (1n)",
+                                "Diploid (2n)",
+                                "Tetraploid (4n)"
+                            ],
+                            "correct": 0,
+                            "explanation": "The central cell contains two haploid polar nuclei ($1n + 1n$) that fuse with a haploid sperm ($1n$), producing triploid ($3n$) endosperm."
+                        },
+                        {
+                            "question": "Following successful fertilization, the plant's ovule matures into a _______, while the surrounding ovary wall matures into a _______.",
+                            "options": [
+                                "Seed; Fruit",
+                                "Fruit; Seed",
+                                "Pollen grain; Flower",
+                                "Root; Stem"
+                            ],
+                            "correct": 0,
+                            "explanation": "In angiosperm botany, ovules develop into seeds containing embryos, while the surrounding ovary wall expands into the fruit."
+                        },
+                        {
+                            "question": "In botanical classification, what is a Drupe?",
+                            "options": [
+                                "A fleshy simple fruit with a thin skin exocarp, fleshy mesocarp, and a hard, stony endocarp (pit) enclosing a single seed (e.g., peach, plum, cherry)",
+                                "A dry fruit that splits along two seams (e.g., pea pod)",
+                                "A fruit derived from hundreds of separate flowers fused together",
+                                "A winged seed dispersed by wind"
+                            ],
+                            "correct": 0,
+                            "explanation": "Drupes (stone fruits) have a fleshy mesocarp and a lignified, stony endocarp ('pit') protecting the seed, as in peaches, cherries, and olives."
+                        },
+                        {
+                            "question": "A culinary tomato is botanically classified as a:",
+                            "options": [
+                                "Berry",
+                                "Drupe",
+                                "Pome",
+                                "Legume"
+                            ],
+                            "correct": 0,
+                            "explanation": "In botany, a berry is a fleshy simple fruit developing from a compound ovary where the entire pericarp becomes soft and fleshy, enclosing one or more seeds."
+                        },
+                        {
+                            "question": "An Aggregate Fruit (such as a raspberry or blackberry) develops from:",
+                            "options": [
+                                "A single flower possessing multiple separate, unfused carpels",
+                                "An inflorescence of many separate flowers fusing together",
+                                "An unfertilized leaf blade",
+                                "A single carpel that dries at maturity"
+                            ],
+                            "correct": 0,
+                            "explanation": "Aggregate fruits develop from a single flower that contains numerous separate carpels; each ovary forms a tiny fruitlet attached to a common receptacle."
+                        },
+                        {
+                            "question": "Pineapples and figs are examples of Multiple Fruits, meaning they develop from:",
+                            "options": [
+                                "The ovaries of many separate, clustered flowers on a single inflorescence that fuse together during development",
+                                "A single flower with a single stamen",
+                                "Underground rhizome swellings",
+                                "Gymnosperm seed cones"
+                            ],
+                            "correct": 0,
+                            "explanation": "Multiple fruits develop from an inflorescence (tight cluster of many flowers) whose individual ovaries swell and fuse into a single collective fruit body."
+                        },
+                        {
+                            "question": "The single large seed cotyledon found in grass and cereal grain embryos (such as corn and wheat) is specialized for absorbing endosperm and is called the:",
+                            "options": [
+                                "Scutellum",
+                                "Coleoptile",
+                                "Radicle",
+                                "Hypocotyl"
+                            ],
+                            "correct": 0,
+                            "explanation": "The monocot grass cotyledon is modified into a shield-like scutellum that secretes digestive enzymes and absorbs nutrients from the endosperm."
+                        },
+                        {
+                            "question": "What is the embryonic root of a seed called, which is the very first structure to emerge during seed germination?",
+                            "options": [
+                                "The Radicle",
+                                "The Epicotyl",
+                                "The Coleoptile",
+                                "The Plumule"
+                            ],
+                            "correct": 0,
+                            "explanation": "The radicle is the embryonic root; it emerges first through the seed coat to anchor the seedling and begin water uptake."
+                        },
+                        {
+                            "question": "Seed dormancy enforced by a thick, impermeable seed coat can be broken artificially or naturally by scratching, chipping, or acid-treating the coat. This is:",
+                            "options": [
+                                "Scarification",
+                                "Stratification",
+                                "Vernalization",
+                                "Imbibition"
+                            ],
+                            "correct": 0,
+                            "explanation": "Scarification physically breaks or chemically weakens an impermeable seed coat (via digestive acid in bird guts or mechanical abrasion) to permit water imbibition."
+                        },
+                        {
+                            "question": "Subjecting damp seeds to a prolonged period of cold temperatures (simulating winter) to break biochemical dormancy is called:",
+                            "options": [
+                                "Stratification",
+                                "Scarification",
+                                "Photoperiodism",
+                                "Thigmotropism"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cold stratification breaks physiological seed dormancy by lowering abscisic acid and increasing gibberellins, ensuring germination occurs in spring."
+                        },
+                        {
+                            "question": "The initial physical uptake of water by a dry seed, causing it to swell and rupture its seed coat to trigger germination metabolism, is:",
+                            "options": [
+                                "Imbibition",
+                                "Transpiration",
+                                "Guttation",
+                                "Plasmolysis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Imbibition is the passive physical absorption of water by colloidal proteins and cellulose in dry seed tissues, causing dramatic swelling."
+                        },
+                        {
+                            "question": "What protective sheath encloses and shields the delicate emerging shoot tip of grass seedlings as they push upward through abrasive soil?",
+                            "options": [
+                                "The Coleoptile",
+                                "The Coleorhiza",
+                                "The Scutellum",
+                                "The Perisperm"
+                            ],
+                            "correct": 0,
+                            "explanation": "The coleoptile is a hollow, protective cylinder enclosing the apical meristem and embryonic leaves in monocot seedlings until it reaches the light."
+                        },
+                        {
+                            "question": "Flowers pollinated by nocturnal bats or moths typically exhibit which floral characteristics?",
+                            "options": [
+                                "White or pale-colored petals with heavy, sweet musky odors opening predominantly at night",
+                                "Bright red odorless petals opening only at noon",
+                                "Tiny green petals completely lacking nectar",
+                                "Blue flowers that mimic female bees"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bat- and moth-pollinated flowers open at night, are white or dull-colored for visibility in darkness, and release intense fermenting or sweet fragrances."
+                        },
+                        {
+                            "question": "Flowers that rely exclusively on wind for pollination (such as oak trees and grasses) typically lack:",
+                            "options": [
+                                "Showy, colorful petals, sweet scents, and nectar rewards",
+                                "Pollen grains and stamens",
+                                "Stigmas and ovaries",
+                                "Cellulose in cell walls"
+                            ],
+                            "correct": 0,
+                            "explanation": "Wind-pollinated flowers invest energy into producing millions of lightweight pollen grains and large feathery stigmas rather than visual petals, scents, or nectar."
+                        },
+                        {
+                            "question": "The edible flesh of an apple or pear is classified as a 'Pome' and develops primarily from which floral structure?",
+                            "options": [
+                                "The enlarged, fleshy hypanthium (floral tube / receptacle)",
+                                "The mature seed coat",
+                                "The central seed cotyledons",
+                                "The swollen anther filaments"
+                            ],
+                            "correct": 0,
+                            "explanation": "In accessory fruits like pomes, the bulk of the edible flesh is formed by the enlarged receptacle and floral tube surrounding the papery core ovary."
+                        },
+                        {
+                            "question": "What is an Achene?",
+                            "options": [
+                                "A small, dry, indehiscent one-seeded fruit where the seed is attached to the fruit wall at only one point (e.g., sunflower 'seeds')",
+                                "A fleshy fruit with multiple pits",
+                                "A giant tropical pod that explodes when dry",
+                                "A swollen fungal fruiting body"
+                            ],
+                            "correct": 0,
+                            "explanation": "An achene is a dry simple fruit containing a single seed attached to the pericarp wall only at its base (the edible sunflower kernel inside the shell)."
+                        },
+                        {
+                            "question": "In flowering plants, the mature female gametophyte (embryo sac) within the ovule typically consists of how many cells and nuclei?",
+                            "options": [
+                                "7 cells containing 8 nuclei",
+                                "2 cells containing 2 nuclei",
+                                "100 cells containing 1,000 nuclei",
+                                "1 single un-nucleated vacuole"
+                            ],
+                            "correct": 0,
+                            "explanation": "The typical Polygonum-type embryo sac consists of 7 cells containing 8 nuclei: 3 antipodal cells, 2 synergids, 1 egg cell, and 1 central cell with 2 polar nuclei."
+                        },
+                        {
+                            "question": "Why is seed dispersal critically beneficial for maternal plant reproductive fitness?",
+                            "options": [
+                                "It moves offspring away from the parent, reducing resource competition and minimizing inbreeding and pathogen transmission",
+                                "It forces all offspring to die in the winter",
+                                "It prevents seeds from ever absorbing water",
+                                "It eliminates the need for pollination in future generations"
+                            ],
+                            "correct": 0,
+                            "explanation": "Dispersal spreads progeny to novel habitats, escapes dense density-dependent seedling mortality under the parent canopy, and expands species range."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_10",
+            "title": "Chapter 10: Mineral Nutrition and Transport in Plants",
+            "description": "Macronutrients, micronutrients, soil chemistry, water potential, cohesion-tension theory of xylem transport, and pressure-flow phloem translocation.",
+            "activities": [
+                {
+                    "id": "act_bot_10_lesson",
+                    "type": "page",
+                    "title": "Module 10.1: Fluid Dynamics & Nutrient Transport in Plants",
+                    "completed": true,
+                    "content": "### 1. Essential Plant Nutrients\nPlants require 17 essential chemical elements to complete their life cycle:\n- **Macronutrients (needed in large amounts, >0.1% dry weight):** Carbon, Hydrogen, Oxygen (from $CO_2$ and $H_2O$); Nitrogen (amino acids, nucleotides, chlorophyll); Potassium (osmotic regulation, stomatal turgor, enzyme activator); Calcium (cell wall pectin cross-linking, membrane stability, second messenger); Magnesium (central atom of the chlorophyll porphyrin ring, enzyme cofactor); Phosphorus (nucleic acids, ATP, phospholipids); Sulfur (methionine, cysteine amino acids).\n- **Micronutrients (needed in trace quantities):** Iron (chlorophyll synthesis, electron transport cytochromes), Manganese, Boron, Zinc, Copper, Chlorine, Molybdenum, Nickel.\n\n### 2. Soil Chemistry and Cation Exchange\nSoil particles (clay and humus) carry net negative electrostatic surface charges, attracting positively charged mineral cations ($K^+, Ca^{2+}, Mg^{2+}$):\n- **Cation Exchange:** Root epidermal cells pump protons ($H^+$) into the soil water and release $CO_2$ (forming carbonic acid). These protons displace bound nutrient cations from clay particles, releasing them into the soil solution for root absorption.\n- **Anion Leaching:** Negatively charged nutrient anions ($NO_3^-, H_2PO_4^-, SO_4^{2-}$) are not bound by clay and readily wash out of the topsoil during heavy rains (leaching).\n\n### 3. Water Potential ($Psi$) and Transpirational Pull\nWater moves passively from regions of **higher (less negative) water potential** to regions of **lower (more negative) water potential**:\n$Psi = Psi_s + Psi_p$\n- **The Cohesion-Tension Theory of Xylem Sap Ascent:**\n  1. Solar radiation drives **transpiration** (evaporation of water vapor from leaf mesophyll cell surfaces through open stomata into the drier atmosphere).\n  2. Evaporation generates negative hydrostatic pressure (**tension**) at the air-water meniscus in mesophyll cell walls.\n  3. Because water molecules are intensely **cohesive** (linked by hydrogen bonds) and **adhesive** (clinging to hydrophilic cellulose xylem walls), this negative tension pulls continuous unbroken water columns up the xylem from the roots to the canopy.\n  4. Requires zero direct metabolic ATP expenditure by the plant.\n  5. **Cavitation (Embolism):** If water columns break under extreme drought or freezing, air bubbles enter the conduit, blocking flow.\n\n### 4. Phloem Translocation: The Pressure-Flow Hypothesis\nDeveloped by Ernst Münch, explaining bulk flow of sucrose-rich phloem sap:\n1. **Phloem Loading at the Source:** Mature photosynthetic leaves actively load sucrose into companion cells and sieve-tube elements using $H^+$/sucrose symporters, driven by proton-ATPase pumps.\n2. **Osmotic Water Influx:** High sucrose accumulation drastically lowers solute potential ($Psi_s$) inside the sieve tube, causing water to enter osmotically from adjacent xylem.\n3. **Turgor Pressure Generation:** Influx of water creates high hydrostatic **turgor pressure** at the source end.\n4. **Phloem Unloading at the Sink:** At actively growing tissues or storage sinks (roots, tubers, developing fruits), sucrose is actively or passively removed. Water follows osmotically back into the xylem, lowering turgor pressure.\n5. **Bulk Flow:** The resulting turgor pressure gradient ($Delta P$) drives rapid mass flow of sap from source to sink."
+                },
+                {
+                    "id": "quiz_bot_10",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 10 Checkpoint: Plant Mineral Nutrition & Long-Distance Transport",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which mineral element forms the central coordinating atom in the molecular structure of the chlorophyll porphyrin ring?",
+                            "options": [
+                                "Iron (Fe)",
+                                "Magnesium (Mg)",
+                                "Calcium (Ca)",
+                                "Potassium (K)"
+                            ],
+                            "correct": 1,
+                            "explanation": "Magnesium ($Mg^{2+}$) is the central coordinating metallic cation in the chlorophyll molecule; deficiency causes severe interveinal chlorosis in older leaves."
+                        },
+                        {
+                            "question": "Which plant macronutrient plays a dominant physiological role in regulating stomatal opening and closing through guard cell turgor flux?",
+                            "options": [
+                                "Potassium (K)",
+                                "Nitrogen (N)",
+                                "Phosphorus (P)",
+                                "Sulfur (S)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Potassium ($K^+$) is the primary osmoticum accumulated in guard cells to lower water potential and draw water osmotically to bow the stoma open."
+                        },
+                        {
+                            "question": "How do plant roots absorb mineral cations (such as $K^+$ and $Ca^{2+}$) that are electrostatically bound to negatively charged soil clay particles?",
+                            "options": [
+                                "Cation Exchange: roots exude protons ($H^+$) that displace the cations from clay surfaces into soil solution",
+                                "Roots engulf soil clay particles by endocytosis",
+                                "Roots heat the soil with microwaves to melt the clay",
+                                "Roots release pure chlorine gas"
+                            ],
+                            "correct": 0,
+                            "explanation": "Roots exude $H^+$ (via proton pumps and carbonic acid respiration), displacing bound mineral cations from negative clay micelles in a process termed cation exchange."
+                        },
+                        {
+                            "question": "Why do negatively charged nutrient anions (such as nitrate, $NO_3^-$) leach out of agricultural soils much more readily than cations during heavy rains?",
+                            "options": [
+                                "Anions are repelled by the negative surface charges of soil clay and humus particles, remaining unbound in soil solution",
+                                "Anions evaporate into gas instantly upon touching water",
+                                "Roots actively destroy all anions in the soil",
+                                "Clay particles destroy nitrate molecules on contact"
+                            ],
+                            "correct": 0,
+                            "explanation": "Because soil particles and humus carry negative charges, anions are not electrostatically bound and readily wash into groundwater (leaching)."
+                        },
+                        {
+                            "question": "According to the Cohesion-Tension Theory, what is the primary physical driving force that pulls water up tall trees through the xylem?",
+                            "options": [
+                                "Solar-driven transpirational evaporation from leaf cell surfaces generating negative tension",
+                                "High positive pressure pushed upward from root tips",
+                                "Active ATP pumping by dead xylem vessel elements",
+                                "Capillary suction from flower petals"
+                            ],
+                            "correct": 0,
+                            "explanation": "Solar transpiration evaporates water from mesophyll cell walls, creating negative pressure (tension) that pulls cohesive hydrogen-bonded water columns upward."
+                        },
+                        {
+                            "question": "What prevents the unbroken water columns in xylem vessels from snapping apart under massive transpirational tension?",
+                            "options": [
+                                "The cohesive hydrogen bonding between water molecules",
+                                "Rapid cellular respiration by vessel elements",
+                                "The presence of sucrose in xylem sap",
+                                "Suberin coatings inside xylem lumens"
+                            ],
+                            "correct": 0,
+                            "explanation": "Hydrogen bonding gives water high tensile strength (cohesion), allowing continuous columns to withstand tensions exceeding -2 to -3 MPa without breaking."
+                        },
+                        {
+                            "question": "The formation of an air bubble within a xylem vessel element that breaks the continuous water column and halts conduction is called:",
+                            "options": [
+                                "Cavitation (Embolism)",
+                                "Plasmolysis",
+                                "Guttation",
+                                "Girdling"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cavitation occurs when excessive tension or freezing pulls dissolved gases out of solution, creating an air bubble (embolism) that breaks the conduit."
+                        },
+                        {
+                            "question": "According to the Pressure-Flow Hypothesis, what creates the driving force for the bulk translocation of sugars through the phloem?",
+                            "options": [
+                                "A hydrostatic turgor pressure gradient between the sugar source and the sugar sink",
+                                "Gravity pulling dense sugar down into the roots",
+                                "Transpirational suction pulling sap out through stomata",
+                                "Peristaltic muscle contractions of companion cells"
+                            ],
+                            "correct": 0,
+                            "explanation": "Active loading of sugar at the source draws water osmotically to generate high turgor; unloading at the sink relieves pressure, driving bulk flow along the pressure gradient."
+                        },
+                        {
+                            "question": "In phloem transport, which of the following botanical organs functions as a 'Source' of carbohydrates during mid-summer?",
+                            "options": [
+                                "A mature, fully expanded green photosynthetic leaf",
+                                "A newly developing root tip",
+                                "An expanding floral bud",
+                                "A developing green apple fruit"
+                            ],
+                            "correct": 0,
+                            "explanation": "A source is an organ that produces more sugar than it consumes, such as a mature photosynthetic leaf or a germinating storage tuber."
+                        },
+                        {
+                            "question": "Which of the following functions as a 'Sink' for phloem translocation?",
+                            "options": [
+                                "A developing storage tuber, growing root apical meristem, or ripening fruit",
+                                "A fully sunlit mature canopy leaf",
+                                "A dead heartwood ray",
+                                "A functional lenticel"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sinks are organs that consume or store sugars, such as growing meristems, roots, developing seeds, and storage tubers."
+                        },
+                        {
+                            "question": "How is sucrose loaded into companion cells and sieve-tube elements against a steep concentration gradient at the source?",
+                            "options": [
+                                "Via secondary active transport utilizing a Proton/Sucrose Symporter driven by a proton pump",
+                                "Via passive simple diffusion across the cuticle",
+                                "Through nuclear pore complexes",
+                                "Via pinocytotic engulfment of starch grains"
+                            ],
+                            "correct": 0,
+                            "explanation": "Proton-ATPases pump $H^+$ into the apoplast; as protons flow back down their gradient, $H^+$/sucrose symporters co-transport sucrose into the phloem against its gradient."
+                        },
+                        {
+                            "question": "Pure free water under standard atmospheric conditions and room temperature has an assigned water potential ($Psi$) of:",
+                            "options": [
+                                "0.0 Megapascals (MPa)",
+                                "+10.0 MPa",
+                                "-100.0 MPa",
+                                "+1.0 atmospheres"
+                            ],
+                            "correct": 0,
+                            "explanation": "By convention, pure liquid water at standard temperature and pressure has a water potential of exactly zero ($Psi = 0$ MPa); dissolving solutes lowers $Psi$ below zero."
+                        },
+                        {
+                            "question": "Adding solute particles (such as sugar or mineral salts) to water has what effect on its Solute Potential ($Psi_s$)?",
+                            "options": [
+                                "It lowers $Psi_s$, making it more negative and reducing free water energy",
+                                "It increases $Psi_s$ to positive infinity",
+                                "It has zero effect on water potential",
+                                "It converts the water into hydrogen gas"
+                            ],
+                            "correct": 0,
+                            "explanation": "Solutes bind water molecules, reducing their free energy and entropy; solute potential ($Psi_s$) is always negative in cellular solutions."
+                        },
+                        {
+                            "question": "Deficiency of which primary macronutrient results in general stunted growth, spindly stems, and yellowing of older leaves (chlorosis)?",
+                            "options": [
+                                "Nitrogen",
+                                "Boron",
+                                "Manganese",
+                                "Copper"
+                            ],
+                            "correct": 0,
+                            "explanation": "Nitrogen is required for amino acids, proteins, and chlorophyll; because it is mobile, plants scavenge it from older leaves to feed young growth, causing older leaf chlorosis."
+                        },
+                        {
+                            "question": "Deficiency of phosphorus in plants is characteristically indicated on leaves by:",
+                            "options": [
+                                "Dark purplish or bronze discoloration along veins and leaves, along with stunted root development",
+                                "Bright yellow polka dots",
+                                "Instant shedding of all bark",
+                                "Rapid overgrowth of flowers"
+                            ],
+                            "correct": 0,
+                            "explanation": "Phosphorus deficiency impairs ATP and nucleic acid synthesis, triggering anthocyanin accumulation that produces dark green to purplish leaf discoloration."
+                        },
+                        {
+                            "question": "What microscopic diagnostic technique allows agricultural scientists to analyze the exact elemental composition of phloem sap without disrupting the plant?",
+                            "options": [
+                                "Using feeding aphids to puncture sieve tubes and analyzing the exuding droplets from severed stylets",
+                                "Crushing the entire tree trunk with a hydraulic press",
+                                "Applying radioactive uranium to the foliage",
+                                "Boiling the soil in concentrated hydrochloric acid"
+                            ],
+                            "correct": 0,
+                            "explanation": "Aphids insert precise piercing stylets directly into sieve-tube elements without triggering wound responses; severing the aphid leaves an exuding stylet tapping pure sap."
+                        },
+                        {
+                            "question": "Why does excessive chemical fertilizer application to garden soil cause plants to wilt and 'burn'?",
+                            "options": [
+                                "Excessive fertilizer ions lower the soil water potential below that of the root cells, drawing water osmotically out of the roots",
+                                "Fertilizers consume all atmospheric oxygen around the leaves",
+                                "Fertilizers dissolve the plant's cell walls",
+                                "Fertilizers prevent sunlight from hitting chlorophyll"
+                            ],
+                            "correct": 0,
+                            "explanation": "'Fertilizer burn' occurs when high ionic concentrations drastically lower soil solute potential, making the soil hypertonic and dehydrating root cells."
+                        },
+                        {
+                            "question": "Hydroponics is a botanical research and commercial agricultural method involving:",
+                            "options": [
+                                "Growing plants with their roots suspended in aerated, chemically balanced nutrient water solutions without any soil",
+                                "Submerging entire terrestrial trees under ocean water",
+                                "Watering crops only with pure carbonated seltzer",
+                                "Freezing roots in solid ice"
+                            ],
+                            "correct": 0,
+                            "explanation": "Hydroponics cultivates crops in mineral-enriched liquid solutions without soil, allowing precise control and study of essential plant nutrient requirements."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_11",
+            "title": "Chapter 11: Growth Responses and Regulation of Growth",
+            "description": "Plant hormones (Auxins, Gibberellins, Cytokinins, ABA, Ethylene, Brassinosteroids), tropisms, photoperiodism, and phytochrome signaling.",
+            "activities": [
+                {
+                    "id": "act_bot_11_lesson",
+                    "type": "page",
+                    "title": "Module 11.1: Plant Hormones, Tropisms & Photoperiodism",
+                    "completed": true,
+                    "content": "### 1. Plant Hormones (Phytohormones)\nPlant hormones are organic chemical messengers synthesized in minute concentrations that regulate cellular division, elongation, differentiation, and stress responses:\n1. **Auxin (Indole-3-acetic acid / IAA):**\n   - Synthesized in shoot apical meristems and young leaves.\n   - Promotes stem cell elongation via the **Acid Growth Hypothesis** (activating plasma membrane $H^+$-ATPases, lowering cell wall pH to activate **expansins** that loosen cellulose microfibrils).\n   - Mediates **phototropism** and **gravitropism** through lateral polar transport.\n   - Enforces **apical dominance** (suppressing lateral bud outgrowth).\n   - Stimulates adventitious root formation in commercial cuttings.\n2. **Gibberellins (GAs, e.g., $GA_3$):**\n   - Stimulate dramatic stem elongation (internode lengthening) and bolting in biennials.\n   - Break seed dormancy; during cereal germination, the embryo releases GA to trigger the **aleurone layer** to synthesize $alpha$-amylase, mobilizing starch into glucose.\n   - Promotes commercial seedless grape berry enlargement.\n3. **Cytokinins (e.g., Zeatin):**\n   - Synthesized primarily in root tips; transport upward in xylem.\n   - Promote cytokinesis and cell division.\n   - Delay leaf **senescence** (aging and protein breakdown).\n   - In tissue culture, a high cytokinin-to-auxin ratio induces **shoot bud formation**, while a high auxin-to-cytokinin ratio induces **root formation**.\n4. **Abscisic Acid (ABA):**\n   - The 'stress hormone'. Promotes seed dormancy and inhibits premature viviparous germination.\n   - Triggers rapid stomatal closure during water stress by driving $K^+$ ion efflux from guard cells.\n5. **Ethylene ($C_2H_4$):**\n   - The only gaseous plant hormone. Promotes commercial **fruit ripening** (converting starches to sugars, softening pectins) and induces petal/leaf **abscission**.\n   - Induces the seedling **Triple Response** (stem thickening, growth slowing, horizontal curling).\n\n### 2. Tropisms: Directional Growth Responses\nGrowth toward a directional stimulus is a positive tropism; away is negative:\n- **Phototropism:** Directed growth toward light:\n  - Blue light photoreceptors (**phototropins**) trigger lateral redistribution of auxin to the shaded side of the stem.\n  - Higher auxin on the dark side stimulates accelerated cell elongation, bending the stem toward the light.\n- **Gravitropism:** Directed growth in response to gravity:\n  - Shoots exhibit negative gravitropism (growing upward); roots exhibit positive gravitropism (growing downward).\n  - Mediated by **statolith** settling in root cap columella cells, directing auxin accumulation to the lower root surface (where high auxin concentrations *inhibit* root cell elongation, causing downward curvature).\n- **Thigmotropism:** Growth response to mechanical touch (coiling tendrils).\n\n### 3. Photoperiodism and Phytochrome\nPlants monitor seasonal daylength to time flowering:\n- **Phytochrome Pigment:** A photo-reversible chromoprotein existing in two interconvertible states:\n  - $P_r$ (inactive): Absorbs red light (660 nm) and instantly converts to $P_{fr}$.\n  - $P_{fr}$ (active): Absorbs far-red light (730 nm) and reverts to $P_r$. Sunlight converts $P_r \rightarrow P_{fr}$; in prolonged darkness, $P_{fr}$ slowly reverts to $P_r$.\n- **Short-Day (Long-Night) Plants:** Flower only when the night period exceeds a critical duration (e.g., chrysanthemums, poinsettias). Interruption of the night with a brief flash of red light blocks flowering.\n- **Long-Day (Short-Night) Plants:** Flower when the dark period is shorter than a critical duration (e.g., spinach, wheat)."
+                },
+                {
+                    "id": "quiz_bot_11",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 11 Checkpoint: Phytohormones, Tropisms & Photoperiodic Control",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which plant hormone is responsible for phototropism, apical dominance, and cell elongation via the Acid Growth Hypothesis?",
+                            "options": [
+                                "Auxin (IAA)",
+                                "Ethylene",
+                                "Abscisic Acid",
+                                "Cytokinin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Auxin (IAA) stimulates cell elongation in stems, suppresses lateral bud outgrowth (apical dominance), and drives phototropic curvature."
+                        },
+                        {
+                            "question": "The Acid Growth Hypothesis explains that auxin stimulates cell elongation primarily by:",
+                            "options": [
+                                "Activating proton pumps to acidify the cell wall, activating expansin proteins that loosen cellulose microfibrils",
+                                "Dissolving the cell wall entirely with concentrated hydrochloric acid",
+                                "Freezing the cytoplasm into solid crystal sheets",
+                                "Stopping all vacuolar water uptake"
+                            ],
+                            "correct": 0,
+                            "explanation": "Auxin activates plasma membrane $H^+$-ATPases, lowering wall pH to ~4.5; this activates expansins that break hydrogen bonds between cellulose and hemicellulose."
+                        },
+                        {
+                            "question": "Which plant hormone is a simple hydrocarbon gas that promotes commercial fruit ripening and leaf abscission?",
+                            "options": [
+                                "Ethylene ($C_2H_4$)",
+                                "Auxin",
+                                "Methane",
+                                "Gibberellin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ethylene is the gaseous phytohormone triggering enzymatic pectin degradation (softening) and starch conversion to sugars in ripening fruit."
+                        },
+                        {
+                            "question": "Commercial agriculturalists spray which hormone onto Thompson seedless grape clusters to dramatically increase berry size and loosen bunch spacing?",
+                            "options": [
+                                "Gibberellins (GA)",
+                                "Abscisic acid",
+                                "Auxin",
+                                "Phytochrome"
+                            ],
+                            "correct": 0,
+                            "explanation": "Gibberellins stimulate rapid stem internode elongation and fruit cell expansion, producing larger grapes and open clusters less prone to mold."
+                        },
+                        {
+                            "question": "During the germination of barley seeds, gibberellin released by the embryo signals which tissue layer to synthesize and secrete alpha-amylase to digest starch?",
+                            "options": [
+                                "The Aleurone layer",
+                                "The Seed coat",
+                                "The Root cap",
+                                "The Coleoptile"
+                            ],
+                            "correct": 0,
+                            "explanation": "GA diffuses from the embryo to the aleurone cell layer, triggering transcriptional activation and secretion of $alpha$-amylase to mobilize endosperm starch."
+                        },
+                        {
+                            "question": "Which group of plant hormones promotes cytokinesis (cell division), delays leaf aging/senescence, and stimulates shoot bud development in tissue culture?",
+                            "options": [
+                                "Cytokinins",
+                                "Auxins",
+                                "Abscisic acid",
+                                "Ethylene"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cytokinins (such as zeatin and kinetin) promote active cell division, postpone chlorophyll breakdown, and promote shoot morphogenesis."
+                        },
+                        {
+                            "question": "In plant micropropagation tissue culture, what combination of hormones produces shoots versus roots from undifferentiated callus tissue?",
+                            "options": [
+                                "High Cytokinin-to-Auxin ratio induces shoot formation; High Auxin-to-Cytokinin ratio induces root formation",
+                                "High Ethylene induces shoots; High ABA induces roots",
+                                "Only gibberellins can produce plant organs in culture",
+                                "Equal ratios of auxin and cytokinin instantly destroy callus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Skoog and Miller established that high cytokinin relative to auxin drives shoot organogenesis, whereas high auxin relative to cytokinin stimulates rhizogenesis (roots)."
+                        },
+                        {
+                            "question": "Which plant hormone acts as an internal inhibitor, maintaining seed dormancy and triggering rapid stomatal closure during sudden drought stress?",
+                            "options": [
+                                "Abscisic Acid (ABA)",
+                                "Gibberellin",
+                                "Auxin",
+                                "Brassinosteroid"
+                            ],
+                            "correct": 0,
+                            "explanation": "Abscisic acid (ABA) enforces seed dormancy until conditions are favorable and acts as an emergency signal closing stomata during water deficits."
+                        },
+                        {
+                            "question": "Corn mutant seedlings lacking functional Abscisic Acid (ABA) synthesis display which dramatic phenotypic abnormality?",
+                            "options": [
+                                "Vivipary (seeds germinate prematurely while still attached to the maternal ear)",
+                                "Total inability to flower",
+                                "Instant turning into wood",
+                                "Massive giant leaves"
+                            ],
+                            "correct": 0,
+                            "explanation": "ABA suppresses premature embryo growth; ABA-deficient mutants exhibit vivipary, where seeds sprout directly inside or on the parent fruit/ear."
+                        },
+                        {
+                            "question": "When a houseplant stem bends toward a sunny window, why does the bending occur?",
+                            "options": [
+                                "Auxin moves to the shaded side of the stem, stimulating greater cell elongation there than on the illuminated side",
+                                "Sunlight melts the cell walls on the sunny side",
+                                "The plant physically walks toward the window using roots",
+                                "Chlorophyll molecules contract like animal muscle fibers"
+                            ],
+                            "correct": 0,
+                            "explanation": "Phototropins detect directional blue light, causing auxin to shift to the shaded side; enhanced elongation on the shaded side bends the stem toward the light."
+                        },
+                        {
+                            "question": "The directional growth of roots downward toward the gravitational center of the Earth is an example of:",
+                            "options": [
+                                "Positive Gravitropism",
+                                "Negative Gravitropism",
+                                "Positive Phototropism",
+                                "Thigmotropism"
+                            ],
+                            "correct": 0,
+                            "explanation": "Roots display positive gravitropism (growing downward with gravity), whereas aerial shoots display negative gravitropism (growing upward against gravity)."
+                        },
+                        {
+                            "question": "In root gravitropism, why does high auxin concentration on the lower side of a horizontal root cause downward bending?",
+                            "options": [
+                                "In root tissue, high auxin concentrations inhibit cell elongation, allowing upper cells to expand faster and turn the tip downward",
+                                "Auxin dissolves the root cap",
+                                "Auxin transforms roots into green leaves",
+                                "Auxin freezes root cell division"
+                            ],
+                            "correct": 0,
+                            "explanation": "Roots are far more sensitive to auxin than stems; high auxin accumulating on the lower side inhibits expansion, so faster elongation on the upper side curves the root down."
+                        },
+                        {
+                            "question": "The coiling of pea tendrils around a wooden garden stake upon physical contact illustrates which tropism?",
+                            "options": [
+                                "Thigmotropism",
+                                "Phototropism",
+                                "Hydrotropism",
+                                "Thermotropism"
+                            ],
+                            "correct": 0,
+                            "explanation": "Thigmotropism is directional growth in response to mechanical physical contact, causing cells on the contact side to shorten and outer cells to elongate, wrapping the organ."
+                        },
+                        {
+                            "question": "The rapid, reversible snap-closing of a Venus flytrap leaf when sensory trigger hairs are touched is caused by:",
+                            "options": [
+                                "Rapid changes in cell turgor pressure and elastic membrane release (nastic movement)",
+                                "Cellular mitosis in the leaf blade",
+                                "Slow irreversible auxinic elongation",
+                                "Digestion of the plant's own stem"
+                            ],
+                            "correct": 0,
+                            "explanation": "Nastic movements are rapid, reversible movements driven by sudden changes in turgor pressure across motor cells, independent of stimulus direction."
+                        },
+                        {
+                            "question": "What photoreversible pigment protein enables plants to detect seasonal daylength (photoperiod) and red versus far-red light ratios?",
+                            "options": [
+                                "Phytochrome",
+                                "Chlorophyll a",
+                                "Anthocyanin",
+                                "Carotene"
+                            ],
+                            "correct": 0,
+                            "explanation": "Phytochrome exists as $P_r$ (absorbing red light) and $P_{fr}$ (biologically active form absorbing far-red light), acting as a molecular light switch for photoperiodism."
+                        },
+                        {
+                            "question": "When exposed to daylight containing red light (660 nm), inactive phytochrome $P_r$ is immediately converted into:",
+                            "options": [
+                                "Biologically active $P_{fr}$",
+                                "Chlorophyll b",
+                                "Lignin",
+                                "Auxin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Red light converts $P_r$ into $P_{fr}$, the physiologically active conformation that translocates into the nucleus to regulate gene transcription."
+                        },
+                        {
+                            "question": "In reality, 'Short-Day' plants (such as chrysanthemums and poinsettias) actually measure what critical environmental parameter to trigger flowering?",
+                            "options": [
+                                "The continuous duration of uninterrupted darkness (critical night length)",
+                                "The brightness of the midday sun",
+                                "The temperature of the morning soil",
+                                "The speed of the wind"
+                            ],
+                            "correct": 0,
+                            "explanation": "Experiments show short-day plants are actually 'long-night' plants: flowering requires a continuous uninterrupted dark period exceeding a critical threshold."
+                        },
+                        {
+                            "question": "What happens if a short-day (long-night) plant is exposed to a 10-minute flash of red light in the middle of its required 14-hour dark night?",
+                            "options": [
+                                "Flowering is completely inhibited because the dark period was interrupted",
+                                "Flowering occurs twice as fast",
+                                "The plant permanently loses all leaves",
+                                "The plant produces double the flowers"
+                            ],
+                            "correct": 0,
+                            "explanation": "A night-break flash of red light converts $P_r$ back to active $P_{fr}$, mimicking daylight and resetting the internal night-clock, preventing short-day flowering."
+                        },
+                        {
+                            "question": "What is the biological term for the shade-avoidance response in seedlings growing under dense forest canopies?",
+                            "options": [
+                                "Etiolation (elongated pale stems searching for light)",
+                                "Plasmolysis",
+                                "Guttation",
+                                "Thigmonasty"
+                            ],
+                            "correct": 0,
+                            "explanation": "Under dense canopies, high far-red light lowers $P_{fr}$, triggering etiolation: accelerated internode elongation and suppressed leaf expansion to rapidly reach open sun."
+                        },
+                        {
+                            "question": "The chemical signal 'florigen', which is synthesized in leaves under inductive photoperiods and translocated through the phloem to trigger floral initiation at shoot apices, is encoded by the:",
+                            "options": [
+                                "FT (Flowering Locus T) gene and protein",
+                                "Auxin response factor 1",
+                                "Rubisco small subunit",
+                                "Cellulose synthase complex"
+                            ],
+                            "correct": 0,
+                            "explanation": "Florigen is the mobile protein product of the *Flowering Locus T (FT)* gene, traveling through phloem sieve tubes to reprogram shoot meristems into floral meristems."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_12",
+            "title": "Chapter 12: Mitosis, Meiosis, and Life Cycles",
+            "description": "The eukaryotic plant cell cycle, mitotic division, cell plate formation, meiosis, and alternation of generations.",
+            "activities": [
+                {
+                    "id": "act_bot_12_lesson",
+                    "type": "page",
+                    "title": "Module 12.1: Cellular Reproduction & Alternation of Generations",
+                    "completed": true,
+                    "content": "### 1. The Plant Cell Cycle\nPlant cell division occurs primarily within specialized meristems:\n- **Interphase:**\n  - $G_1$ (Gap 1): Cellular growth and organelle duplication.\n  - $S$ Phase: DNA synthesis and chromosome replication.\n  - $G_2$ (Gap 2): Protein synthesis; assembly of the **preprophase band** of microtubules that marks the future division plane.\n- **Mitosis (M Phase):** Nuclear division preserving ploidy ($2n \\rightarrow 2n$):\n  - *Prophase:* Chromatin condenses into visible double-chromatid chromosomes; nucleolus disappears; mitotic spindle forms without centrioles (plant cells lack centrioles).\n  - *Metaphase:* Chromosomes align along the equatorial metaphase plate.\n  - *Anaphase:* Sister chromatids separate at centromeres, pulled toward opposite poles by kinetochore microtubules.\n  - *Telophase:* Nuclear envelopes reform around daughter nuclei.\n- **Cytokinesis in Plants:** The **phragmoplast** (barrel-shaped array of microtubules and actin filaments) directs Golgi vesicles containing pectins and hemicelluloses to the center. Vesicles coalesce into the **cell plate**, which expands centrifugally to fuse with the parental plasma membrane, establishing the middle lamella and primary cell walls.\n\n### 2. Meiosis: Generating Genetic Diversity\nMeiosis reduces chromosome number by half ($2n \\rightarrow 1n$):\n- **Meiosis I (Reductional Division):**\n  - *Prophase I:* Homologous chromosomes pair up (**synapsis**) to form tetrads/bivalents. Non-sister chromatids undergo reciprocal genetic exchange at **chiasmata** (**crossing-over**).\n  - *Metaphase I & Anaphase I:* Homologous pairs align independently and segregate to opposite poles (**Independent Assortment**).\n- **Meiosis II (Equational Division):** Sister chromatids separate, resulting in **four genetically distinct haploid ($1n$) spores**.\n\n### 3. Alternation of Generations in Plants (Haplodiplontic Life Cycle)\nAll land plants alternate between two multicellular generations:\n1. **Gametophyte Generation ($1n$ - Haploid):**\n   - Produces haploid gametes (eggs and sperm) by **mitosis** inside multicellular gametangia (archegonia and antheridia).\n   - Dominant, independent, photosynthetic generation in nonvascular **bryophytes** (mosses, liverworts).\n2. **Sporophyte Generation ($2n$ - Diploid):**\n   - Initiated by fertilization (syngamy) forming a $2n$ zygote that develops into a multicellular sporophyte.\n   - Cells in specialized sporangia (sporocytes) undergo **meiosis** to produce haploid ($1n$) spores.\n   - Evolutionary Trend: Progressive evolutionary dominance of the sporophyte generation in vascular plants (ferns, gymnosperms, angiosperms), with dramatic reduction of the gametophyte down to microscopic, dependent structures (pollen grains and embryo sacs in seed plants)."
+                },
+                {
+                    "id": "quiz_bot_12",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 12 Checkpoint: Mitosis, Meiosis & Plant Life Cycles",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "How does cytokinesis in dividing plant cells differ fundamentally from cytokinesis in animal cells?",
+                            "options": [
+                                "Plant cells assemble a cell plate from Golgi vesicles along a phragmoplast, whereas animal cells pinch in via an actin cleavage furrow",
+                                "Plant cells divide by simply splitting in half without any new cell wall",
+                                "Plant cells use centrioles to pull the cell apart",
+                                "Plant cytokinesis occurs only in complete darkness"
+                            ],
+                            "correct": 0,
+                            "explanation": "Because plant cells have rigid cell walls, they cannot form a cleavage furrow; cytokinesis requires the phragmoplast directing Golgi vesicles to build the cell plate from the center outward."
+                        },
+                        {
+                            "question": "What cytoskeleton-associated structure forms in plant cells during late interphase to predict and mark the exact orientation of the future division plane?",
+                            "options": [
+                                "The Preprophase Band of microtubules",
+                                "The Cleavage furrow",
+                                "The Centrosome aster",
+                                "The Kinetochore ring"
+                            ],
+                            "correct": 0,
+                            "explanation": "The preprophase band is a ring of cortical microtubules appearing during late G2 that marks the future site where the cell plate will fuse with the parental wall."
+                        },
+                        {
+                            "question": "Unlike animal cells, typical higher plant cells completely lack which organelle during mitotic spindle assembly?",
+                            "options": [
+                                "Centrioles (Centrosomes)",
+                                "Microtubules",
+                                "Chromosomes",
+                                "Nuclear envelopes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Higher plant cells lack centrioles; spindle microtubules are nucleated and organized directly from nuclear envelope and cortical organizing centers."
+                        },
+                        {
+                            "question": "The fundamental life cycle of all land plants, involving alternating multicellular haploid and diploid phases, is known as:",
+                            "options": [
+                                "Alternation of Generations (Haplodiplontic life cycle)",
+                                "Diplontic cycle",
+                                "Parthenogenesis",
+                                "Binary fission"
+                            ],
+                            "correct": 0,
+                            "explanation": "Land plants alternate between a multicellular haploid gametophyte phase and a multicellular diploid sporophyte phase."
+                        },
+                        {
+                            "question": "In the plant life cycle, what type of nuclear division produces haploid gametes (eggs and sperm) from the haploid gametophyte?",
+                            "options": [
+                                "Mitosis",
+                                "Meiosis",
+                                "Binary fission",
+                                "Endoreduplication"
+                            ],
+                            "correct": 0,
+                            "explanation": "Because the gametophyte is already haploid ($1n$), it produces gametes through mitosis, NOT meiosis."
+                        },
+                        {
+                            "question": "In the plant life cycle, what type of nuclear division occurs within the sporangia of the diploid sporophyte to produce spores?",
+                            "options": [
+                                "Meiosis",
+                                "Mitosis",
+                                "Budding",
+                                "Conjugation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Diploid ($2n$) spore mother cells within sporangia undergo meiosis to produce four genetically diverse haploid ($1n$) spores."
+                        },
+                        {
+                            "question": "In nonvascular bryophytes (such as mosses and liverworts), which generation is dominant, photosynthetic, and independent?",
+                            "options": [
+                                "The Haploid Gametophyte generation",
+                                "The Diploid Sporophyte generation",
+                                "Both are entirely dependent on fungi",
+                                "Neither generation exists"
+                            ],
+                            "correct": 0,
+                            "explanation": "In mosses, the familiar green leafy carpet is the independent haploid gametophyte; the diploid sporophyte is a dependent stalk growing out of the female plant."
+                        },
+                        {
+                            "question": "What evolutionary trend characterizes the alternation of generations across the transition from bryophytes to ferns, gymnosperms, and angiosperms?",
+                            "options": [
+                                "Progressive enlargement and dominance of the diploid sporophyte, with extreme reduction of the gametophyte to a microscopic dependent structure",
+                                "Total loss of the sporophyte generation",
+                                "Enlargement of the gametophyte until it becomes a giant tree",
+                                "Cessation of all sexual reproduction"
+                            ],
+                            "correct": 0,
+                            "explanation": "Vascular plant evolution showcases the dominance of the diploid sporophyte (trees, herbs), reducing gametophytes to microscopic structures (pollen and embryo sacs)."
+                        },
+                        {
+                            "question": "During which phase of Meiosis I do homologous chromosomes pair up in synapsis and exchange reciprocal genetic segments via crossing-over?",
+                            "options": [
+                                "Prophase I",
+                                "Metaphase II",
+                                "Anaphase I",
+                                "Telophase II"
+                            ],
+                            "correct": 0,
+                            "explanation": "Crossing-over occurs during Prophase I at points called chiasmata, creating novel recombinant combinations of maternal and paternal alleles."
+                        },
+                        {
+                            "question": "What multicellular female reproductive structure produces and protects the egg cell in mosses, ferns, and gymnosperms?",
+                            "options": [
+                                "Archegonium",
+                                "Antheridium",
+                                "Sporangium",
+                                "Pollen tube"
+                            ],
+                            "correct": 0,
+                            "explanation": "The archegonium is the multicellular female gametangium that produces a single non-motile egg at the base of a flask-shaped neck."
+                        },
+                        {
+                            "question": "What multicellular male reproductive structure produces flagellated sperm in bryophytes and seedless vascular plants?",
+                            "options": [
+                                "Antheridium",
+                                "Archegonium",
+                                "Stamen",
+                                "Sorus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Antheridia are the multicellular male gametangia producing swimming, flagellated sperm cells that require free water to swim to archegonia."
+                        },
+                        {
+                            "question": "During which subphase of the plant cell cycle is chromosomal DNA accurately replicated?",
+                            "options": [
+                                "S phase (Synthesis phase)",
+                                "G1 phase",
+                                "G2 phase",
+                                "M phase"
+                            ],
+                            "correct": 0,
+                            "explanation": "DNA replication takes place during the S (synthesis) phase of interphase, duplicating each chromosome into two identical sister chromatids."
+                        },
+                        {
+                            "question": "In flowering plants, the male microgametophyte is reduced to a microscopic structure containing just 2 or 3 cells, known as a:",
+                            "options": [
+                                "Pollen grain",
+                                "Embryo sac",
+                                "Sporangium",
+                                "Zygote"
+                            ],
+                            "correct": 0,
+                            "explanation": "An angiosperm pollen grain is the immature male microgametophyte, consisting of a vegetative tube cell and a generative cell."
+                        },
+                        {
+                            "question": "What is the ploidy level of a plant spore versus a plant zygote?",
+                            "options": [
+                                "Spores are Haploid (1n); Zygotes are Diploid (2n)",
+                                "Spores are Diploid (2n); Zygotes are Haploid (1n)",
+                                "Both are Triploid (3n)",
+                                "Both are Hexaploid (6n)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Spores are haploid products of meiosis ($1n$); fertilization of egg and sperm fuses two haploid gametes into a diploid ($2n$) zygote."
+                        },
+                        {
+                            "question": "Independent assortment of maternal and paternal chromosomes, creating vast numbers of unique gamete combinations, occurs during:",
+                            "options": [
+                                "Metaphase I and Anaphase I of Meiosis",
+                                "Mitotic metaphase",
+                                "Interphase G1",
+                                "Cell plate expansion"
+                            ],
+                            "correct": 0,
+                            "explanation": "During Metaphase I, bivalents align randomly along the equator, segregating paternal and maternal homologs independently in Anaphase I."
+                        },
+                        {
+                            "question": "Which cellular structure coordinates the transport and fusion of Golgi vesicles to construct the new cell plate during plant cytokinesis?",
+                            "options": [
+                                "The Phragmoplast",
+                                "The Tonoplast",
+                                "The Casparian strip",
+                                "The Centrosome"
+                            ],
+                            "correct": 0,
+                            "explanation": "The phragmoplast is an array of parallel microtubules and actin microfilaments that guides secretory Golgi vesicles to the cell plate."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_13",
+            "title": "Chapter 13: Patterns of Inheritance",
+            "description": "Mendelian genetics in plants, laws of segregation and independent assortment, monohybrid/dihybrid crosses, and non-Mendelian inheritance.",
+            "activities": [
+                {
+                    "id": "act_bot_13_lesson",
+                    "type": "page",
+                    "title": "Module 13.1: Principles of Plant Genetics",
+                    "completed": true,
+                    "content": "### 1. Gregor Mendel and the Garden Pea (Pisum sativum)\nGregor Mendel formulated the foundational laws of inheritance in the 1860s using garden peas. *Pisum sativum* was an ideal model:\n- Naturally self-pollinating, ensuring true-breeding parental lines.\n- Easily cross-pollinated artificially by removing immature anthers.\n- Exhibited distinct binary qualitative traits (tall vs. dwarf stems, purple vs. white flowers, round vs. wrinkled seeds, yellow vs. green cotyledons).\n\n### 2. Mendel's Laws of Inheritance\n- **The Principle of Uniformity:** Crossing two true-breeding parents differing in one trait ($TT \\times tt$) yields $F_1$ offspring displaying only the **dominant** phenotype ($Tt$).\n- **The Law of Segregation:** During gamete formation, the two alleles of a gene separate so that each gamete carries only one allele. Selfing the $F_1$ generation ($Tt \\times Tt$) produces an $F_2$ phenotypic ratio of **3:1** (and a genotypic ratio of $1\\text{ }TT : 2\\text{ }Tt : 1\\text{ }tt$).\n- **The Law of Independent Assortment:** Alleles of two or more different gene pairs assort independently into gametes, provided they reside on different chromosomes. A dihybrid cross ($RrYy \\times RrYy$) yields a classic **9:3:3:1** phenotypic ratio in the $F_2$ generation.\n\n### 3. Non-Mendelian Genetic Patterns in Plants\n- **Incomplete Dominance:** The heterozygote displays an intermediate phenotype between the two homozygotes (e.g., crossing red snapdragons $C^R C^R$ with white $C^W C^W$ yields 100% pink $C^R C^W$ flowers; $F_2$ ratio is 1:2:1).\n- **Codominance:** Both alleles are simultaneously expressed without blending.\n- **Polygenic Inheritance:** Multiple independent genes exert additive effects on a continuous quantitative trait (e.g., wheat kernel color, plant height, crop yield).\n- **Gene Linkage and Genetic Mapping:** Genes located close together on the same chromosome do not assort independently; recombination frequencies (crossing-over) allow mapping of relative gene distances in centimorgans (cM).\n- **Maternal Extranuclear (Cytoplasmic) Inheritance:** Chloroplast and mitochondrial genomes are transmitted almost exclusively through the maternal egg cytoplasm (e.g., leaf variegation in four-o'clocks, Mirabilis jalapa)."
+                },
+                {
+                    "id": "quiz_bot_13",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 13 Checkpoint: Mendelian Plant Genetics & Inheritance Patterns",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Why was the garden pea (Pisum sativum) an exceptionally advantageous model organism for Gregor Mendel's genetic investigations?",
+                            "options": [
+                                "It was naturally self-pollinating with easily manipulable flower parts, short generation times, and clear binary qualitative traits",
+                                "Pea plants reproduce only once every 50 years",
+                                "Pea plants lack chromosomes",
+                                "Peas reproduce strictly through asexual cloning"
+                            ],
+                            "correct": 0,
+                            "explanation": "Peas feature self-fertilization, high fertility, distinct alternative traits (e.g., tall/dwarf, purple/white), and permit controlled artificial cross-pollination."
+                        },
+                        {
+                            "question": "In Mendel's monohybrid crosses, crossing true-breeding purple-flowered peas (PP) with true-breeding white-flowered peas (pp) produced an F1 generation that was:",
+                            "options": [
+                                "100% purple-flowered heterozygotes (Pp)",
+                                "100% white-flowered",
+                                "50% purple and 50% white",
+                                "100% pink"
+                            ],
+                            "correct": 0,
+                            "explanation": "All $F_1$ offspring receive a dominant P allele from the purple parent and a recessive p allele from the white parent, displaying the dominant purple phenotype."
+                        },
+                        {
+                            "question": "When Mendel allowed the heterozygous F1 plants (Pp) to self-pollinate, what phenotypic ratio appeared in the resulting F2 generation?",
+                            "options": [
+                                "3 Dominant (Purple) to 1 Recessive (White)",
+                                "9:3:3:1",
+                                "1:1",
+                                "1:2:1 exclusively white"
+                            ],
+                            "correct": 0,
+                            "explanation": "Segregation of alleles produces an $F_2$ genotypic ratio of 1 PP : 2 Pp : 1 pp, manifesting as a 3:1 dominant-to-recessive phenotypic ratio."
+                        },
+                        {
+                            "question": "Mendel's Law of Segregation states that:",
+                            "options": [
+                                "The two alleles for a heritable trait separate during gamete formation so that each gamete carries only one allele for each gene",
+                                "All genes on the same chromosome are inherited together forever",
+                                "Recessive traits can never reappear in future generations",
+                                "Genes are physically destroyed after fertilization"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Law of Segregation reflects homologous chromosome separation during Anaphase I of meiosis, distributing one allele of each gene into each gamete."
+                        },
+                        {
+                            "question": "In a dihybrid cross between two individuals heterozygous for two unlinked traits ($RrYy \\times RrYy$), what phenotypic ratio is expected in the offspring?",
+                            "options": [
+                                "9:3:3:1",
+                                "3:1",
+                                "1:1:1:1",
+                                "15:1"
+                            ],
+                            "correct": 0,
+                            "explanation": "Independent assortment of two unlinked heterozygous traits produces a classic 9 (dominant-dominant) : 3 (dominant-recessive) : 3 (recessive-dominant) : 1 (recessive-recessive) ratio."
+                        },
+                        {
+                            "question": "When crossing a true-breeding red snapdragon ($C^R C^R$) with a true-breeding white snapdragon ($C^W C^W$), all F1 offspring have pink flowers ($C^R C^W$). This illustrates:",
+                            "options": [
+                                "Incomplete Dominance",
+                                "Codominance",
+                                "Epistasis",
+                                "Pleiotropy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Incomplete dominance occurs when neither allele is fully dominant; the heterozygous phenotype is an intermediate blend between the two homozygous parental phenotypes."
+                        },
+                        {
+                            "question": "Continuous quantitative variation in plant traits, such as wheat grain color or plant height governed by the additive effects of multiple independent genes, is termed:",
+                            "options": [
+                                "Polygenic Inheritance",
+                                "Complete dominance",
+                                "Mendelian monohybridism",
+                                "Cytoplasmic segregation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Polygenic traits result from the additive contributions of multiple gene loci, producing a continuous bell-shaped distribution of phenotypes in a population."
+                        },
+                        {
+                            "question": "Why do two genes located very close together on the same chromosome fail to obey Mendel's Law of Independent Assortment?",
+                            "options": [
+                                "They exhibit Gene Linkage and tend to be inherited together unless separated by crossing-over",
+                                "They destroy each other during meiosis",
+                                "They lack DNA nucleotides",
+                                "They mutate into RNA during gamete formation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Linked genes reside on the same physical chromosome DNA molecule; they travel together into gametes unless reciprocal crossing-over breaks the linkage."
+                        },
+                        {
+                            "question": "Variegated leaves in four-o'clock plants (Mirabilis jalapa), showing patches of white and green tissue, are inherited through which non-Mendelian mechanism?",
+                            "options": [
+                                "Maternal cytoplasmic inheritance of defective chloroplasts via the egg cell",
+                                "Y-linked chromosomal inheritance",
+                                "Bacterial infection of roots",
+                                "Pollen tube nuclear dominance"
+                            ],
+                            "correct": 0,
+                            "explanation": "Plastids are inherited maternally through the cytoplasm of the egg; defective chloroplasts segregate randomly during embryonic mitosis, creating variegated sectors."
+                        },
+                        {
+                            "question": "A plant geneticist crosses a plant displaying a dominant phenotype with a homozygous recessive individual to determine if the dominant plant is homozygous or heterozygous. This cross is a:",
+                            "options": [
+                                "Testcross",
+                                "Dihybrid cross",
+                                "Monohybrid selfing",
+                                "Reciprocal diallel"
+                            ],
+                            "correct": 0,
+                            "explanation": "A testcross pairs an individual of unknown genotype exhibiting the dominant phenotype ($P_-$) with a homozygous recessive tester ($pp$) to reveal the genotype."
+                        },
+                        {
+                            "question": "A single gene that exerts multiple, seemingly unrelated phenotypic effects across different plant organs illustrates:",
+                            "options": [
+                                "Pleiotropy",
+                                "Polyploidy",
+                                "Codominance",
+                                "Incomplete penetrance"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pleiotropy describes a genetic situation where a single mutation or gene locus alters multiple distinct physiological or morphological characteristics."
+                        },
+                        {
+                            "question": "When one gene locus masks or alters the phenotypic expression of a completely separate gene locus, the genetic phenomenon is called:",
+                            "options": [
+                                "Epistasis",
+                                "Codominance",
+                                "Polyploidy",
+                                "Incomplete dominance"
+                            ],
+                            "correct": 0,
+                            "explanation": "Epistasis occurs when the phenotypic expression of one gene depends on or is masked by alleles at a second independent locus."
+                        },
+                        {
+                            "question": "What map unit is defined as a 1% recombination frequency between two linked gene loci on a chromosome?",
+                            "options": [
+                                "Centimorgan (cM)",
+                                "Nanometer",
+                                "Base pair",
+                                "Kilodalton"
+                            ],
+                            "correct": 0,
+                            "explanation": "One centimorgan (cM) or map unit equals a 1% frequency of crossing-over (recombination) occurring between two gene loci during meiosis."
+                        },
+                        {
+                            "question": "An organism that possesses two identical alleles for a specific gene locus (e.g., TT or tt) is described as:",
+                            "options": [
+                                "Homozygous",
+                                "Heterozygous",
+                                "Hemizygous",
+                                "Aneuploid"
+                            ],
+                            "correct": 0,
+                            "explanation": "Homozygous individuals carry two identical alleles at a given gene locus, whereas heterozygotes carry two different alleles."
+                        },
+                        {
+                            "question": "The observable physical, anatomical, and physiological properties of a plant resulting from the interaction of its genetic makeup with the environment is its:",
+                            "options": [
+                                "Phenotype",
+                                "Genotype",
+                                "Karyotype",
+                                "Allele"
+                            ],
+                            "correct": 0,
+                            "explanation": "The phenotype is the expressed physical reality of an organism, shaped by its underlying genetic composition (genotype) and environmental influences."
+                        },
+                        {
+                            "question": "If a homozygous tall plant with yellow seeds ($TTYY$) is crossed with a homozygous dwarf plant with green seeds ($ttyy$), what will be the genotype of all F1 progeny?",
+                            "options": [
+                                "TtYy",
+                                "TTYY",
+                                "ttyy",
+                                "TTYy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Each $F_1$ plant receives $T$ and $Y$ alleles from one parent and $t$ and $y$ alleles from the other, yielding 100% dihybrid heterozygous genotypes ($TtYy$)."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_14",
+            "title": "Chapter 14: The Molecular Basis of Inheritance",
+            "description": "DNA structure, semiconservative replication, transcription, RNA processing, translation of genetic code, and regulation of plant gene expression.",
+            "activities": [
+                {
+                    "id": "act_bot_14_lesson",
+                    "type": "page",
+                    "title": "Module 14.1: Molecular Biology & Gene Expression in Plants",
+                    "completed": true,
+                    "content": "### 1. Plant DNA Architecture\nThe genetic instructions for plant life reside within three distinct cellular compartments: the **nucleus**, the **chloroplast**, and the **mitochondrion**:\n- **Nuclear DNA:** Arranged in linear chromosomes wrapped around basic **histone** proteins to form nucleosomes.\n- **Double Helix Structure:** Antiparallel strands composed of deoxyribose sugars, phosphate groups, and four nitrogenous bases: Adenine ($A$), Thymine ($T$), Guanine ($G$), and Cytosine ($C$). Base pairing follows Chargaff's rules: $A = T$ (two hydrogen bonds) and $G equiv C$ (three hydrogen bonds).\n\n### 2. Semiconservative DNA Replication\nOccurs during the S phase of interphase:\n- **Helicase** unzips the double helix at replication origins.\n- **DNA Polymerase III** synthesizes new complementary strands in the $5' \\rightarrow 3'$ direction:\n  - *Leading Strand:* Synthesized continuously toward the replication fork.\n  - *Lagging Strand:* Synthesized discontinuously as short **Okazaki fragments**, primed by RNA primers (primase) and sealed by **DNA ligase**.\n\n### 3. Transcription in Plants\nThe synthesis of an RNA molecule from a DNA template:\n- **RNA Polymerase II** binds to promoter sequences (e.g., TATA box), regulated by plant-specific **transcription factors**.\n- Synthesizes pre-mRNA in the $5' \\rightarrow 3'$ direction.\n- **Post-Transcriptional Processing (in Nucleus):**\n  1. *5' Capping:* Addition of a 7-methylguanosine cap to protect against exonucleases.\n  2. *Polyadenylation:* Addition of a poly-A tail (100-200 adenines) to the 3' end.\n  3. *RNA Splicing:* **Spliceosomes** excise non-coding **introns** and ligate coding **exons**. Alternative splicing allows a single plant gene to yield multiple distinct protein isoforms.\n\n### 4. Translation and the Genetic Code\nOccurs in the cytosol, on rough endoplasmic reticulum, or inside plastids and mitochondria:\n- **Ribosomes:** 80S ribosomes in the cytosol (60S and 40S subunits); 70S ribosomes in chloroplasts and mitochondria.\n- **tRNA (Transfer RNA):** Matches specific amino acids to mRNA codons via complementary anticodon loops.\n- **Stages:**\n  - *Initiation:* Small ribosomal subunit binds mRNA 5' cap and locates the start codon (**AUG**, encoding methionine).\n  - *Elongation:* Peptidyl transferase forms peptide bonds between amino acids in the A and P sites of the ribosome.\n  - *Termination:* Stop codons (UAA, UAG, UGA) recruit release factors, releasing the completed polypeptide."
+                },
+                {
+                    "id": "quiz_bot_14",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 14 Checkpoint: Molecular Genetics, Transcription & Translation",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In the Watson-Crick double helix model of DNA, what nitrogenous base pairs complementarily with Adenine (A) via two hydrogen bonds?",
+                            "options": [
+                                "Thymine (T)",
+                                "Cytosine (C)",
+                                "Guanine (G)",
+                                "Uracil (U)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Adenine pairs specifically with Thymine via two hydrogen bonds in DNA (or with Uracil in RNA), whereas Guanine pairs with Cytosine via three hydrogen bonds."
+                        },
+                        {
+                            "question": "DNA replication is described as 'semiconservative' because:",
+                            "options": [
+                                "Each newly replicated double helix consists of one original conserved parental strand and one newly synthesized daughter strand",
+                                "Only half of the plant's chromosomes are copied during S phase",
+                                "DNA molecules are completely broken down into individual atoms before rebuilding",
+                                "DNA replication requires zero energy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Meselson and Stahl demonstrated semiconservative replication: each daughter duplex retains one intact template strand from the parent molecule."
+                        },
+                        {
+                            "question": "In what direction does DNA polymerase synthesize a new complementary DNA strand during replication?",
+                            "options": [
+                                "Exclusively in the 5' to 3' direction",
+                                "Exclusively in the 3' to 5' direction",
+                                "Randomly in both directions simultaneously",
+                                "From the middle of the chromosome outward"
+                            ],
+                            "correct": 0,
+                            "explanation": "DNA polymerases can add new nucleotides only to the free 3'-OH group of an existing primer, elongating strictly from the 5' end toward the 3' end."
+                        },
+                        {
+                            "question": "During lagging-strand DNA replication, what enzyme joins and covalently seals the discontinuous Okazaki fragments together?",
+                            "options": [
+                                "DNA Ligase",
+                                "DNA Helicase",
+                                "RNA Polymerase",
+                                "Amylase"
+                            ],
+                            "correct": 0,
+                            "explanation": "DNA ligase catalyzes the formation of phosphodiester bonds between adjacent Okazaki fragments, creating a continuous sugar-phosphate backbone."
+                        },
+                        {
+                            "question": "What is the primary enzyme responsible for synthesizing messenger RNA (mRNA) from a DNA gene template during transcription?",
+                            "options": [
+                                "RNA Polymerase II",
+                                "DNA Polymerase I",
+                                "Ribosome",
+                                "Reverse transcriptase"
+                            ],
+                            "correct": 0,
+                            "explanation": "RNA Polymerase II transcribes protein-coding genes into pre-mRNA in eukaryotic plant nuclei."
+                        },
+                        {
+                            "question": "What universal start codon on an mRNA transcript signals the initiation of polypeptide translation by the ribosome?",
+                            "options": [
+                                "AUG (encoding Methionine)",
+                                "UAA",
+                                "UGA",
+                                "CCC"
+                            ],
+                            "correct": 0,
+                            "explanation": "AUG is the universal start codon; it defines the translational reading frame and codes for the amino acid methionine."
+                        },
+                        {
+                            "question": "During eukaryotic pre-mRNA processing in plant cell nuclei, non-coding intervening sequences that are excised and discarded are called:",
+                            "options": [
+                                "Introns",
+                                "Exons",
+                                "Codons",
+                                "Promoters"
+                            ],
+                            "correct": 0,
+                            "explanation": "Introns are non-coding gene segments spliced out of pre-mRNA; the remaining coding sequences (exons) are joined together to form mature mRNA."
+                        },
+                        {
+                            "question": "What modification is added to the 3' end of a newly transcribed eukaryotic plant mRNA to stabilize it against degradation and assist export to the cytoplasm?",
+                            "options": [
+                                "A Poly-A Tail (chain of adenine nucleotides)",
+                                "A 5' methylguanosine cap",
+                                "A lipid bilayer",
+                                "A cellulose wall"
+                            ],
+                            "correct": 0,
+                            "explanation": "Polyadenylation adds a tail of 100-250 adenine residues to the 3' end, protecting the transcript from enzymatic degradation and aiding ribosomal binding."
+                        },
+                        {
+                            "question": "What molecular structure delivers specific amino acids to the translating ribosome by matching its three-base anticodon to the mRNA codon?",
+                            "options": [
+                                "Transfer RNA (tRNA)",
+                                "Ribosomal RNA (rRNA)",
+                                "Small interfering RNA (siRNA)",
+                                "DNA ligase"
+                            ],
+                            "correct": 0,
+                            "explanation": "Transfer RNA (tRNA) molecules carry a specific amino acid at their 3' acceptor stem and pair their anticodon with the complementary mRNA codon."
+                        },
+                        {
+                            "question": "Besides the nucleus, which two plant organelles possess their own circular DNA genomes and replicate autonomously?",
+                            "options": [
+                                "Chloroplasts and Mitochondria",
+                                "Vacuoles and Peroxisomes",
+                                "Golgi apparatus and Endoplasmic reticulum",
+                                "Cell walls and Ribosomes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Due to their endosymbiotic prokaryotic origins, chloroplasts (cpDNA) and mitochondria (mtDNA) retain circular DNA genomes encoding essential proteins."
+                        },
+                        {
+                            "question": "What biological phenomenon allows a single pre-mRNA transcript in plants to produce multiple distinct protein variants with different functions?",
+                            "options": [
+                                "Alternative Splicing",
+                                "Gene duplication",
+                                "Semiconservative replication",
+                                "Polyadenylation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Alternative splicing selectively includes or excludes different exons during RNA processing, expanding the functional proteome from a limited gene set."
+                        },
+                        {
+                            "question": "What specific base is found in RNA molecules in place of the Thymine (T) found in DNA?",
+                            "options": [
+                                "Uracil (U)",
+                                "Cytosine (C)",
+                                "Guanine (G)",
+                                "Adenine (A)"
+                            ],
+                            "correct": 0,
+                            "explanation": "RNA contains Uracil (U) instead of Thymine (T); Uracil lacks a methyl group on its pyrimidine ring and pairs with Adenine."
+                        },
+                        {
+                            "question": "Proteins that bind to specific promoter or enhancer DNA sequences to stimulate or repress the transcription of plant genes are called:",
+                            "options": [
+                                "Transcription Factors",
+                                "Ribozymes",
+                                "Histones",
+                                "Okazaki fragments"
+                            ],
+                            "correct": 0,
+                            "explanation": "Transcription factors are sequence-specific DNA-binding proteins that modulate the recruitment of RNA polymerase, controlling gene expression."
+                        },
+                        {
+                            "question": "What is the structural unit of eukaryotic chromatin, consisting of 146 base pairs of DNA wrapped around an octamer of histone proteins?",
+                            "options": [
+                                "A Nucleosome",
+                                "A Centromere",
+                                "A Telomere",
+                                "A Ribosome"
+                            ],
+                            "correct": 0,
+                            "explanation": "Nucleosomes are the fundamental 'beads-on-a-string' packaging units of eukaryotic chromatin, composed of DNA coiled around histone protein cores."
+                        },
+                        {
+                            "question": "The chemical process of adding methyl groups directly to cytosine bases in plant DNA, typically silencing gene expression without altering the base sequence, is:",
+                            "options": [
+                                "DNA Methylation (Epigenetics)",
+                                "Alternative Splicing",
+                                "Semiconservative replication",
+                                "Polyadenylation"
+                            ],
+                            "correct": 0,
+                            "explanation": "DNA methylation is an epigenetic mark that condenses chromatin and represses transcription, playing key roles in plant development and transposon silencing."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_15",
+            "title": "Chapter 15: Genetic Frontiers",
+            "description": "Recombinant DNA technology, Agrobacterium tumefaciens and the Ti plasmid, genetically modified (GM) crops, gene editing (CRISPR), and bioethics.",
+            "activities": [
+                {
+                    "id": "act_bot_15_lesson",
+                    "type": "page",
+                    "title": "Module 15.1: Plant Biotechnology & Genetic Engineering",
+                    "completed": true,
+                    "content": "### 1. Recombinant DNA Technology and Plant Transformation\nPlant biotechnology manipulates plant genomes to enhance agronomic productivity, nutritional quality, and stress resilience:\n- **Restriction Endonucleases:** Bacterial enzymes that cleave DNA at specific palindromic recognition sequences, generating 'sticky ends'.\n- **Agrobacterium tumefaciens Vector System:**\n  - *Natural Genetic Engineer:* A soil bacterium that infects wounded plants, transferring a segment of its **Tumor-Inducing (Ti) Plasmid**—the **T-DNA** (Transfer DNA)—directly into the host plant's nuclear genome.\n  - *Engineered Plasmids:* Molecular biologists disarm the Ti plasmid by replacing tumor-causing genes with genes of interest (e.g., insect resistance, drought tolerance) and selectable marker genes (e.g., antibiotic resistance or herbicide tolerance).\n- **Biolistics (Gene Gun):** Microscopic gold or tungsten microprojectiles coated with recombinant DNA fired at high velocity into plant cells or embryogenic tissue, particularly useful for transforming monocot cereal crops.\n\n### 2. Major Commercial Transgenic Traits (GM Crops)\n- **Bt Crops (Insect Resistance):** Cotton and maize engineered with genes from *Bacillus thuringiensis* encoding crystal **Cry endotoxins**. When ingested by corn borers or bollworms, gut alkaline enzymes activate the toxin, puncturing the insect larval gut and providing targeted pest control without broad-spectrum chemical insecticides.\n- **Roundup Ready Crops (Herbicide Tolerance):** Crops engineered with a bacterial 5-enolpyruvylshikimate-3-phosphate (EPSP) synthase gene immune to glyphosate (the active ingredient in Roundup herbicide). Allows farmers to spray fields with herbicide to kill weeds without injuring the crop.\n- **Golden Rice (Biofortification):** Genetically modified rice producing **beta-carotene** (provitamin A) in the edible grain endosperm to combat childhood blindness and vitamin A deficiency in developing nations.\n\n### 3. Precision Genome Editing: CRISPR/Cas9\n- Discovered as an adaptive immune system in bacteria.\n- Consists of a **Cas9 endonuclease** guided by a synthetic single guide RNA (**sgRNA**) designed to match a target 20-nucleotide plant genomic sequence.\n- Generates precise double-strand DNA breaks, triggering error-prone repair (knockouts) or precise gene insertion without leaving foreign bacterial vector sequences in the plant."
+                },
+                {
+                    "id": "quiz_bot_15",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 15 Checkpoint: Plant Genetic Engineering & Biotechnology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which soil bacterium is widely utilized in biotechnology as a natural vector to insert foreign genes into plant genomes via its Ti (Tumor-Inducing) plasmid?",
+                            "options": [
+                                "Agrobacterium tumefaciens",
+                                "Escherichia coli",
+                                "Rhizobium leguminosarum",
+                                "Bacillus subtilis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Agrobacterium tumefaciens transfers its T-DNA from the Ti plasmid into the host plant chromosome, making it the premier vector for plant genetic engineering."
+                        },
+                        {
+                            "question": "Genetically modified 'Bt Corn' and 'Bt Cotton' produce insecticidal proteins derived from which organism to defend against caterpillar pests?",
+                            "options": [
+                                "The soil bacterium Bacillus thuringiensis",
+                                "The venom of scorpions",
+                                "Poisonous mushrooms",
+                                "Pitcher plants"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bt crops contain genes from Bacillus thuringiensis encoding Cry endotoxins that selectively bind to receptor proteins in insect larval midguts, killing pests."
+                        },
+                        {
+                            "question": "What agricultural herbicide resistance was engineered into 'Roundup Ready' crops (soybeans, corn, canola)?",
+                            "options": [
+                                "Resistance to glyphosate (which inhibits the EPSP synthase enzyme in the aromatic amino acid pathway)",
+                                "Resistance to 2,4-D exclusively",
+                                "Resistance to excessive nitrogen fertilizers",
+                                "Immunity to salt water"
+                            ],
+                            "correct": 0,
+                            "explanation": "Roundup Ready crops possess a bacterial EPSP synthase enzyme that is resistant to inhibition by glyphosate, allowing weed spraying without crop damage."
+                        },
+                        {
+                            "question": "'Golden Rice' was genetically engineered to address global childhood malnutrition by synthesizing which nutrient within the edible rice endosperm?",
+                            "options": [
+                                "Beta-carotene (provitamin A)",
+                                "Vitamin C",
+                                "High concentrations of gluten",
+                                "Saturated animal fats"
+                            ],
+                            "correct": 0,
+                            "explanation": "Golden Rice expresses genes for phytoene synthase and carotene desaturase, accumulating beta-carotene to alleviate vitamin A deficiency and blindness."
+                        },
+                        {
+                            "question": "The 'gene gun' (biolistics) method of plant transformation works by:",
+                            "options": [
+                                "Firing microscopic gold or tungsten particles coated with DNA into plant tissue at high velocity",
+                                "Using ultrasound to rupture roots",
+                                "Applying electrical batteries to mature tree bark",
+                                "Injecting DNA with ordinary hypodermic needles"
+                            ],
+                            "correct": 0,
+                            "explanation": "Biolistics accelerates DNA-coated heavy metal microprojectiles with pressurized gas, penetrating plant cell walls to deliver genetic constructs."
+                        },
+                        {
+                            "question": "What revolutionary genome-editing technology utilizes a guide RNA to direct the Cas9 endonuclease enzyme to create precise cuts in targeted plant DNA sequences?",
+                            "options": [
+                                "CRISPR/Cas9",
+                                "Polymerase Chain Reaction (PCR)",
+                                "Gel electrophoresis",
+                                "Sanger sequencing"
+                            ],
+                            "correct": 0,
+                            "explanation": "CRISPR/Cas9 uses a synthetic single-guide RNA complementary to a target sequence to guide Cas9 endonuclease to generate targeted double-strand breaks."
+                        },
+                        {
+                            "question": "Enzymes that cut double-stranded DNA at specific palindromic nucleotide recognition sequences are called:",
+                            "options": [
+                                "Restriction Endonucleases",
+                                "DNA Ligases",
+                                "DNA Polymerases",
+                                "Amylases"
+                            ],
+                            "correct": 0,
+                            "explanation": "Restriction enzymes recognize and cleave specific palindromic DNA sequences, producing sticky or blunt ends essential for molecular cloning."
+                        },
+                        {
+                            "question": "What is the primary ecological risk associated with the widespread cultivation of herbicide-tolerant (Roundup Ready) crops?",
+                            "options": [
+                                "Intense over-application of glyphosate driving the natural selection of resistant 'superweeds'",
+                                "Immediate extinction of all honeybees worldwide",
+                                "Spontaneous combustion of corn fields",
+                                "Permanent loss of soil nitrogen"
+                            ],
+                            "correct": 0,
+                            "explanation": "Constant spraying of glyphosate exerts extreme selective pressure, selecting for glyphosate-resistant weed populations ('superweeds') across farmlands."
+                        },
+                        {
+                            "question": "A plant possessing genetic material that has been experimentally introduced from an unrelated foreign species is described as:",
+                            "options": [
+                                "Transgenic (Genetically Modified)",
+                                "Haploid",
+                                "Polygenic",
+                                "Etiolated"
+                            ],
+                            "correct": 0,
+                            "explanation": "A transgenic organism contains artificially introduced recombinant genes from another species integrated into its permanent genome."
+                        },
+                        {
+                            "question": "Why are marker genes (such as antibiotic or herbicide resistance genes) included in recombinant DNA constructs used to transform plants?",
+                            "options": [
+                                "To allow researchers to selectively kill untransformed cells and identify the rare cells that successfully incorporated the foreign gene",
+                                "To make the plant grow twice as tall",
+                                "To color the leaves blue",
+                                "To attract earthworms to the soil"
+                            ],
+                            "correct": 0,
+                            "explanation": "Selectable markers confer resistance to an agent (e.g., kanamycin), allowing only successfully transformed plant cells to survive on selective media."
+                        },
+                        {
+                            "question": "What technique allows agricultural scientists to rapidly amplify millions of copies of a specific plant DNA fragment in a test tube within hours?",
+                            "options": [
+                                "Polymerase Chain Reaction (PCR)",
+                                "Tissue culturing",
+                                "Grafting",
+                                "Stratification"
+                            ],
+                            "correct": 0,
+                            "explanation": "PCR uses heat-stable Taq polymerase and cycling temperatures (denaturation, annealing, extension) to amplify targeted DNA regions exponentially."
+                        },
+                        {
+                            "question": "What is an important potential environmental benefit of cultivating insect-resistant Bt crops?",
+                            "options": [
+                                "A dramatic reduction in the spraying of broad-spectrum chemical insecticides into the environment",
+                                "Complete elimination of all weeds without plowing",
+                                "No need to ever irrigate crops",
+                                "Rapid doubling of soil phosphorus levels"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bt crops produce their own targeted defense proteins, substantially reducing the volume and frequency of toxic synthetic chemical insecticides sprayed."
+                        },
+                        {
+                            "question": "The regeneration of an entire fertile adult plant from a single cultured somatic cell in a petri dish demonstrates which botanical principle?",
+                            "options": [
+                                "Cellular Totipotency",
+                                "Apical dominance",
+                                "Dormancy",
+                                "Epistasis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Totipotency is the inherent ability of a single differentiated plant cell to retain the complete genetic blueprint and regenerate into a whole, functional organism."
+                        },
+                        {
+                            "question": "CRISPR-edited crops are distinguished regulatory-wise from traditional transgenic GMOs in many jurisdictions because:",
+                            "options": [
+                                "CRISPR can introduce targeted mutations or deletions without inserting any permanent foreign DNA from another species",
+                                "CRISPR crops are completely immune to drought",
+                                "CRISPR works only on wild weeds, never crops",
+                                "CRISPR eliminates all chromosomes"
+                            ],
+                            "correct": 0,
+                            "explanation": "CRISPR can induce targeted gene knockouts without integrating foreign bacterial or viral vector DNA, leading several nations to regulate them like conventional breeding."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_16",
+            "title": "Chapter 16: Continuity through Evolution",
+            "description": "Darwinian natural selection in plants, evidence of plant evolution, homologous vs analogous structures, transitional plant fossils, and adaptation.",
+            "activities": [
+                {
+                    "id": "act_bot_16_lesson",
+                    "type": "page",
+                    "title": "Module 16.1: Evolutionary Mechanisms in the Plant Kingdom",
+                    "completed": true,
+                    "content": "### 1. Darwinian Natural Selection in Plants\nCharles Darwin established that evolution proceeds via natural selection based on four core observations:\n1. **Overproduction:** Plants produce far more seeds and progeny than can possibly survive on limited environmental resources.\n2. **Genetic Variation:** Individuals within a population exhibit heritable phenotypic variations in morphology, physiological tolerances, and disease resistance.\n3. **Differential Survival and Reproduction:** Environmental pressures (drought, herbivory, soil salinity, light competition) favor individuals with advantageous traits, enabling them to survive and produce more viable seeds.\n4. **Adaptation:** Over generations, favorable heritable alleles increase in frequency, shaping the population to its ecological niche.\n\n### 2. Evidence for Plant Evolution\n- **The Fossil Record:** Paleobotanical evidence tracks major terrestrial transitions:\n  - Ordovician (~470 Ma): First fossilized land plant spores (trilete spores) showing protective sporopollenin coats.\n  - Silurian (~425 Ma): Earliest vascular plant megafossils (*Cooksonia*), showing simple dichotomously branching leafless axes with terminal sporangia.\n  - Devonian (~380 Ma): Evolution of vascular roots, leaves (**microphylls** and **megaphylls**), secondary wood, and the earliest seeds (*Elkinsia*).\n  - Carboniferous (~300 Ma): Colossal swamp forests of lycophyte trees (*Lepidodendron*) and giant horsetails (*Calamites*) forming modern coal deposits.\n- **Homologous vs. Analogous Structures:**\n  - *Homologous Structures:* Anatomical features derived from a common evolutionary ancestor despite differing contemporary functions (e.g., the leaves of an oak, the defensive spines of a cactus, the floral petals of an orchid, and the pitcher traps of *Nepenthes* are all homologous modified leaves).\n  - *Analogous Structures:* Morphologically similar structures resulting from **convergent evolution** in similar environments without close common ancestry (e.g., the succulent, spiny desert stems of New World Cactaceae and Old World Euphorbiaceae).\n- **Comparative Molecular Systematics:** DNA sequence comparisons of conserved chloroplast genes (such as *rbcL* encoding the large subunit of Rubisco) construct phylogenetic trees mapping evolutionary divergences across land plants."
+                },
+                {
+                    "id": "quiz_bot_16",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 16 Checkpoint: Evolutionary Theory, Fossil Evidence & Plant Adaptations",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "According to Charles Darwin's theory of evolution by natural selection, what is the primary mechanism driving evolutionary change in plant populations?",
+                            "options": [
+                                "Differential reproductive success of individuals possessing heritable traits that enhance survival in their environment",
+                                "Intentional genetic modifications made by individual plants during their lifetime",
+                                "The inheritance of acquired physical damage caused by herbivores",
+                                "Spontaneous generation of new plant species from mud"
+                            ],
+                            "correct": 0,
+                            "explanation": "Natural selection operates when heritable variations influence reproductive success; individuals with advantageous adaptations leave more offspring."
+                        },
+                        {
+                            "question": "Cooksonia, discovered in Silurian rock strata dating to over 420 million years ago, is recognized in paleobotany as:",
+                            "options": [
+                                "One of the earliest known macroscopic vascular land plant fossils",
+                                "A giant prehistoric flowering oak tree",
+                                "The first dinosaur fossil",
+                                "An ancient fossilized potato tuber"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cooksonia was a primitive, leafless, rootless vascular plant featuring simple dichotomously branched stems capped by terminal sporangia."
+                        },
+                        {
+                            "question": "The spines of a desert cactus, the climbing tendrils of a pea, and the carnivorous trap of a pitcher plant all develop from modified leaves. These organs are:",
+                            "options": [
+                                "Homologous structures",
+                                "Analogous structures",
+                                "Vestigial enzymes",
+                                "Artificial mutations"
+                            ],
+                            "correct": 0,
+                            "explanation": "Homologous structures share a common ancestral and developmental origin (here, the ancestral leaf), despite having evolved diverse specialized functions."
+                        },
+                        {
+                            "question": "The striking visual resemblance between desert cacti in North America and succulent spurges (Euphorbia) in African deserts is an example of:",
+                            "options": [
+                                "Convergent Evolution (yielding analogous structures)",
+                                "Direct hybridization between continents",
+                                "Identical Mendelian crossing-over",
+                                "Artificial human selection"
+                            ],
+                            "correct": 0,
+                            "explanation": "Convergent evolution occurs when unrelated evolutionary lineages adapt independently to similar arid environmental selection pressures, producing similar succulent forms."
+                        },
+                        {
+                            "question": "What durable, chemically inert biopolymer impregnates the outer walls of plant spores and pollen grains, allowing them to survive for millions of years in fossil beds?",
+                            "options": [
+                                "Sporopollenin",
+                                "Cellulose",
+                                "Starch",
+                                "Chitin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sporopollenin is an extraordinarily resilient biopolymer that shields spores and pollen against desiccation, UV radiation, and microbial decay."
+                        },
+                        {
+                            "question": "Most of Earth's vast commercial coal reserves were formed during which geological period from the compressed remains of giant seedless vascular forests?",
+                            "options": [
+                                "The Carboniferous Period (~300-360 million years ago)",
+                                "The Cambrian Explosion",
+                                "The Pleistocene Ice Age",
+                                "The Jurassic Period"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Carboniferous period featured extensive swamp forests of giant lycophyte trees (Lepidodendron) whose un-decomposed woody biomass formed coal beds."
+                        },
+                        {
+                            "question": "A non-functional or greatly reduced anatomical structure that served an important purpose in an ancestral lineage is termed a:",
+                            "options": [
+                                "Vestigial structure",
+                                "Homologous structure",
+                                "Convergent organ",
+                                "Meristematic defect"
+                            ],
+                            "correct": 0,
+                            "explanation": "Vestigial structures are evolutionary remnants that have lost their primary ancestral ancestral function (e.g., non-photosynthetic scale leaves on underground rhizomes)."
+                        },
+                        {
+                            "question": "Which chloroplast gene, encoding the large subunit of the photosynthetic enzyme Rubisco, is extensively sequenced by plant systematists to infer phylogenetic relationships?",
+                            "options": [
+                                "rbcL",
+                                "Cry1Ac",
+                                "EPSPS",
+                                "p53"
+                            ],
+                            "correct": 0,
+                            "explanation": "The rbcL gene is highly conserved and present in all photosynthetic plants, making it a standard molecular sequence for reconstructing plant phylogeny."
+                        },
+                        {
+                            "question": "What evolutionary innovation in vascular leaves distinguishes broad megaphylls (with branching vein networks) from primitive single-veined microphylls?",
+                            "options": [
+                                "Megaphylls evolved from the flattening (planation) and webbing of entire branched stem systems",
+                                "Megaphylls contain no vascular tissue",
+                                "Megaphylls develop exclusively from root hairs",
+                                "Microphylls are found only on giant flowering trees"
+                            ],
+                            "correct": 0,
+                            "explanation": "The telome theory explains that megaphylls evolved through the overtopping, planation, and webbed tissue expansion of branched photosynthetic stem systems."
+                        },
+                        {
+                            "question": "What was the critical evolutionary advantage of the Seed over primitive free-sporing reproduction in land plant history?",
+                            "options": [
+                                "The seed encases a multicellular dormant embryo and a food supply within a protective coat, eliminating the need for swimming sperm in external water",
+                                "Seeds reproduce without any chromosomes",
+                                "Seeds can only survive under water",
+                                "Seeds eliminated the sporophyte generation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Seeds protect the dormant diploid embryo with a food reserve, allowing reproduction across dry terrestrial habitats without requiring water films for sperm."
+                        },
+                        {
+                            "question": "Artificial selection differs fundamentally from natural selection because in artificial selection:",
+                            "options": [
+                                "Humans deliberately choose which individual plants with desirable traits are bred, directing the evolutionary trajectory",
+                                "Wild predators determine which plants survive",
+                                "Mutations never occur",
+                                "Plants select their own human owners"
+                            ],
+                            "correct": 0,
+                            "explanation": "Artificial selection is driven by human preference (e.g., breeding wild Brassica oleracea into cabbage, broccoli, kale, cauliflower, and kohlrabi)."
+                        },
+                        {
+                            "question": "The geographic distribution of modern and fossil plant taxa across different continents (such as the southern hemisphere Glossopteris flora) supports the theory of:",
+                            "options": [
+                                "Plate Tectonics and Continental Drift (Biogeography)",
+                                "Global volcanic spontaneous creation",
+                                "Artificial plant dispersal by migratory birds in the Silurian",
+                                "Constant static positioning of continents"
+                            ],
+                            "correct": 0,
+                            "explanation": "The distribution of fossil seed fern Glossopteris across South America, Africa, India, Antarctica, and Australia provided prime evidence for the ancient supercontinent Gondwana."
+                        },
+                        {
+                            "question": "What major evolutionary transition occurred approximately 140 million years ago during the early Cretaceous period, fundamentally reshaping terrestrial ecosystems?",
+                            "options": [
+                                "The emergence and explosive radiation of Flowering Plants (Angiosperms)",
+                                "The extinction of all vascular plants",
+                                "The first evolution of green algae in oceans",
+                                "The total loss of all chloroplasts"
+                            ],
+                            "correct": 0,
+                            "explanation": "Angiosperms arose in the early Cretaceous, rapidly diversifying via animal co-pollination and closed carpels to become the dominant plant group on Earth."
+                        },
+                        {
+                            "question": "The evolutionary history and genealogical lineage of relationships among a group of plant organisms is depicted graphically as a:",
+                            "options": [
+                                "Phylogenetic Tree (Cladogram)",
+                                "Punnett Square",
+                                "Normal distribution bell curve",
+                                "Karyotype"
+                            ],
+                            "correct": 0,
+                            "explanation": "A phylogenetic tree or cladogram maps branching evolutionary lineages, common ancestors, and shared derived characteristics (synapomorphies)."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_17",
+            "title": "Chapter 17: The Evolution of Populations and Species",
+            "description": "Hardy-Weinberg equilibrium, microevolution, genetic drift, gene flow, speciation mechanisms, and the unique role of polyploidy in plant evolution.",
+            "activities": [
+                {
+                    "id": "act_bot_17_lesson",
+                    "type": "page",
+                    "title": "Module 17.1: Population Genetics & Speciation Mechanisms",
+                    "completed": true,
+                    "content": "### 1. Population Genetics & Microevolution\nMicroevolution is the change in allele frequencies within a plant population's gene pool across generations:\n- **Hardy-Weinberg Principle:** Allele and genotypic frequencies remain constant ($p^2 + 2pq + q^2 = 1$) under five equilibrium conditions: (1) no mutation, (2) no gene flow (isolation), (3) large population size (no genetic drift), (4) random mating, and (5) no natural selection.\n- **Microevolutionary Forces:**\n  - *Mutation:* The ultimate origin of novel genetic variation.\n  - *Genetic Drift:* Random fluctuations in allele frequencies due to chance sampling error in small populations:\n    - *Bottleneck Effect:* Drastic population reduction due to catastrophes (floods, fires, habitat fragmentation), randomly purging alleles.\n    - *Founder Effect:* A few seeds colonize an isolated island, carrying only a fraction of the parent gene pool.\n  - *Gene Flow:* Transfer of alleles between populations via pollen or seed dispersal.\n  - *Natural Selection:* The only evolutionary force consistently producing adaptive change (stabilizing, directional, or disruptive selection).\n\n### 2. Speciation in Plants\nSpeciation is the evolutionary divergence of reproductive lineages:\n- **Allopatric Speciation:** Geographically isolated populations accumulate genetic differences (via mutation and selection) until reproductive isolating barriers prevent interbreeding upon reunion.\n- **Sympatric Speciation:** Speciation occurring within the same geographic area without physical isolation.\n\n### 3. Polyploidy: The Engine of Plant Speciation\nUnlike animals (where extra chromosome sets are almost universally lethal), **polyploidy** (possessing three or more complete sets of chromosomes, $>3n$) is a primary driver of instant sympatric speciation in plants (~50-70% of all angiosperms have polyploid ancestry):\n- **Autopolyploidy:** An individual receives multiple chromosome sets derived from a single parental species, usually via nondisjunction of chromosomes during gamete formation ($2n$ gamete fuses with $1n$ gamete $\\rightarrow 3n$ sterile triploid; or two $2n$ gametes fuse $\\rightarrow 4n$ fertile autotetraploid). Autotetraploids cannot produce fertile offspring with $2n$ parents, creating instant reproductive isolation.\n- **Allopolyploidy:** Two different species hybridize, followed by chromosome doubling that restores fertile pairing of homologous chromosomes:\n  - *Bread Wheat (Triticum aestivum):* An allohexaploid ($2n = 42$) derived from the sequential hybridization and chromosome doubling of three distinct wild diploid diploid grass species ($AA \\times BB \\rightarrow AABB \\times DD \\rightarrow AABBDD$).\n  - Many premier economic crops (cotton, tobacco, potatoes, strawberries, sugarcane) are allopolyploids, exhibiting **hybrid vigor (heterosis)**, larger cell size, and greater ecological adaptability."
+                },
+                {
+                    "id": "quiz_bot_17",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 17 Checkpoint: Population Genetics, Polyploidy & Speciation",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What genetic condition describes an organism possessing three or more complete sets of chromosomes (e.g., 3n, 4n, 6n), serving as a major mechanism of instant plant speciation?",
+                            "options": [
+                                "Polyploidy",
+                                "Aneuploidy",
+                                "Heterozygosity",
+                                "Transversion"
+                            ],
+                            "correct": 0,
+                            "explanation": "Polyploidy is the possession of multiple complete chromosome sets; it is extraordinarily common in plants and drives rapid sympatric speciation."
+                        },
+                        {
+                            "question": "How does Autopolyploidy differ fundamentally from Allopolyploidy?",
+                            "options": [
+                                "Autopolyploids derive multiple chromosome sets from a single species; Allopolyploids arise through interspecific hybridization between two different species followed by chromosome doubling",
+                                "Autopolyploids occur only in animals; allopolyploids occur only in fungi",
+                                "Autopolyploids have no DNA",
+                                "There is no difference; they are exact synonyms"
+                            ],
+                            "correct": 0,
+                            "explanation": "Autopolyploidy involves genome duplication within one species; allopolyploidy involves interspecific hybridization between two different species followed by genome doubling."
+                        },
+                        {
+                            "question": "Modern commercial bread wheat (Triticum aestivum) is an allohexaploid possessing 42 chromosomes (2n = 42). This means it contains:",
+                            "options": [
+                                "Six complete sets of chromosomes derived from three distinct ancestral wild grass species",
+                                "A single haploid set of chromosomes",
+                                "Zero pairs of homologous chromosomes",
+                                "Forty-two independent gene mutations"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bread wheat is an allohexaploid ($6n$) combining the complete genomes of three distinct diploid wild grass ancestors ($AA, BB, DD$)."
+                        },
+                        {
+                            "question": "In population genetics, what does the Hardy-Weinberg equation ($p^2 + 2pq + q^2 = 1$) describe?",
+                            "options": [
+                                "The expected genotype frequencies in a non-evolving population in genetic equilibrium",
+                                "The speed of pollen tube growth down the style",
+                                "The exact number of seeds produced by an oak tree",
+                                "The rate of transpirational water loss in leaves"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Hardy-Weinberg equation calculates allele and genotype frequencies under theoretical equilibrium conditions where no microevolution is occurring."
+                        },
+                        {
+                            "question": "Random fluctuations in allele frequencies within a small, isolated plant population caused purely by chance events are termed:",
+                            "options": [
+                                "Genetic Drift",
+                                "Natural selection",
+                                "Gene flow",
+                                "Polyploidy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Genetic drift is the random fluctuation of allele frequencies across generations due to sampling errors, operating most powerfully in small populations."
+                        },
+                        {
+                            "question": "When a single stray coconut washes ashore on an isolated volcanic atoll and founds a new island population carrying only a tiny fraction of the mainland genetic diversity, this is:",
+                            "options": [
+                                "The Founder Effect",
+                                "A Population Bottleneck",
+                                "Sympatric speciation",
+                                "Directional selection"
+                            ],
+                            "correct": 0,
+                            "explanation": "The founder effect occurs when a new colony is established by a small number of founders, uncharacteristically skewing allele frequencies relative to the source population."
+                        },
+                        {
+                            "question": "A catastrophic forest fire wipes out 98% of an endangered pine population, leaving only a dozen surviving trees with heavily restricted genetic variation. This illustrates:",
+                            "options": [
+                                "A Population Bottleneck",
+                                "The Founder effect",
+                                "Hardy-Weinberg equilibrium",
+                                "Allopolyploidy"
+                            ],
+                            "correct": 0,
+                            "explanation": "A population bottleneck occurs when an environmental catastrophe drastically reduces population size, eliminating alleles at random."
+                        },
+                        {
+                            "question": "The physical exchange of alleles between two distinct plant populations mediated by windborne pollen or animal seed dispersal is called:",
+                            "options": [
+                                "Gene Flow (Migration)",
+                                "Genetic drift",
+                                "Polyploidization",
+                                "Directional selection"
+                            ],
+                            "correct": 0,
+                            "explanation": "Gene flow is the movement of genetic material between populations via dispersing gametes (pollen) or individuals (seeds), reducing genetic divergence between populations."
+                        },
+                        {
+                            "question": "Why are triploid (3n) crop plants (such as commercial seedless watermelons and Cavendish bananas) sterile and unable to produce seeds?",
+                            "options": [
+                                "The three sets of chromosomes cannot pair up evenly during Meiosis I, resulting in chaotic chromosome segregation and defective gametes",
+                                "They lack cell walls",
+                                "They cannot perform cellular respiration",
+                                "They refuse to produce chlorophyll"
+                            ],
+                            "correct": 0,
+                            "explanation": "Triploids ($3n$) have an odd number of chromosome homologs that cannot pair symmetrically during Meiosis I, leading to meiotic failure and seedlessness."
+                        },
+                        {
+                            "question": "Speciation that occurs when a physical geographic barrier (such as a newly formed mountain range or canyon) splits a plant population into two isolated groups is:",
+                            "options": [
+                                "Allopatric Speciation",
+                                "Sympatric Speciation",
+                                "Autopolyploidization",
+                                "Artificial selection"
+                            ],
+                            "correct": 0,
+                            "explanation": "Allopatric speciation requires geographic separation preventing gene flow, allowing isolated populations to diverge through independent mutations and selective regimes."
+                        },
+                        {
+                            "question": "Speciation that occurs within a continuous, shared geographic area without physical isolation (frequently driven by polyploid chromosome doubling in plants) is:",
+                            "options": [
+                                "Sympatric Speciation",
+                                "Allopatric Speciation",
+                                "Genetic drift",
+                                "Macroevolutionary bottlenecking"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sympatric speciation occurs within the geographic home range of the parent population, often mediated instantaneously by polyploidy or pollinator shifts."
+                        },
+                        {
+                            "question": "What term describes the enhanced vigor, accelerated growth rate, larger biomass, and greater stress resilience often observed in allopolyploid hybrid plants compared to their diploid parents?",
+                            "options": [
+                                "Heterosis (Hybrid Vigor)",
+                                "Inbreeding depression",
+                                "Aneuploid decay",
+                                "Etiolation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Heterosis (hybrid vigor) is the phenotypic superiority of hybrid offspring in biomass, yield, and fertility over either homozygous parental strain."
+                        },
+                        {
+                            "question": "Prezygotic reproductive isolating barriers in flowering plants include which of the following?",
+                            "options": [
+                                "Different flowering seasons (temporal isolation) or reliance on different specialized insect pollinators (mechanical/behavioral isolation)",
+                                "Hybrid seed sterility",
+                                "Death of the hybrid embryo after fertilization",
+                                "Inability of adult hybrid plants to produce pollen"
+                            ],
+                            "correct": 0,
+                            "explanation": "Prezygotic barriers prevent successful mating or fertilization (e.g., temporal shifts in flowering times, structural flower differences for pollinators)."
+                        },
+                        {
+                            "question": "Chemical treatment of germinating seedlings with Colchicine is used by plant breeders to induce:",
+                            "options": [
+                                "Polyploidy (by disrupting mitotic spindle microtubules, preventing chromosome segregation during cell division)",
+                                "Immediate root rot",
+                                "Accelerated fruit ripening via ethylene release",
+                                "Viral resistance"
+                            ],
+                            "correct": 0,
+                            "explanation": "Colchicine inhibits microtubule polymerization, arresting dividing cells in metaphase; when the drug is removed, cells recover with doubled chromosome numbers."
+                        },
+                        {
+                            "question": "Natural selection that favors individuals at both phenotypic extremes while selecting against intermediate phenotypes in a plant population is:",
+                            "options": [
+                                "Disruptive (Diversifying) Selection",
+                                "Stabilizing Selection",
+                                "Directional Selection",
+                                "Random genetic drift"
+                            ],
+                            "correct": 0,
+                            "explanation": "Disruptive selection favors both extreme ends of a phenotypic spectrum over intermediate forms, potentially driving population divergence."
+                        },
+                        {
+                            "question": "Natural selection that favors individuals at one specific end of a phenotypic distribution (for example, favoring plants with deeper roots during prolonged climatic drought) is:",
+                            "options": [
+                                "Directional Selection",
+                                "Stabilizing Selection",
+                                "Disruptive Selection",
+                                "Balancing Selection"
+                            ],
+                            "correct": 0,
+                            "explanation": "Directional selection shifts the population's average phenotypic value toward one adaptive extreme in response to consistent environmental changes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_18",
+            "title": "Chapter 18: The Classification of Plants and Other Organisms",
+            "description": "Systematics, taxonomy, Linnaean binomial nomenclature, cladistics, phylogenetic reconstruction, and the three-domain tree of life.",
+            "activities": [
+                {
+                    "id": "act_bot_18_lesson",
+                    "type": "page",
+                    "title": "Module 18.1: Botanical Systematics & Cladistics",
+                    "completed": true,
+                    "content": "### 1. Plant Systematics and Taxonomy\nSystematics is the scientific study of biological diversity and its evolutionary history. Taxonomy encompasses three core activities:\n- **Identification:** Recognizing an unknown plant using botanical dichotomous keys.\n- **Classification:** Arranging organisms into hierarchical groups reflecting evolutionary relatedness.\n- **Nomenclature:** Assigning formal scientific names according to the *International Code of Nomenclature for algae, fungi, and plants (ICN)*.\n\n### 2. The Linnaean Hierarchical System\nDeveloped by Carl Linnaeus in *Species Plantarum* (1753):\n- **Binomial Nomenclature:** Every species is designated by a two-part Latin name: *Genus* (capitalized) + *specific epithet* (lowercase), italicized or underlined (e.g., *Zea mays*, *Quercus alba*).\n- **Taxonomic Ranks:**\n  Domain $\\rightarrow$ Kingdom $\\rightarrow$ Phylum (Division, ending in *-phyta*) $\\rightarrow$ Class (ending in *-opsida*) $\\rightarrow$ Order (ending in *-ales*) $\\rightarrow$ Family (ending in *-aceae*) $\\rightarrow$ Genus $\\rightarrow$ Species.\n\n### 3. Cladistics and Phylogenetic Reconstruction\nModern classification is strictly phylogenetic (cladistic), grouping organisms by shared evolutionary history based on shared derived characters (**synapomorphies**):\n- **Monophyletic Group (Clade):** Includes a common ancestor and *all* of its evolutionary descendants (the only valid taxonomic groups in modern systematics).\n- **Paraphyletic Group:** Consists of a common ancestor and *some*, but not all, descendants (e.g., the traditional grouping of 'gymnosperms' or 'dicots').\n- **Polyphyletic Group:** Composed of taxa derived from two or more distinct ancestral sources, lacking the most recent common ancestor of all members.\n\n### 4. The Three-Domain System of Life\nMolecular sequencing of ribosomal RNA (rRNA) by Carl Woese established three primary evolutionary domains:\n1. **Domain Bacteria:** True prokaryotes with peptidoglycan cell walls (includes cyanobacteria).\n2. **Domain Archaea:** Extremophilic prokaryotes lacking peptidoglycan, with ether-linked branched membrane lipids and histone-like DNA packaging.\n3. **Domain Eukarya:** Eukaryotes containing membrane-bound nuclei, linear chromosomes, and endosymbiotic organelles (includes Kingdoms Protista, Fungi, Plantae, Animalia)."
+                },
+                {
+                    "id": "quiz_bot_18",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 18 Checkpoint: Plant Systematics, Taxonomy & Cladistics",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In Carl Linnaeus's system of binomial nomenclature, how is the scientific name of a plant properly formatted?",
+                            "options": [
+                                "Two parts: a capitalized Genus name followed by a lowercase specific epithet, both italicized (e.g., Zea mays)",
+                                "Three English common words joined by hyphens",
+                                "A single Latin word indicating the flower color",
+                                "The name of the country where the plant was discovered"
+                            ],
+                            "correct": 0,
+                            "explanation": "Binomial nomenclature assigns a two-part name: the Genus (capitalized) and the specific epithet (lowercase), both italicized or underlined."
+                        },
+                        {
+                            "question": "In botanical taxonomic hierarchy, what standardized Latin suffix identifies a Plant Family rank (e.g., Rosaceae, Poaceae, Solanaceae)?",
+                            "options": [
+                                "-aceae",
+                                "-phyta",
+                                "-ales",
+                                "-opsida"
+                            ],
+                            "correct": 0,
+                            "explanation": "Botanical nomenclature designates plant families with the suffix '-aceae' (e.g., Asteraceae, Fabaceae)."
+                        },
+                        {
+                            "question": "In phylogenetic systematics (cladistics), a valid taxonomic group that includes a single common ancestor and ALL of its evolutionary descendants is called:",
+                            "options": [
+                                "Monophyletic (a Clade)",
+                                "Paraphyletic",
+                                "Polyphyletic",
+                                "Analogous"
+                            ],
+                            "correct": 0,
+                            "explanation": "A monophyletic group (clade) encompasses an ancestor and all of its descendants, representing an authentic natural evolutionary lineage."
+                        },
+                        {
+                            "question": "A taxonomic grouping that includes an ancestral species and some, but not all, of its descendants (such as traditional 'gymnosperms' excluding flowering plants) is:",
+                            "options": [
+                                "Paraphyletic",
+                                "Monophyletic",
+                                "Polyphyletic",
+                                "Synapomorphic"
+                            ],
+                            "correct": 0,
+                            "explanation": "Paraphyletic groups leave out one or more descendant lineages of a common ancestor, violating modern cladistic classification."
+                        },
+                        {
+                            "question": "A shared derived character state that evolved in an immediate common ancestor and unites all members of a monophyletic clade is a:",
+                            "options": [
+                                "Synapomorphy",
+                                "Plesiomorphy",
+                                "Homoplasy",
+                                "Symplesiomorphy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Synapomorphies are shared derived characters (e.g., seeds in seed plants, flowers in angiosperms) used to define evolutionary clades."
+                        },
+                        {
+                            "question": "Which molecular marker did Carl Woese sequence to revolutionize biological systematics, establishing the Three-Domain tree of life (Bacteria, Archaea, Eukarya)?",
+                            "options": [
+                                "Small-subunit ribosomal RNA (16S/18S rRNA)",
+                                "Mitochondrial cytochrome c exclusively",
+                                "Chlorophyll a pigment rings",
+                                "Cellulose synthase genes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Woese compared small subunit ribosomal RNA (rRNA) gene sequences, revealing the fundamental tripartite divergence of life on Earth."
+                        },
+                        {
+                            "question": "What primary biochemical feature distinguishes the cell walls of Domain Bacteria from Domain Archaea and Domain Eukarya?",
+                            "options": [
+                                "Bacterial cell walls contain Peptidoglycan (murein)",
+                                "Bacterial cell walls are made of pure crystalline cellulose",
+                                "Bacterial cell walls are constructed entirely of chitin",
+                                "Bacteria lack cell walls entirely"
+                            ],
+                            "correct": 0,
+                            "explanation": "Peptidoglycan (a polymer of sugars cross-linked by short amino acid peptides) is uniquely present in bacterial cell walls."
+                        },
+                        {
+                            "question": "What botanical tool consists of a series of paired, mutually exclusive descriptive statements used to step-by-step identify an unknown plant specimen?",
+                            "options": [
+                                "A Dichotomous Key",
+                                "A Punnett Square",
+                                "A Spectrophotometer",
+                                "A Cladogram"
+                            ],
+                            "correct": 0,
+                            "explanation": "A dichotomous key presents two contrasting choices at each step, leading the investigator through a logical identification pathway."
+                        },
+                        {
+                            "question": "What is an Herbarium in botanical science?",
+                            "options": [
+                                "A curated repository of preserved, pressed, dried, and scientifically labeled plant specimens mounted on archival paper",
+                                "A commercial nursery selling culinary cooking herbs",
+                                "A greenhouse for growing giant tropical water lilies",
+                                "A fertilizer factory"
+                            ],
+                            "correct": 0,
+                            "explanation": "An herbarium is a permanent reference collection of pressed, dried plant specimens documenting geographic distributions, morphology, and DNA."
+                        },
+                        {
+                            "question": "The Principle of Parsimony (Occam's razor) in phylogenetic tree reconstruction dictates that:",
+                            "options": [
+                                "The preferred hypothesis of evolutionary relationships is the one requiring the fewest evolutionary character transitions or mutations",
+                                "The largest tree with the most branches is always true",
+                                "Plants with the largest leaves evolved first",
+                                "All genetic mutations are equally likely"
+                            ],
+                            "correct": 0,
+                            "explanation": "Maximum parsimony chooses the phylogenetic tree requiring the fewest evolutionary steps (least homoplasy) as the most probable hypothesis."
+                        },
+                        {
+                            "question": "In modern plant classification, what standardized suffix designates an Order rank (e.g., Rosales, Poales, Asterales)?",
+                            "options": [
+                                "-ales",
+                                "-aceae",
+                                "-phyta",
+                                "-oideae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Under the International Code of Nomenclature, botanical orders are designated by the standard suffix '-ales'."
+                        },
+                        {
+                            "question": "Which of the following describes a Polyphyletic group?",
+                            "options": [
+                                "A grouping of taxa derived from two or more separate ancestral lineages that does not include the common ancestor of all members",
+                                "A group consisting of a single mother plant and its seeds",
+                                "A natural clade confirmed by DNA sequencing",
+                                "A collection of plants with identical flower petals"
+                            ],
+                            "correct": 0,
+                            "explanation": "Polyphyletic groups mistakenly group organisms based on convergent traits without sharing a recent common ancestor (e.g., grouping vultures and bats as 'winged animals')."
+                        },
+                        {
+                            "question": "The formal published description of a newly discovered plant species must designate a single preserved specimen as the definitive physical reference, known as the:",
+                            "options": [
+                                "Holotype",
+                                "Paratype",
+                                "Phenotype",
+                                "Isotype"
+                            ],
+                            "correct": 0,
+                            "explanation": "The holotype is the single specimen designated by the original author to which the scientific name of the taxon is permanently attached."
+                        },
+                        {
+                            "question": "Which international treaty regulates global trade in wild plant and animal specimens to prevent species endangerment and extinction?",
+                            "options": [
+                                "CITES (Convention on International Trade in Endangered Species)",
+                                "The Kyoto Protocol",
+                                "The Geneva Convention",
+                                "The Montreal Protocol"
+                            ],
+                            "correct": 0,
+                            "explanation": "CITES regulates and restricts cross-border international commerce in threatened flora (e.g., orchids, cycads, timber) and fauna."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_19",
+            "title": "Chapter 19: Viruses and Prokaryotes",
+            "description": "Plant viruses, Tobacco Mosaic Virus (TMV), cyanobacteria, nitrogen-fixing bacteria, crown gall disease, and biological interactions.",
+            "activities": [
+                {
+                    "id": "act_bot_19_lesson",
+                    "type": "page",
+                    "title": "Module 19.1: Viral Plant Pathogens & Botanical Bacteriology",
+                    "completed": true,
+                    "content": "### 1. Plant Viruses\nViruses are non-cellular infectious agents consisting of a nucleic acid core (typically single-stranded RNA in plant viruses) encased in a protein coat (**capsid**):\n- **Tobacco Mosaic Virus (TMV):** The first virus ever discovered (Dmitri Ivanovsky and Martinus Beijerinck, 1898; crystallized by Wendell Stanley, 1935). Rigid helical rod of 2,130 identical protein subunits enclosing a positive-sense ssRNA molecule. Causes characteristic leaf mottling, dwarfing, and necrotic lesions.\n- **Transmission:** Because plant cells are shielded by rigid cell walls, viruses cannot enter by animal-like endocytosis. They penetrate through **mechanical wounding** (pruning tools, abrasions) or specialized biological vectors (**aphids**, leafhoppers, nematodes, parasitic dodder).\n- **Systemic Spread:** Move from cell to cell through **plasmodesmata** using viral-encoded **movement proteins** that dilate plasmodesmatal pore sizes, then enter phloem sieve tubes for rapid systemic distribution throughout the whole plant.\n\n### 2. Cyanobacteria (Blue-Green Algae)\nPhotosynthetic prokaryotes that revolutionized Earth's atmosphere:\n- **Oxygenic Photosynthesis:** The first organisms to evolve Photosystems II and I using water as an electron donor, releasing $O_2$ to oxygenate the primitive reducing atmosphere (~2.4 billion years ago, Great Oxidation Event) and giving rise to the ancestral chloroplast.\n- **Pigmentation:** Contain chlorophyll *a* and water-soluble **phycobiliproteins** (blue phycocyanin and red phycoerythrin).\n- **Cellular Specializations:**\n  - *Heterocysts:* Thick-walled, anaerobic specialized cells dedicated to **nitrogen fixation**, keeping oxygen out to protect oxygen-sensitive **nitrogenase** enzymes.\n  - *Akinetes:* Thick-walled, dormant resting spores resistant to desiccation and winter cold.\n\n### 3. Bacteria and Plants: Pathogens and Mutualists\n- **Crown Gall Disease (*Agrobacterium tumefaciens*):** Induces unorganized tumorous gall growths on stems/roots by inserting bacterial T-DNA encoding plant hormones (auxin and cytokinin) and opines into host chromosomes.\n- **Fire Blight (*Erwinia amylovora*):** Devastating bacterial blight of apple and pear orchards, blackening shoots as if scorched by fire.\n- **Nitrogen Fixation:** Symbiotic *Rhizobium* in legume nodules and *Frankia* in actinorhizal plants (alder trees) convert atmospheric $N_2$ into ammonium."
+                },
+                {
+                    "id": "quiz_bot_19",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 19 Checkpoint: Plant Virology & Bacteriology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What historic milestone was achieved with Tobacco Mosaic Virus (TMV) in 1898 and 1935?",
+                            "options": [
+                                "It was the first virus ever discovered and the first virus to be crystallized and chemically characterized",
+                                "It was the first plant ever grown on the Moon",
+                                "It was used to produce commercial beer",
+                                "It was proven to be a multicellular eukaryote"
+                            ],
+                            "correct": 0,
+                            "explanation": "TMV was the foundational model of virology: Ivanovsky and Beijerinck discovered its filterable infectious nature, and Stanley crystallized it in 1935."
+                        },
+                        {
+                            "question": "How do plant viruses typically enter host plant cells given the protective physical barrier of the rigid cellulose cell wall?",
+                            "options": [
+                                "Through mechanical wounds, abrasions, or via piercing insect vectors (such as aphids and leafhoppers)",
+                                "By swimming through the soil with flagella",
+                                "By melting cell walls with concentrated hydrochloric acid",
+                                "Through open stomata via active swimming"
+                            ],
+                            "correct": 0,
+                            "explanation": "Plant viruses lack active penetration mechanisms; they rely on mechanical breaks or insect vectors (aphids) injecting virions directly into cells."
+                        },
+                        {
+                            "question": "How do plant viral particles spread cell-to-cell through adjacent living plant cells?",
+                            "options": [
+                                "They produce specialized 'movement proteins' that dilate and cross through plasmodesmata channels",
+                                "They burrow through the secondary xylem vessels",
+                                "They digest the entire nucleus",
+                                "They fly through intercellular air cavities"
+                            ],
+                            "correct": 0,
+                            "explanation": "Plant viruses encode viral movement proteins that widen the size-exclusion limit of plasmodesmata, allowing viral genomes to slip into neighboring cells."
+                        },
+                        {
+                            "question": "Cyanobacteria are prokaryotes that played a momentous role in Earth's history approximately 2.4 billion years ago because they were the first to:",
+                            "options": [
+                                "Perform oxygenic photosynthesis, releasing free oxygen gas into the atmosphere (the Great Oxidation Event)",
+                                "Produce wooden tree trunks",
+                                "Undergo meiosis and sexual reproduction",
+                                "Fly in the air"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cyanobacteria evolved water-splitting Photosystem II, flooding Earth's atmosphere with oxygen, forming the ozone layer, and giving rise to chloroplasts."
+                        },
+                        {
+                            "question": "In filamentous cyanobacteria (such as Anabaena and Nostoc), what specialized thick-walled cells exclude oxygen to perform biological nitrogen fixation?",
+                            "options": [
+                                "Heterocysts",
+                                "Akinetes",
+                                "Guard cells",
+                                "Sclereids"
+                            ],
+                            "correct": 0,
+                            "explanation": "Heterocysts possess thickened walls that exclude oxygen, creating the anaerobic micro-environment required by the oxygen-labile enzyme nitrogenase."
+                        },
+                        {
+                            "question": "What are Akinetes in cyanobacteria?",
+                            "options": [
+                                "Thick-walled, dormant resting cells filled with reserves that survive freezing and drought",
+                                "Flagellated swimming spores",
+                                "Microscopic root hairs",
+                                "Cellular nuclei"
+                            ],
+                            "correct": 0,
+                            "explanation": "Akinetes are enlarged, resistant resting cells that drop into bottom sediments, germinating when favorable growing conditions return."
+                        },
+                        {
+                            "question": "Crown gall disease, characterized by tumorous woody swelling at the soil line on stems, is caused by which bacterial pathogen?",
+                            "options": [
+                                "Agrobacterium tumefaciens",
+                                "Erwinia amylovora",
+                                "Rhizobium leguminosarum",
+                                "Pseudomonas syringae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Agrobacterium tumefaciens transfers oncogenic T-DNA into host cells, driving uncontrolled cell division and tumorous crown gall formation."
+                        },
+                        {
+                            "question": "Fire blight, a devastating bacterial disease of apple and pear trees that causes blossoms and shoots to wither, turn black, and look scorched, is caused by:",
+                            "options": [
+                                "Erwinia amylovora",
+                                "Bacillus thuringiensis",
+                                "Cyanobacteria",
+                                "Agrobacterium"
+                            ],
+                            "correct": 0,
+                            "explanation": "Erwinia amylovora infects rosaceous fruit trees through blossoms, rapidly traveling down twigs and turning tissues blackened and necrotic."
+                        },
+                        {
+                            "question": "What class of water-soluble accessory photosynthetic pigments gives cyanobacteria and red algae their blue-green and red colors?",
+                            "options": [
+                                "Phycobiliproteins (Phycocyanin and Phycoerythrin)",
+                                "Anthocyanins",
+                                "Carotenoids",
+                                "Lignins"
+                            ],
+                            "correct": 0,
+                            "explanation": "Phycobilins are water-soluble antenna pigments assembled into phycobilisomes on thylakoids, efficiently absorbing green, yellow, and orange light."
+                        },
+                        {
+                            "question": "Infectious pathogens composed strictly of a tiny, circular naked single-stranded RNA molecule without any protein capsid, known to cause spindle tuber disease in potatoes, are:",
+                            "options": [
+                                "Viroids",
+                                "Prions",
+                                "Bacteriophages",
+                                "Plasmids"
+                            ],
+                            "correct": 0,
+                            "explanation": "Viroids are tiny circular infectious naked RNA molecules lacking protein capsids that disrupt host plant cellular RNA regulation."
+                        },
+                        {
+                            "question": "Which bacterial group lives symbiotically within the roots of non-leguminous woody shrubs (such as alder trees, Alnus) to fix nitrogen in specialized actinorhizal nodules?",
+                            "options": [
+                                "Frankia (an actinomycete)",
+                                "Rhizobium",
+                                "Escherichia",
+                                "Streptococcus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Actinobacteria of the genus Frankia form nitrogen-fixing actinorhizal root nodules on alders and bayberries, enriching nutrient-poor soils."
+                        },
+                        {
+                            "question": "What term describes the massive, toxic population explosions of cyanobacteria in nutrient-polluted freshwater lakes and reservoirs?",
+                            "options": [
+                                "Harmful Cyanobacterial Blooms (CyanoHABs)",
+                                "Mycorrhizal flares",
+                                "Crown galls",
+                                "Guttation cycles"
+                            ],
+                            "correct": 0,
+                            "explanation": "Excessive agricultural runoff (nitrogen and phosphorus) sparks cyanobacterial blooms that deoxygenate water and release potent hepatotoxins (microcystins)."
+                        },
+                        {
+                            "question": "How do many plant viruses achieve long-distance systemic transport from leaves down into the root system within days?",
+                            "options": [
+                                "By moving passively with bulk photosynthate sap flow inside phloem sieve tubes",
+                                "By swimming against xylem water tension",
+                                "By releasing airborne seeds",
+                                "By migrating through outer dead cork periderm"
+                            ],
+                            "correct": 0,
+                            "explanation": "Once a virus reaches the phloem, it travels rapidly along source-to-sink translocation streams to colonize roots, young leaves, and shoot tips."
+                        },
+                        {
+                            "question": "What enzyme complex, highly sensitive to oxygen inactivation, catalyzes the conversion of atmospheric dinitrogen gas ($N_2$) into ammonia ($NH_3$) in prokaryotes?",
+                            "options": [
+                                "Nitrogenase",
+                                "Rubisco",
+                                "ATP Synthase",
+                                "PEP Carboxylase"
+                            ],
+                            "correct": 0,
+                            "explanation": "Nitrogenase is an ancient iron-molybdenum metalloenzyme that breaks the strong triple bond of $N_2$ to generate plant-available ammonia."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_20",
+            "title": "Chapter 20: Kingdom Protista",
+            "description": "Algal diversity, green algae (Chlorophyta, Charophytes), red algae (Rhodophyta), brown algae (Phaeophyta), diatoms, and dinoflagellates.",
+            "activities": [
+                {
+                    "id": "act_bot_20_lesson",
+                    "type": "page",
+                    "title": "Module 20.1: Algal Diversity & Evolution of Land Plants",
+                    "completed": true,
+                    "content": "### 1. Algae: Eukaryotic Photosynthetic Aquatic Organisms\nAlgae are polyphyletic photosynthetic eukaryotes lacking true roots, stems, leaves, and multicellular reproductive jackets:\n- **Ecological Role:** Generate over 50% of Earth's atmospheric oxygen through marine and freshwater phytoplankton photosynthesis.\n\n### 2. Green Algae (Phylum Chlorophyta & Charophyta)\nThe direct evolutionary ancestors of land plants:\n- **Shared Hallmarks with Land Plants:**\n  1. Identical photosynthetic pigments: Chlorophylls *a* and *b*.\n  2. Storage carbohydrate: Starch stored inside plastids.\n  3. Cell walls composed of cellulose microfibrils.\n- **Charophytes (Stoneworts, e.g., *Chara*, *Coleochaete*):** The closest living relatives of Embryophytes (land plants), sharing:\n  - Rosette cellulose-synthesizing complexes in the plasma membrane.\n  - Phragmoplast microtubule arrays during cytokinesis.\n  - Asymmetric flagellated sperm architecture.\n  - Presence of **sporopollenin** in zygote walls.\n\n### 3. Red Algae (Phylum Rhodophyta)\n- Marine seaweeds thriving in warm, deep ocean waters (down to 200+ meters):\n  - Contain chlorophyll *a* and phycobiliproteins (phycoerythrin), absorbing blue-green light that penetrates deep water.\n  - Completely lack flagellated stages at any point in their life cycles.\n  - **Economic Botany:** Source of **agar** (laboratory culture medium, vegan gelatin) and **carrageenan** (thickener in dairy, toothpaste); *Porphyra* (nori) wrapped around sushi.\n\n### 4. Brown Algae (Phylum Phaeophyta)\n- Multicellular, temperate and polar marine seaweeds, including colossal **giant kelps** (*Macrocystis*, up to 60 meters long):\n  - Pigments: Chlorophylls *a* and *c*, plus abundant golden-brown **fucoxanthin**.\n  - **Plant-Like Morphology (Thallus):**\n    - *Holdfast:* Root-like anchor securing the thallus to rocks.\n    - *Stipe:* Stem-like flexible stalk.\n    - *Blades:* Leaf-like photosynthetic sheets.\n    - *Pneumatocysts:* Gas-filled bladders keeping blades floating near surface sunlight.\n  - **Economic Botany:** Harvested for **alginate (algin)**, an emulsifier in ice cream, cosmetics, dental impressions, and flame retardants.\n\n### 5. Unicellular Phytoplankton: Diatoms and Dinoflagellates\n- **Diatoms (Phylum Bacillariophyta):** Unicellular algae encased in a two-part overlapping glass wall of hydrated silicon dioxide (**frustule**). Form massive fossil deposits of **diatomaceous earth** (used in pool filtration, reflective paint, non-toxic insecticides).\n- **Dinoflagellates (Phylum Dinoflagellata):** Unicellular biflagellated marine protists with cellulose armor plates. Cause toxic **red tides** (brevetoxins, saxitoxins causing paralytic shellfish poisoning) and live as symbiotic **zooxanthellae** within reef-building coral polyps."
+                },
+                {
+                    "id": "quiz_bot_20",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 20 Checkpoint: Algal Diversity & Ancestry of Land Plants",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which specific lineage of green algae is scientifically recognized as the closest living evolutionary relative to terrestrial land plants (Embryophytes)?",
+                            "options": [
+                                "Charophytes (such as Chara and Coleochaete)",
+                                "Brown kelps",
+                                "Diatoms",
+                                "Red coralline algae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Charophytes share rosette cellulose synthases, phragmoplast cytokinesis, flagellar sperm architecture, and sporopollenin with land plants."
+                        },
+                        {
+                            "question": "What suite of biochemical characteristics is shared exclusively between green algae and land plants?",
+                            "options": [
+                                "Chlorophylls a and b, starch stored within plastids, and cellulose cell walls",
+                                "Chitin walls and glycogen storage",
+                                "Fucoxanthin and peptidoglycan walls",
+                                "Phycobilin pigments and lack of all cell walls"
+                            ],
+                            "correct": 0,
+                            "explanation": "Green algae and land plants both possess chlorophylls a and b, store energy as starch inside plastids, and synthesize cellulose microfibril walls."
+                        },
+                        {
+                            "question": "Which phylum of marine seaweeds contains phycobiliproteins (phycoerythrin) allowing them to photosynthesize in deep oceanic water, and produces agar and carrageenan?",
+                            "options": [
+                                "Rhodophyta (Red Algae)",
+                                "Phaeophyta (Brown Algae)",
+                                "Chlorophyta (Green Algae)",
+                                "Bacillariophyta (Diatoms)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Red algae (Rhodophyta) utilize phycoerythrin to absorb blue-green light in deep coastal waters; their cell walls yield agar and carrageenan."
+                        },
+                        {
+                            "question": "What is the commercial edible red alga (Porphyra) that is cultivated extensively in Japan and globally for wrapping sushi rolls?",
+                            "options": [
+                                "Nori",
+                                "Kelp",
+                                "Spirulina",
+                                "Agar"
+                            ],
+                            "correct": 0,
+                            "explanation": "Porphyra (marketed as nori) is an edible red alga cultivated on marine nets, pressed and dried into crisp dark sheets for sushi."
+                        },
+                        {
+                            "question": "Giant kelps (Macrocystis) belong to which algal group, characterized by the golden-brown carotenoid pigment fucoxanthin?",
+                            "options": [
+                                "Phaeophyta (Brown Algae)",
+                                "Rhodophyta",
+                                "Chlorophyta",
+                                "Euglenoids"
+                            ],
+                            "correct": 0,
+                            "explanation": "Brown algae (Phaeophyta) contain fucoxanthin, which masks chlorophylls a and c, and include massive temperate marine kelps."
+                        },
+                        {
+                            "question": "What is the biological function of the gas-filled bladders (pneumatocysts) found along the stipes of giant kelp seaweeds?",
+                            "options": [
+                                "Buoyancy: keeping the photosynthetic blades floating near the sunlit ocean surface",
+                                "Digesting predatory fish",
+                                "Producing seeds",
+                                "Excreting excess water"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pneumatocysts are hollow gas bladders containing oxygen and carbon monoxide that float kelp fronds near surface waters for light exposure."
+                        },
+                        {
+                            "question": "Which commercial hydrocolloid, extracted from brown algal cell walls, is widely used as an emulsifier and thickener in ice cream, salad dressings, and dental impressions?",
+                            "options": [
+                                "Alginate (Algin)",
+                                "Cellulose",
+                                "Glycogen",
+                                "Pectin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Alginic acid (alginate) is extracted from kelp cell walls, forming viscous gels used to stabilize and emulsify commercial foods and cosmetics."
+                        },
+                        {
+                            "question": "Diatoms are distinguished microscopic unicellular phytoplankton whose rigid cell walls (frustules) are constructed of two overlapping halves made of:",
+                            "options": [
+                                "Hydrated Silicon Dioxide (Silica glass)",
+                                "Chitin",
+                                "Peptidoglycan",
+                                "Pure calcium phosphate"
+                            ],
+                            "correct": 0,
+                            "explanation": "Diatoms possess rigid, intricately perforated glassy shells (frustules) of opal-like hydrated silica resembling a box with a fitting lid."
+                        },
+                        {
+                            "question": "What commercial abrasive and filtering powder is harvested from fossilized geological deposits of ancient microscopic diatom frustules?",
+                            "options": [
+                                "Diatomaceous Earth",
+                                "Charcoal",
+                                "Pumice stone",
+                                "Fuller's earth"
+                            ],
+                            "correct": 0,
+                            "explanation": "Diatomaceous earth consists of billions of fossil silica frustules, used in pool water filtration, metal polishes, and non-toxic insect powders."
+                        },
+                        {
+                            "question": "Harmful algal blooms (HABs) known as 'Red Tides', which release lethal neurotoxins causing massive fish kills and paralytic shellfish poisoning, are caused by:",
+                            "options": [
+                                "Dinoflagellates",
+                                "Brown kelps",
+                                "Bryophytes",
+                                "Charophytes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Dinoflagellate population blooms discolors seawater red or brown and secrete potent neurotoxins (brevetoxins, saxitoxins) accumulated by shellfish."
+                        },
+                        {
+                            "question": "What mutualistic photosynthetic protists live inside the gastrodermal cells of reef-building stony corals, providing them with sugars to build coral reefs?",
+                            "options": [
+                                "Zooxanthellae (symbiotic dinoflagellates)",
+                                "Diatoms",
+                                "Cyanobacteria",
+                                "Brown kelps"
+                            ],
+                            "correct": 0,
+                            "explanation": "Zooxanthellae are endosymbiotic dinoflagellates whose photosynthate fuels coral calcification; coral bleaching occurs when corals expel them."
+                        },
+                        {
+                            "question": "The anchoring structure that secures the base of a marine kelp thallus firmly onto rocky seafloor substrates is called the:",
+                            "options": [
+                                "Holdfast",
+                                "Taproot",
+                                "Rhizoid",
+                                "Stolon"
+                            ],
+                            "correct": 0,
+                            "explanation": "The holdfast is a tough, root-like anchor composed of haptera branches that adhere tightly to rocks, resisting violent wave surges."
+                        },
+                        {
+                            "question": "Which colonial freshwater green alga forms hollow spherical colonies containing thousands of flagellated cells and produces daughter colonies internally?",
+                            "options": [
+                                "Volvox",
+                                "Chlamydomonas",
+                                "Spirogyra",
+                                "Chondrus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Volvox forms spherical swimming colonies displaying cellular specialization and primitive multicellularity, producing asexual daughter spheres inside."
+                        },
+                        {
+                            "question": "Which filamentous green alga features distinctive ribbon-like helical spiral chloroplasts winding along the interior of each cell?",
+                            "options": [
+                                "Spirogyra",
+                                "Ulva",
+                                "Macrocystis",
+                                "Fucus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Spirogyra is an unbranched freshwater alga with prominent spiral chloroplasts that undergoes sexual reproduction via conjugation tubes."
+                        },
+                        {
+                            "question": "What edible multicellular green alga is known colloquially as 'Sea Lettuce', possessing a thin, two-cell-thick sheet-like green blade?",
+                            "options": [
+                                "Ulva",
+                                "Porphyra",
+                                "Anabaena",
+                                "Euglena"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ulva (sea lettuce) is a common intertidal green alga with thin, translucent, wavy green blades exhibiting an isomorphic alternation of generations."
+                        },
+                        {
+                            "question": "Why do red algae completely lack centrioles and flagella at all stages of their life cycle, relying entirely on ocean water currents for fertilization?",
+                            "options": [
+                                "Because their lineage evolved an ancient evolutionary loss of flagellar gene machinery",
+                                "Because flagella dissolve instantly in salt water",
+                                "Because they are land plants in disguise",
+                                "Because they reproduce only through binary fission"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rhodophytes uniquely lack flagella and centrioles in all life stages; non-motile male gametes (spermatia) drift passively to female carpogonia."
+                        },
+                        {
+                            "question": "What is an important ecological consequence of global oceanic diatom photosynthesis?",
+                            "options": [
+                                "They fix massive amounts of carbon dioxide and produce roughly 20-25% of all organic carbon and oxygen on Earth",
+                                "They consume all oxygen in the oceans",
+                                "They cause earthquakes on the ocean floor",
+                                "They eliminate all ocean salinity"
+                            ],
+                            "correct": 0,
+                            "explanation": "Marine diatoms are planetary primary producers, generating approximately one-fifth to one-fourth of global oxygen through photosynthetic fixation."
+                        },
+                        {
+                            "question": "What term describes the phenomenon where stressed corals expel their photosynthetic zooxanthellae endosymbionts due to elevated ocean water temperatures?",
+                            "options": [
+                                "Coral Bleaching",
+                                "Guttation",
+                                "Eutrophication",
+                                "Plasmolysis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Thermal stress disrupts dinoflagellate photosystems, prompting corals to expel them, leaving the white calcium skeleton exposed ('bleaching')."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_21",
+            "title": "Chapter 21: Kingdom Fungi",
+            "description": "Fungal biology, hyphal architecture, chitin cell walls, absorptive heterotrophy, major fungal phyla, lichens, and agricultural plant diseases.",
+            "activities": [
+                {
+                    "id": "act_bot_21_lesson",
+                    "type": "page",
+                    "title": "Module 21.1: Mycology & Fungal Plant Pathogens",
+                    "completed": true,
+                    "content": "### 1. The Fungi: Heterotrophic Decomposers and Symbionts\nFungi were historically classified with plants in traditional botany, but are phylogenetically closer to animals (Opisthokonta):\n- **Heterotrophic Absorptive Nutrition:** Secrete hydrolytic exoenzymes into their environment to digest complex organic polymers externally, then absorb the released simple monomers.\n- **Cell Wall Composition:** Constructed of **chitin** (a polymer of N-acetylglucosamine), rather than cellulose.\n- **Energy Storage:** Store excess carbohydrates as **glycogen**, like animals.\n- **Body Plan:**\n  - *Hyphae:* Thread-like microscopic filaments, either **septate** (divided into cellular compartments by porous cross-walls) or **coenocytic** (aseptate, multinucleate syncytium).\n  - *Mycelium:* A woven, subterranean or internal vegetative mass of hyphae.\n\n### 2. Major Fungal Phyla\n1. **Phylum Chytridiomycota (Chytrids):** Ancient aquatic fungi possessing flagellated zoospores. Includes *Batrachochytrium dendrobatidis*, causing global amphibian declines.\n2. **Phylum Zygomycota:** Coenocytic hyphae producing thick-walled, sexually generated **zygospores** resistant to freezing and drying (e.g., *Rhizopus stolonifer*, black bread mold).\n3. **Phylum Glomeromycota:** Essential soil fungi that form **arbuscular mycorrhizae** with ~80% of terrestrial plant roots.\n4. **Phylum Ascomycota (Sac Fungi):** Sexual spores (**ascospores**) produced inside microscopic sac-like structures called **asci** (typically 8 ascospores per ascus), borne in fruiting bodies called **ascomata (ascocarps)**:\n   - Includes baker's yeast (*Saccharomyces cerevisiae*), penicillium mold, truffles, and morels.\n   - Devastating plant pathogens: *Claviceps purpurea* (ergot on rye, causing ergotism/hallucinations), Dutch elm disease (*Ophiostoma*), and Chestnut blight (*Cryphonectria*).\n5. **Phylum Basidiomycota (Club Fungi):** Sexual spores (**basidiospores**) produced externally on club-shaped microscopic projections called **basidia** (typically 4 basidiospores per basidium), borne on fruiting bodies called **basidiomata (mushrooms)**:\n   - Includes gilled mushrooms, puffballs, shelf fungi.\n   - Agricultural pathogens: **Rusts** (*Puccinia graminis*, wheat stem rust requiring barberry alternate host) and **Smuts** (*Ustilago maydis*, corn smut).\n\n### 3. Lichens: Dual Organisms\nA mutualistic association between a **mycobiont** (fungal partner, usually an ascomycete, providing structural housing, water, and minerals) and a **photobiont** (cyanobacterium or green alga, providing photosynthetic sugars):\n- **Growth Forms:**\n  - *Crustose:* Flat, crust-like encrustations adhering tightly to rocks or tree bark.\n  - *Foliose:* Leaf-like lobed thalli with distinct upper and lower surfaces.\n  - *Fruticose:* Shrubby, erect or pendant branching tufts (e.g., 'reindeer moss', *Cladonia*).\n- **Ecological Value:** Pioneer species in primary succession; secrete organic acids to weather solid rock into primitive soil; highly sensitive bioindicators of sulfur dioxide air pollution."
+                },
+                {
+                    "id": "quiz_bot_21",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 21 Checkpoint: Mycology, Fungal Phyla & Lichen Ecology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Unlike plants whose cell walls are composed of cellulose, the cell walls of Kingdom Fungi are constructed primarily of:",
+                            "options": [
+                                "Chitin",
+                                "Peptidoglycan",
+                                "Lignin",
+                                "Silica"
+                            ],
+                            "correct": 0,
+                            "explanation": "Fungal cell walls are composed of chitin, a tough polymer of N-acetylglucosamine identical to the exoskeleton of arthropods."
+                        },
+                        {
+                            "question": "How do fungi obtain nutrients from their environment?",
+                            "options": [
+                                "Absorptive Heterotrophy: they secrete exoenzymes into their surroundings to digest polymers externally, then absorb the simple nutrients",
+                                "Autotrophic photosynthesis utilizing green chloroplasts",
+                                "Ingesting solid food through a digestive mouth and stomach",
+                                "Fixing nitrogen gas directly from the air without enzymes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Fungi are absorptive heterotrophs; they release extracellular enzymes that digest organic matter externally before hyphae absorb the monomers."
+                        },
+                        {
+                            "question": "The vegetative body of a typical multicellular fungus consists of a dense, subterranean network of microscopic filaments called:",
+                            "options": [
+                                "A Mycelium (composed of hyphae)",
+                                "A Taproot",
+                                "A Stolon",
+                                "A Frustule"
+                            ],
+                            "correct": 0,
+                            "explanation": "The fungal vegetative body is a mycelium—an extensive underground or internal feeding network of microscopic branched tubular hyphae."
+                        },
+                        {
+                            "question": "Fungal hyphae that lack internal cross-walls, consisting of continuous multinucleated cytoplasmic cylinders, are described as:",
+                            "options": [
+                                "Coenocytic (Aseptate)",
+                                "Septate",
+                                "Dormant",
+                                "Mycorrhizal"
+                            ],
+                            "correct": 0,
+                            "explanation": "Coenocytic hyphae lack cross-walls (septa), allowing free cytoplasmic streaming of nutrients and nuclei throughout the filament."
+                        },
+                        {
+                            "question": "In what carbohydrate form do fungi store their excess metabolic energy reserves?",
+                            "options": [
+                                "Glycogen",
+                                "Starch",
+                                "Cellulose",
+                                "Amylopectin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Like animals, fungi store surplus energy as glycogen, contrasting with plants which synthesize and store starch."
+                        },
+                        {
+                            "question": "The Sac Fungi (Phylum Ascomycota) produce their sexual spores (ascospores) inside which microscopic sac-like reproductive structure?",
+                            "options": [
+                                "An Ascus (plural: asci)",
+                                "A Basidium",
+                                "A Zygospore",
+                                "A Sporangium"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ascomycetes produce sexual ascospores (typically 8 per sac) internally within a microscopic sac-like sporangium called an ascus."
+                        },
+                        {
+                            "question": "The Club Fungi (Phylum Basidiomycota, including gilled mushrooms and puffballs) produce their sexual basidiospores externally on:",
+                            "options": [
+                                "A club-shaped cell called a Basidium (typically bearing 4 basidiospores)",
+                                "An ascus",
+                                "A pollen grain",
+                                "A rhizoid"
+                            ],
+                            "correct": 0,
+                            "explanation": "Basidiomycetes produce sexual basidiospores (typically 4 per club) externally on sterigmata projections radiating from a club-shaped basidium."
+                        },
+                        {
+                            "question": "Which fungal phylum is ancient, primarily aquatic, and possesses flagellated zoospores that swim through water?",
+                            "options": [
+                                "Chytridiomycota (Chytrids)",
+                                "Ascomycota",
+                                "Basidiomycota",
+                                "Zygomycota"
+                            ],
+                            "correct": 0,
+                            "explanation": "Chytrids are the earliest divergent fungal lineage, retaining flagellated motile stages (zoospores and gametes) requiring aquatic films."
+                        },
+                        {
+                            "question": "Common black bread mold (Rhizopus stolonifer) produces thick-walled sexual resting structures resistant to freezing and drying, placing it in Phylum:",
+                            "options": [
+                                "Zygomycota",
+                                "Basidiomycota",
+                                "Glomeromycota",
+                                "Rhodophyta"
+                            ],
+                            "correct": 0,
+                            "explanation": "Zygomycetes produce characteristic rough, heavily pigmented, thick-walled zygospores during sexual conjugation between complementary mating types."
+                        },
+                        {
+                            "question": "Which fungal group forms specialized Arbuscular Mycorrhizae (AMF) penetrating cortical root cells in ~80% of terrestrial land plant families?",
+                            "options": [
+                                "Glomeromycota",
+                                "Chytridiomycota",
+                                "Deuteromycota",
+                                "Bryophyta"
+                            ],
+                            "correct": 0,
+                            "explanation": "Glomeromycetes are obligate plant mutualists forming arbuscular mycorrhizae with branching intracellular arbuscules inside root cortex cells."
+                        },
+                        {
+                            "question": "What two organisms join in a mutualistic symbiosis to construct a Lichen?",
+                            "options": [
+                                "A fungus (usually an ascomycete) and a photosynthetic alga or cyanobacterium",
+                                "A moss and an insect",
+                                "A bacterium and a virus",
+                                "A fern and an earthworm"
+                            ],
+                            "correct": 0,
+                            "explanation": "Lichens represent a mutualism between a mycobiont (fungus providing shelter/minerals) and a photobiont (green alga or cyanobacteria supplying sugars)."
+                        },
+                        {
+                            "question": "Lichens displaying a flat, crust-like thallus that adheres tightly to rock surfaces and cannot be removed without destruction are classified as:",
+                            "options": [
+                                "Crustose",
+                                "Foliose",
+                                "Fruticose",
+                                "Porous"
+                            ],
+                            "correct": 0,
+                            "explanation": "Crustose lichens form a paint-like crust cemented tightly onto rocks or tree bark, lacking a lower cortex."
+                        },
+                        {
+                            "question": "Lichens with flattened, leaf-like lobes and distinct upper and lower cortical surfaces that can be peeled from their substrate are classified as:",
+                            "options": [
+                                "Foliose",
+                                "Crustose",
+                                "Fruticose",
+                                "Filamentous"
+                            ],
+                            "correct": 0,
+                            "explanation": "Foliose lichens feature dorsiventral, leaf-like lobed thalli attached to substrates by anchoring fungal rhizines."
+                        },
+                        {
+                            "question": "Why are lichens exceptionally valuable to environmental scientists as biological bioindicators of air quality?",
+                            "options": [
+                                "They lack a protective cuticle and absorb minerals and air pollutants (especially sulfur dioxide) directly, causing them to sicken and die in polluted areas",
+                                "They glow brightly when exposed to pure carbon dioxide",
+                                "They consume industrial radioactive waste",
+                                "They grow only on oil refineries"
+                            ],
+                            "correct": 0,
+                            "explanation": "Because lichens absorb atmospheric moisture and nutrients without a protective waxy cuticle, they are highly sensitive to toxic sulfur dioxide and acid rain."
+                        },
+                        {
+                            "question": "The catastrophic agricultural disease that caused the Irish Potato Famine of the 1840s, Late Blight of potato, is caused by the fungal-like oomycete:",
+                            "options": [
+                                "Phytophthora infestans",
+                                "Claviceps purpurea",
+                                "Puccinia graminis",
+                                "Ustilago maydis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Phytophthora infestans (an oomycete) caused the Irish Potato Famine, rotting potato foliage and underground tubers in wet cool weather."
+                        },
+                        {
+                            "question": "The poisonous fungal ergot that infects rye grain heads, producing toxic alkaloids that cause gangrene, violent hallucinations, and historical outbreaks of St. Anthony's Fire, is:",
+                            "options": [
+                                "Claviceps purpurea",
+                                "Saccharomyces cerevisiae",
+                                "Penicillium notatum",
+                                "Agaricus bisporus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Claviceps purpurea produces hard purple sclerotia on rye containing ergot alkaloids (precursors to LSD) causing vasoconstriction and hallucinations."
+                        },
+                        {
+                            "question": "Wheat Stem Rust, a destructive agricultural disease caused by the basidiomycete Puccinia graminis, requires which alternate woody host plant to complete its sexual life cycle?",
+                            "options": [
+                                "Common Barberry (Berberis vulgaris)",
+                                "Oak trees",
+                                "Soybeans",
+                                "Clover"
+                            ],
+                            "correct": 0,
+                            "explanation": "Puccinia graminis is a heteroecious rust fungus requiring both wheat and common barberry plants to complete its five distinct spore stages."
+                        },
+                        {
+                            "question": "The edible culinary delicacy 'Corn Smut' (Huitlacoche), prized in Mexican cuisine, transforms corn kernels into massive, swollen silvery-gray fungal galls caused by:",
+                            "options": [
+                                "Ustilago maydis",
+                                "Rhizopus stolonifer",
+                                "Candida albicans",
+                                "Ophiostoma ulmi"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ustilago maydis infects corn ears, inducing tumor-like hyperplastic galls packed with black basidiospores harvested as a gourmet delicacy (huitlacoche)."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_22",
+            "title": "Chapter 22: Introduction to the Plant Kingdom: Bryophytes",
+            "description": "The conquest of land, nonvascular plant architecture, dominant gametophyte generation, Phylum Bryophyta (mosses), Marchantiophyta (liverworts), and Anthocerotophyta (hornworts).",
+            "activities": [
+                {
+                    "id": "act_bot_22_lesson",
+                    "type": "page",
+                    "title": "Module 22.1: Nonvascular Plants & Terrestrial Colonization",
+                    "completed": true,
+                    "content": "### 1. The Terrestrial Transition: Conquering the Land\nPlants colonized land during the early Paleozoic (~470 Ma). Transitioning from a buoyant aquatic environment to dry land required solving severe physiological challenges:\n- **Desiccation:** Evolved a waxy **cuticle** to restrict evaporation and **stomata** for regulated gas exchange.\n- **UV Radiation:** Evolved protective flavonoid pigments and **sporopollenin** in spore walls.\n- **Gravity & Structural Support:** Ground-hugging architecture before the advent of lignified vascular tissues.\n- **Gamete Protection:** Enclosing gametes within multicellular **gametangia** (female **archegonia** and male **antheridia**) to protect against drying.\n\n### 2. General Biology of Bryophytes\nThe bryophytes (nonvascular land plants) represent three evolutionary phyla:\n- **Lack Lignified Vascular Tissues:** Lack true xylem vessel/tracheary elements and phloem. Water and solutes move by capillary action and simple cytoplasmic diffusion. Plants remain small and ground-hugging.\n- **Lack True Organs:** Possess leaf-like, stem-like, and root-like structures (**rhizoids** for anchorage, but not water absorption).\n- **Dominant Gametophyte ($1n$):** The persistent, green, photosynthetic generation.\n- **Dependent Sporophyte ($2n$):** Reduced, unbranched, and permanently attached to the maternal gametophyte, relying on it for sugars and water.\n- **Requirement for Free Water:** Male antheridia release biflagellated sperm that must swim through a film of liquid water to fertilize the egg in the archegonium.\n\n### 3. The Three Bryophyte Phyla\n1. **Phylum Bryophyta (Mosses):**\n   - Gametophytes have spirally arranged leaf-like blades on a stem-like axis. Some possess primitive conducting cells: **hydroids** (water) and **leptoids** (sugars).\n   - Spores germinate into a filamentous, green protonema.\n   - Sporophyte consists of a **foot** (anchored in gametophyte), **seta** (stalk), and terminal **capsule (sporangium)** capped by an **operculum** and a ring of hygroscopic **peristome teeth** that fling spores into turbulent air.\n   - **Sphagnum (Peat Moss):** Contains large, empty dead cells (**hyaline cells**) that absorb 20 times their dry weight in water. Accumulates in cold peat bogs, storing enormous quantities of organic carbon (cooling global climate).\n2. **Phylum Marchantiophyta (Liverworts):**\n   - Flattened, ribbon-like lobed thallus (*Marchantia*) or leafy stems.\n   - Asexual reproduction via multicellular **gemmae** splashed out of dorsal **gemmae cups** by raindrops.\n   - Gametangia elevated on umbrella-like stalks: **antheridiophores** (male discs) and **archegoniophores** (female umbrellas).\n   - Capsules contain twisted hygroscopic **elaters** that coil and uncoil to expel spores.\n3. **Phylum Anthocerotophyta (Hornworts):**\n   - Possess elongated, needle- or horn-like sporophytes that grow continuously from a basal intercalary meristem.\n   - Possess true stomata on their sporophytes and a single enormous chloroplast containing a pyrenoid per cell (algal-like)."
+                },
+                {
+                    "id": "quiz_bot_22",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 22 Checkpoint: Bryophyte Morphology, Life Cycles & Peat Ecology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Why are bryophytes (mosses, liverworts, and hornworts) restricted to relatively moist, shaded terrestrial micro-habitats?",
+                            "options": [
+                                "They lack lignified vascular tissues (xylem and phloem) and require a film of free water for their flagellated sperm to swim to the egg",
+                                "They can only photosynthesize under water",
+                                "Their leaves dissolve in sunlight",
+                                "They reproduce strictly through underground tubers"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bryophytes lack structural xylem and deep root systems, and their motile flagellated sperm must swim through external water to reach archegonia."
+                        },
+                        {
+                            "question": "In the life cycle of bryophytes, which generation is dominant, photosynthetic, perennial, and structurally independent?",
+                            "options": [
+                                "The Haploid Gametophyte generation",
+                                "The Diploid Sporophyte generation",
+                                "Both generations are equally dominant giant trees",
+                                "Neither generation performs photosynthesis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bryophytes are unique among land plants in having a dominant, independent haploid gametophyte, with the diploid sporophyte remaining dependent on it."
+                        },
+                        {
+                            "question": "What thread-like structures anchor bryophyte gametophytes to soil, rocks, or tree bark without performing vascular water absorption?",
+                            "options": [
+                                "Rhizoids",
+                                "Taproots",
+                                "Root caps",
+                                "Pneumatophores"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rhizoids are simple filamentous cellular extensions that anchor the gametophyte to substrates, lacking true vascular conductive tissues."
+                        },
+                        {
+                            "question": "When a moss spore germinates in moist soil, it initially grows into an alga-like, branching filamentous green structure called a:",
+                            "options": [
+                                "Protonema",
+                                "Prothallus",
+                                "Gemma",
+                                "Sorus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Moss spores germinate into a protonema—a green photosynthetic thread-like filament that subsequently produces buds that develop into leafy gametophores."
+                        },
+                        {
+                            "question": "The diploid sporophyte of a moss is composed of which three anatomical parts?",
+                            "options": [
+                                "Foot, Seta (stalk), and Capsule (sporangium)",
+                                "Root, Stem, and Leaf",
+                                "Petal, Sepal, and Anther",
+                                "Radicle, Hypocotyl, and Cotyledon"
+                            ],
+                            "correct": 0,
+                            "explanation": "The moss sporophyte consists of a foot absorbing nutrients from the gametophyte, an elevating seta stalk, and a terminal capsule generating spores."
+                        },
+                        {
+                            "question": "What hygroscopic ring of teeth lines the rim of a moss capsule, bending and flexing in response to humidity changes to discharge spores into the wind?",
+                            "options": [
+                                "The Peristome teeth",
+                                "The Operculum",
+                                "The Calyptra",
+                                "The Gemma"
+                            ],
+                            "correct": 0,
+                            "explanation": "Peristome teeth line the capsule opening, flexing open in dry weather to launch spores and curling closed in damp rain."
+                        },
+                        {
+                            "question": "Peat moss (Sphagnum) possesses large, dead, hollow hyaline cells that give it the extraordinary capability to:",
+                            "options": [
+                                "Absorb and retain up to 20 times its dry weight in liquid water",
+                                "Conduct electricity across bogs",
+                                "Digest insects using venoms",
+                                "Bioluminesce brightly in the dark"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sphagnum hyaline leaf cells possess spiral wall thickenings and pores that absorb and hold vast volumes of water, creating acidic peat bogs."
+                        },
+                        {
+                            "question": "Why do northern peat bogs dominated by Sphagnum moss play an immense role in global climate regulation?",
+                            "options": [
+                                "They act as colossal terrestrial carbon sinks, locking up massive quantities of organic carbon in un-decomposed peat due to cold, acidic, anaerobic conditions",
+                                "They reflect all cosmic rays into deep space",
+                                "They warm the planet by emitting vast clouds of steam",
+                                "They produce zero organic carbon"
+                            ],
+                            "correct": 0,
+                            "explanation": "Peatlands cover only ~3% of land surface but store more carbon than all global forests combined, sequestering carbon due to slow decomposition."
+                        },
+                        {
+                            "question": "How do thalloid liverworts (such as Marchantia) reproduce asexually?",
+                            "options": [
+                                "By producing tiny multicellular gemmae within dorsal cup-like gemmae cups that are splashed out by raindrops",
+                                "By releasing airborne pollen grains",
+                                "By dropping fleshy underground tubers",
+                                "By floral budding"
+                            ],
+                            "correct": 0,
+                            "explanation": "Gemmae cups on the upper thallus surface hold tiny multicellular gemmae disks that disperse when hit by rain droplets to grow into clones."
+                        },
+                        {
+                            "question": "In Marchantia liverworts, the specialized umbrella-like stalk that bears female archegonia on its downward-pointing finger-like lobes is the:",
+                            "options": [
+                                "Archegoniophore",
+                                "Antheridiophore",
+                                "Seta",
+                                "Protonema"
+                            ],
+                            "correct": 0,
+                            "explanation": "Archegoniophores elevate archegonia beneath umbrella-like finger spokes, while flat disc-topped antheridiophores hold sperm-producing antheridia."
+                        },
+                        {
+                            "question": "What spiral, hygroscopic structures reside inside liverwort sporangia, twisting and jerking violently as they dry to flick spores into the wind?",
+                            "options": [
+                                "Elaters",
+                                "Peristome teeth",
+                                "Hydroids",
+                                "Statoliths"
+                            ],
+                            "correct": 0,
+                            "explanation": "Elaters are elongate, dead cells with spiral wall thickenings that twist rapidly with changing atmospheric humidity, flinging spores outward."
+                        },
+                        {
+                            "question": "Hornworts (Phylum Anthocerotophyta) are uniquely distinguished from mosses and liverworts by which anatomical feature of their sporophyte?",
+                            "options": [
+                                "Their needle-like sporophytes grow continuously from a basal intercalary meristem and possess true stomata",
+                                "Their sporophytes produce giant edible apples",
+                                "Their sporophytes live underground exclusively",
+                                "They lack spores completely"
+                            ],
+                            "correct": 0,
+                            "explanation": "Hornwort sporophytes are elongated, horn-shaped cylinders with true stomata that grow continuously from an active basal intercalary meristem."
+                        },
+                        {
+                            "question": "Some primitive mosses possess specialized, elongated water-conducting cells that resemble tracheary elements but lack lignified secondary cell walls. These are:",
+                            "options": [
+                                "Hydroids",
+                                "Leptoids",
+                                "Sclereids",
+                                "Vessels"
+                            ],
+                            "correct": 0,
+                            "explanation": "Hydroids are specialized water-conducting cells in moss stems, often surrounded by living food-conducting cells called leptoids."
+                        },
+                        {
+                            "question": "What term describes the protective cap of haploid gametophyte tissue derived from the archegonial wall that covers the apex of an immature moss capsule?",
+                            "options": [
+                                "The Calyptra",
+                                "The Operculum",
+                                "The Peristome",
+                                "The Columella"
+                            ],
+                            "correct": 0,
+                            "explanation": "The calyptra is a haploid remnant of the enlarged archegonial neck that shields the developing sporophyte capsule until it is shed."
+                        },
+                        {
+                            "question": "The lid-like cap at the summit of a mature moss capsule that falls off to expose the peristome teeth and release spores is the:",
+                            "options": [
+                                "Operculum",
+                                "Calyptra",
+                                "Seta",
+                                "Foot"
+                            ],
+                            "correct": 0,
+                            "explanation": "The operculum is the terminal lid that pops off the capsule as it dries, revealing the spore chamber and peristome ring."
+                        },
+                        {
+                            "question": "Which of the following environmental adaptations first evolved in the ancestors of bryophytes to restrict water loss upon colonizing dry land?",
+                            "options": [
+                                "A waxy Cuticle",
+                                "Woody secondary xylem",
+                                "Large fleshy fruits",
+                                "Nectar-producing flowers"
+                            ],
+                            "correct": 0,
+                            "explanation": "The evolution of a hydrophobic cutin cuticle was the essential initial evolutionary innovation shielding aerial plant tissues from dehydration."
+                        },
+                        {
+                            "question": "Why was dried Sphagnum peat moss used extensively as an emergency battlefield surgical wound dressing during World War I?",
+                            "options": [
+                                "It is sterile, highly absorbent, and naturally acidic with antiseptic properties that inhibit bacterial infections",
+                                "It turns wounds into solid bone instantly",
+                                "It numbs all pain like general anesthesia",
+                                "It glues severed arteries shut with natural rubber"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sphagnum can absorb large volumes of blood, while its high acidity and phenolic compounds create an antiseptic barrier against wound infection."
+                        },
+                        {
+                            "question": "What cellular feature is uniquely found in hornwort cells that reflects an evolutionary link to green algal ancestors?",
+                            "options": [
+                                "A single large chloroplast containing a pyrenoid per cell",
+                                "Complete absence of DNA in the nucleus",
+                                "Cell walls made of pure silica",
+                                "Lack of any cell membrane"
+                            ],
+                            "correct": 0,
+                            "explanation": "Each hornwort cell typically contains just one large, plate-like chloroplast with an internal pyrenoid, a primitive trait shared with green algae."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_23",
+            "title": "Chapter 23: The Plant Kingdom: Seedless Vascular Plants",
+            "description": "Vascular tissue evolution, dominant sporophyte, Phylum Lycopodiophyta (club mosses), Phylum Pteridophyta (ferns, horsetails, whisk ferns), and homospory vs heterospory.",
+            "activities": [
+                {
+                    "id": "act_bot_23_lesson",
+                    "type": "page",
+                    "title": "Module 23.1: Ferns & Seedless Vascular Architecture",
+                    "completed": true,
+                    "content": "### 1. Evolutionary Innovations of Vascular Plants (Tracheophytes)\nThe evolution of vascular tissues in the late Silurian transformed terrestrial landscapes:\n1. **Lignified Vascular Tissues:** **Xylem** (reinforced with lignin) enabled upright vertical growth against gravity and long-distance water transport; **Phloem** translocated photosynthate.\n2. **Dominant Sporophyte Generation ($2n$):** The diploid sporophyte is large, branched, independent, and long-lived, reducing deleterious recessive mutation expression.\n3. **True Organs:** Evolution of true vascular **roots**, **stems**, and **leaves**.\n4. **Free-Sporing Reproduction:** Disperse via microscopic spores; still lack seeds and still require external environmental water films for flagellated sperm to swim to archegonia.\n\n### 2. Phylum Lycopodiophyta (Lycophytes)\nAncient lineage diverging earliest among modern vascular plants:\n- Possess **microphylls** (small leaves containing only a single, unbranched vascular vein).\n- Sporangia are borne on specialized fertile leaves called **sporophylls**, often clustered into terminal cones called **strobili**.\n- **Homospory vs. Heterospory:**\n  - *Homospory (*Lycopodium*, Club mosses):* Produces a single type of spore that develops into a bisexual gametophyte bearing both antheridia and archegonia.\n  - *Heterospory (*Selaginella*, Spike mosses):* Produces two distinct spore types:\n    1. **Microspores:** Produced in microsporangia, developing into male microgametophytes.\n    2. **Megaspores:** Produced in megasporangia, developing into female megagametophytes. (Critical evolutionary stepping stone to the seed).\n\n### 3. Phylum Pteridophyta (Ferns and Fern Allies)\nMonophyletic clade possessing **megaphylls** (leaves with complex branching veins) and multi-flagellated sperm:\n- **True Ferns (Polypodiopsida):**\n  - Stem is usually an underground horizontal **rhizome** bearing fibrous roots and large leaves called **fronds**.\n  - Young coiled fronds emerge as **fiddleheads (croziers)** via **circinate vernation**.\n  - Sporangia clustered on the underside of fronds into distinct clusters called **sori** (often protected by a flap called an **indusium**).\n  - Sporangia feature an **annulus** (a ring of spring-loaded cells that snaps backward upon drying to fling spores into the air).\n  - Spores germinate into a heart-shaped, independent, photosynthetic bisexual gametophyte called a **prothallus**.\n- **Whisk Ferns (*Psilotum*):** Leafless, rootless green dichotomously branching stems with three-lobed **synangia** sporangia (secondarily simplified).\n- **Horsetails (*Equisetum*):** Jointed, hollow photosynthetic ribbed stems reinforced with abrasive **silica** crystals; tiny whorled scale-like leaves; terminal spore strobili bearing sporangiophores with **elaters**."
+                },
+                {
+                    "id": "quiz_bot_23",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 23 Checkpoint: Lycophytes, Fern Morphology & Heterospory",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What primary evolutionary adaptation allowed seedless vascular plants to grow significantly taller than ground-hugging bryophytes?",
+                            "options": [
+                                "Lignified vascular tissues (xylem and phloem) providing internal hydrodynamic transport and mechanical structural support",
+                                "Production of colorful floral petals",
+                                "Loss of all chloroplasts",
+                                "Relying entirely on mycorrhizal fungi for photosynthesis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Lignin-reinforced xylem conduits provide tensile and compressive strength against gravity, allowing vertical elevation of photosynthetic organs."
+                        },
+                        {
+                            "question": "In the life cycle of seedless vascular plants (such as ferns and club mosses), which generation is dominant, large, and independent?",
+                            "options": [
+                                "The Diploid Sporophyte generation",
+                                "The Haploid Gametophyte generation",
+                                "The Triploid Endosperm generation",
+                                "The Zygotic unicell"
+                            ],
+                            "correct": 0,
+                            "explanation": "In all vascular plants, the diploid sporophyte is the prominent, long-lived, dominant generation, with gametophytes reduced in size."
+                        },
+                        {
+                            "question": "What is the defining anatomical difference between a Microphyll leaf and a Megaphyll leaf?",
+                            "options": [
+                                "Microphylls contain only a single unbranched vascular vein; Megaphylls possess a complex, branching vascular vein network",
+                                "Microphylls are found only on giant oak trees",
+                                "Megaphylls lack stomata",
+                                "Microphylls have multiple petioles"
+                            ],
+                            "correct": 0,
+                            "explanation": "Microphylls (found in lycophytes) contain a solitary vascular strand; megaphylls (ferns, seed plants) feature extensive branched venation."
+                        },
+                        {
+                            "question": "The clusters of sporangia found on the undersides of fertile fern fronds are called:",
+                            "options": [
+                                "Sori (singular: Sorus)",
+                                "Strobili",
+                                "Prothalli",
+                                "Rhizomes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sori are distinct brown clusters of sporangia located on the abaxial (lower) surface of fertile fern fronds."
+                        },
+                        {
+                            "question": "What membranous protective flap covers and shields immature fern sori in many species?",
+                            "options": [
+                                "The Indusium",
+                                "The Calyptra",
+                                "The Annulus",
+                                "The Operculum"
+                            ],
+                            "correct": 0,
+                            "explanation": "The indusium is a thin epidermal umbrella or flap covering developing fern sporangia, shriveling when spores are mature."
+                        },
+                        {
+                            "question": "The unrolling of young coiled fern fronds in spring, known colloquially as 'fiddleheads', occurs through the developmental process of:",
+                            "options": [
+                                "Circinate Vernation",
+                                "Etiolation",
+                                "Abscission",
+                                "Stratification"
+                            ],
+                            "correct": 0,
+                            "explanation": "Circinate vernation protects the delicate growing tip inside a tight coil (fiddlehead) that uncurls as lower cells elongate."
+                        },
+                        {
+                            "question": "The independent, heart-shaped photosynthetic haploid gametophyte of a homosporous fern is called a:",
+                            "options": [
+                                "Prothallus (Prothallium)",
+                                "Protonema",
+                                "Rhizome",
+                                "Strobilus"
+                            ],
+                            "correct": 0,
+                            "explanation": "A fern prothallus is a small (~5-10 mm), green, heart-shaped, bisexual gametophyte bearing ventral rhizoids, antheridia, and archegonia."
+                        },
+                        {
+                            "question": "What spring-loaded ring of specialized cells with differentially thickened walls catapults spores out of a fern sporangium upon drying?",
+                            "options": [
+                                "The Annulus",
+                                "The Peristome",
+                                "The Indusium",
+                                "The Operculum"
+                            ],
+                            "correct": 0,
+                            "explanation": "As water evaporates from thick-walled annulus cells, tension pulls the ring backward until it snaps forward violently, catapulting spores into the air."
+                        },
+                        {
+                            "question": "Why do ferns and lycophytes still require free environmental water (such as dew or rain) to achieve sexual fertilization?",
+                            "options": [
+                                "Their flagellated sperm cells must swim through a liquid water film to reach the egg inside the archegonium",
+                                "Their spores drown without water",
+                                "They lack chlorophyll without water",
+                                "Their roots cannot absorb soil minerals"
+                            ],
+                            "correct": 0,
+                            "explanation": "Like bryophytes, seedless vascular plants produce swimming, multi-flagellated sperm that depend on external moisture to reach female gametangia."
+                        },
+                        {
+                            "question": "How does Heterospory differ from Homospory in plant reproductive biology?",
+                            "options": [
+                                "Heterosporous plants produce two distinct types of spores (microspores yielding male gametophytes and megaspores yielding female gametophytes)",
+                                "Heterosporous plants produce zero spores",
+                                "Homosporous plants produce separate male and female seeds",
+                                "Heterospory occurs only in marine algae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Heterospory produces distinct microspores (developing into male microgametophytes) and megaspores (developing into female megagametophytes)."
+                        },
+                        {
+                            "question": "Why was the evolutionary origin of Heterospory in seedless vascular plants a critical prerequisite for the subsequent evolution of seeds?",
+                            "options": [
+                                "It separated sexes and allowed the complete retention and nourishment of the female megagametophyte within the maternal megasporangium",
+                                "It eliminated the need for cell division",
+                                "It allowed plants to walk across soil",
+                                "It destroyed the need for sunlight"
+                            ],
+                            "correct": 0,
+                            "explanation": "Heterospory allowed megaspores to be retained inside the ovule/megasporangium, leading directly to the evolution of seeds."
+                        },
+                        {
+                            "question": "The vegetative stems of Horsetails (Equisetum) are heavily impregnated with which abrasive mineral, leading early American pioneers to use them as 'scouring rushes' for pots?",
+                            "options": [
+                                "Silica ($SiO_2$)",
+                                "Calcium carbonate",
+                                "Lignin",
+                                "Cellulose"
+                            ],
+                            "correct": 0,
+                            "explanation": "Equisetum stems accumulate abrasive silica crystals in epidermal cell walls, giving them a gritty texture used for scrubbing cookware."
+                        },
+                        {
+                            "question": "Whisk ferns (Psilotum) are remarkable vascular plants characterized morphologically by:",
+                            "options": [
+                                "Dichotomously branching green photosynthetic stems that secondarily lack true roots and true leaves",
+                                "Giant leaves with thousands of seeds",
+                                "Massive woody root systems",
+                                "Enormous showy purple flowers"
+                            ],
+                            "correct": 0,
+                            "explanation": "Psilotum features green, dichotomous photosynthetic axes bearing tiny scale-like enations and subterranean rhizomes, lacking roots and broad leaves."
+                        },
+                        {
+                            "question": "A cone-like aggregate of sporophylls bearing sporangia at the terminal tips of club moss and horsetail stems is a:",
+                            "options": [
+                                "Strobilus",
+                                "Sorus",
+                                "Prothallus",
+                                "Gemma cup"
+                            ],
+                            "correct": 0,
+                            "explanation": "A strobilus (cone) is a compact terminal reproductive cluster of specialized sporophyll leaves bearing sporangia."
+                        },
+                        {
+                            "question": "Lycopodium spores were historically collected commercially as 'Lycopodium Powder' and utilized in early photography and theater for:",
+                            "options": [
+                                "Flash powder and pyrotechnic stage flashes due to their high, flammable vegetable oil content",
+                                "Baking bread",
+                                "Poisoning rodent pests",
+                                "Dyeing cloth blue"
+                            ],
+                            "correct": 0,
+                            "explanation": "Dry Lycopodium spores contain ~50% flammable oils; when suspended in air near a flame, they ignite with a brilliant, smokeless flash."
+                        },
+                        {
+                            "question": "What term describes the specialized sporangia of Psilotum (whisk ferns), which consist of three fused sporangial chambers?",
+                            "options": [
+                                "A Synangium",
+                                "An Indusium",
+                                "An Annulus",
+                                "A Sorus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Psilotum produces three fused sporangia called a synangium nestled in the axils of small bifurcated scale appendages."
+                        },
+                        {
+                            "question": "Equisetum spores possess four ribbon-like, hygroscopic appendages called _______ that uncoil in dry air to tangle spores together and assist wind dispersal.",
+                            "options": [
+                                "Elaters",
+                                "Annuli",
+                                "Rhizoids",
+                                "Peristome teeth"
+                            ],
+                            "correct": 0,
+                            "explanation": "Horsetail spores have four spiral elaters attached to the spore wall that expand dynamically in dry air, facilitating mass dispersal."
+                        },
+                        {
+                            "question": "Spike mosses of the genus Selaginella include the famous 'Resurrection Plant' (Selaginella lepidophylla), which is renowned for:",
+                            "options": [
+                                "Curling into a dormant, dry brown ball during desert droughts and unrolling into a vibrant green plant within hours of receiving water",
+                                "Living permanently inside volcanic lava",
+                                "Producing seeds without fertilization",
+                                "Growing exclusively on the surface of icebergs"
+                            ],
+                            "correct": 0,
+                            "explanation": "The resurrection plant exhibits poikilohydry, surviving near-total tissue dehydration for years and reviving rapidly upon rehydration."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_24",
+            "title": "Chapter 24: The Plant Kingdom: Gymnosperms",
+            "description": "Evolution of the seed and pollen, 'naked seeds', Phylum Coniferophyta (conifers), Cycadophyta (cycads), Ginkgophyta, and Gnetophyta.",
+            "activities": [
+                {
+                    "id": "act_bot_24_lesson",
+                    "type": "page",
+                    "title": "Module 24.1: Gymnosperm Diversity & Life Cycle of the Pine",
+                    "completed": true,
+                    "content": "### 1. The Gymnosperms: 'Naked Seed' Plants\nGymnosperms (from Greek *gymnos* 'naked' and *sperma* 'seed') were the first seed plants to dominate the Mesozoic landscape (~250-65 Ma):\n- **Naked Seeds:** Ovules and seeds are borne exposed on the surfaces of modified leaves called **ovuliferous scales**, rather than enclosed inside an ovary (fruit).\n- **Pollen Grains:** The male microgametophyte is encased in sporopollenin, carried by wind (**anemophily**), eliminating the requirement for external water films for fertilization.\n- **Woody Architecture:** Possess a bifacial vascular cambium producing abundant secondary xylem composed almost exclusively of **tracheids** (softwood).\n\n### 2. The Four Living Gymnosperm Phyla\n1. **Phylum Coniferophyta (Conifers):**\n   - The largest and most economically vital gymnosperm phylum (pines, spruces, firs, larches, cedars, junipers, yews, and redwoods).\n   - Adaptations to cold, arid, high-latitude environments: needle-like or scale-like leaves with thick cuticles, sunken stomata, and **resin canals** (deterring insects and freezing).\n   - Includes Earth's oldest living single organism (Bristlecone pine, *Pinus longaeva*, >4,800 years old) and tallest tree (Coast redwood, *Sequoia sempervirens*, >115 meters).\n2. **Phylum Cycadophyta (Cycads):**\n   - Ancient tropical and subtropical gymnosperms resembling palm trees, with large pinnately compound fronds.\n   - Strictly **dioecious** (separate male and female individuals bearing colossal cones).\n   - Retain ancestral flagellated swimming sperm released within the ovule's pollen chamber.\n3. **Phylum Ginkgophyta (Ginkgo / Maidenhair Tree):**\n   - Monotypic phylum containing a single living relict species: *Ginkgo biloba*.\n   - Deciduous tree with fan-shaped, dichotomously veined leaves.\n   - Dioecious; female trees bear fleshy seeds that exude foul-smelling **butyric acid** when ripe.\n4. **Phylum Gnetophyta:**\n   - Three morphologically bizarre genera: *Ephedra* (desert 'Mormon tea', source of stimulant ephedrine), *Gnetum* (tropical broadleaf vines and trees), and *Welwitschia mirabilis* (Namib desert plant possessing only two continuous strap-like leaves splitting over a century).\n   - Share angiosperm-like features: possess **vessel elements** in their xylem and undergo a rudimentary double fertilization.\n\n### 3. The Life Cycle of a Pine (*Pinus*)\nSpans approximately two full years from pollination to mature seed release:\n- **Male (Microsporangiate) Cones:** Small papery cones produced in clusters on lower branches; microsporocytes undergo meiosis to yield winged pollen grains (consisting of two prothallial cells, a tube cell, and a generative cell).\n- **Female (Ovulate) Cones:** Large woody cones on upper branches. Each scale bears two ovules. A single megaspore mother cell undergoes meiosis to yield four megaspores (three degenerate; the surviving megaspore divides mitotically into a multicellular female gametophyte bearing archegonia).\n- **Pollination & Fertilization:** Windborne pollen enters the ovule's **micropyle** via a **pollination drop**. A full year passes while the pollen tube digests through the nucellus. The generative cell divides to produce two non-motile sperm; one fuses with the egg nucleus to form the $2n$ zygote.\n- **Mature Seed:** Composed of three generations: (1) $2n$ maternal seed coat, (2) $1n$ female gametophyte nutrient tissue, and (3) $2n$ new embryo sporophyte."
+                },
+                {
+                    "id": "quiz_bot_24",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 24 Checkpoint: Gymnosperm Biology, Conifers & Pine Reproduction",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Why are gymnosperms described botanically as bearing 'naked seeds'?",
+                            "options": [
+                                "Their ovules and seeds are borne exposed on the surfaces of cone scales rather than enclosed inside a protective ovary (fruit)",
+                                "Their seeds lack seed coats entirely",
+                                "Their seeds never germinate",
+                                "Their seeds are produced without pollen"
+                            ],
+                            "correct": 0,
+                            "explanation": "Gymnosperm means 'naked seed': ovules develop exposed on ovuliferous cone scales and are not enclosed inside an ovary wall (fruit)."
+                        },
+                        {
+                            "question": "In gymnosperms, what evolutionary innovation eliminated the ancient requirement for swimming sperm in external water films?",
+                            "options": [
+                                "The airborne Pollen Grain (microgametophyte) that delivers sperm directly to the ovule via a pollen tube",
+                                "Underground rhizomes",
+                                "Fleshy edible fruit coats",
+                                "Vascular wood rings"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pollen grains are desiccation-resistant male gametophytes carried by wind, developing pollen tubes that deposit sperm directly into the ovule."
+                        },
+                        {
+                            "question": "Which phylum of gymnosperms contains the vast majority of living species, including pines, spruces, firs, redwoods, and cedars?",
+                            "options": [
+                                "Phylum Coniferophyta (Conifers)",
+                                "Phylum Cycadophyta",
+                                "Phylum Ginkgophyta",
+                                "Phylum Gnetophyta"
+                            ],
+                            "correct": 0,
+                            "explanation": "Coniferophyta is the largest gymnosperm phylum, comprising woody cone-bearing trees adapted to temperate, boreal, and montane forests."
+                        },
+                        {
+                            "question": "What xerophytic leaf adaptations enable evergreen conifers (such as pines) to survive frozen winters and dry montane climates without severe water loss?",
+                            "options": [
+                                "Needle-shaped leaves with a thick waxy cuticle, sunken stomata, and internal resin canals",
+                                "Broad thin leaves that drop every week",
+                                "Total absence of vascular veins",
+                                "Water absorption through bark"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pine needles have low surface-area-to-volume ratios, heavily cutinized epidermises, and sunken stomata that dramatically restrict transpirational water loss."
+                        },
+                        {
+                            "question": "What sticky aromatic substance is synthesized inside specialized ducts in conifer wood and needles to deter bark beetles and seal wounds?",
+                            "options": [
+                                "Resin (Pitch)",
+                                "Latex",
+                                "Mucigel",
+                                "Pectin"
+                            ],
+                            "correct": 0,
+                            "explanation": "Resin is a complex mixture of terpenes synthesized in resin canals that plugs wounds and deters wood-boring insects and fungal spores."
+                        },
+                        {
+                            "question": "The oldest known living non-clonal individual organism on Earth is a Bristlecone Pine (Pinus longaeva) growing in California that is over:",
+                            "options": [
+                                "4,800 years old",
+                                "500 years old",
+                                "10,000,000 years old",
+                                "150 years old"
+                            ],
+                            "correct": 0,
+                            "explanation": "Methuselah and other Bristlecone pines in the White Mountains of California have dated tree rings exceeding 4,800 to 5,000 years of age."
+                        },
+                        {
+                            "question": "In the life cycle of a pine, what structure captures windborne pollen grains at the micropyle of the immature ovule?",
+                            "options": [
+                                "A sticky fluid Pollination Drop exuded by the ovule",
+                                "A feathered floral petal",
+                                "An indusium flap",
+                                "A peristome tooth"
+                            ],
+                            "correct": 0,
+                            "explanation": "The pollination drop is a droplet of fluid secreted through the micropyle that catches windborne pollen grains, contracting to draw them inside."
+                        },
+                        {
+                            "question": "How long does the reproductive process typically take in a pine tree from the initial pollination event to the release of mature seeds?",
+                            "options": [
+                                "Approximately two full years (14 to 18 months)",
+                                "Less than 24 hours",
+                                "Exactly ten minutes",
+                                "Fifty consecutive years"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pine reproduction is exceptionally slow: pollen tube digestion takes a full year before fertilization occurs, followed by months of seed maturation."
+                        },
+                        {
+                            "question": "In gymnosperm seeds (such as a pine nut), what tissue provides the stored nutrient reserve that nourishes the germinating embryo?",
+                            "options": [
+                                "The haploid (1n) female gametophyte tissue",
+                                "Triploid (3n) endosperm",
+                                "The parent tree's bark",
+                                "The dead pollen tube"
+                            ],
+                            "correct": 0,
+                            "explanation": "Unlike angiosperms (which use triploid endosperm), gymnosperm seed reserves are formed directly by the haploid ($1n$) female gametophyte body."
+                        },
+                        {
+                            "question": "Which ancient gymnosperm phylum resembles palm trees, produces colossal reproductive cones, is strictly dioecious, and retains swimming flagellated sperm?",
+                            "options": [
+                                "Phylum Cycadophyta (Cycads)",
+                                "Phylum Coniferophyta",
+                                "Phylum Ginkgophyta",
+                                "Phylum Anthophyta"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cycads resemble stubby palms with large crowns of pinnate leaves, bear massive strobili, and are dioecious with swimming multiflagellate sperm."
+                        },
+                        {
+                            "question": "Ginkgo biloba is classified as a 'living fossil' and the sole surviving representative of Phylum Ginkgophyta. It is characterized morphologically by:",
+                            "options": [
+                                "Deciduous, fan-shaped leaves with dichotomous venation and separate male and female trees (dioecious)",
+                                "Evergreen needles with sharp thorns",
+                                "Flowering purple petals",
+                                "Hollow bamboo-like stems"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ginkgo biloba features fan-shaped leaves with forked dichotomous veins and naked seeds borne on stalks on female trees."
+                        },
+                        {
+                            "question": "Why do urban city landscapers and arborists almost universally plant exclusively male Ginkgo trees in public parks?",
+                            "options": [
+                                "The fleshy seed coats of mature female Ginkgo seeds produce foul-smelling butyric acid resembling rancid butter",
+                                "Female trees attract venomous snakes",
+                                "Male trees produce delicious edible apples",
+                                "Female trees die in the winter"
+                            ],
+                            "correct": 0,
+                            "explanation": "The fleshy outer seed coat of fallen female Ginkgo seeds decomposes, releasing volatile butyric and isobutyric acids with an offensive odor."
+                        },
+                        {
+                            "question": "Welwitschia mirabilis, a bizarre desert gymnosperm native to the hyper-arid Namib Desert, produces an adult body plan that consists of:",
+                            "options": [
+                                "Only two large strap-like leaves that grow continuously from a basal meristem for over a thousand years, splitting into ribbons",
+                                "A towering trunk 100 meters high",
+                                "Thousands of delicate annual flowers",
+                                "No leaves whatsoever"
+                            ],
+                            "correct": 0,
+                            "explanation": "Welwitschia mirabilis survives in Namib fog with a deep taproot and just two wide, leathery leaves that grow continuously throughout its centuries-long life."
+                        },
+                        {
+                            "question": "Which genus of Phylum Gnetophyta consists of photosynthetic, jointed desert shrubs (known as Mormon Tea) from which the decongestant alkaloid ephedrine is harvested?",
+                            "options": [
+                                "Ephedra",
+                                "Gnetum",
+                                "Pinus",
+                                "Taxus"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ephedra produces jointed, scale-leaved stems that contain ephedrine and pseudoephedrine, used historically as bronchodilators."
+                        },
+                        {
+                            "question": "What distinct anatomical feature in the xylem of Gnetophytes (such as Gnetum and Ephedra) distinguishes them from all other gymnosperms and parallels angiosperms?",
+                            "options": [
+                                "The presence of true Vessel Elements in their xylem",
+                                "The complete absence of all cell walls",
+                                "Xylem that conducts blood",
+                                "Phloem sieve plates made of bone"
+                            ],
+                            "correct": 0,
+                            "explanation": "Gnetophytes possess vessel elements with open perforation plates in their xylem, a trait shared with flowering plants through evolutionary parallelism."
+                        },
+                        {
+                            "question": "Commercial 'pine nuts' used in Mediterranean cuisine and pesto are botanically classified as:",
+                            "options": [
+                                "The large, edible seeds of specific pine tree species (such as Pinus pinea and Pinus edulis)",
+                                "Fleshy drupe fruits",
+                                "Underground stem tubers",
+                                "Pollen grains"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pine nuts are the protein- and oil-rich seeds harvested from ovulate cones of edible pinyon and stone pine species."
+                        },
+                        {
+                            "question": "Coast Redwoods (Sequoia sempervirens) of northern California hold the botanical world record as Earth's:",
+                            "options": [
+                                "Tallest living trees (exceeding 115 meters / 379 feet in height)",
+                                "Oldest single bacteria",
+                                "Widest single flower petal",
+                                "Most poisonous plant"
+                            ],
+                            "correct": 0,
+                            "explanation": "Coast redwoods are the tallest living organisms on Earth, thriving in Pacific coastal summer fogs that prevent canopy desiccation."
+                        },
+                        {
+                            "question": "In conifer wood (softwood), what anatomical cellular element performs virtually all water conduction and mechanical support?",
+                            "options": [
+                                "Tracheids",
+                                "Vessel elements",
+                                "Sclereid stone cells",
+                                "Parenchyma chlorenchyma"
+                            ],
+                            "correct": 0,
+                            "explanation": "Conifer secondary xylem is structurally uniform, consisting of ~95% tracheids with bordered pits, lacking vessel elements entirely."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_25",
+            "title": "Chapter 25: The Plant Kingdom: Flowering Plants",
+            "description": "Angiosperm dominance, coevolution with animal pollinators, Basal angiosperms, Monocots vs Eudicots, and economic botany of major crop families.",
+            "activities": [
+                {
+                    "id": "act_bot_25_lesson",
+                    "type": "page",
+                    "title": "Module 25.1: Angiosperm Radiation, Systematics & Economic Botany",
+                    "completed": true,
+                    "content": "### 1. The Angiosperm Evolutionary Explosion\nFlowering plants (Phylum Anthophyta) comprise >300,000 living species, accounting for ~90% of all land plant diversity. Their unprecedented evolutionary success is driven by five core innovations:\n1. **The Flower:** Specialized reproductive structure facilitating highly efficient, targeted **biotic pollination** (coevolution with bees, butterflies, moths, beetles, birds, and bats).\n2. **The Fruit:** Enclosed seeds within a carpel/ovary, providing mechanical protection and diverse dispersal mechanisms (animal frugivory, wind, water, ballistic expulsion).\n3. **Double Fertilization:** Yields triploid ($3n$) endosperm, preventing maternal investment in nutritive tissue until fertilization is confirmed.\n4. **Vascular Efficiency:** Possess wide, efficient **vessel elements** in xylem and **sieve-tube elements with companion cells** in phloem.\n5. **Rapid Life Cycles:** Ability to mature from seed to flower to seed in weeks, facilitating annual and herbaceous life habits.\n\n### 2. Major Angiosperm Lineages\nMolecular phylogenetics (APG, Angiosperm Phylogeny Group) revolutionized traditional classification:\n- **Basal Angiosperms (ANA Grade):** Earliest-diverging lineages:\n  - *Amborella trichopoda:* A small, primitive shrub native to New Caledonia; the sister taxon to all other living angiosperms (lacks xylem vessels).\n  - *Nymphaeales:* Water lilies.\n  - *Austrobaileyales:* Star anise.\n- **Magnoliids:** Primitive broadleaf woody plants with ethereal oil cells and spiral floral parts (magnolias, laurels, black pepper, avocados).\n- **The Two Great Crown Clades: Monocots vs. Eudicots:**\n  - **Monocots (Monocotyledoneae, ~22% of angiosperms):**\n    - One seed cotyledon.\n    - Parallel leaf venation.\n    - Scattered stem vascular bundles (no vascular cambium, no true wood).\n    - Fibrous root system.\n    - Floral parts in **multiples of three** (3-merous).\n    - Monosulcate (single-pored) pollen grains.\n    - Includes grasses (Poaceae), orchids (Orchidaceae), palms (Arecaceae), lilies (Liliaceae).\n  - **Eudicots ('True Dicots', ~75% of angiosperms):**\n    - Two seed cotyledons.\n    - Netted (reticulate) leaf venation.\n    - Stem vascular bundles arranged in a **concentric ring** (capable of secondary growth/wood).\n    - Taproot system.\n    - Floral parts in **multiples of four or five** (4- or 5-merous).\n    - **Tricolpate** (three-grooved) pollen grains.\n    - Includes roses, legumes, composites, oaks, maples, potatoes.\n\n### 3. Economic Botany: The Plant Families That Feed Humanity\n- **Poaceae (Grass Family):** The most economically essential plant family on Earth. Provides world staple cereal grains: **Wheat** (*Triticum*), **Rice** (*Oryza*), **Corn/Maize** (*Zea mays*), **Barley**, **Rye**, **Oats**, and **Sugarcane**.\n- **Fabaceae (Legume / Pea Family):** Symbiotic with *Rhizobium* nitrogen-fixing bacteria. High-protein crops: **Soybeans**, **Beans**, **Peas**, **Lentils**, **Peanuts**, **Chickpeas**.\n- **Solanaceae (Nightshade Family):** Rich in alkaloids. Edible staples: **Potatoes**, **Tomatoes**, **Peppers**, **Eggplants**; economic: **Tobacco** (*Nicotiana*).\n- **Rosaceae (Rose Family):** Commercial orchard fruits: **Apples**, **Pears**, **Peaches**, **Cherries**, **Plums**, **Almonds**, **Strawberries**, **Blackberries**."
+                },
+                {
+                    "id": "quiz_bot_25",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 25 Checkpoint: Angiosperm Classification, Monocots vs Eudicots & Economic Botany",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which rare woody shrub, endemic strictly to the rainforests of New Caledonia and lacking xylem vessel elements, is phylogenetically recognized as the sister group to all other living flowering plants?",
+                            "options": [
+                                "Amborella trichopoda",
+                                "Magnolia grandiflora",
+                                "Zea mays",
+                                "Ginkgo biloba"
+                            ],
+                            "correct": 0,
+                            "explanation": "Amborella trichopoda is the sole survivor of the earliest divergent angiosperm lineage, confirmed by molecular phylogenetics as the sister to all living angiosperms."
+                        },
+                        {
+                            "question": "Which of the following suites of morphological characteristics diagnostically defines Monocots (such as grasses, lilies, and orchids)?",
+                            "options": [
+                                "One seed cotyledon, parallel leaf venation, scattered stem vascular bundles, fibrous roots, and floral parts in multiples of three",
+                                "Two cotyledons, netted veins, and taproots",
+                                "Pollen grains with three germination grooves (tricolpate)",
+                                "Concentric rings of woody secondary xylem"
+                            ],
+                            "correct": 0,
+                            "explanation": "Monocots possess single cotyledons, parallel leaf veins, scattered vascular bundles, fibrous roots, trimerous floral whorls, and monosulcate pollen."
+                        },
+                        {
+                            "question": "Eudicots ('True Dicots') are definitively distinguished from basal angiosperms and monocots by which evolutionary micromorphological synapomorphy?",
+                            "options": [
+                                "Tricolpate pollen grains (bearing three distinct germination grooves or pores)",
+                                "Complete absence of flowers",
+                                "Seeds lacking coats",
+                                "Unicellular embryos"
+                            ],
+                            "correct": 0,
+                            "explanation": "The monophyly of Eudicots is united by tricolpate pollen grains possessing three elongated apertures or pores."
+                        },
+                        {
+                            "question": "In eudicots, floral parts (petals, sepals, stamens) characteristically occur in multiples of:",
+                            "options": [
+                                "Four or Five",
+                                "Three",
+                                "Six exclusively",
+                                "One only"
+                            ],
+                            "correct": 0,
+                            "explanation": "Eudicot flowers are typically 4-merous or 5-merous (or multiples thereof), whereas monocot flowers are 3-merous."
+                        },
+                        {
+                            "question": "Which plant family is recognized as the single most economically and calorically vital family in human agriculture, providing over 50% of human global caloric intake?",
+                            "options": [
+                                "Poaceae (The Grass Family: wheat, rice, corn, barley)",
+                                "Rosaceae (Rose family)",
+                                "Solanaceae (Nightshade family)",
+                                "Orchidaceae (Orchid family)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Poaceae provides world staple cereal grains (wheat, rice, maize, barley, oats, rye, sugarcane), forming the foundation of global food security."
+                        },
+                        {
+                            "question": "What distinct fruit type is produced by the grass family (Poaceae), in which the single seed coat is completely fused to the pericarp fruit wall (as in a kernel of corn)?",
+                            "options": [
+                                "Caryopsis (Grain)",
+                                "Drupe",
+                                "Berry",
+                                "Pome"
+                            ],
+                            "correct": 0,
+                            "explanation": "A caryopsis (grain) is a dry, indehiscent simple fruit where the fruit pericarp and seed testa are permanently fused into a single grain layer."
+                        },
+                        {
+                            "question": "The Legume Family (Fabaceae) is invaluable in sustainable agriculture and global human nutrition primarily because:",
+                            "options": [
+                                "Their root nodules house symbiotic Rhizobium bacteria that fix nitrogen, producing protein-rich seeds and enriching soil fertility",
+                                "They grow without sunlight",
+                                "They require zero water",
+                                "They produce synthetic gasoline"
+                            ],
+                            "correct": 0,
+                            "explanation": "Legumes (beans, peas, soybeans, lentils) harbor nitrogen-fixing Rhizobium, enriching soils with nitrates and producing high-protein seeds."
+                        },
+                        {
+                            "question": "Potatoes, tomatoes, bell peppers, and eggplants belong to which chemically diverse plant family that also includes toxic nightshade and commercial tobacco?",
+                            "options": [
+                                "Solanaceae",
+                                "Asteraceae",
+                                "Brassicaceae",
+                                "Cucurbitaceae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Solanaceae (nightshade family) contains crucial food staples (potatoes, tomatoes) as well as potent alkaloid-rich plants (belladonna, tobacco)."
+                        },
+                        {
+                            "question": "Apples, pears, peaches, plums, cherries, almonds, and strawberries all belong to which major temperate orchard plant family?",
+                            "options": [
+                                "Rosaceae",
+                                "Fabaceae",
+                                "Poaceae",
+                                "Rutaceae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rosaceae (rose family) provides temperate fruit and nut crops, including pomes (apples, pears), drupes (peaches, cherries), and aggregate fruits (strawberries)."
+                        },
+                        {
+                            "question": "Cabbage, broccoli, cauliflower, kale, Brussels sprouts, and mustard were all developed through selective breeding from a single wild species in which plant family?",
+                            "options": [
+                                "Brassicaceae (Mustard family / Brassica oleracea)",
+                                "Apiaceae (Carrot family)",
+                                "Asteraceae (Sunflower family)",
+                                "Cucurbitaceae (Gourd family)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Brassicaceae includes Brassica oleracea, domesticated through artificial selection into cabbage (terminal buds), broccoli (flower clusters), and kale (leaves)."
+                        },
+                        {
+                            "question": "The Sunflower family (Asteraceae) features dense, flower-like inflorescences called 'Heads' (Capitula), which are composed of:",
+                            "options": [
+                                "Dozens to hundreds of tiny individual flowers clustered on a common receptacle (central disc florets and outer ray florets)",
+                                "A single enormous petal with 500 stamens",
+                                "A modified woody cone",
+                                "A swollen single carpel"
+                            ],
+                            "correct": 0,
+                            "explanation": "A composite head (capitulum) is an inflorescence of numerous tiny florets: tubular disc florets in the center and strap-like ray florets around the perimeter."
+                        },
+                        {
+                            "question": "Which monocot plant family represents the largest of all flowering plant families in total species count (~28,000 species), characterized by bizarre floral adaptations and microscopic dust-like seeds?",
+                            "options": [
+                                "Orchidaceae (The Orchid Family)",
+                                "Poaceae",
+                                "Arecaceae",
+                                "Liliaceae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Orchidaceae is the largest angiosperm family, exhibiting zygomorphic flowers, pollinia pollen sacs, fused gynandrium columns, and tiny seeds."
+                        },
+                        {
+                            "question": "The coevolutionary relationship between flowering plants and animal pollinators is an example of:",
+                            "options": [
+                                "Mutualism (the plant receives targeted pollen transfer while the animal receives nectar or pollen food)",
+                                "Parasitism exclusively",
+                                "Commensalism without reward",
+                                "Interspecific competition"
+                            ],
+                            "correct": 0,
+                            "explanation": "Coevolution between angiosperms and pollinators is a classic mutualism: pollinators gain nutritional rewards (nectar, pollen) while plants achieve directed outcrossing."
+                        },
+                        {
+                            "question": "Flowers pollinated by diurnal birds (such as hummingbirds) characteristically display which floral syndrome?",
+                            "options": [
+                                "Bright red, orange, or tubular odorless flowers containing copious amounts of dilute nectar",
+                                "White night-blooming flowers with heavy musky perfumes",
+                                "Brown flowers that smell like rotting meat",
+                                "Tiny green flowers without nectar"
+                            ],
+                            "correct": 0,
+                            "explanation": "Birds have keen color vision sensitive to red wavelengths but poor olfactory senses; bird-pollinated flowers are red, scentless, and rich in nectar."
+                        },
+                        {
+                            "question": "Flowers pollinated by carrion flies (such as Rafflesia and the Titan Arum, Amorphophallus titanum) attract pollinators by:",
+                            "options": [
+                                "Mimicking the dark brownish-purple color and foul stench of decomposing rotting meat",
+                                "Producing sweet lavender perfumes",
+                                "Displaying bright yellow nectar guides",
+                                "Releasing clouds of sweet honey"
+                            ],
+                            "correct": 0,
+                            "explanation": "Carrion flowers deceive necrophagous flies and beetles by mimicking the appearance, heat, and sulfurous stench of decaying carcass flesh."
+                        },
+                        {
+                            "question": "What is the primary evolutionary advantage of producing fleshy, nutrient-rich fruits (such as berries and drupes) surrounding seeds?",
+                            "options": [
+                                "Attracting frugivorous animals that consume the fruit and excrete the undamaged seeds at distant locations with natural fertilizer",
+                                "Feeding the maternal plant during winter",
+                                "Poisoning all herbivores in the forest",
+                                "Preventing seeds from ever leaving the parent tree"
+                            ],
+                            "correct": 0,
+                            "explanation": "Fleshy fruits promote endozoochory: animals consume the nutritious pulp and defecate the tough-coated seeds intact far from the maternal plant."
+                        },
+                        {
+                            "question": "Which of the following is botanically classified as a Monocot?",
+                            "options": [
+                                "Corn (Zea mays)",
+                                "Oak tree (Quercus)",
+                                "Soybean (Glycine max)",
+                                "Apple tree (Malus domestica)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Corn (maize) is a monocotyledonous cereal grass (family Poaceae), while oaks, soybeans, and apples are eudicots."
+                        },
+                        {
+                            "question": "Vanilla flavoring is commercially harvested from the cured, fermented seed capsules of an epiphytic climbing vine belonging to which plant family?",
+                            "options": [
+                                "Orchidaceae (Orchids)",
+                                "Fabaceae (Legumes)",
+                                "Solanaceae (Nightshades)",
+                                "Poaceae (Grasses)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Natural vanilla is obtained from the fermented cured fruit pods ('vanilla beans') of the tropical climbing orchid Vanilla planifolia."
+                        },
+                        {
+                            "question": "Chocolate is manufactured from the fermented and roasted seeds of Theobroma cacao, an understory tree native to the tropical rainforests of:",
+                            "options": [
+                                "Central and South America",
+                                "Northern Europe",
+                                "The Australian outback",
+                                "Antarctica"
+                            ],
+                            "correct": 0,
+                            "explanation": "Theobroma cacao (family Malvaceae) is native to the Amazon and Orinoco river basins of Central and South America, cultivated for cacao beans."
+                        },
+                        {
+                            "question": "Coffee (Coffea arabica), one of the world's most widely traded agricultural commodities, belongs to which plant family?",
+                            "options": [
+                                "Rubiaceae (Madder family)",
+                                "Solanaceae",
+                                "Rosaceae",
+                                "Asteraceae"
+                            ],
+                            "correct": 0,
+                            "explanation": "Coffee trees belong to family Rubiaceae; the commercial 'coffee beans' are the roasted seeds extracted from fleshy red 'cherries'."
+                        },
+                        {
+                            "question": "The massive worldwide cultivation of Oil Palm (Elaeis guineensis) in Southeast Asia has sparked intense global conservation alarm due to:",
+                            "options": [
+                                "Widespread catastrophic deforestation of biodiverse tropical rainforests and habitat destruction for endangered orangutans",
+                                "Immediate depletion of all global atmospheric carbon dioxide",
+                                "Rapid desertification of the Arctic",
+                                "Overproduction of toxic cyanide gas"
+                            ],
+                            "correct": 0,
+                            "explanation": "Oil palm plantation expansion in Indonesia and Malaysia drives severe tropical deforestation, peatland drainage, and biodiversity collapse."
+                        },
+                        {
+                            "question": "What term describes angiosperms that complete their entire biological life cycle (seed germination, growth, flowering, and seed set) within a single growing season and then die?",
+                            "options": [
+                                "Annuals",
+                                "Biennials",
+                                "Perennials",
+                                "Epiphytes"
+                            ],
+                            "correct": 0,
+                            "explanation": "Annuals complete their life cycle in one season; biennials require two growing seasons; perennials persist and reproduce over multiple years."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_26",
+            "title": "Chapter 26: Ecosystems",
+            "description": "Ecosystem dynamics, primary productivity (GPP vs NPP), energy flow, biogeochemical cycles (carbon, nitrogen, phosphorus), and ecological succession.",
+            "activities": [
+                {
+                    "id": "act_bot_26_lesson",
+                    "type": "page",
+                    "title": "Module 26.1: Ecosystem Ecology & Biogeochemical Cycles",
+                    "completed": true,
+                    "content": "### 1. Ecosystem Structure and Trophic Dynamics\nAn ecosystem encompasses all the living organisms (**biotic community**) interacting with their physical, non-living (**abiotic**) environment (light, temperature, soil, water):\n- **Trophic Levels:**\n  - *Primary Producers (Autotrophs):* Green plants and photosynthetic algae capturing solar energy.\n  - *Primary Consumers (Herbivores):* Organisms eating plants (e.g., caterpillars, deer).\n  - *Secondary and Tertiary Consumers (Carnivores):* Predators eating herbivores or other carnivores.\n  - *Decomposers (Saprotrophs):* Fungi and bacteria breaking down detritus, recycling mineral nutrients back to the soil.\n\n### 2. Energetics: Primary Productivity and the 10% Rule\n- **Gross Primary Productivity (GPP):** The total rate at which primary producers convert solar radiant energy into chemical energy via photosynthesis.\n- **Net Primary Productivity (NPP):** The energy remaining after producers meet their own cellular respiration costs ($R$):\n  $\\text{NPP} = \\text{GPP} - R$\n  NPP represents the actual biomass accumulated and available to consumers. Tropical rainforests, wetlands, and coral reefs exhibit the highest NPP per unit area.\n- **Thermodynamic Energy Flow:** Energy does not cycle; it flows unidirectionally through ecosystems and dissipates as metabolic heat.\n- **The 10% Ecological Rule:** On average, only ~10% of the energy stored in biomass at one trophic level is converted into biomass at the next trophic level, limiting food chains to 4 or 5 links.\n\n### 3. Biogeochemical Nutrient Cycles\nUnlike energy, chemical nutrients cycle continuously between organisms and the abiotic reservoir:\n- **The Carbon Cycle:** Photosynthetic carbon fixation balances respiratory and combustion carbon release; oceans and terrestrial forests serve as major sinks.\n- **The Nitrogen Cycle:**\n  1. *Nitrogen Fixation:* Prokaryotes (*Rhizobium*, *Frankia*, cyanobacteria) reduce inert atmospheric $N_2$ into ammonia ($NH_3/NH_4^+$).\n  2. *Nitrification:* Soil bacteria (*Nitrosomonas* and *Nitrobacter*) oxidize ammonia into nitrite ($NO_2^-$) and then nitrate ($NO_3^-$), the preferred plant nutrient.\n  3. *Assimilation:* Plants absorb nitrate through roots to synthesize amino acids.\n  4. *Ammonification:* Decomposers break down nitrogenous waste back into ammonia.\n  5. *Denitrification:* Anaerobic bacteria (*Pseudomonas*) reduce nitrate back into gaseous $N_2$, returning it to the atmosphere.\n- **The Phosphorus Cycle:** Lacks a gaseous atmospheric phase; minerals are slowly weathered from rocks, taken up by plant roots, and recycled through detritus.\n\n### 4. Ecological Succession\nThe predictable, chronological replacement of community species over time:\n- **Primary Succession:** Begins on barren, lifeless substrates lacking soil (e.g., cooled volcanic lava, retreating glaciers). Pioneer species (**lichens** and **mosses**) weather rock into primitive organic soil.\n- **Secondary Succession:** Occurs following an environmental disturbance that clears vegetation but leaves the soil intact (e.g., abandoned agricultural fields, forest fires). Weedy annuals $\\rightarrow$ perennial grasses/shrubs $\\rightarrow$ intermediate pines $\\rightarrow$ climax hardwood forest."
+                },
+                {
+                    "id": "quiz_bot_26",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 26 Checkpoint: Ecosystem Bioenergetics, Nutrient Cycles & Succession",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In ecosystem ecology, what is Net Primary Productivity (NPP)?",
+                            "options": [
+                                "The total energy captured by photosynthesis (GPP) minus the energy expended by producers for cellular respiration (NPP = GPP - R)",
+                                "The total amount of water consumed by animals",
+                                "The weight of dead leaves falling in autumn",
+                                "The total energy captured by carnivores"
+                            ],
+                            "correct": 0,
+                            "explanation": "NPP represents the net organic plant biomass accumulated over time after accounting for the plant's own respiratory maintenance costs ($NPP = GPP - R$)."
+                        },
+                        {
+                            "question": "Which of the following terrestrial biomes exhibits the highest Net Primary Productivity (NPP) per unit area?",
+                            "options": [
+                                "Tropical Rainforests",
+                                "Tundra",
+                                "Desert",
+                                "Open Ocean"
+                            ],
+                            "correct": 0,
+                            "explanation": "Tropical rainforests feature year-round warm temperatures, abundant rainfall, and high solar radiation, yielding maximum annual biomass accumulation."
+                        },
+                        {
+                            "question": "According to the ecological '10% Rule' of trophic transfer, if primary producers contain 10,000 joules of energy, approximately how much energy is converted into herbivore biomass?",
+                            "options": [
+                                "1,000 joules (approximately 10%)",
+                                "10,000 joules (100%)",
+                                "5,000 joules (50%)",
+                                "10 joules (0.1%)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Approximately 90% of energy is lost at each trophic transition via metabolic respiration, movement, and heat, transferring only ~10% to the next level."
+                        },
+                        {
+                            "question": "Why do chemical nutrients cycle continuously within ecosystems, whereas energy flows in a strict unidirectional path?",
+                            "options": [
+                                "Energy dissipates irreversibly as metabolic heat according to the Second Law of Thermodynamics, whereas atomic matter is conserved and recycled",
+                                "Energy is made of carbon atoms that can be destroyed",
+                                "Nutrients are continuously destroyed by decomposers",
+                                "Energy moves only in closed circular loops"
+                            ],
+                            "correct": 0,
+                            "explanation": "Matter is recycled repeatedly through biogeochemical cycles; energy degrades continuously into non-usable metabolic heat, requiring constant solar replenishment."
+                        },
+                        {
+                            "question": "In the Nitrogen Cycle, what is the biological process called where soil bacteria (such as Nitrosomonas and Nitrobacter) oxidize toxic ammonia into nitrate ($NO_3^-$)?",
+                            "options": [
+                                "Nitrification",
+                                "Nitrogen fixation",
+                                "Denitrification",
+                                "Ammonification"
+                            ],
+                            "correct": 0,
+                            "explanation": "Nitrification is a two-step aerobic bacterial oxidation converting ammonia ($NH_3$) into nitrite ($NO_2^-$) and subsequently into plant-usable nitrate ($NO_3^-$)."
+                        },
+                        {
+                            "question": "What ecological role is performed by anaerobic denitrifying bacteria (such as Pseudomonas) in waterlogged soils?",
+                            "options": [
+                                "They convert soil nitrate ($NO_3^-$) back into inert dinitrogen gas ($N_2$), returning nitrogen to the atmosphere",
+                                "They produce sugar through photosynthesis",
+                                "They synthesize toxic pesticides",
+                                "They absorb all sunlight in the mud"
+                            ],
+                            "correct": 0,
+                            "explanation": "Denitrification reduces soil nitrates back into gaseous $N_2$ or $N_2O$, completing the global cycle and releasing nitrogen into the atmosphere."
+                        },
+                        {
+                            "question": "Unlike carbon, nitrogen, and water, which major biogeochemical cycle lacks a significant gaseous atmospheric component, cycling almost exclusively through rocks, soil, and water?",
+                            "options": [
+                                "The Phosphorus Cycle",
+                                "The Carbon Cycle",
+                                "The Oxygen Cycle",
+                                "The Hydrogen Cycle"
+                            ],
+                            "correct": 0,
+                            "explanation": "Phosphorus cycles locally via geological rock weathering, soil absorption, biological uptake, and sediment deposition, lacking an atmospheric gas phase."
+                        },
+                        {
+                            "question": "Ecological succession that begins on a completely barren physical substrate devoid of any preexisting soil (such as cooled volcanic lava beds or bare rock left by a retreating glacier) is:",
+                            "options": [
+                                "Primary Succession",
+                                "Secondary Succession",
+                                "Climax Degradation",
+                                "Cyclic Stratification"
+                            ],
+                            "correct": 0,
+                            "explanation": "Primary succession occurs on newly formed, virgin sterile surfaces lacking organic soil, initiated by pioneer lichens and mosses."
+                        },
+                        {
+                            "question": "What hardy pioneer organisms typically colonize bare volcanic rock first during primary terrestrial succession, weathering the mineral surface into primitive soil?",
+                            "options": [
+                                "Lichens and Bryophytes (Mosses)",
+                                "Giant hardwood oak trees",
+                                "Flowering orchard fruit trees",
+                                "Carnivorous pitcher plants"
+                            ],
+                            "correct": 0,
+                            "explanation": "Pioneer lichens and mosses tolerate desiccation, secreting weak organic acids that chemically weather rock while their dead biomass forms primitive organic soil."
+                        },
+                        {
+                            "question": "Ecological succession that occurs after an existing ecological community is cleared by a disturbance (such as an abandoned agricultural farm field or a forest fire) where intact soil remains is:",
+                            "options": [
+                                "Secondary Succession",
+                                "Primary Succession",
+                                "Geological Speciation",
+                                "Eutrophication"
+                            ],
+                            "correct": 0,
+                            "explanation": "Secondary succession occurs on disturbed sites where soil and dormant seed banks remain, progressing much faster than primary succession."
+                        },
+                        {
+                            "question": "In classical ecological succession theory, the stable, self-perpetuating terminal community that persists in dynamic equilibrium with local climate is the:",
+                            "options": [
+                                "Climax Community",
+                                "Pioneer Stage",
+                                "Ecotone",
+                                "Sere"
+                            ],
+                            "correct": 0,
+                            "explanation": "The climax community represents the final, relatively stable mature ecological stage (e.g., beech-maple hardwood forest) characteristic of a biome's climate."
+                        },
+                        {
+                            "question": "What term describes organisms (such as fungi and soil bacteria) that obtain energy by digesting dead organic matter (detritus), recycling essential mineral elements back into the soil?",
+                            "options": [
+                                "Decomposers (Saprotrophs)",
+                                "Primary Producers",
+                                "Tertiary Carnivores",
+                                "Herbivores"
+                            ],
+                            "correct": 0,
+                            "explanation": "Saprotrophic decomposers mineralize organic detritus (carbohydrates, proteins), liberating inorganic ions back into the soil solution for plant uptake."
+                        },
+                        {
+                            "question": "The process by which excessive agricultural runoff of nitrogen and phosphorus fertilizers into lakes causes explosive algal blooms, followed by severe oxygen depletion and fish die-offs, is:",
+                            "options": [
+                                "Eutrophication",
+                                "Biomagnification",
+                                "Desiccation",
+                                "Salinization"
+                            ],
+                            "correct": 0,
+                            "explanation": "Eutrophication occurs when excess nutrients spark algal blooms; when the algae die, decomposing bacteria consume dissolved oxygen, producing anoxic dead zones."
+                        },
+                        {
+                            "question": "A transition zone of tension where two distinct ecological communities or biomes meet and intergrade (such as the boundary between a forest and a grassland) is an:",
+                            "options": [
+                                "Ecotone",
+                                "Epiphyte",
+                                "Estuary",
+                                "Endodermis"
+                            ],
+                            "correct": 0,
+                            "explanation": "An ecotone is a transitional boundary between adjacent ecological communities, often supporting unique species richness (edge effect)."
+                        },
+                        {
+                            "question": "What is an autotroph?",
+                            "options": [
+                                "An organism that synthesizes its own organic food molecules from inorganic raw materials using light or chemical energy",
+                                "An animal that eats only meat",
+                                "A parasite that lives inside a host",
+                                "A decomposer that digests bones"
+                            ],
+                            "correct": 0,
+                            "explanation": "Autotrophs (self-feeders) include photosynthetic plants, algae, and cyanobacteria that produce their own biochemical energy from inorganic carbon dioxide."
+                        },
+                        {
+                            "question": "Why are terrestrial ecological food chains rarely longer than four or five trophic links?",
+                            "options": [
+                                "Because cumulative energetic losses (~90% at each step) mean too little energy remains to sustain a viable top predator population",
+                                "Because predators refuse to eat plants",
+                                "Because decomposers destroy all food chains",
+                                "Because sunlight disappears in high trophic levels"
+                            ],
+                            "correct": 0,
+                            "explanation": "Due to progressive thermodynamic entropy losses, insufficient usable biomass energy remains at the top of the pyramid to support a higher trophic tier."
+                        },
+                        {
+                            "question": "What ecological mechanism describes how certain early-successional plant species (such as alders with nitrogen-fixing Frankia) alter the soil chemistry, making it favorable for subsequent late-successional species to invade?",
+                            "options": [
+                                "Facilitation",
+                                "Inhibition",
+                                "Tolerance",
+                                "Competitive exclusion"
+                            ],
+                            "correct": 0,
+                            "explanation": "Facilitation occurs when pioneer species modify abiotic conditions (e.g., fixing nitrogen, building soil depth), facilitating colonization by later species."
+                        },
+                        {
+                            "question": "The total dry weight mass of all living organic matter at a given trophic level in an ecosystem is its:",
+                            "options": [
+                                "Biomass",
+                                "Carrying capacity",
+                                "Net potential",
+                                "Gross quotient"
+                            ],
+                            "correct": 0,
+                            "explanation": "Biomass is the quantitative measure of total living biological material (usually expressed as grams of dry organic matter per square meter)."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_bot_27",
+            "title": "Chapter 27: Global Ecology and Human Impacts",
+            "description": "Terrestrial biomes of Earth, anthropogenic greenhouse effect, global climate change, deforestation, invasive plant species, and conservation biology.",
+            "activities": [
+                {
+                    "id": "act_bot_27_lesson",
+                    "type": "page",
+                    "title": "Module 27.1: Global Biomes, Anthropogenic Pressures & Plant Conservation",
+                    "completed": true,
+                    "content": "### 1. Earth's Major Terrestrial Biomes\nBiomes are large regional ecosystems characterized by specific climates, soil types, and dominant plant growth forms:\n1. **Tundra:** Circumpolar Arctic region; characterized by bitter cold, short growing seasons, **permafrost** (permanently frozen subsoil), and ground-hugging dwarf shrubs, mosses, and lichens; zero trees.\n2. **Taiga (Boreal Coniferous Forest):** Vast northern subarctic band; dominated by evergreen conifer trees (spruces, firs, pines, larches); acidic podzolic soils.\n3. **Temperate Deciduous Forest:** Moderate climate with four distinct seasons; dominated by broadleaf deciduous hardwood trees (oaks, maples, beeches) that drop leaves in autumn.\n4. **Temperate Grassland (Prairies / Steppes):** Interior continental regions with deep, highly fertile soils (mollisols) maintained by periodic wildfires and grazing; grasses dominate; largely converted to global agriculture (wheat, corn).\n5. **Chaparral (Mediterranean Scrub):** Wet, mild winters and hot, dry summers; dense thickets of spiny, evergreen sclerophyllous shrubs adapted to periodic fire.\n6. **Desert:** Arid environments receiving <25 cm rainfall annually; characterized by xerophytic vegetation (cacti, succulents, ephemeral annuals).\n7. **Tropical Savanna:** Tropical grassland with scattered trees, experiencing pronounced wet and dry seasons.\n8. **Tropical Rainforest:** Equatorial regions; warm year-round with abundant rainfall (>200 cm/yr); highest biological diversity on Earth; multi-layered canopies with abundant **epiphytes** and lianas; nutrient-poor oxisol soils (nutrients locked in living biomass).\n\n### 2. Anthropogenic Global Environmental Impacts\nHuman activities are profoundly disrupting global biosphere equilibrium:\n- **The Enhanced Greenhouse Effect & Climate Change:** Combustion of fossil fuels and deforestation have elevated atmospheric $CO_2$ from pre-industrial levels (~280 ppm) to over 420 ppm:\n  - Traps outgoing infrared thermal radiation, driving global atmospheric and ocean warming.\n  - Alters precipitation patterns, intensifies droughts and wildfires, and shifts plant biome distributions poleward.\n  - **Ocean Acidification:** Dissolved atmospheric $CO_2$ forms carbonic acid, lowering seawater pH and impairing calcareous marine algae and coral reefs.\n- **Deforestation:** Accelerated clearing of tropical rainforests for cattle ranching, soybean cultivation, and palm oil destroys critical carbon sinks and drives massive biodiversity extinction.\n- **Invasive Exotic Plant Species:** Non-native plant species introduced by humans that rapidly spread and outcompete native flora (e.g., **Kudzu**, *Pueraria montana*, the 'vine that ate the South'; **Purple Loosestrife**, *Lythrum salicaria*, choking temperate wetlands).\n\n### 3. Conservation Biology & Plant Preservation\n- **In Situ Conservation:** Protecting native ecosystems and establishing national parks and wildlife corridors.\n- **Ex Situ Conservation:** Preserving germplasm off-site in botanical gardens, arboreta, and cryogenic **seed banks** (e.g., the Svalbard Global Seed Vault in Norway, safeguarding global crop crop genetic diversity)."
+                },
+                {
+                    "id": "quiz_bot_27",
+                    "type": "quiz",
+                    "title": "🌿 Chapter 27 Checkpoint: Terrestrial Biomes, Climate Change & Plant Conservation",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which cold, treeless circumpolar biome is characterized by low precipitation, extremely short growing seasons, dwarf vegetation, and a permanently frozen subsoil layer known as permafrost?",
+                            "options": [
+                                "Tundra",
+                                "Taiga (Boreal forest)",
+                                "Temperate Grassland",
+                                "Chaparral"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Arctic Tundra features permafrost that prevents deep root penetration, supporting only dwarf prostrate shrubs, sedges, mosses, and lichens."
+                        },
+                        {
+                            "question": "The vast northern circumpolar forest biome dominated by evergreen conifer trees (such as spruces, firs, and pines) and cold snowy winters is the:",
+                            "options": [
+                                "Taiga (Boreal Forest)",
+                                "Temperate deciduous forest",
+                                "Tropical Savanna",
+                                "Chaparral"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Taiga (Boreal Forest) stretches across northern North America and Eurasia, forming the largest continuous terrestrial biome on Earth."
+                        },
+                        {
+                            "question": "Why do the lush, hyper-diverse soils of Tropical Rainforests (oxisols) turn rapidly infertile and barren when forests are clear-cut for cattle ranching?",
+                            "options": [
+                                "Over 90% of ecosystem nutrients are held within the living plant biomass rather than in the soil, and heavy tropical rains rapidly leach remaining soil minerals",
+                                "Tropical soils contain toxic salt crystals",
+                                "Sunlight destroys all mineral elements",
+                                "Tropical trees release poisons when felled"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rapid decomposition and root absorption keep nutrients locked inside living biomass; clearing the forest removes the nutrients, and rains leach the weathered soil."
+                        },
+                        {
+                            "question": "Non-parasitic plants (such as many tropical orchids, bromeliads, and ferns) that grow physically perched on the high branches of trees for light exposure are:",
+                            "options": [
+                                "Epiphytes",
+                                "Haustoria",
+                                "Saprotrophs",
+                                "Carnivores"
+                            ],
+                            "correct": 0,
+                            "explanation": "Epiphytes ('air plants') grow harmlessly anchored to host tree branches, absorbing atmospheric moisture and mineral dust without tapping host sap."
+                        },
+                        {
+                            "question": "The Mediterranean scrub biome (known as Chaparral in California) is characterized by wet, mild winters, hot dry summers, and dense thickets of sclerophyllous shrubs adapted to:",
+                            "options": [
+                                "Periodic Wildfires",
+                                "Permanent sub-zero freezing",
+                                "Months of complete oceanic flooding",
+                                "Total darkness"
+                            ],
+                            "correct": 0,
+                            "explanation": "Chaparral shrubs produce volatile flammable resins and resprout vigorously from underground lignotubers or fire-activated seeds following wildfires."
+                        },
+                        {
+                            "question": "What is the primary greenhouse gas whose atmospheric concentration has risen from pre-industrial levels (~280 ppm) to over 420 ppm primarily due to fossil fuel combustion and deforestation?",
+                            "options": [
+                                "Carbon Dioxide ($CO_2$)",
+                                "Molecular Nitrogen ($N_2$)",
+                                "Oxygen gas ($O_2$)",
+                                "Argon"
+                            ],
+                            "correct": 0,
+                            "explanation": "Atmospheric carbon dioxide ($CO_2$) is the dominant anthropogenic greenhouse gas trapping infrared radiation and driving global climate change."
+                        },
+                        {
+                            "question": "How does the greenhouse effect operate in Earth's atmosphere?",
+                            "options": [
+                                "Atmospheric greenhouse gases allow incoming solar shortwave light to pass through, but absorb and re-radiate outgoing infrared heat back toward Earth's surface",
+                                "Greenhouse gases form a solid sheet of glass around the moon",
+                                "Greenhouse gases consume all cold air",
+                                "Greenhouse gases destroy cosmic rays"
+                            ],
+                            "correct": 0,
+                            "explanation": "Greenhouse gases ($CO_2$, methane, water vapor) are transparent to visible sunlight but absorb outgoing thermal infrared radiation, re-warming the planet."
+                        },
+                        {
+                            "question": "What chemical consequence occurs in ocean surface waters as marine waters absorb billions of tons of anthropogenic atmospheric carbon dioxide?",
+                            "options": [
+                                "Ocean Acidification (dissolved CO2 forms carbonic acid, reducing seawater pH and depleting carbonate ions needed by marine organisms)",
+                                "Oceans boil into steam",
+                                "Oceans turn into pure fresh water",
+                                "Oceans lose all salinity"
+                            ],
+                            "correct": 0,
+                            "explanation": "Absorbed CO2 reacts with water to form carbonic acid ($H_2CO_3$), lowering ocean pH and impeding calcification in corals, coccolithophores, and mollusks."
+                        },
+                        {
+                            "question": "Kudzu (Pueraria montana), a fast-growing climbing legume vine introduced from Japan to the southeastern United States to control soil erosion, has become a notorious:",
+                            "options": [
+                                "Invasive Exotic Weed (smothering native trees and utility poles)",
+                                "Deadly carnivorous man-eating plant",
+                                "Primary source of global bread flour",
+                                "Endangered botanical rarity"
+                            ],
+                            "correct": 0,
+                            "explanation": "Kudzu is an aggressive invasive vine that outcompetes native flora, growing up to a foot per day and smothering forests under dense leafy blankets."
+                        },
+                        {
+                            "question": "What facility, carved deep inside a frozen Arctic permafrost mountain on the Norwegian island of Spitsbergen, serves as a global backup repository for world crop seeds?",
+                            "options": [
+                                "The Svalbard Global Seed Vault",
+                                "The Royal Botanic Gardens at Kew",
+                                "The Smithsonian Herbarium",
+                                "The Missouri Botanical Garden"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Svalbard Global Seed Vault ('Doomsday Vault') stores duplicate backup seed accessions of the world's crops at -18°C to ensure future food security."
+                        },
+                        {
+                            "question": "The conservation strategy of preserving endangered plant species within their natural native wild habitats (such as national parks and biological reserves) is:",
+                            "options": [
+                                "In Situ Conservation",
+                                "Ex Situ Conservation",
+                                "Cryopreservation",
+                                "Micropropagation"
+                            ],
+                            "correct": 0,
+                            "explanation": "In situ ('on-site') conservation protects wild populations within their natural evolutionary ecosystems, preserving ecological interactions."
+                        },
+                        {
+                            "question": "The conservation strategy of preserving endangered plant germplasm outside of their native habitats (such as in botanical gardens, arboreta, and cryogenic seed banks) is:",
+                            "options": [
+                                "Ex Situ Conservation",
+                                "In Situ Conservation",
+                                "Ecological succession",
+                                "Natural selection"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ex situ ('off-site') conservation maintains living collections or frozen seed banks in managed facilities to safeguard species against total extinction."
+                        },
+                        {
+                            "question": "Purple Loosestrife (Lythrum salicaria), an invasive European perennial introduced to North America as an ornamental, has degraded native biodiversity by:",
+                            "options": [
+                                "Choking temperate freshwater wetlands, displacing native cattails, and eliminating nesting habitat for waterfowl",
+                                "Drying up major oceans",
+                                "Turning all grass blue",
+                                "Attracting invasive wolves"
+                            ],
+                            "correct": 0,
+                            "explanation": "Purple loosestrife aggressively invades wetlands, producing millions of seeds that form monotypic stands, destroying native wetland wildlife habitat."
+                        },
+                        {
+                            "question": "The breaking up of continuous wild native forests into small, isolated, scattered patches due to road construction, suburban sprawl, and agriculture is:",
+                            "options": [
+                                "Habitat Fragmentation",
+                                "Eutrophication",
+                                "Biofortification",
+                                "Stratification"
+                            ],
+                            "correct": 0,
+                            "explanation": "Habitat fragmentation isolates plant and animal populations into small genetic islands, increasing edge effects and vulnerability to local extinction."
+                        },
+                        {
+                            "question": "The natural ecological process by which semi-arid grasslands are degraded into barren deserts through unsustainable livestock overgrazing, deforestation, and prolonged drought is:",
+                            "options": [
+                                "Desertification",
+                                "Eutrophication",
+                                "Speciation",
+                                "Guttation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Desertification strips protective plant cover from drylands, leading to topsoil erosion, salinization, and irreversible loss of biological productivity."
+                        },
+                        {
+                            "question": "Why are high-altitude alpine and mountain plant communities particularly threatened by contemporary anthropogenic global warming?",
+                            "options": [
+                                "As temperatures rise, alpine plants are forced upward to seek cool climates until they run out of mountain peak and have nowhere left to migrate",
+                                "Mountain peaks are sinking into the Earth",
+                                "Alpine plants refuse to photosynthesize in warm air",
+                                "Mountain soil dissolves in rainwater"
+                            ],
+                            "correct": 0,
+                            "explanation": "Alpine flora faces an 'escalator to extinction': forced upward into shrinking summit zones as lower-elevation competitors advance upslope."
+                        },
+                        {
+                            "question": "Biological hotspots, which prioritized for global conservation funding, are defined geographically by possessing:",
+                            "options": [
+                                "High concentrations of endemic species found nowhere else on Earth and having lost at least 70% of their primary native vegetation",
+                                "Active volcanic lava flows",
+                                "The highest human populations",
+                                "Monocultures of corn"
+                            ],
+                            "correct": 0,
+                            "explanation": "Norman Myers defined biodiversity hotspots: areas supporting at least 1,500 endemic vascular plant species that have suffered >70% habitat loss."
+                        },
+                        {
+                            "question": "Sustainable agriculture aims to manage agricultural crop production in a manner that:",
+                            "options": [
+                                "Maintains soil health, conserves water, minimizes synthetic chemicals, and protects biodiversity while sustaining profitable crop yields over generations",
+                                "Extracts all groundwater within ten years",
+                                "Plows all wild forests into cornfields",
+                                "Sprays fields with toxic chemicals daily"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sustainable agriculture integrates ecological practices (crop rotation, cover crops, integrated pest management) to maintain long-term ecosystem viability."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "id": "course_psych151",
+    "code": "PSYCH-151",
+    "title": "PSYCH151: Introduction to Psychology",
+    "category": "Social Sciences",
+    "description": "A comprehensive introduction to the scientific study of mind, brain, and behavior based on the textbook by James W. Kalat. Features all 15 chapters, 45 core modules, and re-attemptable multiple-choice checkpoint quizzes for every chapter.",
+    "image": "🧠",
+    "progress": 10,
+    "sections": [
+        {
+            "id": "sec_psych_0",
+            "title": "Course Overview & Full Textbook",
+            "description": "Access the complete 600+ page textbook and syllabus.",
+            "activities": [
+                {
+                    "id": "act_psych_ebook",
+                    "type": "ebook",
+                    "title": "📖 Full Course Textbook: Introduction to Psychology (PDF)",
+                    "completed": true,
+                    "content": "Access the full 15-chapter eBook for PSYCH151: Introduction to Psychology (James W. Kalat, Cengage Learning, 21.3 MB).",
+                    "fileUrl": "/ebooks/ebook-introduction-to-psychology.pdf"
+                },
+                {
+                    "id": "act_psych_syllabus",
+                    "type": "page",
+                    "title": "Course Syllabus & Information",
+                    "completed": true,
+                    "content": "Welcome to PSYCH151: Introduction to Psychology!\n\nInstructor: Admin\nStudent: Elizabeth\nTextbook: Introduction to Psychology (James W. Kalat)\n\nCourse Structure:\n- 15 Core Academic Chapters\n- 45 Specific Learning Modules with 'In Closing' Review Points\n- Chapter Checkpoint Quizzes (Multiple choice, re-attemptable anytime)\n- Integrated Full PDF eBook at the top of the course"
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_1",
+            "title": "Chapter 1: What Is Psychology?",
+            "description": "Module 1.1: Psychologists' Goals | Module 1.2: Psychology Then and Now",
+            "activities": [
+                {
+                    "id": "act_psych_1_1",
+                    "type": "page",
+                    "title": "Module 1.1: Psychologists' Goals",
+                    "completed": true,
+                    "content": "### Major Specializations in Psychology\n\nPsychology is the systematic study of behavior and mental processes. Psychologists work across diverse domains:\n\n- **Clinical Psychologists:** Assess, diagnose, and treat mental, emotional, and behavioral disorders.\n- **Counseling Psychologists:** Assist individuals dealing with everyday adjustment problems (vocational, marriage, family).\n- **Cognitive Psychologists:** Research memory, thought, problem-solving, attention, and decision-making.\n- **Developmental Psychologists:** Study how behavior and mental capacities change from conception through old age.\n- **Biological Psychologists:** Examine behavioral neuroscience, brain mechanisms, hormones, and genetics.\n- **Industrial/Organizational (I/O) Psychologists:** Apply psychological principles to workplace dynamics, leadership, and ergonomics.\n\n### Core Philosophical Questions\n1. **Free Will vs. Determinism:** Are our choices autonomous, or are all actions the inevitable consequence of antecedent physical and environmental causes?\n2. **The Mind-Brain Problem:** Dualism (mind and brain are distinct entities) versus Monism (consciousness is the functioning of the brain).\n3. **Nature vs. Nurture:** How genetic inheritance interacts dynamically with environment and experience.\n\n### In Closing: Types of Psychologists\nNo single perspective explains the totality of human behavior; comprehensive psychology requires integrating biological, cognitive, social, and developmental viewpoints."
+                },
+                {
+                    "id": "act_psych_1_2",
+                    "type": "page",
+                    "title": "Module 1.2: Psychology Then and Now",
+                    "completed": true,
+                    "content": "### Historical Timeline of Psychology\n\n- **1879 - Wilhelm Wundt:** Established the first psychology laboratory at the University of Leipzig, Germany. He investigated consciousness using **introspection** (trained observers reporting their sensations).\n- **Edward Titchener & Structuralism:** Attempted to catalog the fundamental structures of conscious experience, akin to chemical elements.\n- **William James & Functionalism:** Influenced by Charles Darwin, James published *The Principles of Psychology* (1890), asking *how* and *why* mental actions help an organism survive.\n- **John B. Watson, B.F. Skinner & Behaviorism:** Rejected introspection as unscientific; argued psychology must focus strictly on observable behavior and environmental stimuli.\n- **The Cognitive Revolution (1960s-Present):** Revived the study of internal information processing, perception, language, and memory, supported by computer models and neuroimaging.\n\n### In Closing: Psychology through the Years\nPsychology evolved from philosophical speculation to physiological introspection, shifted toward radical behavioral observation, and integrated into modern cognitive neuroscience."
+                },
+                {
+                    "id": "quiz_psych_1",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 1 Checkpoint: Foundations & History of Psychology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What historic milestone in 1879 marked the official birth of psychology as an independent empirical discipline?",
+                            "options": [
+                                "Sigmund Freud opened his psychoanalytic clinic in Vienna",
+                                "Wilhelm Wundt founded the first formal psychology laboratory at the University of Leipzig",
+                                "William James published The Principles of Psychology in the United States",
+                                "John B. Watson delivered his Behaviorist Manifesto at Columbia University"
+                            ],
+                            "correct": 1,
+                            "explanation": "In 1879, Wilhelm Wundt established the world's first psychological research laboratory in Leipzig, Germany, shifting the study of the mind from philosophical speculation to experimental science."
+                        },
+                        {
+                            "question": "Which early psychological perspective, spearheaded by Edward Titchener, attempted to analyze conscious experience into basic elemental sensations and feelings?",
+                            "options": [
+                                "Functionalism",
+                                "Structuralism",
+                                "Behaviorism",
+                                "Gestalt Psychology"
+                            ],
+                            "correct": 1,
+                            "explanation": "Structuralism sought to identify the fundamental structures of consciousness through trained introspection, analogous to how chemists catalog elements on the periodic table."
+                        },
+                        {
+                            "question": "Influenced by Charles Darwin's theory of natural selection, William James founded which school of thought to examine how mental activities help an organism survive and adapt?",
+                            "options": [
+                                "Structuralism",
+                                "Psychoanalysis",
+                                "Functionalism",
+                                "Phrenology"
+                            ],
+                            "correct": 2,
+                            "explanation": "Functionalism investigated the practical purposes and adaptive functions of mental operations and behavior rather than their static structural components."
+                        },
+                        {
+                            "question": "Why did early behaviorists such as John B. Watson and B.F. Skinner strongly reject introspection as a scientific method?",
+                            "options": [
+                                "Introspective reports were too mathematically complex to calculate",
+                                "Introspection was restricted exclusively to animal subjects",
+                                "Internal subjective experiences cannot be independently observed, measured, or replicated",
+                                "Behaviorists were concerned only with unconscious biological brain anatomy"
+                            ],
+                            "correct": 2,
+                            "explanation": "Behaviorism argued that a true empirical science must focus exclusively on publicly observable, measurable behavior and environmental stimuli rather than unverifiable private mental states."
+                        },
+                        {
+                            "question": "The philosophical debate concerning whether human actions are chosen autonomously or are the inevitable result of prior causes and physical laws is known as:",
+                            "options": [
+                                "The Mind-Brain Problem",
+                                "Free Will versus Determinism",
+                                "Structuralism versus Functionalism",
+                                "Nature versus Nurture"
+                            ],
+                            "correct": 1,
+                            "explanation": "Determinism holds that all behavior has identifiable physical or environmental causes, whereas the concept of free will asserts that conscious choice can operate independently of antecedent causes."
+                        },
+                        {
+                            "question": "Which philosophical view of the Mind-Brain Problem asserts that conscious experience cannot be separated from the physical operations of the brain?",
+                            "options": [
+                                "Dualism",
+                                "Monism",
+                                "Epiphenomenal Pluralism",
+                                "Solipsism"
+                            ],
+                            "correct": 1,
+                            "explanation": "Monism holds that the mind and brain are one entity—that conscious thoughts are the direct physiological functioning of neural processes, whereas Dualism claims the mind and body are distinct substances."
+                        },
+                        {
+                            "question": "How do contemporary developmental and psychological researchers view the classic 'Nature versus Nurture' controversy?",
+                            "options": [
+                                "Nature is recognized as explaining 95% of all human behavior",
+                                "Nurture has been proven to override genetic factors completely",
+                                "Behavior results from dynamic, continuous interactions between genetic predispositions and environmental experiences",
+                                "The debate was resolved by proving genetics and environment never influence the same trait"
+                            ],
+                            "correct": 2,
+                            "explanation": "Modern psychology recognizes that biological heredity (nature) and environmental input (nurture) continually interact—epigenetics demonstrates how environmental factors can even turn specific genes on or off."
+                        },
+                        {
+                            "question": "What is the primary difference in focus between a Clinical Psychologist and a Counseling Psychologist?",
+                            "options": [
+                                "Clinical psychologists specialize in treating severe psychological disorders, whereas counseling psychologists assist individuals with everyday life adjustment problems",
+                                "Counseling psychologists prescribe medication, whereas clinical psychologists cannot",
+                                "Clinical psychologists work exclusively in corporate offices, whereas counseling psychologists work in hospitals",
+                                "There is no difference in training, clientele, or clinical practice"
+                            ],
+                            "correct": 0,
+                            "explanation": "Clinical psychologists generally evaluate and treat severe clinical psychopathology (e.g., schizophrenia, major depression), while counseling psychologists deal primarily with educational, vocational, and relationship adjustments."
+                        },
+                        {
+                            "question": "Which subfield of psychology investigates mental processes such as memory, problem-solving, language, decision-making, and concept formation?",
+                            "options": [
+                                "Behavioral Genetics",
+                                "Cognitive Psychology",
+                                "Psychodynamic Psychology",
+                                "Humanistic Psychology"
+                            ],
+                            "correct": 1,
+                            "explanation": "Cognitive psychology focuses on the internal computational and representational processes of the mind, conceptualizing mental operations through information-processing models."
+                        },
+                        {
+                            "question": "An Industrial/Organizational (I/O) Psychologist would be most directly involved in which of the following tasks?",
+                            "options": [
+                                "Designing behavioral therapies for patients suffering from agoraphobia",
+                                "Developing hiring assessments, improving worker satisfaction, and optimizing ergonomic workstation design",
+                                "Administering electroconvulsive therapy in a psychiatric inpatient ward",
+                                "Mapping language production centers in the left frontal lobe using functional MRI"
+                            ],
+                            "correct": 1,
+                            "explanation": "Industrial/Organizational (I/O) psychologists apply psychological principles, research methods, and behavioral theories to corporate, organizational, and workplace environments."
+                        },
+                        {
+                            "question": "What paradigm shift in the 1960s challenged radical behaviorism by re-establishing the scientific study of internal mental representations, aided by computer analogies?",
+                            "options": [
+                                "The Psychoanalytic Awakening",
+                                "The Cognitive Revolution",
+                                "The Humanistic Counterculture",
+                                "The Evolutionary Synthesis"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Cognitive Revolution broke the behaviorist monopoly by using computational models, objective reaction-time paradigms, and linguistics to scientifically study memory, attention, and mental operations."
+                        },
+                        {
+                            "question": "A behavioral neuroscientist studying how neurotransmitter balances in the basal ganglia influence motor coordination is working within which broad psychological domain?",
+                            "options": [
+                                "Social Psychology",
+                                "Biological Psychology",
+                                "Developmental Psychology",
+                                "Psychometrics"
+                            ],
+                            "correct": 1,
+                            "explanation": "Biological psychology (behavioral neuroscience) examines the physiological, neurochemical, genetic, and anatomical mechanisms underlying behavior and psychological states."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_2",
+            "title": "Chapter 2: Scientific Methods in Psychology",
+            "description": "Module 2.1: Evaluating Evidence | Module 2.2: Conducting Research",
+            "activities": [
+                {
+                    "id": "act_psych_2_1",
+                    "type": "page",
+                    "title": "Module 2.1: Evaluating Evidence and Thinking Critically",
+                    "completed": false,
+                    "content": "### Scientific Thinking in Psychology\n\n- **Hypothesis:** A precise, testable prediction derived from a broader theoretical framework.\n- **Falsifiability:** A theory is scientific only if there is a conceivable empirical observation that could prove it false (Karl Popper).\n- **Principle of Parsimony (Occam's Razor):** Given multiple explanations that account for observations equally well, scientists prefer the explanation requiring the fewest unsupported assumptions.\n- **Operational Definitions:** A definition specifying the exact operations, measurements, or procedures used to manipulate or observe a variable.\n- **Replicability:** The requirement that findings can be reproduced by independent researchers following the same protocol.\n\n### In Closing: Scientific Thinking in Psychology\nCritical thinking requires demanding empirical proof, recognizing confirmation bias, and welcoming rival explanations."
+                },
+                {
+                    "id": "act_psych_2_2",
+                    "type": "page",
+                    "title": "Module 2.2: Conducting Psychological Research",
+                    "completed": false,
+                    "content": "### Research Methodologies\n\n1. **Descriptive Designs:**\n   - *Naturalistic Observation:* Observing subjects in natural habitats without interference.\n   - *Case Studies:* Detailed examination of an individual or rare circumstance.\n   - *Surveys:* Questionnaires administered to a sample; susceptible to sampling bias and wording effects.\n\n2. **Correlational Studies:**\n   - Measures statistical association with the correlation coefficient ($r$, from $-1.00$ to $+1.00$).\n   - **Cardinal Rule:** Correlation does not prove causation (possibility of a third unmeasured confounding variable).\n\n3. **Experimental Designs (Testing Causality):**\n   - *Independent Variable (IV):* The variable manipulated by the researcher.\n   - *Dependent Variable (DV):* The variable measured to assess the effect of the IV.\n   - *Random Assignment:* Ensures each participant has an equal chance of being in any group, balancing pre-existing differences.\n   - *Placebo Effect & Blind Controls:* In a double-blind study, neither participants nor observers know who is receiving active treatment.\n\n### In Closing: Psychological Research\nExperiments are the only research design that can establish cause-and-effect relationships."
+                },
+                {
+                    "id": "quiz_psych_2",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 2 Checkpoint: Research Methods & Critical Thinking",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In scientific research, what essential quality distinguishes a testable hypothesis from an untestable assertion?",
+                            "options": [
+                                "A scientific hypothesis must be proven true in all imaginable contexts",
+                                "A scientific hypothesis must be falsifiable—there must be conceivable evidence that could demonstrate it is false",
+                                "A scientific hypothesis must rely entirely on qualitative subjective impressions",
+                                "A scientific hypothesis cannot make specific predictions about observable outcomes"
+                            ],
+                            "correct": 1,
+                            "explanation": "Karl Popper's principle of falsifiability requires that for an explanation to be scientific, there must be a realistic, observable set of empirical data that could refute it."
+                        },
+                        {
+                            "question": "What is an operational definition in psychological investigations?",
+                            "options": [
+                                "A philosophical description of a concept's cosmic significance",
+                                "A precise specification of how a variable is observed, manipulated, or quantitatively measured",
+                                "A general dictionary definition borrowed from standard conversational English",
+                                "The medical diagnosis provided upon psychiatric hospitalization"
+                            ],
+                            "correct": 1,
+                            "explanation": "An operational definition clarifies abstract psychological constructs (e.g., 'hunger' or 'stress') into concrete, repeatable measurement operations (e.g., 'hours of food deprivation' or 'salivary cortisol levels')."
+                        },
+                        {
+                            "question": "Why is replicability considered the gold standard of scientific validity?",
+                            "options": [
+                                "If an effect is genuine, independent researchers using the same methodology should obtain comparable findings",
+                                "Replication guarantees that a theory will never be modified or replaced",
+                                "Replication allows scientists to avoid obtaining ethical board approval",
+                                "Replication eliminates the need for statistical significance tests"
+                            ],
+                            "correct": 0,
+                            "explanation": "Replication ensures that an observed finding was not a fluke, statistical anomaly, researcher fraud, or specific artifact of a single laboratory's setup."
+                        },
+                        {
+                            "question": "If every individual in a target population has an equal likelihood of being selected to participate in a study, the researchers have achieved:",
+                            "options": [
+                                "A convenience sample",
+                                "A random sample",
+                                "A stratified quota",
+                                "A snowball cluster"
+                            ],
+                            "correct": 1,
+                            "explanation": "A random sample ensures that every member of the target population possesses an equal probability of inclusion, maximizing the generalizability of the conclusions."
+                        },
+                        {
+                            "question": "What is the primary advantage of naturalistic observation compared to laboratory experiments?",
+                            "options": [
+                                "It provides rigorous control over all extraneous confounding variables",
+                                "It establishes definitive causal links between variables",
+                                "It allows researchers to observe spontaneous, ecologically valid behavior in real-world settings",
+                                "It is completely immune to observer bias"
+                            ],
+                            "correct": 2,
+                            "explanation": "Naturalistic observation records subjects in their natural habitats without artificial constraints, offering high ecological validity, though at the expense of experimental control."
+                        },
+                        {
+                            "question": "Which of the following correlation coefficients indicates the strongest statistical relationship between two variables?",
+                            "options": [
+                                "+0.65",
+                                "-0.87",
+                                "+0.12",
+                                "-0.43"
+                            ],
+                            "correct": 1,
+                            "explanation": "The strength of a Pearson correlation coefficient (r) is determined by its absolute value, regardless of sign. An r of -0.87 represents a stronger predictive association than +0.65."
+                        },
+                        {
+                            "question": "A study reveals that as daily aerobic exercise increases, reported clinical anxiety levels decrease significantly. This demonstrates a:",
+                            "options": [
+                                "Positive correlation",
+                                "Negative correlation",
+                                "Zero correlation",
+                                "Spurious causation"
+                            ],
+                            "correct": 1,
+                            "explanation": "A negative (or inverse) correlation occurs when an increase in one variable corresponds systematically to a decrease in the other variable."
+                        },
+                        {
+                            "question": "Why does an established correlation between variable X and variable Y fail to prove that X causes Y?",
+                            "options": [
+                                "Correlation coefficients are mathematically incapable of exceeding zero",
+                                "The direction of causation could be reversed (Y causes X), or an unmeasured third variable (Z) might cause both",
+                                "Correlations apply only to animal studies, never human psychology",
+                                "Correlations can only be calculated when data is entirely fabricated"
+                            ],
+                            "correct": 1,
+                            "explanation": "The directionality problem and third-variable problem prevent causal conclusions: two correlated variables may both be driven by an unmeasured confounder, or cause and effect could run in reverse."
+                        },
+                        {
+                            "question": "Believing that full moons cause higher rates of psychiatric admissions despite hospital records showing no statistical association is an example of:",
+                            "options": [
+                                "The fundamental attribution error",
+                                "An illusory correlation",
+                                "A double-blind artifact",
+                                "A ceiling effect"
+                            ],
+                            "correct": 1,
+                            "explanation": "An illusory correlation is the cognitive perception of a relationship between variables when no actual statistical relationship exists, driven by selective attention and confirmation bias."
+                        },
+                        {
+                            "question": "In an experimental trial evaluating a novel antidepressant, the drug dosage administered by the research team represents the:",
+                            "options": [
+                                "Dependent variable",
+                                "Independent variable",
+                                "Confounding variable",
+                                "Extraneous artifact"
+                            ],
+                            "correct": 1,
+                            "explanation": "The independent variable (IV) is the variable systematically manipulated or altered by the experimenter to test its effect on the dependent outcome measure."
+                        },
+                        {
+                            "question": "In an experiment, how does random assignment of participants to experimental and control groups protect internal validity?",
+                            "options": [
+                                "It guarantees that all participants achieve identical scores on the post-test",
+                                "It minimizes pre-existing individual differences between groups, preventing them from acting as confounds",
+                                "It eliminates the necessity for a placebo control group",
+                                "It prevents participants from dropping out of the study"
+                            ],
+                            "correct": 1,
+                            "explanation": "Random assignment distributes participant characteristics (e.g., personality, IQ, motivation, background) evenly across experimental and control conditions, isolating the IV."
+                        },
+                        {
+                            "question": "What is the primary purpose of executing a double-blind experimental design?",
+                            "options": [
+                                "To prevent both participant expectancies (placebo effect) and researcher expectancies (experimenter bias) from skewing outcomes",
+                                "To conceal the study's existence from Institutional Review Boards",
+                                "To allow researchers to test visually impaired populations accurately",
+                                "To speed up the statistical data entry process"
+                            ],
+                            "correct": 0,
+                            "explanation": "In a double-blind procedure, neither the participants nor the research staff interacting with them know who is receiving the active treatment versus the placebo, eliminating expectation biases."
+                        },
+                        {
+                            "question": "Cues in an experiment that subtly inform participants about what the experimenter expects or hopes to find, thereby altering their behavior, are called:",
+                            "options": [
+                                "Operational definitions",
+                                "Demand characteristics",
+                                "Standard deviations",
+                                "Floor effects"
+                            ],
+                            "correct": 1,
+                            "explanation": "Demand characteristics are subtle environmental or verbal clues that communicate the hypothesis to subjects, causing them to act in ways they think they 'ought' to act."
+                        },
+                        {
+                            "question": "In descriptive statistics, which measure of central tendency is most susceptible to distortion by extreme outlier scores?",
+                            "options": [
+                                "The Median",
+                                "The Mode",
+                                "The Mean (arithmetic average)",
+                                "The Interquartile range"
+                            ],
+                            "correct": 2,
+                            "explanation": "Because the arithmetic mean sums all values and divides by N, extreme values in skewed distributions drag the mean heavily in their direction; the median is far more robust to outliers."
+                        },
+                        {
+                            "question": "What does a finding of p < .05 indicate in inferential psychological statistics?",
+                            "options": [
+                                "There is a 95% probability that the experiment was performed without error",
+                                "The probability of obtaining these results by random chance alone if the null hypothesis were true is less than 5%",
+                                "Exactly 5% of the participants failed to respond to the survey questions",
+                                "The independent variable accounts for only 5% of the outcome's variation"
+                            ],
+                            "correct": 1,
+                            "explanation": "Statistical significance at alpha = .05 means that if there were genuinely no difference between conditions (null hypothesis), the probability of finding this extreme a result by random sampling error is under 5%."
+                        },
+                        {
+                            "question": "What key ethical principle requires that human participants be informed of the nature, risks, and freedom to withdraw from a psychological study prior to participation?",
+                            "options": [
+                                "Deception waiver",
+                                "Informed consent",
+                                "Debriefing exemption",
+                                "Institutional quarantine"
+                            ],
+                            "correct": 1,
+                            "explanation": "Informed consent requires providing participants with sufficient information regarding experimental procedures, risks, and their right to discontinue participation at any time without penalty."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_3",
+            "title": "Chapter 3: Biological Psychology",
+            "description": "Module 3.1: Neurons | Module 3.2: Drugs | Module 3.3: Brain | Module 3.4: Genetics",
+            "activities": [
+                {
+                    "id": "act_psych_3_1",
+                    "type": "page",
+                    "title": "Module 3.1: Neurons and Behavior",
+                    "completed": false,
+                    "content": "### Neuronal Anatomy & Action Potentials\n\n- **Anatomy:**\n  - *Dendrites:* Branching fibers receiving incoming neurotransmitter signals.\n  - *Soma:* Cell body containing the nucleus and metabolic machinery.\n  - *Axon:* Long fiber transmitting electrical impulses away from the soma.\n  - *Myelin Sheath:* Glial lipid insulation speeding electrical conduction (*saltatory conduction*).\n  - *Terminal Buttons:* Bulb-shaped axon endings releasing neurotransmitters into the synaptic cleft.\n- **Electrophysiology:**\n  - *Resting Potential:* $-70\\text{ mV}$, maintained by the sodium-potassium pump (3 $\\text{Na}^+$ pumped out for every 2 $\\text{K}^+$ in).\n  - *Threshold of Excitation:* Approximately $-55\\text{ mV}$.\n  - *Action Potential:* Voltage-gated sodium channels open; $\\text{Na}^+$ rushes in, depolarizing the interior to $+30\\text{ mV}$. Operates on the **All-or-None Law**.\n  - *Refractory Period:* Absolute and relative recovery intervals preventing retrograde signal transmission.\n\n### In Closing: Neurons, Synapses, and Behavior\nAll psychological experiences arise from rapid chemical-electrical signaling among billions of interconnected neurons."
+                },
+                {
+                    "id": "act_psych_3_2",
+                    "type": "page",
+                    "title": "Module 3.2: Drugs and Their Effects",
+                    "completed": false,
+                    "content": "### Major Neurotransmitter Systems\n\n- **Dopamine:** Reward, motor control, motivation (deficient in Parkinson's; hyperactive signaling in schizophrenia).\n- **Serotonin:** Mood, sleep, hunger, arousal (targeted by SSRIs).\n- **Acetylcholine (ACh):** Skeletal muscle movement, memory, attention (depleted in Alzheimer's disease).\n- **GABA:** Primary inhibitory neurotransmitter; tranquilizers increase GABA receptor affinity.\n- **Glutamate:** Primary excitatory neurotransmitter; crucial for long-term potentiation and learning.\n- **Endorphins:** Endogenous neuropeptides attenuating pain and enhancing pleasure.\n\n### Agonists and Antagonists\n- **Agonist:** A chemical that increases or mimics the effect of a neurotransmitter.\n- **Antagonist:** A chemical that blocks or decreases the effect of a neurotransmitter.\n\n### In Closing: Drugs and Synapses\nPsychoactive drugs alter mental states primarily by modifying synaptic neurotransmitter synthesis, release, binding, or reuptake."
+                },
+                {
+                    "id": "act_psych_3_3",
+                    "type": "page",
+                    "title": "Module 3.3: Brain and Behavior",
+                    "completed": false,
+                    "content": "### Lobes of the Cerebral Cortex\n\n1. **Occipital Lobe:** Primary visual processing.\n2. **Temporal Lobe:** Auditory processing, complex visual pattern recognition, and language comprehension (*Wernicke's area* in the left hemisphere).\n3. **Parietal Lobe:** Somatosensory cortex (touch, temperature, pain, body position) and spatial attention.\n4. **Frontal Lobe:** Primary motor cortex, speech production (*Broca's area*), executive functions, emotional regulation, and working memory.\n\n### Subcortical Systems\n- **Thalamus:** Sensory gateway routing signals (except smell) to cortical processing centers.\n- **Hypothalamus:** Regulates autonomic homeostasis (temperature, hunger, thirst, fight-or-flight, reproduction).\n- **Hippocampus:** Essential for consolidating declarative memories from short-term to long-term storage.\n- **Amygdala:** Critical for emotional processing, especially fear and threat detection.\n- **Corpus Callosum:** Dense band of axons interconnecting left and right cerebral hemispheres.\n\n### In Closing: Brain and Behavior\nComplex behaviors depend on distributed neural networks rather than isolated single brain centers."
+                },
+                {
+                    "id": "act_psych_3_4",
+                    "type": "page",
+                    "title": "Module 3.4: Genetics and Evolutionary Psychology",
+                    "completed": false,
+                    "content": "### Principles of Behavioral Genetics\n\n- **Heritability:** An estimate of the variance within a specific population attributable to genetic variation (measured through twin and adoption studies).\n- **Epigenetics:** Environmental factors regulating gene expression without modifying the underlying DNA sequence.\n- **Evolutionary Psychology:** Examines how behavioral tendencies were selected over evolutionary history to enhance survival and reproductive success.\n\n### In Closing: Genes and Experience\nNature and nurture are inseparable; genetic predispositions actively influence and are influenced by environmental contexts."
+                },
+                {
+                    "id": "quiz_psych_3",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 3 Checkpoint: Neuroanatomy & Biological Psychology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Which anatomical part of a neuron is primarily specialized for receiving incoming chemical signals from neighboring neurons?",
+                            "options": [
+                                "Axon terminal",
+                                "Myelin sheath",
+                                "Dendrite",
+                                "Axon hillock"
+                            ],
+                            "correct": 2,
+                            "explanation": "Dendrites are branching extensions of the neuron equipped with synaptic receptor sites designed to receive chemical messages from neighboring cells."
+                        },
+                        {
+                            "question": "What is the primary function of the myelin sheath that wraps around the axons of many neurons?",
+                            "options": [
+                                "Synthesizing neurotransmitter molecules for storage in vesicles",
+                                "Electrically insulating the axon and speeding up the conduction of action potentials",
+                                "Connecting the neuron directly to the circulatory blood supply",
+                                "Preventing the cell body from undergoing apoptosis"
+                            ],
+                            "correct": 1,
+                            "explanation": "Myelin is a fatty insulating layer formed by glial cells that enables rapid saltatory conduction of action potentials from one Node of Ranvier to the next."
+                        },
+                        {
+                            "question": "During the resting potential of a neuron, what is the approximate electrical charge inside the axon relative to the outside?",
+                            "options": [
+                                "+70 millivolts",
+                                "-70 millivolts",
+                                "0 millivolts",
+                                "-120 millivolts"
+                            ],
+                            "correct": 1,
+                            "explanation": "At rest, the interior of a typical neuronal axon maintains a negative electrical charge of approximately -70 mV relative to the surrounding extracellular fluid."
+                        },
+                        {
+                            "question": "What active transport mechanism maintains the unequal distribution of ions across the neuronal cell membrane during rest?",
+                            "options": [
+                                "The calcium pump (pumping 2 Ca2+ in and 1 Ca2+ out)",
+                                "The sodium-potassium pump (transporting 3 Na+ ions out for every 2 K+ ions pumped in)",
+                                "Passive osmotic equilibrium across lipid layers",
+                                "Glial reuptake channels"
+                            ],
+                            "correct": 1,
+                            "explanation": "The sodium-potassium pump continuously expels 3 sodium ions (Na+) for every 2 potassium ions (K+) it imports, expending ATP to maintain the resting polarization."
+                        },
+                        {
+                            "question": "The 'All-or-None Law' of neuronal communication states that:",
+                            "options": [
+                                "Neurons either fire at their maximum possible amplitude or do not fire at all, regardless of stimulus intensity",
+                                "All neurotransmitters in the brain are released simultaneously during learning",
+                                "A neuron must release every known neurotransmitter when triggered",
+                                "The brain activates either both hemispheres at once or shuts down completely"
+                            ],
+                            "correct": 0,
+                            "explanation": "Once an axon's membrane potential reaches the excitation threshold (around -55 mV), an action potential fires at full size and constant velocity; strong stimuli increase firing frequency, not action potential size."
+                        },
+                        {
+                            "question": "What ion channels open rapidly to initiate the massive depolarization phase of the action potential?",
+                            "options": [
+                                "Voltage-gated Sodium (Na+) channels",
+                                "Chloride (Cl-) diffusion gates",
+                                "Potassium (K+) sequestration pumps",
+                                "Protein degradation portals"
+                            ],
+                            "correct": 0,
+                            "explanation": "When threshold is reached, voltage-gated Na+ channels snap open, allowing positively charged sodium ions to rush into the axon driven by concentration and electrical gradients."
+                        },
+                        {
+                            "question": "What is the narrow physical space separating the presynaptic axon terminal from the postsynaptic dendrite called?",
+                            "options": [
+                                "Node of Ranvier",
+                                "Synaptic cleft (gap)",
+                                "Axon hillock",
+                                "Myelin fold"
+                            ],
+                            "correct": 1,
+                            "explanation": "The synaptic cleft is the microscopic gap (~20-40 nanometers) across which neurotransmitters diffuse from the presynaptic to the postsynaptic membrane."
+                        },
+                        {
+                            "question": "Following neurotransmitter release into the synaptic cleft, what process involves the presynaptic neuron reabsorbing intact transmitter molecules for repackaging?",
+                            "options": [
+                                "Enzymatic degradation",
+                                "Reuptake",
+                                "Retrograde neurogenesis",
+                                "Phagocytosis"
+                            ],
+                            "correct": 1,
+                            "explanation": "Reuptake uses specialized transporter proteins on the presynaptic terminal to retrieve neurotransmitters from the synaptic cleft, terminating their signal and conserving resources."
+                        },
+                        {
+                            "question": "Loss of acetylcholine (ACh)-producing neurons in the basal forebrain is most prominently linked to which neurodegenerative condition?",
+                            "options": [
+                                "Parkinson's Disease",
+                                "Alzheimer's Disease",
+                                "Multiple Sclerosis",
+                                "Huntington's Chorea"
+                            ],
+                            "correct": 1,
+                            "explanation": "Acetylcholine plays a crucial role in memory and muscle contraction; profound deficits in cholinergic transmission are a hallmark of Alzheimer's dementia."
+                        },
+                        {
+                            "question": "Progressive degeneration of dopamine-secreting neurons in the substantia nigra causes the motor tremors and muscle rigidity characteristic of:",
+                            "options": [
+                                "Parkinson's Disease",
+                                "Schizophrenia",
+                                "Bipolar I Disorder",
+                                "Amyotrophic Lateral Sclerosis (ALS)"
+                            ],
+                            "correct": 0,
+                            "explanation": "Parkinson's disease stems from the death of dopaminergic neurons in the substantia nigra, leading to severe impairment of smooth voluntary motor initiation and control."
+                        },
+                        {
+                            "question": "Which neurotransmitter is considered the primary inhibitory transmitter in the central nervous system, helping prevent hyper-excitability and seizures?",
+                            "options": [
+                                "Glutamate",
+                                "GABA (gamma-aminobutyric acid)",
+                                "Norepinephrine",
+                                "Substance P"
+                            ],
+                            "correct": 1,
+                            "explanation": "GABA hyperpolarizes postsynaptic membranes, acting as the brain's main inhibitory brake; drugs like benzodiazepines enhance GABA transmission to reduce anxiety."
+                        },
+                        {
+                            "question": "Which chemical is the brain's primary excitatory neurotransmitter, critically involved in synaptic plasticity and long-term potentiation?",
+                            "options": [
+                                "GABA",
+                                "Glutamate",
+                                "Serotonin",
+                                "Dopamine"
+                            ],
+                            "correct": 1,
+                            "explanation": "Glutamate is the universal excitatory neurotransmitter in the mammalian central nervous system, binding to NMDA and AMPA receptors essential for learning and memory."
+                        },
+                        {
+                            "question": "A drug that binds to a neurotransmitter receptor site and mimics or enhances the effect of that neurotransmitter is termed:",
+                            "options": [
+                                "An antagonist",
+                                "An agonist",
+                                "An enzyme inhibitor",
+                                "A reuptake promoter"
+                            ],
+                            "correct": 1,
+                            "explanation": "An agonist mimics or amplifies a neurotransmitter's natural biological actions, whereas an antagonist binds to block or inhibit postsynaptic receptor activation."
+                        },
+                        {
+                            "question": "Endorphins function primarily in the nervous system to:",
+                            "options": [
+                                "Trigger violent muscle spasms during fight-or-flight",
+                                "Inhibit pain signaling and produce sensations of pleasure or relief",
+                                "Coordinate sleep stages in the pineal gland",
+                                "Facilitate visual accommodation in the retina"
+                            ],
+                            "correct": 1,
+                            "explanation": "Endorphins (endogenous morphines) are neuropeptides that bind to opiate receptors in the brain and spinal cord, suppressing pain perceptions and elevating mood."
+                        },
+                        {
+                            "question": "The autonomic nervous system is divided into two functionally opposing divisions known as the:",
+                            "options": [
+                                "Central and Peripheral systems",
+                                "Somatic and Sensory systems",
+                                "Sympathetic and Parasympathetic systems",
+                                "Afferent and Efferent systems"
+                            ],
+                            "correct": 2,
+                            "explanation": "The sympathetic branch mobilizes bodily resources for rapid fight-or-flight defense, whereas the parasympathetic branch conserves energy and mediates rest-and-digest recuperation."
+                        },
+                        {
+                            "question": "When confronted with an immediate threat, sympathetic nervous activation results in which bodily response?",
+                            "options": [
+                                "Pupillary constriction and stimulated gastrointestinal digestion",
+                                "Decreased heart rate and lowered blood pressure",
+                                "Dilated pupils, accelerated heart rate, and inhibited digestion",
+                                "Constricted bronchioles and increased salivation"
+                            ],
+                            "correct": 2,
+                            "explanation": "Sympathetic arousal redirects oxygenated blood to skeletal muscles, dilates airways and pupils, increases heart rate, and inhibits non-essential functions like digestive motility."
+                        },
+                        {
+                            "question": "Which cerebral lobe contains the primary visual cortex (striate cortex)?",
+                            "options": [
+                                "Frontal lobe",
+                                "Temporal lobe",
+                                "Parietal lobe",
+                                "Occipital lobe"
+                            ],
+                            "correct": 3,
+                            "explanation": "The occipital lobe, positioned at the posterior pole of the cerebral cortex, houses the primary visual cortex dedicated to processing visual sensory input."
+                        },
+                        {
+                            "question": "Damage to the somatosensory cortex located in the postcentral gyrus of the parietal lobe would impair:",
+                            "options": [
+                                "Auditory pitch discrimination",
+                                "Perception of touch, temperature, pressure, and body position",
+                                "Visual color naming",
+                                "Motor articulation of vocal speech"
+                            ],
+                            "correct": 1,
+                            "explanation": "The anterior border of the parietal lobe contains the primary somatosensory strip, which maps cutaneous sensations and proprioceptive feedback from across the body."
+                        },
+                        {
+                            "question": "Which cerebral lobe houses the prefrontal cortex, responsible for executive functioning, impulse regulation, and planning?",
+                            "options": [
+                                "Frontal lobe",
+                                "Temporal lobe",
+                                "Occipital lobe",
+                                "Parietal lobe"
+                            ],
+                            "correct": 0,
+                            "explanation": "The frontal lobe contains the prefrontal cortex, which governs higher-order cognitive executive control, planning, abstract reasoning, and emotional regulation."
+                        },
+                        {
+                            "question": "Damage to Broca's area in the left frontal hemisphere characteristically produces:",
+                            "options": [
+                                "Fluent, effortless speech that is completely devoid of semantic meaning",
+                                "Extreme difficulty in producing and articulating grammatical speech, while comprehension remains relatively intact",
+                                "Total blindness despite normal retinal health",
+                                "An inability to form new long-term declarative memories"
+                            ],
+                            "correct": 1,
+                            "explanation": "Broca's aphasia (expressive aphasia) features labored, non-fluent, telegraphic speech production, although the patient generally understands spoken and written language well."
+                        },
+                        {
+                            "question": "Damage to Wernicke's area in the left superior temporal lobe characteristically causes:",
+                            "options": [
+                                "Paralysis of the left side of the face",
+                                "Fluent but meaningless speech output coupled with severe auditory comprehension deficits",
+                                "Complete loss of long-term episodic memories prior to the trauma",
+                                "Inability to coordinate voluntary finger movements"
+                            ],
+                            "correct": 1,
+                            "explanation": "Wernicke's aphasia (receptive aphasia) impairs language comprehension; patients speak effortlessly with normal prosody and grammar, but their sentences consist of empty words and neologisms ('word salad')."
+                        },
+                        {
+                            "question": "The thick band of neural fibers that interconnects the left and right cerebral hemispheres and is surgically severed in split-brain patients is the:",
+                            "options": [
+                                "Fornix",
+                                "Corpus callosum",
+                                "Internal capsule",
+                                "Basal ganglia"
+                            ],
+                            "correct": 1,
+                            "explanation": "The corpus callosum contains over 200 million axonal fibers that transmit information between homologous cortical regions in the left and right hemispheres."
+                        },
+                        {
+                            "question": "In Roger Sperry and Michael Gazzaniga's split-brain research, if an image was flashed exclusively to a patient's left visual field, the patient:",
+                            "options": [
+                                "Could immediately name the object vocally because language is right-hemisphere dominant",
+                                "Could not verbally name the object, but could correctly retrieve it using their left hand",
+                                "Became instantly unconscious due to inter-hemispheric seizure spread",
+                                "Could write the object's name only using their right hand"
+                            ],
+                            "correct": 1,
+                            "explanation": "Visual information from the left visual field projects to the right hemisphere, which controls the left hand. Because the right hemisphere is non-verbal in most people and cannot communicate with the left language centers without the corpus callosum, the patient cannot name the item verbally but can identify it tactilely with the left hand."
+                        },
+                        {
+                            "question": "Which limbic system structure is indispensable for the consolidation of short-term memories into stable long-term declarative storage, as demonstrated by the famous case of patient H.M.?",
+                            "options": [
+                                "Amygdala",
+                                "Hippocampus",
+                                "Thalamus",
+                                "Cerebellum"
+                            ],
+                            "correct": 1,
+                            "explanation": "Bilateral removal of the medial temporal lobes, including the hippocampi, in patient H.M. resulted in profound anterograde amnesia—the inability to encode new long-term declarative facts and events."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_4",
+            "title": "Chapter 4: Sensation and Perception",
+            "description": "Module 4.1: Vision | Module 4.2: Nonvisual Senses | Module 4.3: Sensory Interpretation",
+            "activities": [
+                {
+                    "id": "act_psych_4_1",
+                    "type": "page",
+                    "title": "Module 4.1: Vision",
+                    "completed": false,
+                    "content": "### Visual Anatomy and Photoreceptors\n\n- **Optical Pathway:** Cornea $\\rightarrow$ Pupil (regulated by iris) $\\rightarrow$ Lens (accommodation) $\\rightarrow$ Retina.\n- **Photoreceptors:**\n  - *Rods (~120 million):* Located in the peripheral retina; highly sensitive to dim light; no color discrimination.\n  - *Cones (~6 million):* Concentrated in the **fovea**; responsible for color vision and high visual acuity.\n- **Theories of Color Vision:**\n  1. *Trichromatic Theory (Young-Helmholtz):* Color perception relies on three cone types sensitive to short (blue), medium (green), and long (red) wavelengths.\n  2. *Opponent-Process Theory (Hering):* Bipolar/ganglion cells process color in opposing pairs: red vs. green, blue vs. yellow, black vs. white (explains negative afterimages).\n\n### In Closing: Vision as an Active Process\nVision is not a passive camera recording; it is an active constructive process interpreted by the visual cortex."
+                },
+                {
+                    "id": "act_psych_4_2",
+                    "type": "page",
+                    "title": "Module 4.2: The Nonvisual Senses",
+                    "completed": false,
+                    "content": "### Audition and Other Modalities\n\n- **Audition (Hearing):** Sound waves cause vibrations of the tympanic membrane (eardrum) $\\rightarrow$ malleus, incus, stapes $\\rightarrow$ oval window $\\rightarrow$ cochlear fluid $\\rightarrow$ hair cells on the basilar membrane.\n- **Somatosensation:** Mechanoreceptors (pressure), thermoreceptors (temperature), nociceptors (pain). The **Gate-Control Theory** proposes that spinal cord neural gates can inhibit or facilitate pain transmission.\n- **Chemical Senses:**\n  - *Gustation:* Sweet, sour, salty, bitter, umami.\n  - *Olfaction:* Odorants bind to olfactory receptor neurons; olfactory bulb projects directly to the limbic system, bypassing the thalamus.\n- **Vestibular Sense:** Semicircular canals and otolith organs in the inner ear detect head orientation and acceleration.\n\n### In Closing: Sensory Systems\nEach sensory organ transforms unique physical stimuli into standardized neural impulses."
+                },
+                {
+                    "id": "act_psych_4_3",
+                    "type": "page",
+                    "title": "Module 4.3: Interpreting Sensory Information",
+                    "completed": false,
+                    "content": "### Perceptual Organization (Gestalt)\n\n- **Top-Down vs. Bottom-Up Processing:** Bottom-up builds from raw sensory inputs; top-down applies prior knowledge, expectations, and context.\n- **Gestalt Principles:**\n  - *Figure-Ground:* Distinguishing focal objects from the background.\n  - *Proximity:* Grouping nearby elements.\n  - *Similarity:* Grouping visually alike elements.\n  - *Continuity:* Perceiving smooth, unbroken trajectories.\n  - *Closure:* Mentally completing incomplete shapes.\n- **Depth Perception:** Monocular cues (linear perspective, relative size, texture gradient) and binocular cues (retinal disparity, convergence).\n\n### In Closing: Making Sense of Sensory Information\nPerception resolves ambiguities using contextual expectations and evolutionary heuristics."
+                },
+                {
+                    "id": "quiz_psych_4",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 4 Checkpoint: Sensation & Perception",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What is the key distinction between sensation and perception?",
+                            "options": [
+                                "Sensation occurs in the cerebral cortex, whereas perception occurs at peripheral sensory receptors",
+                                "Sensation is the physical detection of environmental energy by receptors, while perception is the brain's psychological organization and interpretation of that input",
+                                "Perception occurs prior to sensation in all sensory modalities",
+                                "There is no distinction; both terms describe the exact same physiological event"
+                            ],
+                            "correct": 1,
+                            "explanation": "Sensation refers to receptor stimulation and transduction of physical stimuli into neural impulses; perception is the higher-level cognitive interpretation of those neural signals."
+                        },
+                        {
+                            "question": "The minimum intensity of physical stimulation required for an organism to detect a stimulus at least 50% of the time is defined as:",
+                            "options": [
+                                "The difference threshold",
+                                "The absolute threshold",
+                                "The just noticeable difference",
+                                "The perceptual asymptote"
+                            ],
+                            "correct": 1,
+                            "explanation": "The absolute threshold is statistically established as the weakest intensity at which a stimulus is successfully detected on 50% of presentation trials."
+                        },
+                        {
+                            "question": "Weber's Law states that for a difference threshold (Just Noticeable Difference) to be perceived, two stimuli must differ by a:",
+                            "options": [
+                                "Constant minimum absolute amount regardless of baseline intensity",
+                                "Constant minimum percentage or proportion of the initial stimulus intensity",
+                                "Random physiological fluctuation in receptor firing",
+                                "Variable that is inversely proportional to receptor density"
+                            ],
+                            "correct": 1,
+                            "explanation": "Weber's Law states that the JND is a constant fraction of the original stimulus magnitude (e.g., adding 1 ounce to 10 ounces is noticeable, but adding 1 ounce to 100 pounds is not)."
+                        },
+                        {
+                            "question": "In Signal Detection Theory, when a radar operator reports that an incoming aircraft missile is present when no missile actually exists, this response is classified as a:",
+                            "options": [
+                                "Hit",
+                                "Miss",
+                                "False alarm",
+                                "Correct rejection"
+                            ],
+                            "correct": 2,
+                            "explanation": "Signal detection categorizes responses into: Hit (signal present, reported), Miss (signal present, missed), False Alarm (signal absent, reported), and Correct Rejection (signal absent, reported absent)."
+                        },
+                        {
+                            "question": "Entering a bakery and noticing a strong scent of vanilla that seems to completely disappear after fifteen minutes is an example of:",
+                            "options": [
+                                "Sensory adaptation",
+                                "Perceptual constriction",
+                                "Transduction failure",
+                                "Feature binding"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sensory adaptation is the diminished sensitivity and reduced neural firing that occurs in response to constant, unvarying environmental stimulation."
+                        },
+                        {
+                            "question": "The adjustable transparent structure in the eye that changes its curvature to focus light rays sharply onto the retina is the:",
+                            "options": [
+                                "Cornea",
+                                "Pupil",
+                                "Lens (via accommodation)",
+                                "Iris"
+                            ],
+                            "correct": 2,
+                            "explanation": "The ciliary muscles alter the shape and thickness of the lens—a process called accommodation—to focus near versus distant visual images onto the retina."
+                        },
+                        {
+                            "question": "The central focal point on the human retina containing a dense concentration of cones and yielding the highest visual acuity is the:",
+                            "options": [
+                                "Optic disc",
+                                "Fovea centralis",
+                                "Peripheral margin",
+                                "Blind spot"
+                            ],
+                            "correct": 1,
+                            "explanation": "The fovea is the small central pit of the retina packed exclusively with cones, providing maximum spatial resolution and detailed color vision."
+                        },
+                        {
+                            "question": "Which photoreceptors in the human eye operate best in dim lighting conditions and provide peripheral vision without detecting color?",
+                            "options": [
+                                "Cones",
+                                "Rods",
+                                "Bipolar cells",
+                                "Amacrine cells"
+                            ],
+                            "correct": 1,
+                            "explanation": "Rods outnumber cones (roughly 120 million to 6 million), are highly sensitive to low photon levels for night vision, but do not mediate color vision or high detail."
+                        },
+                        {
+                            "question": "According to the Young-Helmholtz Trichromatic Theory of color vision, human color perception is based on three types of retinal cones responsive to:",
+                            "options": [
+                                "Red, Yellow, and Blue light",
+                                "Red, Green, and Blue wavelengths",
+                                "Cyan, Magenta, and Yellow pigments",
+                                "Black, White, and Gray luminosity"
+                            ],
+                            "correct": 1,
+                            "explanation": "Trichromatic theory posits three cone populations selectively sensitive to short (blue), medium (green), and long (red) wavelengths of the visible electromagnetic spectrum."
+                        },
+                        {
+                            "question": "Which theory of color vision explains why gazing at a green patch for a minute produces a red afterimage when looking at a blank white wall?",
+                            "options": [
+                                "Trichromatic Theory",
+                                "Hering's Opponent-Process Theory",
+                                "Frequency Matching Theory",
+                                "Place Theory"
+                            ],
+                            "correct": 1,
+                            "explanation": "Opponent-Process Theory proposes that visual cells process color in antagonistic pairs (red-green, blue-yellow, black-white). Fatiguing green receptor channels allows the rebound firing of red channels."
+                        },
+                        {
+                            "question": "In the primary visual cortex, David Hubel and Torsten Wiesel discovered specialized neurons that fire selectively in response to specific edges, orientations, and angles, which they named:",
+                            "options": [
+                                "Feature detectors",
+                                "Retinal ganglion cells",
+                                "Pacinian corpuscles",
+                                "Bipolar transductors"
+                            ],
+                            "correct": 0,
+                            "explanation": "Hubel and Wiesel won a Nobel Prize for discovering cortical feature detectors—neurons in the striate cortex that respond exclusively to specific visual features like bars of light at particular angles."
+                        },
+                        {
+                            "question": "In the physical properties of sound waves, frequency determines the psychological perception of _______, while amplitude determines the perception of _______.",
+                            "options": [
+                                "Loudness; Timbre",
+                                "Pitch; Loudness",
+                                "Timbre; Pitch",
+                                "Saturation; Brightness"
+                            ],
+                            "correct": 1,
+                            "explanation": "The frequency of acoustic vibrations (measured in Hertz) governs perceived pitch, while wave height/amplitude (measured in decibels) determines perceived loudness."
+                        },
+                        {
+                            "question": "The snail-shaped, fluid-filled structure in the inner ear where mechanical vibrations are transduced into neural signals by hair cells is the:",
+                            "options": [
+                                "Tympanic membrane",
+                                "Semicircular canal",
+                                "Cochlea",
+                                "Eustachian tube"
+                            ],
+                            "correct": 2,
+                            "explanation": "The cochlea contains the basilar membrane and the Organ of Corti, where microscopic stereocilia (hair cells) bend in response to fluid waves to trigger auditory action potentials."
+                        },
+                        {
+                            "question": "Which auditory pitch perception theory best accounts for our ability to perceive high-frequency sounds above 4,000 Hz based on the specific location where the basilar membrane vibrates?",
+                            "options": [
+                                "Frequency Theory",
+                                "Place Theory",
+                                "The Volley Principle",
+                                "Opponent Pitch Theory"
+                            ],
+                            "correct": 1,
+                            "explanation": "Helmholtz's Place Theory posits that high frequencies maximally displace the stiff basilar membrane near the cochlear base, whereas low frequencies vibrate the flexible apex."
+                        },
+                        {
+                            "question": "Which sensory system detects head orientation, acceleration, and balance through fluid movement within the three semicircular canals?",
+                            "options": [
+                                "Kinesthetic system",
+                                "Vestibular system",
+                                "Somatosensory system",
+                                "Cutaneous system"
+                            ],
+                            "correct": 1,
+                            "explanation": "The vestibular system in the inner ear monitors spatial orientation, gravity, and angular head rotation via fluid movement deflection of cupula hair cells in the semicircular canals."
+                        },
+                        {
+                            "question": "Unlike all other major sensory modalities, olfactory (smell) neural pathways bypass which central brain relay station before reaching the cortex?",
+                            "options": [
+                                "The Hippocampus",
+                                "The Thalamus",
+                                "The Amygdala",
+                                "The Medulla"
+                            ],
+                            "correct": 1,
+                            "explanation": "Olfactory signals travel directly from the nasal olfactory bulb into the limbic cortex and amygdala without passing first through the sensory routing center of the thalamus."
+                        },
+                        {
+                            "question": "Which of the following is NOT one of the five basic, universally recognized taste qualities detected by gustatory receptor cells?",
+                            "options": [
+                                "Umami (savory)",
+                                "Spicy (pungent/capsaicin)",
+                                "Bitter",
+                                "Sour"
+                            ],
+                            "correct": 1,
+                            "explanation": "The five taste modalities are sweet, salty, sour, bitter, and umami. 'Spicy' is not a gustatory taste; it is a somatosensory thermal/pain sensation mediated by trigeminal nerve activation."
+                        },
+                        {
+                            "question": "The Gate-Control Theory of pain proposes that pain signals travelling to the brain through small nerve fibers can be blocked at the spinal cord by:",
+                            "options": [
+                                "Stimulating larger sensory fibers that close the spinal neurological gate",
+                                "Severe cognitive stress and panic",
+                                "Severing the corpus callosum",
+                                "Inactivating the fovea"
+                            ],
+                            "correct": 0,
+                            "explanation": "Melzack and Wall's Gate-Control Theory asserts that stimulating large-diameter tactile fibers (e.g., rubbing an injured stubbed toe) activates inhibitory spinal interneurons that close the gate against small pain fibers."
+                        },
+                        {
+                            "question": "Which Gestalt grouping principle explains our tendency to perceive an incomplete or broken outline of a circle as a complete, unified circle?",
+                            "options": [
+                                "Proximity",
+                                "Similarity",
+                                "Closure",
+                                "Continuity"
+                            ],
+                            "correct": 2,
+                            "explanation": "The Gestalt principle of Closure describes the brain's automatic perceptual filling-in of gaps in incomplete visual stimuli to construct a coherent, whole object."
+                        },
+                        {
+                            "question": "Retinal disparity is a binocular depth cue that enables stereoscopic vision because:",
+                            "options": [
+                                "Both eyes focus at the exact same physical focal angle at all distances",
+                                "The horizontal separation between our two eyes causes each eye to receive a slightly different retinal image of the same object",
+                                "Linear perspective makes parallel lines appear to converge at the horizon",
+                                "Objects higher in the visual field are perceived as being further away"
+                            ],
+                            "correct": 1,
+                            "explanation": "Because our pupils are spaced roughly 6 centimeters apart, our retinas receive two slightly disparate vantage points; the visual cortex calculates the degree of difference to judge depth."
+                        },
+                        {
+                            "question": "When riding in a car, nearby roadside fence posts appear to rush past rapidly in the opposite direction, while distant mountains seem to move slowly in the same direction. This monocular depth cue is:",
+                            "options": [
+                                "Texture gradient",
+                                "Linear perspective",
+                                "Motion parallax",
+                                "Interposition (overlap)"
+                            ],
+                            "correct": 2,
+                            "explanation": "Motion parallax is a monocular depth cue where objects closer than the ocular fixation point appear to move backward rapidly, whereas distant objects move slowly forward."
+                        },
+                        {
+                            "question": "Recognizing that a white car is still white whether viewed in bright sunlight or at dusk under dim streetlamps illustrates:",
+                            "options": [
+                                "Shape constancy",
+                                "Color constancy",
+                                "Size constancy",
+                                "Sensory transduction"
+                            ],
+                            "correct": 1,
+                            "explanation": "Color constancy allows the perceptual system to recognize familiar surface colors as remaining unchanged despite dramatic shifts in the wavelength illumination hitting the retina."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_5",
+            "title": "Chapter 5: Development",
+            "description": "Module 5.1: Cognitive Development | Module 5.2: Social Development | Module 5.3: Diversity",
+            "activities": [
+                {
+                    "id": "act_psych_5_1",
+                    "type": "page",
+                    "title": "Module 5.1: Cognitive Development in Infancy and Childhood",
+                    "completed": false,
+                    "content": "### Jean Piaget's Stage Theory\n\n1. **Sensorimotor (0-2 years):** Learning through motor activities and sensory impressions. Acquisition of **Object Permanence** (~8 months).\n2. **Preoperational (2-7 years):** Symbolic thought and language. Characterized by **egocentrism** (inability to take another's perspective) and lack of **conservation**.\n3. **Concrete Operational (7-11 years):** Understanding conservation, reversibility, and logical operations with concrete physical objects.\n4. **Formal Operational (12+ years):** Abstract reasoning, hypothetical logic, and systematic scientific experimentation.\n\n### Lev Vygotsky's Sociocultural Alternative\n- Emphasized social interaction, cultural tools, the **Zone of Proximal Development (ZPD)**, and instructional **scaffolding**.\n\n### In Closing: How Grown Up Are We?\nCognitive development progresses from concrete sensory actions to sophisticated abstract reasoning through interactions with cultural tools."
+                },
+                {
+                    "id": "act_psych_5_2",
+                    "type": "page",
+                    "title": "Module 5.2: Social and Emotional Development",
+                    "completed": false,
+                    "content": "### Attachment Styles (Mary Ainsworth)\n- **Secure:** Explores comfortably; distressed when caregiver departs; easily comforted upon reunion.\n- **Insecure-Avoidant:** Shows minimal distress upon separation; avoids or ignores caregiver on return.\n- **Insecure-Anxious/Ambivalent:** High distress upon separation; shows conflicting anger and clinging upon reunion.\n\n### Erikson's 8 Psychosocial Stages\n1. Trust vs. Mistrust (Infancy)\n2. Autonomy vs. Shame/Doubt (Toddlerhood)\n3. Initiative vs. Guilt (Preschool)\n4. Industry vs. Inferiority (School Age)\n5. Identity vs. Role Confusion (Adolescence)\n6. Intimacy vs. Isolation (Young Adulthood)\n7. Generativity vs. Stagnation (Middle Adulthood)\n8. Integrity vs. Despair (Late Adulthood)\n\n### In Closing: Social and Emotional Issues through the Life Span\nEach stage of life presents a distinct psychosocial crisis that shapes personality and interpersonal orientation."
+                },
+                {
+                    "id": "act_psych_5_3",
+                    "type": "page",
+                    "title": "Module 5.3: Diversity: Gender, Culture, and Family",
+                    "completed": false,
+                    "content": "### Societal Influences & Parenting Styles\n\n- **Parenting Styles (Diana Baumrind):**\n  - *Authoritative:* High warmth, high expectations (produces self-reliant, socially competent children).\n  - *Authoritarian:* Low warmth, high demands, strict obedience.\n  - *Permissive:* High warmth, low discipline.\n  - *Uninvolved:* Low warmth, low demands.\n- **Adolescent Identity (James Marcia):**\n  - *Identity Diffusion:* No commitment, no exploration.\n  - *Foreclosure:* Commitment without exploration (accepting parents' values unquestioned).\n  - *Moratorium:* Active exploration without final commitment.\n  - *Identity Achievement:* Commitment reached following exploration.\n\n### In Closing: Many Ways of Life\nCultural expectations and parental dynamics interact with biological predispositions to sculpt identity."
+                },
+                {
+                    "id": "quiz_psych_5",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 5 Checkpoint: Lifespan Development",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Environmental toxins, chemicals, or maternal infections that can cross the placental barrier and cause birth defects during prenatal development are called:",
+                            "options": [
+                                "Karyotypes",
+                                "Teratogens",
+                                "Zygotes",
+                                "Phenotypes"
+                            ],
+                            "correct": 1,
+                            "explanation": "Teratogens (e.g., alcohol, nicotine, rubella, thalidomide) are foreign environmental agents that cause congenital malformations, particularly during embryonic critical periods."
+                        },
+                        {
+                            "question": "When an infant's cheek is gently brushed, the baby reflexively turns their head toward the stimulus, opens their mouth, and attempts to nurse. This reflex is known as:",
+                            "options": [
+                                "The Moro reflex",
+                                "The Babinski reflex",
+                                "The Rooting reflex",
+                                "The Palmar grasp reflex"
+                            ],
+                            "correct": 2,
+                            "explanation": "The rooting reflex assists newborn survival by automatically directing the baby's mouth toward a nipple or food source when the cheek or mouth is touched."
+                        },
+                        {
+                            "question": "How do developmental psychologists use the 'habituation' technique to study the cognitive and sensory abilities of pre-verbal infants?",
+                            "options": [
+                                "They measure how rapidly an infant falls asleep during feeding",
+                                "They present a stimulus repeatedly until the infant's interest declines, then present a novel stimulus to see if attention recovers (dishabituation)",
+                                "They train infants to press mechanical levers for liquid reinforcement",
+                                "They record electroencephalograms while children execute mathematics problems"
+                            ],
+                            "correct": 1,
+                            "explanation": "Habituation involves a drop in infant gaze duration or heart rate to repeated stimuli; dishabituation (renewed attention to a new stimulus) proves the infant can distinguish between the two stimuli."
+                        },
+                        {
+                            "question": "In Jean Piaget's cognitive development theory, what is the term for incorporating new environmental experiences into an existing cognitive schema?",
+                            "options": [
+                                "Assimilation",
+                                "Accommodation",
+                                "Equilibration",
+                                "Conservation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Assimilation interprets novel experiences through preexisting conceptual schemas (e.g., a toddler calling a four-legged cat a 'doggie'); accommodation modifies the schema to fit the new reality."
+                        },
+                        {
+                            "question": "A child who watches a toy car hidden behind a blanket and immediately stops searching for it because they believe it no longer exists has not yet acquired:",
+                            "options": [
+                                "Egocentrism",
+                                "Object permanence",
+                                "Conservation of volume",
+                                "Abstract hypothesis testing"
+                            ],
+                            "correct": 1,
+                            "explanation": "Object permanence—the cognitive realization that objects continue to exist even when hidden from direct sensory perception—develops during Piaget's sensorimotor stage (birth to age 2)."
+                        },
+                        {
+                            "question": "A 4-year-old in Piaget's Preoperational stage who covers her own eyes and assumes that because she cannot see her father, he cannot see her, is demonstrating:",
+                            "options": [
+                                "Egocentrism",
+                                "Animism",
+                                "Hypothetical deduction",
+                                "Reversibility"
+                            ],
+                            "correct": 0,
+                            "explanation": "Piagetian egocentrism is the preoperational inability to distinguish one's own physical and mental perspective from the perspective of another person."
+                        },
+                        {
+                            "question": "In a classic developmental experiment, equal amounts of water are poured into two identical glasses, and then one glass is poured into a tall, skinny cylinder. A child who insists the tall cylinder now has 'more water' lacks:",
+                            "options": [
+                                "Object permanence",
+                                "Conservation",
+                                "Symbolic thought",
+                                "Scaffolding"
+                            ],
+                            "correct": 1,
+                            "explanation": "Conservation is the realization that fundamental quantitative properties of matter (mass, volume, number) remain invariant despite alterations in their perceptual appearance or container shape."
+                        },
+                        {
+                            "question": "During which of Piaget's stages of cognitive development do adolescents acquire the ability to engage in systematic, hypothetical-deductive and abstract reasoning?",
+                            "options": [
+                                "Sensorimotor stage",
+                                "Preoperational stage",
+                                "Concrete operational stage",
+                                "Formal operational stage"
+                            ],
+                            "correct": 3,
+                            "explanation": "The Formal Operational stage (beginning around age 11-12) allows individuals to formulate abstract hypotheses, test variables systematically, and reason through counterfactual propositions."
+                        },
+                        {
+                            "question": "Lev Vygotsky's sociocultural theory emphasized the 'Zone of Proximal Development' (ZPD), which refers to:",
+                            "options": [
+                                "The range of tasks a child can accomplish only with guidance and assistance from a more skilled mentor",
+                                "The physical radius within which a toddler feels safe exploring away from a primary caregiver",
+                                "The anatomical brain zone where language acquisition exclusively takes place",
+                                "The stages of moral development tied to concrete punishment and rewards"
+                            ],
+                            "correct": 0,
+                            "explanation": "Vygotsky's ZPD is the developmental gap between what a learner can achieve independently and what they can achieve with supportive guidance (scaffolding) from a knowledgeable other."
+                        },
+                        {
+                            "question": "In Mary Ainsworth's 'Strange Situation' assessment, an infant who explores a playroom freely while mother is present, becomes moderately upset when she leaves, and seeks warm contact and is quickly comforted upon her return demonstrates:",
+                            "options": [
+                                "Anxious-resistant attachment",
+                                "Avoidant attachment",
+                                "Secure attachment",
+                                "Disorganized attachment"
+                            ],
+                            "correct": 2,
+                            "explanation": "Secure attachment is characterized by using the caregiver as a safe base for exploration, displaying distress upon separation, and welcoming soothing reconnection during reunion."
+                        },
+                        {
+                            "question": "An infant who shows complete indifference when the mother leaves the room and avoids eye contact or physical proximity when she returns is categorized as exhibiting:",
+                            "options": [
+                                "Secure attachment",
+                                "Avoidant attachment",
+                                "Ambivalent attachment",
+                                "Autonomous attachment"
+                            ],
+                            "correct": 1,
+                            "explanation": "Insecure-avoidant attachment reflects an emotional defense where the infant suppresses visible distress, fails to protest maternal departure, and avoids interaction upon reunion."
+                        },
+                        {
+                            "question": "Diana Baumrind classified parenting styles based on warmth and demandingness. Parents who set clear standards, enforce rules consistently, but maintain warm communication and explain the reasons for their expectations are:",
+                            "options": [
+                                "Authoritarian parents",
+                                "Authoritative parents",
+                                "Permissive parents",
+                                "Uninvolved parents"
+                            ],
+                            "correct": 1,
+                            "explanation": "Authoritative parenting combines high demands with high warmth and responsiveness, which correlates across extensive research with the highest levels of child self-esteem and academic competence."
+                        },
+                        {
+                            "question": "In Erik Erikson's eight stages of psychosocial development, the primary psychosocial challenge faced during adolescence (ages 12-18) is:",
+                            "options": [
+                                "Trust versus Mistrust",
+                                "Industry versus Inferiority",
+                                "Identity versus Role Confusion",
+                                "Generativity versus Stagnation"
+                            ],
+                            "correct": 2,
+                            "explanation": "Adolescents confront Identity versus Role Confusion, where they must consolidate personal values, vocational goals, and social roles into a coherent self-concept."
+                        },
+                        {
+                            "question": "According to Erikson, an elderly adult who looks back on their past life with deep satisfaction, few regrets, and a sense of completeness has resolved the final psychosocial crisis with:",
+                            "options": [
+                                "Integrity (versus Despair)",
+                                "Intimacy (versus Isolation)",
+                                "Autonomy (versus Shame)",
+                                "Initiative (versus Guilt)"
+                            ],
+                            "correct": 0,
+                            "explanation": "In Erikson's final stage (Ego Integrity vs. Despair), older adults engage in life review; achieving integrity produces wisdom and acceptance, whereas unresolved regrets yield despair."
+                        },
+                        {
+                            "question": "In Lawrence Kohlberg's theory of moral reasoning, an individual who decides not to steal a medication solely out of fear of getting caught and going to jail is reasoning at the:",
+                            "options": [
+                                "Preconventional level",
+                                "Conventional level",
+                                "Postconventional level",
+                                "Universal ethical level"
+                            ],
+                            "correct": 0,
+                            "explanation": "Preconventional morality bases ethical judgments strictly on immediate self-interest, concrete rewards, and the direct avoidance of physical punishment."
+                        },
+                        {
+                            "question": "An individual in Kohlberg's Conventional level of moral reasoning evaluates right and wrong based primarily on:",
+                            "options": [
+                                "Maximizing personal monetary profits",
+                                "Upholding social order, laws, and gaining the approval of peers and authority",
+                                "Abstract philosophical principles of human rights that may supersede national laws",
+                                "Unconscious defense mechanisms against aggressive impulses"
+                            ],
+                            "correct": 1,
+                            "explanation": "Conventional morality evaluates conduct based on conforming to established societal rules, legal statutes, and maintaining social harmony and interpersonal approval."
+                        },
+                        {
+                            "question": "Which type of intellectual ability involves abstract reasoning, rapid information processing, and novel problem solving, and tends to show gradual declines beginning in middle adulthood?",
+                            "options": [
+                                "Crystallized intelligence",
+                                "Fluid intelligence",
+                                "Emotional intelligence",
+                                "Semantic memory"
+                            ],
+                            "correct": 1,
+                            "explanation": "Fluid intelligence (processing speed, working memory capacity, spatial rotation) peaks in early adulthood and declines with age, whereas crystallized intelligence (accumulated knowledge) remains stable or grows."
+                        },
+                        {
+                            "question": "Crystallized intelligence is best demonstrated by which of the following activities in older adults?",
+                            "options": [
+                                "Solving an unfamiliar geometric logic puzzle within a tight 30-second time limit",
+                                "Possessing a rich vocabulary, historical knowledge, and deep expertise in professional domain problems",
+                                "Demonstrating rapid reaction times when pressing buttons in response to flashing lights",
+                                "Memorizing a list of 20 random two-digit numbers upon a single exposure"
+                            ],
+                            "correct": 1,
+                            "explanation": "Crystallized intelligence represents accumulated factual knowledge, verbal fluency, and wisdom gained through years of education and life experience."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_6",
+            "title": "Chapter 6: Learning",
+            "description": "Module 6.1: Classical Conditioning | Module 6.2: Operant Conditioning | Module 6.3: Variations",
+            "activities": [
+                {
+                    "id": "act_psych_6_1",
+                    "type": "page",
+                    "title": "Module 6.1: Classical Conditioning",
+                    "completed": false,
+                    "content": "### Pavlovian Classical Conditioning\n\n- **Unconditioned Stimulus (UCS):** Naturally elicits a reflexive response (e.g., meat powder).\n- **Unconditioned Response (UCR):** Reflexive unlearned reaction to UCS (e.g., salivation).\n- **Conditioned Stimulus (CS):** Previously neutral stimulus paired with UCS (e.g., tone).\n- **Conditioned Response (CR):** Learned response triggered by the CS alone.\n- **Conditioning Dynamics:**\n  - *Acquisition:* Initial stage establishing association.\n  - *Extinction:* Weakening of CR when CS is repeatedly presented without UCS.\n  - *Spontaneous Recovery:* Reappearance of an extinguished CR following a rest interval.\n  - *Generalization:* Responding to stimuli similar to the CS.\n  - *Discrimination:* Learning to respond only to the specific CS.\n\n### In Closing: Classical Conditioning Is More Than Drooling Dogs\nClassical conditioning underlies emotional reactions, phobias, taste aversions, and physiological anticipations."
+                },
+                {
+                    "id": "act_psych_6_2",
+                    "type": "page",
+                    "title": "Module 6.2: Operant Conditioning",
+                    "completed": false,
+                    "content": "### Skinnerian Operant Conditioning\n\nBehavior is shaped by its consequences (Edward Thorndike's **Law of Effect**).\n\n- **Consequence Matrix:**\n  - *Positive Reinforcement:* Adding a pleasant stimulus to increase behavior.\n  - *Negative Reinforcement:* Removing an unpleasant stimulus to increase behavior.\n  - *Positive Punishment:* Adding an unpleasant stimulus to decrease behavior.\n  - *Negative Punishment (Extinction/Time-out):* Removing a pleasant stimulus to decrease behavior.\n- **Schedules of Reinforcement:**\n  - *Fixed-Ratio (FR):* Reward after fixed number of responses (e.g., piecework pay).\n  - *Variable-Ratio (VR):* Reward after variable number of responses (e.g., slot machines; highly resistant to extinction).\n  - *Fixed-Interval (FI):* Reward for first response after fixed time period.\n  - *Variable-Interval (VI):* Reward for first response after variable time period.\n\n### In Closing: Operant Conditioning and Human Behavior\nReinforcement produces more reliable and sustainable behavioral change than punishment."
+                },
+                {
+                    "id": "act_psych_6_3",
+                    "type": "page",
+                    "title": "Module 6.3: Variations of Learning",
+                    "completed": false,
+                    "content": "### Observational and Cognitive Learning\n\n- **Albert Bandura:** Observational (social) learning demonstrated in the **Bobo Doll Experiment**. Individuals learn through *modeling* and *vicarious reinforcement*.\n- **Latent Learning (Edward Tolman):** Learning occurs without immediate reinforcement, evidenced by rats forming *cognitive maps* of mazes.\n- **Biological Preparedness (John Garcia):** Animals are evolutionarily predisposed to learn certain associations (e.g., taste with nausea) in a single trial (*conditioned taste aversion*).\n\n### In Closing: All Learning Is Not the Same\nLearning involves an interplay of behavioral contingencies, cognitive expectations, and evolutionary biological constraints."
+                },
+                {
+                    "id": "quiz_psych_6",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 6 Checkpoint: Classical & Operant Conditioning",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In Ivan Pavlov's original classical conditioning experiments with dogs, the meat powder that automatically triggered salivation served as the:",
+                            "options": [
+                                "Conditioned Stimulus (CS)",
+                                "Unconditioned Stimulus (UCS)",
+                                "Conditioned Response (CR)",
+                                "Discriminative Stimulus (S^D)"
+                            ],
+                            "correct": 1,
+                            "explanation": "The meat powder is an Unconditioned Stimulus (UCS) because it naturally and reflexively triggers salivation without any prior learning or conditioning."
+                        },
+                        {
+                            "question": "In Pavlov's paradigm, when a metronome ticking sound was repeatedly paired with food and subsequently elicited salivation on its own, the salivation elicited by the sound was the:",
+                            "options": [
+                                "Unconditioned Response (UCR)",
+                                "Conditioned Response (CR)",
+                                "Secondary Reinforcer",
+                                "Operant Reflex"
+                            ],
+                            "correct": 1,
+                            "explanation": "Salivation in response to the conditioned stimulus (metronome) is a learned, Conditioned Response (CR), whereas salivation to the food itself was the unconditioned reflex (UCR)."
+                        },
+                        {
+                            "question": "What occurs during the acquisition phase of classical conditioning?",
+                            "options": [
+                                "The conditioned response gradually fades and disappears forever",
+                                "A neutral stimulus is repeatedly paired with an unconditioned stimulus until it elicits the conditioned response",
+                                "The organism learns to withhold behavior in the presence of punishment",
+                                "Responses are maintained entirely without biological reinforcers"
+                            ],
+                            "correct": 1,
+                            "explanation": "Acquisition is the initial learning stage during which the association between the neutral stimulus and the unconditioned stimulus is established."
+                        },
+                        {
+                            "question": "If a conditioned stimulus (e.g., bell) is repeatedly presented alone without the unconditioned stimulus (food), what phenomenon will occur?",
+                            "options": [
+                                "Spontaneous recovery",
+                                "Extinction",
+                                "Stimulus generalization",
+                                "Shaping"
+                            ],
+                            "correct": 1,
+                            "explanation": "Extinction is the gradual decline and eventual disappearance of a conditioned response when the conditioned stimulus is repeatedly presented without the unconditioned stimulus."
+                        },
+                        {
+                            "question": "Following extinction and a 24-hour rest period, presenting the conditioned bell again causes the dog to salivate moderately. This sudden reappearance is known as:",
+                            "options": [
+                                "Spontaneous recovery",
+                                "Higher-order conditioning",
+                                "Latent inhibition",
+                                "Negative reinforcement"
+                            ],
+                            "correct": 0,
+                            "explanation": "Spontaneous recovery is the reappearance of an extinguished conditioned response after a rest period, proving that extinction suppresses rather than erases the learned association."
+                        },
+                        {
+                            "question": "In John B. Watson's controversial 'Little Albert' experiment, after Albert was conditioned to fear a white laboratory rat, he also showed intense fear toward a white rabbit, a dog, and a Santa Claus beard. This illustrates:",
+                            "options": [
+                                "Stimulus discrimination",
+                                "Stimulus generalization",
+                                "Vicarious conditioning",
+                                "Operant chaining"
+                            ],
+                            "correct": 1,
+                            "explanation": "Stimulus generalization occurs when an organism demonstrates the conditioned response to stimuli that are perceptually similar to the original conditioned stimulus."
+                        },
+                        {
+                            "question": "An organism that learns to respond exclusively to a 1,000 Hz tone while withholding responses to a 900 Hz tone is demonstrating:",
+                            "options": [
+                                "Stimulus discrimination",
+                                "Stimulus generalization",
+                                "Habituation",
+                                "Sensory adaptation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Stimulus discrimination is the learned ability to distinguish between a conditioned stimulus and other similar but irrelevant stimuli."
+                        },
+                        {
+                            "question": "The Garcia Effect (Conditioned Taste Aversion) challenged traditional classical conditioning assumptions because:",
+                            "options": [
+                                "Aversion could only be learned after hundreds of closely spaced trials",
+                                "Animals readily developed strong aversions to tastes even when nausea was delayed by several hours after ingestion",
+                                "Animals learned aversions to flashing lights much faster than to novel flavors",
+                                "Conditioning could only occur in humans, never in laboratory rats"
+                            ],
+                            "correct": 1,
+                            "explanation": "John Garcia demonstrated biological preparedness: taste aversion occurs after a single trial with hours of delay between consumption and illness, tailored by evolution for survival against poisons."
+                        },
+                        {
+                            "question": "Edward Thorndike's 'Law of Effect' states that:",
+                            "options": [
+                                "Responses that produce satisfying consequences become more likely to recur, while responses followed by discomfort become less likely to recur",
+                                "Internal cognitive maps guide animal maze-running behavior",
+                                "All behaviors are driven exclusively by repressed childhood conflicts",
+                                "Reflexes can never be modified through environmental experience"
+                            ],
+                            "correct": 0,
+                            "explanation": "Thorndike's Law of Effect established that actions followed by favorable states are stamped in and repeated, while actions followed by annoying states are weakened."
+                        },
+                        {
+                            "question": "In operant conditioning, any stimulus or event that strengthens and increases the future probability of the behavior it follows is a:",
+                            "options": [
+                                "Punisher",
+                                "Reinforcer",
+                                "Extinction trigger",
+                                "Unconditioned reflex"
+                            ],
+                            "correct": 1,
+                            "explanation": "By definition in behavioral psychology, a reinforcer is any consequence that increases the frequency or probability of the preceding response."
+                        },
+                        {
+                            "question": "A mother gives her son a gold star every time he cleans his room, resulting in him cleaning his room much more frequently. This is an example of:",
+                            "options": [
+                                "Positive Reinforcement",
+                                "Negative Reinforcement",
+                                "Positive Punishment",
+                                "Negative Punishment"
+                            ],
+                            "correct": 0,
+                            "explanation": "Positive reinforcement involves presenting an appetizing/desirable stimulus following a response, thereby increasing the likelihood that the response will occur again."
+                        },
+                        {
+                            "question": "Fastening your car seatbelt to silence an irritating, loud buzzer is maintained through which behavioral principle?",
+                            "options": [
+                                "Positive Reinforcement",
+                                "Negative Reinforcement",
+                                "Positive Punishment",
+                                "Extinction"
+                            ],
+                            "correct": 1,
+                            "explanation": "Negative reinforcement increases a behavior by terminating, removing, or avoiding an aversive stimulus (the annoying buzzer stops when you buckle up)."
+                        },
+                        {
+                            "question": "A police officer issues a speeding driver a $250 citation, which subsequently causes the driver to stop speeding. The citation functions as:",
+                            "options": [
+                                "Positive Reinforcement",
+                                "Negative Reinforcement",
+                                "Positive Punishment",
+                                "Negative Punishment"
+                            ],
+                            "correct": 2,
+                            "explanation": "Positive punishment involves presenting an unpleasant consequence (receiving a ticket) to reduce or suppress the unwanted behavior (speeding)."
+                        },
+                        {
+                            "question": "A teenager who breaks curfew has their smartphone confiscated for two weeks. As a result, the teenager stops breaking curfew. This consequence is:",
+                            "options": [
+                                "Positive Reinforcement",
+                                "Negative Reinforcement",
+                                "Positive Punishment",
+                                "Negative Punishment"
+                            ],
+                            "correct": 3,
+                            "explanation": "Negative punishment (response cost) removes a valued, desirable stimulus (the smartphone) following a behavior to decrease the likelihood of that behavior."
+                        },
+                        {
+                            "question": "Training a laboratory pigeon to turn in a complete circle by rewarding slight head turns, then quarter turns, then half turns is known as:",
+                            "options": [
+                                "Higher-order conditioning",
+                                "Shaping via successive approximations",
+                                "Latent learning",
+                                "Vicarious conditioning"
+                            ],
+                            "correct": 1,
+                            "explanation": "Shaping is an operant technique where rewards reinforce increasingly closer approximations to the desired target behavior until the complete response is performed."
+                        },
+                        {
+                            "question": "A garment worker is paid $10 for every five shirts they assemble. This worker is operating on which schedule of reinforcement?",
+                            "options": [
+                                "Fixed-Ratio (FR)",
+                                "Variable-Ratio (VR)",
+                                "Fixed-Interval (FI)",
+                                "Variable-Interval (VI)"
+                            ],
+                            "correct": 0,
+                            "explanation": "A Fixed-Ratio (FR) schedule delivers reinforcement after a predetermined, predictable number of responses (here, every 5 shirts produced)."
+                        },
+                        {
+                            "question": "Playing a casino slot machine, where payoffs occur unpredictably after an unknown and changing number of lever pulls, exemplifies a:",
+                            "options": [
+                                "Fixed-Ratio schedule",
+                                "Variable-Ratio schedule",
+                                "Fixed-Interval schedule",
+                                "Variable-Interval schedule"
+                            ],
+                            "correct": 1,
+                            "explanation": "Variable-Ratio (VR) schedules deliver reinforcement after an unpredictable number of responses, generating exceptionally high, steady rates of response that are highly resistant to extinction."
+                        },
+                        {
+                            "question": "Checking your postal mailbox once every 24 hours at 2:00 PM because the mail carrier arrives precisely at that time illustrates which reinforcement schedule?",
+                            "options": [
+                                "Fixed-Interval (FI)",
+                                "Variable-Interval (VI)",
+                                "Fixed-Ratio (FR)",
+                                "Variable-Ratio (VR)"
+                            ],
+                            "correct": 0,
+                            "explanation": "A Fixed-Interval (FI) schedule reinforces the first response made after a specific, constant period of elapsed time, typically producing a scalloped response pattern."
+                        },
+                        {
+                            "question": "Checking your phone periodically throughout the day for incoming text messages from friends that arrive at random, unpredictable time intervals reflects a:",
+                            "options": [
+                                "Fixed-Ratio schedule",
+                                "Variable-Interval (VI) schedule",
+                                "Fixed-Interval schedule",
+                                "Continuous schedule"
+                            ],
+                            "correct": 1,
+                            "explanation": "Variable-Interval (VI) schedules reinforce responses after variable, unpredictable time intervals, producing steady, moderate rates of responding."
+                        },
+                        {
+                            "question": "In Albert Bandura's classic 'Bobo Doll' experiments, children who observed an adult model violently kicking and striking an inflatable doll:",
+                            "options": [
+                                "Showed heightened fear and avoided the doll entirely",
+                                "Imitated the exact aggressive behaviors and novel verbal insults modeled by the adult",
+                                "Became calmer due to cathartic release of instinctual drives",
+                                "Were unable to remember what the adult had done"
+                            ],
+                            "correct": 1,
+                            "explanation": "Bandura demonstrated observational learning (social learning theory): subjects acquire novel behaviors simply by watching and modeling the actions of others without direct reinforcement."
+                        },
+                        {
+                            "question": "What term describes learning that occurs without immediate reinforcement or noticeable change in performance, but is readily demonstrated when an incentive is introduced later (as shown in Edward Tolman's rat maze studies)?",
+                            "options": [
+                                "Latent learning",
+                                "Shaping",
+                                "Aversive conditioning",
+                                "Insight learning"
+                            ],
+                            "correct": 0,
+                            "explanation": "Tolman demonstrated latent learning: unreinforced rats formed cognitive maps of mazes that remained hidden until food incentives motivated them to run rapidly without errors."
+                        },
+                        {
+                            "question": "Specialized frontal cortex neurons that activate both when an animal performs an action and when the animal observes another individual performing the same action are known as:",
+                            "options": [
+                                "Interneurons",
+                                "Mirror neurons",
+                                "Purkinje cells",
+                                "Glial transporters"
+                            ],
+                            "correct": 1,
+                            "explanation": "Mirror neurons provide a proposed neurological mechanism for observational learning, imitation, and empathy by firing during both self-action and observing another's action."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_7",
+            "title": "Chapter 7: Memory",
+            "description": "Module 7.1: Types of Memory | Module 7.2: Encoding & Storage | Module 7.3: Forgetting",
+            "activities": [
+                {
+                    "id": "act_psych_7_1",
+                    "type": "page",
+                    "title": "Module 7.1: Types of Memory",
+                    "completed": false,
+                    "content": "### The Architecture of Memory\n\n- **Atkinson-Shiffrin Model:**\n  1. *Sensory Memory:* Brief recording of sensory information (Iconic <1 sec; Echoic 3-4 sec).\n  2. *Short-Term / Working Memory:* Limited capacity ($7 \\pm 2$ chunks), duration 20-30 seconds without rehearsal. Baddeley's model includes Phonological Loop, Visuospatial Sketchpad, and Central Executive.\n  3. *Long-Term Memory:* Virtually unlimited capacity and durable duration.\n- **Taxonomy of Long-Term Memory:**\n  - *Explicit (Declarative):* Consciously recalled.\n    - *Episodic:* Personal experiences and autobiographical events.\n    - *Semantic:* General knowledge, vocabulary, facts.\n  - *Implicit (Nondeclarative):* Expressed through performance without conscious recollection (procedural motor skills, classical conditioning, priming).\n\n### In Closing: Varieties of Memory\nMemory is not a unitary drawer, but multiple distinct systems distributed across different neural circuits."
+                },
+                {
+                    "id": "act_psych_7_2",
+                    "type": "page",
+                    "title": "Module 7.2: Encoding, Storage, and Retrieval",
+                    "completed": false,
+                    "content": "### Optimizing Memory Storage\n\n- **Levels of Processing (Craik & Lockhart):** Deep semantic processing (analyzing meaning) leads to far stronger memory traces than shallow acoustic or physical processing.\n- **Chunking & Mnemonics:** Organizing raw data into manageable meaningful units.\n- **Serial Position Effect:** Tendency to recall items at the beginning (*primacy effect* - long term transfer) and end (*recency effect* - working memory) of a list better than the middle.\n- **Encoding Specificity:** Retrieval is most effective when retrieval cues match the context in which the information was encoded (context-dependent and state-dependent memory).\n\n### In Closing: Improving Your Memory\nActive retrieval testing (*the testing effect*) and distributed study produce far greater retention than passive reading."
+                },
+                {
+                    "id": "act_psych_7_3",
+                    "type": "page",
+                    "title": "Module 7.3: Forgetting and Memory Distortion",
+                    "completed": false,
+                    "content": "### Mechanisms of Forgetting\n\n- **Interference:**\n  - *Proactive Interference:* Prior learning interferes with the recall of newer information.\n  - *Retroactive Interference:* Newly acquired information interferes with the recall of older memories.\n- **Amnesia:**\n  - *Anterograde Amnesia:* Inability to form new long-term declarative memories after brain trauma (damage to hippocampus).\n  - *Retrograde Amnesia:* Loss of memories formed prior to brain injury.\n- **Memory Reconstruction:** Memories are reconstructed each time they are recalled. Elizabeth Loftus demonstrated the **Misinformation Effect**, proving leading questions can plant false memories.\n\n### In Closing: Memory Loss and Distortion\nHuman memory is dynamic and reconstructive, vulnerable to distortion and post-event suggestion."
+                },
+                {
+                    "id": "quiz_psych_7",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 7 Checkpoint: Memory Systems & Forgetting",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "What are the three fundamental chronological stages of human memory processing?",
+                            "options": [
+                                "Sensation, Perception, and Cognition",
+                                "Encoding, Storage, and Retrieval",
+                                "Assimilation, Accommodation, and Equilibration",
+                                "Iconic, Echoic, and Working"
+                            ],
+                            "correct": 1,
+                            "explanation": "Memory requires encoding (converting information into a neural code), storage (retaining information over time), and retrieval (accessing stored information when needed)."
+                        },
+                        {
+                            "question": "In the Atkinson-Shiffrin multi-store model of memory, information flows sequentially through which three storage buffers?",
+                            "options": [
+                                "Sensory Memory, Short-Term Memory, and Long-Term Memory",
+                                "Procedural Memory, Semantic Memory, and Episodic Memory",
+                                "Iconic Memory, Explicit Memory, and Implicit Memory",
+                                "Amygdala, Hippocampus, and Prefrontal Cortex"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Atkinson-Shiffrin model posits three distinct stores: sensory registers (brief preservation), short-term store (working buffer), and long-term storage (permanent repository)."
+                        },
+                        {
+                            "question": "What is the typical duration of visual sensory memory (iconic memory) according to George Sperling's partial-report experiments?",
+                            "options": [
+                                "Less than one second (roughly 250-500 milliseconds)",
+                                "About 15 to 30 seconds",
+                                "Between 3 and 4 minutes",
+                                "Indefinite duration unless actively suppressed"
+                            ],
+                            "correct": 0,
+                            "explanation": "Iconic memory holds an exact photographic visual trace for only a fraction of a second (about a quarter to half a second) before rapidly decaying."
+                        },
+                        {
+                            "question": "What is the primary difference in duration between iconic (visual) and echoic (auditory) sensory memory?",
+                            "options": [
+                                "Iconic memory lasts for 10 minutes, whereas echoic memory lasts 1 second",
+                                "Echoic memory persists longer, lasting roughly 3 to 4 seconds, allowing comprehension of spoken language",
+                                "Echoic memory fades within 10 milliseconds",
+                                "Both sensory registers hold information for precisely 24 hours"
+                            ],
+                            "correct": 1,
+                            "explanation": "Echoic memory lingers for 3 to 4 seconds, which is essential for processing linguistic auditory sentences and music where earlier sounds must be integrated with later ones."
+                        },
+                        {
+                            "question": "In George Miller's classic 1956 paper, what was identified as the 'magical number' representing the capacity limit of human short-term memory?",
+                            "options": [
+                                "Seven, plus or minus two items (5 to 9 chunks)",
+                                "Three items exactly",
+                                "Twelve, plus or minus one chunk",
+                                "Unlimited capacity"
+                            ],
+                            "correct": 0,
+                            "explanation": "Miller established that typical adult short-term memory capacity holds approximately 7 ± 2 discrete informational units or chunks."
+                        },
+                        {
+                            "question": "Organizing an unmanageable 10-digit telephone sequence (8005550199) into three distinct units (800-555-0199) to facilitate recall relies on the cognitive strategy of:",
+                            "options": [
+                                "Maintenance decay",
+                                "Chunking",
+                                "Subliminal priming",
+                                "Proactive interference"
+                            ],
+                            "correct": 1,
+                            "explanation": "Chunking organizes individual items into meaningful, higher-order units, effectively expanding the functional holding capacity of short-term and working memory."
+                        },
+                        {
+                            "question": "In Alan Baddeley's multicomponent Working Memory model, which component is responsible for focusing attention, allocating cognitive resources, and coordinating slave systems?",
+                            "options": [
+                                "Phonological loop",
+                                "Visuospatial sketchpad",
+                                "Central executive",
+                                "Episodic buffer"
+                            ],
+                            "correct": 2,
+                            "explanation": "The central executive directs cognitive focus, manages attentional resources, suppresses irrelevant distractions, and orchestrates the subsidiary memory buffers."
+                        },
+                        {
+                            "question": "Repeating a grocery list silently over and over in your head without analyzing its meaning to keep it from fading from short-term memory is:",
+                            "options": [
+                                "Elaborative rehearsal",
+                                "Maintenance rehearsal",
+                                "Semantic encoding",
+                                "Episodic reconstruction"
+                            ],
+                            "correct": 1,
+                            "explanation": "Maintenance rehearsal uses simple rote vocal or subvocal repetition to sustain information in working memory temporarily, but is ineffective for long-term retention."
+                        },
+                        {
+                            "question": "According to the Levels of Processing framework proposed by Craik and Tulving, information is retained longest and retrieved most reliably when encoded through:",
+                            "options": [
+                                "Structural / visual processing (noticing font or case)",
+                                "Phonemic processing (rhyming with another word)",
+                                "Deep semantic processing (analyzing the word's meaning and personal significance)",
+                                "Sensory acoustic buffering"
+                            ],
+                            "correct": 2,
+                            "explanation": "Deep semantic processing involves integrating meaning, associations, and personal relevance, creating rich neural traces that maximize long-term retrieval."
+                        },
+                        {
+                            "question": "Long-term memories that can be consciously recalled and articulated into words (such as your address or historical dates) are classified as:",
+                            "options": [
+                                "Procedural memories",
+                                "Explicit (Declarative) memories",
+                                "Implicit memories",
+                                "Conditioned sensorimotor reflexes"
+                            ],
+                            "correct": 1,
+                            "explanation": "Explicit (declarative) memory encompasses conscious, intentional recollection of factual information (semantic) and personal life experiences (episodic)."
+                        },
+                        {
+                            "question": "Remembering your high school graduation ceremony is an example of _______ memory, whereas knowing that Paris is the capital of France is an example of _______ memory.",
+                            "options": [
+                                "Semantic; Episodic",
+                                "Episodic; Semantic",
+                                "Procedural; Priming",
+                                "Implicit; Explicit"
+                            ],
+                            "correct": 1,
+                            "explanation": "Episodic memory stores personally experienced autobiographical events tied to a specific time and place; semantic memory stores general worldly facts and concepts detached from personal context."
+                        },
+                        {
+                            "question": "Knowing how to balance and ride a bicycle, tie your shoes, or play a well-practiced piano piece without consciously narrating each finger movement involves:",
+                            "options": [
+                                "Semantic memory",
+                                "Procedural (Implicit) memory",
+                                "Episodic memory",
+                                "Iconic sensory memory"
+                            ],
+                            "correct": 1,
+                            "explanation": "Procedural memory is a form of implicit (nondeclarative) memory that governs motor skills, habits, and classical conditioning that operate automatically without conscious recollection."
+                        },
+                        {
+                            "question": "What did the famous neurological case of patient H.M. (Henry Molaison) reveal about the function of the hippocampus?",
+                            "options": [
+                                "The hippocampus is the permanent long-term storage warehouse for all life memories",
+                                "The hippocampus is necessary for consolidating new declarative memories, but is not where remote past memories or procedural skills are stored",
+                                "The hippocampus is exclusively responsible for voluntary muscle contractions",
+                                "Removing the hippocampus leaves declarative memory intact while erasing all procedural skills"
+                            ],
+                            "correct": 1,
+                            "explanation": "H.M. developed severe anterograde amnesia after bilateral hippocampal excision; he could not form new episodic memories, yet could learn new procedural mirror-drawing skills and remembered his childhood."
+                        },
+                        {
+                            "question": "The finding that scuba divers who learned word lists underwater recalled significantly more words when tested underwater than when tested on land illustrates:",
+                            "options": [
+                                "State-dependent memory",
+                                "Context-dependent memory",
+                                "The primacy effect",
+                                "Retrograde facilitation"
+                            ],
+                            "correct": 1,
+                            "explanation": "Godden and Baddeley's experiment demonstrated context-dependent memory: retrieval is most successful when the physical environment during recall matches the encoding environment."
+                        },
+                        {
+                            "question": "If a person memorizes a study guide while experiencing high caffeine arousal and performs best on the exam when under the same level of caffeine arousal, this demonstrates:",
+                            "options": [
+                                "Context-dependent memory",
+                                "State-dependent memory",
+                                "The serial position effect",
+                                "Retroactive interference"
+                            ],
+                            "correct": 1,
+                            "explanation": "State-dependent memory refers to improved recall when an individual's internal physiological or psychological state (e.g., mood, sobriety, drug state) matches their state during learning."
+                        },
+                        {
+                            "question": "In the serial position effect, enhanced recall for items presented at the very beginning of a list is termed the _______ effect, while superior recall for items at the end is the _______ effect.",
+                            "options": [
+                                "Recency; Primacy",
+                                "Primacy; Recency",
+                                "Semantic; Acoustic",
+                                "Anterograde; Retrograde"
+                            ],
+                            "correct": 1,
+                            "explanation": "The primacy effect reflects items being transferred to long-term memory via early rehearsal; the recency effect reflects items still active in the short-term working memory buffer."
+                        },
+                        {
+                            "question": "Hermann Ebbinghaus's pioneering empirical research on the 'forgetting curve' demonstrated that:",
+                            "options": [
+                                "Forgetting proceeds at a steady, perfectly linear rate over weeks",
+                                "Forgetting is very rapid immediately following learning, but then levels off and stabilizes over time",
+                                "Humans remember 100% of information unless a brain trauma occurs",
+                                "Meaningless nonsense syllables are remembered significantly longer than meaningful words"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Ebbinghaus forgetting curve shows a steep logarithmic drop in retention within the first 24 to 48 hours, after which the rate of forgetting stabilizes."
+                        },
+                        {
+                            "question": "You memorize your new four-digit bank PIN, but when trying to withdraw cash, you keep mistakenly typing your old bank PIN. This retrieval failure illustrates:",
+                            "options": [
+                                "Proactive interference",
+                                "Retroactive interference",
+                                "Retrograde amnesia",
+                                "Infantile amnesia"
+                            ],
+                            "correct": 0,
+                            "explanation": "Proactive interference occurs when older, previously consolidated memories interfere with and disrupt the retrieval of newly acquired information."
+                        },
+                        {
+                            "question": "You study Spanish in high school, then take French in college. When you try to speak Spanish again, French words keep intruding and blocking your Spanish. This is an example of:",
+                            "options": [
+                                "Proactive interference",
+                                "Retroactive interference",
+                                "Source monitoring error",
+                                "Decay theory"
+                            ],
+                            "correct": 1,
+                            "explanation": "Retroactive interference occurs when newly learned material backwardly interferes with and impairs the retrieval of previously stored information."
+                        },
+                        {
+                            "question": "A patient who sustains head trauma and cannot remember anything that occurred in the two days leading up to the concussion suffers from:",
+                            "options": [
+                                "Anterograde amnesia",
+                                "Retrograde amnesia",
+                                "Dissociative fugue",
+                                "Prosopagnosia"
+                            ],
+                            "correct": 1,
+                            "explanation": "Retrograde amnesia is the loss of memory access to events and facts that occurred prior to the onset of trauma, disease, or brain injury."
+                        },
+                        {
+                            "question": "In Elizabeth Loftus's seminal eyewitness memory studies, participants who watched a video of a car crash gave higher speed estimates and falsely remembered broken glass when asked how fast the cars were going when they 'smashed into' each other compared to 'hit' each other. This finding demonstrates:",
+                            "options": [
+                                "The misinformation effect",
+                                "Iconic decay",
+                                "State-dependent consolidation",
+                                "Anterograde confabulation"
+                            ],
+                            "correct": 0,
+                            "explanation": "The misinformation effect occurs when misleading post-event information is subtly incorporated into a witness's memory representation, reconstructing and distorting recall."
+                        },
+                        {
+                            "question": "Vivid, highly detailed, and emotionally charged memories of learning about dramatic public catastrophes (such as the September 11 terrorist attacks) are known as:",
+                            "options": [
+                                "Flashbulb memories",
+                                "Echoic memories",
+                                "Sensory scripts",
+                                "Eidetic projections"
+                            ],
+                            "correct": 0,
+                            "explanation": "Flashbulb memories are extraordinarily vivid recollections of shocking, personally significant events, driven by amygdalar arousal; despite high subjective confidence, they are still prone to decay and errors."
+                        },
+                        {
+                            "question": "A student believes they independently invented a catchy song melody, completely unaware that they had heard it playing softly in a café a week earlier. This memory error is called:",
+                            "options": [
+                                "Cryptomnesia (a source monitoring error)",
+                                "Proactive interference",
+                                "Wernicke's distortion",
+                                "Anterograde confabulation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cryptomnesia occurs when a person misattributes an existing memory to their own original creative inspiration due to a failure in source monitoring."
+                        },
+                        {
+                            "question": "Which subcortical structure in the limbic system interacts directly with the hippocampus to modulate memory consolidation during intense fear and emotional arousal?",
+                            "options": [
+                                "The Amygdala",
+                                "The Pons",
+                                "The Medulla oblongata",
+                                "The Corpus callosum"
+                            ],
+                            "correct": 0,
+                            "explanation": "The amygdala coordinates stress hormones and emotional intensity, signaling the hippocampus to prioritize and deeply encode emotionally charged events."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_8",
+            "title": "Chapter 8: Cognition and Language",
+            "description": "Module 8.1: Attention & Concepts | Module 8.2: Problem Solving | Module 8.3: Language",
+            "activities": [
+                {
+                    "id": "act_psych_8_1",
+                    "type": "page",
+                    "title": "Module 8.1: Attention and Categorization",
+                    "completed": false,
+                    "content": "### Attention and Concepts\n\n- **Attention:** Selective allocation of cognitive processing resources. The **Stroop Effect** illustrates the difficulty of overriding automatic reading when naming ink colors.\n- **Change Blindness:** Failure to detect visual changes in an environment due to divided attention.\n- **Concepts and Prototypes:** A *concept* is a mental grouping of similar objects. A *prototype* is an idealized best example of a category (e.g., a robin as a prototype for 'bird').\n\n### In Closing: Thinking about Attention and Concepts\nCategorization economizes cognitive effort by organizing experiences into structured conceptual models."
+                },
+                {
+                    "id": "act_psych_8_2",
+                    "type": "page",
+                    "title": "Module 8.2: Solving Problems and Making Decisions",
+                    "completed": false,
+                    "content": "### Problem Solving & Cognitive Biases\n\n- **Algorithms:** Methodical, step-by-step rules guaranteeing a correct solution.\n- **Heuristics:** Fast cognitive shortcuts that are efficient but error-prone.\n  - *Availability Heuristic:* Estimating probability based on how readily instances come to mind (e.g., fearing plane crashes after news coverage).\n  - *Representativeness Heuristic:* Judging likelihood based on how well an item matches a prototype.\n- **Obstacles to Clear Thinking:**\n  - *Confirmation Bias:* Seeking evidence confirming preconceived ideas while ignoring disconfirming data.\n  - *Functional Fixedness:* Inability to envision novel uses for familiar objects.\n  - *Framing Effects:* Decisions influenced by how choices are presented (e.g., '90% lean' vs. '10% fat').\n\n### In Closing: Successful and Unsuccessful Problem Solving\nHuman decision-makers rely on rapid heuristics that serve well daily but systematically fail in probabilistic estimation."
+                },
+                {
+                    "id": "act_psych_8_3",
+                    "type": "page",
+                    "title": "Module 8.3: Language",
+                    "completed": false,
+                    "content": "### Architecture of Human Language\n\n- **Phonemes:** Smallest distinctive sound units (e.g., /b/, /p/).\n- **Morphemes:** Smallest units of meaning (words, prefixes like 'un-', suffixes like '-ed').\n- **Syntax:** Rules governing grammatical word order.\n- **Language Acquisition:** Cooing $\\rightarrow$ babbling (~6 months) $\\rightarrow$ one-word stage (~1 year) $\\rightarrow$ telegraphic speech (~2 years). Noam Chomsky proposed a biological *Language Acquisition Device (LAD)*.\n- **Neural Substrates:**\n  - *Broca's Area (Frontal Lobe):* Motor speech generation (damage results in expressive aphasia).\n  - *Wernicke's Area (Temporal Lobe):* Language comprehension (damage results in receptive aphasia).\n\n### In Closing: Language and Humanity\nLanguage is a uniquely human biological adaptation enabling recursive thought and cultural transmission."
+                },
+                {
+                    "id": "quiz_psych_8",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 8 Checkpoint: Cognition, Problem Solving & Language",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "According to cognitive prototype theory, people categorize objects by comparing them to:",
+                            "options": [
+                                "A rigid dictionary checklist of necessary and sufficient logical rules",
+                                "An idealized, typical mental exemplar that embodies the most representative features of that category",
+                                "The smallest possible sensory features detectable by the fovea",
+                                "A random memory chosen at birth"
+                            ],
+                            "correct": 1,
+                            "explanation": "Eleanor Rosch's prototype theory proposes that category membership is judged by resemblance to a prototype—an idealized average or most typical representation of the category (e.g., a robin is a more prototypical bird than a penguin)."
+                        },
+                        {
+                            "question": "What is the key difference between an algorithm and a heuristic in problem solving?",
+                            "options": [
+                                "Algorithms are rapid rules of thumb, whereas heuristics are exhaustive computer codes",
+                                "An algorithm is a step-by-step procedure that guarantees a correct solution if followed correctly, while a heuristic is a mental shortcut that is faster but does not guarantee success",
+                                "Heuristics always guarantee perfection, while algorithms frequently fail",
+                                "There is no difference; both terms refer to trial-and-error behavior"
+                            ],
+                            "correct": 1,
+                            "explanation": "An algorithm guarantees an accurate solution by systematically exploring every possibility; a heuristic is an efficient, practical mental shortcut that simplifies decision-making under uncertainty."
+                        },
+                        {
+                            "question": "People dramatically overestimate the risk of dying in a commercial airplane crash compared to a car crash largely because commercial plane crashes receive sensational news coverage and are easily imagined. This cognitive bias illustrates:",
+                            "options": [
+                                "The Availability Heuristic",
+                                "The Representativeness Heuristic",
+                                "Functional Fixedness",
+                                "The Framing Effect"
+                            ],
+                            "correct": 0,
+                            "explanation": "The availability heuristic involves estimating the frequency or likelihood of an event based on how readily vivid examples come to mind."
+                        },
+                        {
+                            "question": "Assuming that a quiet, bespectacled man who loves poetry is far more likely to be an Ivy League classics professor than a truck driver, while ignoring that there are vastly more truck drivers in the population, exemplifies:",
+                            "options": [
+                                "The Representativeness Heuristic and base-rate neglect",
+                                "The Availability Heuristic",
+                                "Belief perseverance",
+                                "Algorithm failure"
+                            ],
+                            "correct": 0,
+                            "explanation": "The representativeness heuristic judges probability by how closely an individual matches a mental stereotype, frequently leading people to ignore statistical base rates."
+                        },
+                        {
+                            "question": "Consumers are significantly more likely to purchase ground beef advertised as '90% Lean' than identical beef labeled '10% Fat'. This demonstrates:",
+                            "options": [
+                                "The Framing Effect",
+                                "The Anchoring Bias",
+                                "Functional Fixedness",
+                                "The Stroop Effect"
+                            ],
+                            "correct": 0,
+                            "explanation": "The framing effect demonstrates that the way an issue or choice is verbally phrased or presented exerts a profound influence on human decisions and judgments."
+                        },
+                        {
+                            "question": "The psychological tendency to selectively search for, interpret, and remember evidence that supports one's preexisting opinions while ignoring contradictory evidence is called:",
+                            "options": [
+                                "Confirmation Bias",
+                                "Hindsight Bias",
+                                "Mental Set",
+                                "Overconfidence"
+                            ],
+                            "correct": 0,
+                            "explanation": "Confirmation bias leads people to seek out and favor information confirming their existing beliefs while actively discounting disconfirming empirical evidence."
+                        },
+                        {
+                            "question": "When presented with conclusive, verified scientific evidence disproving their political conspiracy theory, an individual refuses to change their mind and clings to their initial belief. This is termed:",
+                            "options": [
+                                "Belief Perseverance",
+                                "Functional Fixedness",
+                                "Linguistic Relativity",
+                                "Proactive Inhibition"
+                            ],
+                            "correct": 0,
+                            "explanation": "Belief perseverance is the stubborn tendency to maintain one's initial conviction even after the explicit basis on which it was formed has been thoroughly refuted."
+                        },
+                        {
+                            "question": "Failing to realize that a heavy metal coin in your pocket can be used as an impromptu screwdriver to tighten a loose cabinet screw is an example of:",
+                            "options": [
+                                "Mental Set",
+                                "Functional Fixedness",
+                                "Confirmation Bias",
+                                "Framing Effect"
+                            ],
+                            "correct": 1,
+                            "explanation": "Functional fixedness is a cognitive barrier where an individual perceives an object only in terms of its customary, traditional utility, failing to recognize alternative uses."
+                        },
+                        {
+                            "question": "Persisting in solving an algebraic problem using a complex method that worked on previous homework problems, even when a simpler, more obvious method exists, illustrates:",
+                            "options": [
+                                "A Mental Set",
+                                "A Prototype shift",
+                                "The Stroop Effect",
+                                "Divergent thinking"
+                            ],
+                            "correct": 0,
+                            "explanation": "A mental set is the predisposition to approach a problem with a specific mindset or strategy that proved successful previously, blinding the problem solver to new approaches."
+                        },
+                        {
+                            "question": "In linguistics, what are phonemes?",
+                            "options": [
+                                "The smallest units of sound in a language that distinguish one word from another",
+                                "The smallest units of meaning, including prefixes and suffixes",
+                                "The grammatical rules for assembling compound sentences",
+                                "Metaphorical interpretations of literature"
+                            ],
+                            "correct": 0,
+                            "explanation": "Phonemes are the fundamental distinctive sound units in a spoken language (e.g., the /b/, /æ/, and /t/ sounds that compose the word 'bat')."
+                        },
+                        {
+                            "question": "In the word 'unbreakable', what are the morphemes?",
+                            "options": [
+                                "The letters u, n, b, r, e, a, k",
+                                "The three units of meaning: 'un-' (prefix), 'break' (root), and '-able' (suffix)",
+                                "The entire word treated as one single indivisible sound",
+                                "The phonological acoustic waveform"
+                            ],
+                            "correct": 1,
+                            "explanation": "Morphemes are the smallest units of language that convey meaning. 'Unbreakable' consists of three morphemes: the prefix 'un-' (not), the root 'break', and the suffix '-able' (capable of)."
+                        },
+                        {
+                            "question": "The grammatical system of rules that dictates how words are arranged into meaningful, orderly sentences is known as:",
+                            "options": [
+                                "Phonology",
+                                "Syntax",
+                                "Semantics",
+                                "Pragmatics"
+                            ],
+                            "correct": 1,
+                            "explanation": "Syntax specifies the structural rules for word order in sentence construction (e.g., in English, adjectives typically precede the nouns they modify)."
+                        },
+                        {
+                            "question": "Noam Chomsky revolutionized linguistics by proposing that humans are biologically prewired with an innate mechanism for acquiring language, which he called the:",
+                            "options": [
+                                "Operant Reinforcement Matrix",
+                                "Language Acquisition Device (LAD)",
+                                "Universal Babbling Loop",
+                                "Cognitive Translation Engine"
+                            ],
+                            "correct": 1,
+                            "explanation": "Chomsky posited the Language Acquisition Device (LAD), arguing that children possess an innate universal grammar allowing rapid language acquisition without explicit formal instruction."
+                        },
+                        {
+                            "question": "Evidence from feral children (such as 'Genie') who suffered extreme social isolation during early childhood suggests that language acquisition is constrained by:",
+                            "options": [
+                                "A critical or sensitive developmental period",
+                                "Strict classical conditioning paradigms",
+                                "The size of the auditory cochlea",
+                                "IQ test scores above 130"
+                            ],
+                            "correct": 0,
+                            "explanation": "Case studies indicate a critical or sensitive period for human language: if a child is not exposed to language during early childhood, native-level grammatical fluency is rarely achieved."
+                        },
+                        {
+                            "question": "Benjamin Lee Whorf's Linguistic Relativity Hypothesis (the Sapir-Whorf hypothesis) proposes that:",
+                            "options": [
+                                "All world languages share the exact same 44 phonemes",
+                                "The structural vocabulary and grammar of the language a person speaks shapes how they think and perceive reality",
+                                "Language learning occurs exclusively through B.F. Skinner's operant conditioning",
+                                "Thought exists entirely independent of any linguistic influence"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Sapir-Whorf hypothesis contends that language influences or determines conceptual thought and perceptual distinctions (e.g., how different cultures categorize colors)."
+                        },
+                        {
+                            "question": "When presented with the word 'RED' printed in blue ink, naming the ink color takes longer and causes more errors than naming the color of a blue square. This interference is known as:",
+                            "options": [
+                                "The Stroop Effect",
+                                "The McGurk Effect",
+                                "The Cocktail Party Effect",
+                                "The Zeigarnik Effect"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Stroop Effect demonstrates cognitive interference: reading word text is an automatic, overlearned process that conflicts with the controlled task of naming the ink color."
+                        },
+                        {
+                            "question": "Divergent thinking is a cognitive process most centrally required for:",
+                            "options": [
+                                "Choosing the single correct multiple-choice answer on an exam",
+                                "Generating multiple creative, unique solutions to an open-ended problem",
+                                "Executing long division according to algebraic algorithms",
+                                "Memorizing a list of vocabulary definitions in alphabetical order"
+                            ],
+                            "correct": 1,
+                            "explanation": "Divergent thinking expands outward in multiple directions, generating novel, unconventional, and diverse solutions, serving as a primary hallmark of creativity."
+                        },
+                        {
+                            "question": "Metacognition refers to an individual's ability to:",
+                            "options": [
+                                "Communicate telepathically without verbal speech",
+                                "Monitor, assess, and regulate their own cognitive processes and learning strategies",
+                                "Calculate complex mathematical equations instantaneously",
+                                "Supppress all emotional reactions during logical debate"
+                            ],
+                            "correct": 1,
+                            "explanation": "Metacognition is 'thinking about thinking'—the reflective awareness and conscious regulation of one's own comprehension, memory limits, and cognitive performance."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_9",
+            "title": "Chapter 9: Intelligence",
+            "description": "Module 9.1: Intelligence Tests | Module 9.2: Evaluating Tests & Influences",
+            "activities": [
+                {
+                    "id": "act_psych_9_1",
+                    "type": "page",
+                    "title": "Module 9.1: Intelligence and Intelligence Tests",
+                    "completed": false,
+                    "content": "### Conceptual Models of Intelligence\n\n- **Charles Spearman (g Factor):** Proposed that a single underlying general cognitive ability ($g$) influences performance across all mental tasks.\n- **Raymond Cattell:**\n  - *Fluid Intelligence ($Gf$):* Raw reasoning power, problem-solving in novel situations (peaks in early adulthood).\n  - *Crystallized Intelligence ($Gc$):* Accumulated factual knowledge and verbal skills (increases across the lifespan).\n- **Howard Gardner (Multiple Intelligences):** Eight distinct intelligences (linguistic, musical, spatial, kinesthetic, etc.).\n- **Robert Sternberg (Triarchic Theory):** Analytical, Creative, and Practical intelligence.\n- **Measurement Origins:** Alfred Binet developed the first practical test to identify French schoolchildren requiring special instruction. Stanford-Binet and David Wechsler's tests (WAIS-IV) standardize IQ on a normal bell curve (Mean = 100, SD = 15).\n\n### In Closing: Measuring Intelligence\nIntelligence assessments quantify specific cognitive proficiencies but cannot capture the total breadth of human competence."
+                },
+                {
+                    "id": "act_psych_9_2",
+                    "type": "page",
+                    "title": "Module 9.2: Evaluating Intelligence Tests",
+                    "completed": false,
+                    "content": "### Psychometric Standards\n\n- **Reliability:** Consistency of measurement (e.g., test-retest reliability).\n- **Validity:** Accuracy of measurement—does the test measure what it claims to measure?\n  - *Predictive Validity:* Predicting future real-world outcomes (e.g., GPA, job performance).\n- **The Flynn Effect:** Global average raw performance on intelligence tests has increased by approximately 3 IQ points per decade, necessitating periodic test renorming.\n- **Stereotype Threat:** Apprehension experienced by members of a group that their performance might confirm a negative stereotype, temporarily depressing test performance.\n\n### In Closing: Consequences of Testing\nStandardized tests must be interpreted cautiously, factoring in cultural, economic, and emotional variables."
+                },
+                {
+                    "id": "quiz_psych_9",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 9 Checkpoint: Intelligence Theories & Psychometrics",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "Charles Spearman noticed that individuals who scored high on one cognitive test tended to score high on other unrelated cognitive tests. He attributed this correlation to:",
+                            "options": [
+                                "A general intelligence factor, known as 'g'",
+                                "Specific environmental schooling factors, known as 's'",
+                                "The Flynn effect",
+                                "Emotional quotient variance"
+                            ],
+                            "correct": 0,
+                            "explanation": "Spearman concluded that a single underlying general cognitive capacity, termed general intelligence ('g'), influences performance across all distinct intellectual tasks."
+                        },
+                        {
+                            "question": "Raymond Cattell proposed dividing general intelligence into which two distinct dimensions?",
+                            "options": [
+                                "Analytical and Practical intelligence",
+                                "Fluid intelligence and Crystallized intelligence",
+                                "Verbal and Spatial intelligence",
+                                "Academic and Social intelligence"
+                            ],
+                            "correct": 1,
+                            "explanation": "Cattell distinguished between fluid intelligence (innate reasoning ability and processing speed) and crystallized intelligence (acquired knowledge, skills, and vocabulary)."
+                        },
+                        {
+                            "question": "Howard Gardner's Theory of Multiple Intelligences argues that intelligence is:",
+                            "options": [
+                                "A single unitary construct measurable by a single paper-and-pencil score",
+                                "Composed of at least eight distinct and relatively independent modalities (e.g., musical, spatial, bodily-kinesthetic, interpersonal)",
+                                "Exclusively determined by genetic ancestry",
+                                "Unrelated to any brain structures or neural pathways"
+                            ],
+                            "correct": 1,
+                            "explanation": "Gardner proposed multiple autonomous intelligences (linguistic, logical-mathematical, musical, spatial, bodily-kinesthetic, interpersonal, intrapersonal, naturalistic)."
+                        },
+                        {
+                            "question": "Robert Sternberg's Triarchic Theory of Intelligence identifies which three core aspects of human intellect?",
+                            "options": [
+                                "Fluid, Crystallized, and Emotional",
+                                "Analytical, Creative, and Practical",
+                                "Verbal, Mathematical, and Kinesthetic",
+                                "Spatial, Musical, and Interpersonal"
+                            ],
+                            "correct": 1,
+                            "explanation": "Sternberg's triarchic model emphasizes analytical intelligence (academic problem-solving), creative intelligence (adapting to novel situations), and practical intelligence ('street smarts')."
+                        },
+                        {
+                            "question": "What was the original historical objective of Alfred Binet and Théodore Simon when developing the first modern intelligence test in France in 1905?",
+                            "options": [
+                                "To identify French school children with learning delays who required specialized remedial instruction",
+                                "To select elite military officers for World War I combat",
+                                "To establish a genetically superior breeding caste",
+                                "To restrict immigration into Parisian universities"
+                            ],
+                            "correct": 0,
+                            "explanation": "Binet and Simon designed their test to objectively identify children who struggled in the standard French school curriculum so they could receive remedial educational support."
+                        },
+                        {
+                            "question": "In Lewis Terman's original Stanford-Binet formula, how was the traditional Intelligence Quotient (IQ) calculated?",
+                            "options": [
+                                "IQ = (Mental Age / Chronological Age) × 100",
+                                "IQ = (Chronological Age / Mental Age) × 100",
+                                "IQ = Mental Age + Chronological Age",
+                                "IQ = Total Raw Score divided by Grade Level"
+                            ],
+                            "correct": 0,
+                            "explanation": "William Stern created and Terman popularized the formula: IQ = (Mental Age / Chronological Age) × 100. (For example, an 8-year-old scoring at a 10-year-old level has an IQ of 125)."
+                        },
+                        {
+                            "question": "On modern standardized Wechsler intelligence scales (e.g., WAIS-IV), scores are distributed along a normal bell curve with a mean of _______ and a standard deviation of _______.",
+                            "options": [
+                                "50; 10",
+                                "100; 15",
+                                "500; 100",
+                                "100; 5"
+                            ],
+                            "correct": 1,
+                            "explanation": "Modern deviation IQ tests set the population mean to 100 with a standard deviation of 15, meaning approximately 68% of the population scores between 85 and 115."
+                        },
+                        {
+                            "question": "If a psychological test yields consistent, repeatable scores when administered to the same individual on multiple occasions, the test has high:",
+                            "options": [
+                                "Validity",
+                                "Reliability",
+                                "Standardization",
+                                "Utility"
+                            ],
+                            "correct": 1,
+                            "explanation": "Reliability refers to the consistency, stability, and repeatability of test results; validity refers to whether the test accurately measures what it claims to measure."
+                        },
+                        {
+                            "question": "If a newly developed college admissions test fails to correlate with students' actual subsequent college grade point averages, the test lacks:",
+                            "options": [
+                                "Test-retest reliability",
+                                "Predictive validity",
+                                "Internal consistency",
+                                "Split-half reliability"
+                            ],
+                            "correct": 1,
+                            "explanation": "Predictive (criterion-related) validity measures the extent to which test scores successfully forecast a future performance or outcome criterion."
+                        },
+                        {
+                            "question": "To meet clinical diagnostic criteria for an Intellectual Disability, an individual must demonstrate significant limitations in adaptive functioning and an IQ score falling approximately:",
+                            "options": [
+                                "At or below 70 (two standard deviations below the mean)",
+                                "Between 70 and 85",
+                                "At or below 90",
+                                "Below 50 exclusively"
+                            ],
+                            "correct": 0,
+                            "explanation": "Diagnostic criteria require an IQ score approximately two standard deviations below the population average (70 or below) coupled with adaptive deficits in conceptual, social, and practical life skills."
+                        },
+                        {
+                            "question": "Extensive behavioral genetics research comparing identical (monozygotic) twins reared apart in different adoptive families shows that:",
+                            "options": [
+                                "Their IQ scores show zero correlation whatsoever",
+                                "Their IQ scores are strikingly similar, demonstrating a substantial genetic contribution to intelligence",
+                                "Adoptive parents' IQs correlate perfectly with the adopted twins' adult IQs",
+                                "Environmental upbringing accounts for 100% of adult IQ variance"
+                            ],
+                            "correct": 1,
+                            "explanation": "Identical twins reared in separate environments display correlations in IQ of approximately 0.70 to 0.75, confirming significant genetic heritability."
+                        },
+                        {
+                            "question": "The worldwide, secular rise in raw average intelligence test scores observed throughout the 20th century across industrialized nations is known as:",
+                            "options": [
+                                "The Flynn Effect",
+                                "The Pygmalion Effect",
+                                "The Hawthorne Effect",
+                                "The Barnum Effect"
+                            ],
+                            "correct": 0,
+                            "explanation": "James Flynn discovered that raw performance on IQ tests rose consistently across generations, attributed to improved nutrition, expanded schooling, healthcare, and cognitive complexity."
+                        },
+                        {
+                            "question": "Claude Steele's concept of 'Stereotype Threat' demonstrates that:",
+                            "options": [
+                                "Standardized tests are completely incapable of measuring any intellectual aptitude",
+                                "Members of a stereotyped group experience self-evaluative anxiety when reminded of a negative stereotype about their group, impairing their test performance",
+                                "Stereotypes never affect human behavior in academic environments",
+                                "Older adults automatically score higher than young adults on computer tests"
+                            ],
+                            "correct": 1,
+                            "explanation": "Stereotype threat occurs when apprehension about confirming a negative societal stereotype induces situational anxiety and working-memory distraction, depressing performance."
+                        },
+                        {
+                            "question": "A test designed to measure a person's current level of accumulated knowledge and learned skills in a specific subject (such as a psychology final exam) is:",
+                            "options": [
+                                "An aptitude test",
+                                "An achievement test",
+                                "A projective inventory",
+                                "A neuropsychological battery"
+                            ],
+                            "correct": 1,
+                            "explanation": "Achievement tests assess what an individual has mastered or learned up to that point; aptitude tests aim to predict future capacity to learn or perform."
+                        },
+                        {
+                            "question": "What percentage of the population scores within one standard deviation (between IQ 85 and IQ 115) on a standard, normally distributed intelligence test?",
+                            "options": [
+                                "Approximately 50%",
+                                "Approximately 68%",
+                                "Approximately 95%",
+                                "Approximately 99%"
+                            ],
+                            "correct": 1,
+                            "explanation": "In any normal bell curve distribution, approximately 68.2% of all scores fall within ±1 standard deviation of the mean."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_10",
+            "title": "Chapter 10: Consciousness",
+            "description": "Module 10.1: Conscious/Unconscious | Module 10.2: Sleep & Dreams | Module 10.3: Hypnosis",
+            "activities": [
+                {
+                    "id": "act_psych_10_1",
+                    "type": "page",
+                    "title": "Module 10.1: Conscious and Unconscious Processes",
+                    "completed": false,
+                    "content": "### Conscious Awareness\n\n- **Dual-Processing Mind:** Information is simultaneously processed on separate conscious (explicit, deliberate) and unconscious (implicit, automatic) tracks.\n- **Priming:** Subliminal or unattended stimuli influencing subsequent perceptions and actions without conscious awareness.\n\n### In Closing: Research on Consciousness\nMuch of human cognitive calculation operates beneath conscious awareness."
+                },
+                {
+                    "id": "act_psych_10_2",
+                    "type": "page",
+                    "title": "Module 10.2: Sleep and Dreams",
+                    "completed": false,
+                    "content": "### Circadian Biology & Sleep Stages\n\n- **Circadian Rhythms:** 24-hour biological cycle coordinated by the **Suprachiasmatic Nucleus (SCN)** of the hypothalamus, modulating pineal melatonin secretion.\n- **Sleep Stages:**\n  - *NREM-1:* Transition from wakefulness; alpha to theta brainwaves; hypnagogic imagery.\n  - *NREM-2:* Characterized by **sleep spindles** and **K-complexes**.\n  - *NREM-3:* Slow-wave deep sleep; dominant delta waves; tissue repair and hormone release.\n  - *REM Sleep:* Rapid eye movements, heightened autonomic arousal, motor paralysis (*muscle atonia*), and vivid dreaming.\n- **Dream Theories:**\n  - *Freudian Psychoanalytic:* Latent (hidden psychological wishes) vs. Manifest (actual storyline) content.\n  - *Activation-Synthesis (Hobson & McCarley):* Dreams are the forebrain's attempt to synthesize random brainstem neural bursts.\n\n### In Closing: The Mysteries of Sleep and Dreams\nSleep is vital for memory consolidation, neurotoxin clearance, and emotional equilibrium."
+                },
+                {
+                    "id": "act_psych_10_3",
+                    "type": "page",
+                    "title": "Module 10.3: Hypnosis",
+                    "completed": false,
+                    "content": "### The Nature of Hypnosis\n\n- **Hypnosis:** A state of focused attention, heightened suggestibility, and vivid imagery.\n- **Theories of Hypnosis:**\n  - *Divided Consciousness / Dissociation (Hilgard):* Hypnosis splits consciousness into an aware actor and a detached monitoring **'hidden observer'**.\n  - *Social-Cognitive Theory:* Hypnotized subjects enact the social role expected of them in a supportive context.\n\n### In Closing: What Hypnosis Is and Isn't\nHypnosis cannot force individuals to commit acts contrary to their morals or recover photographic memories, but it is effective in pain management."
+                },
+                {
+                    "id": "quiz_psych_10",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 10 Checkpoint: Sleep Stages, Consciousness & Dreams",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In psychology, consciousness is formally defined as:",
+                            "options": [
+                                "The physical weight of neuronal cells in the cerebral cortex",
+                                "Our personal, subjective awareness of internal mental states and external environmental stimuli",
+                                "The ability to remain awake for 48 consecutive hours",
+                                "Subconscious Freudian instincts stored in the id"
+                            ],
+                            "correct": 1,
+                            "explanation": "Consciousness refers to an organism's subjective, moment-to-moment awareness of external sensory events and internal thoughts, feelings, and sensations."
+                        },
+                        {
+                            "question": "Circadian rhythms are biological cycles that repeat approximately every:",
+                            "options": [
+                                "90 minutes",
+                                "24 hours",
+                                "28 days",
+                                "12 months"
+                            ],
+                            "correct": 1,
+                            "explanation": "Circadian rhythms (from Latin circa 'about' and dies 'a day') are physiological and behavioral cycles synchronized to a roughly 24-hour day-night period."
+                        },
+                        {
+                            "question": "Which anatomical structure in the hypothalamus serves as the master biological clock controlling circadian cycles in mammals?",
+                            "options": [
+                                "The Suprachiasmatic Nucleus (SCN)",
+                                "The Ventromedial Nucleus",
+                                "The Substantia Nigra",
+                                "The Hippocampus"
+                            ],
+                            "correct": 0,
+                            "explanation": "The suprachiasmatic nucleus (SCN) receives direct retinal light input and synchronizes circadian rhythms by regulating melatonin secretion from the pineal gland."
+                        },
+                        {
+                            "question": "Which hormone, secreted by the pineal gland in response to decreasing light levels, promotes drowsiness and helps regulate sleep onset?",
+                            "options": [
+                                "Cortisol",
+                                "Melatonin",
+                                "Insulin",
+                                "Thyroxine"
+                            ],
+                            "correct": 1,
+                            "explanation": "Melatonin production increases in darkness and is suppressed by bright light, signaling the biological onset of nighttime sleep readiness."
+                        },
+                        {
+                            "question": "During active, alert wakefulness while engaged in focused mental problem-solving, an EEG recording predominantly displays which brain wave pattern?",
+                            "options": [
+                                "Delta waves",
+                                "Theta waves",
+                                "Beta waves",
+                                "Alpha waves"
+                            ],
+                            "correct": 2,
+                            "explanation": "Beta waves are high-frequency (13-30 Hz), low-amplitude desynchronized brain waves characteristic of active, alert, focused cognitive processing."
+                        },
+                        {
+                            "question": "As an individual closes their eyes, lies back in bed, and drifts into a relaxed, drowsy pre-sleep state, the EEG rhythm shifts predominantly to:",
+                            "options": [
+                                "Alpha waves",
+                                "Delta waves",
+                                "Sleep spindles",
+                                "Gamma bursts"
+                            ],
+                            "correct": 0,
+                            "explanation": "Alpha waves (8-12 Hz) are rhythmic, synchronous oscillations reflecting calm, relaxed, meditative wakefulness with eyes closed."
+                        },
+                        {
+                            "question": "Which stage of Non-REM sleep is characterized by the presence of distinctive 'sleep spindles' (brief bursts of 12-14 Hz activity) and 'K-complexes' on an EEG?",
+                            "options": [
+                                "Stage 1 NREM",
+                                "Stage 2 NREM",
+                                "Stage 3 NREM (Slow-wave)",
+                                "REM Sleep"
+                            ],
+                            "correct": 1,
+                            "explanation": "Stage 2 NREM sleep is defined electrophysiologically by sleep spindles and large K-complexes, representing transitional sleep that occupies roughly 50% of adult sleep."
+                        },
+                        {
+                            "question": "Stage 3 NREM (Slow-Wave Sleep) is characterized electrophysiologically by which large, slow brain waves?",
+                            "options": [
+                                "Delta waves (< 4 Hz)",
+                                "Beta waves (> 15 Hz)",
+                                "Alpha waves (10 Hz)",
+                                "Mu waves"
+                            ],
+                            "correct": 0,
+                            "explanation": "Stage 3 NREM (slow-wave or deep sleep) is dominated by slow, high-amplitude delta waves, during which growth hormone is released and tissue repair occurs."
+                        },
+                        {
+                            "question": "Why is REM (Rapid Eye Movement) sleep often referred to as 'paradoxical sleep'?",
+                            "options": [
+                                "The brain's EEG shows high-frequency, waking-like activity, while skeletal voluntary muscles are deeply paralyzed",
+                                "People report feeling completely awake while sleepwalking",
+                                "Heart rate drops to zero while breathing accelerates",
+                                "Dreams occur only in the language the person learned in infancy"
+                            ],
+                            "correct": 0,
+                            "explanation": "REM sleep is paradoxical because the cortex is highly active, oxygen consumption is elevated, and vivid dreams occur, yet the brainstem actively blocks motor signals, rendering skeletal muscles paralyzed (atonia)."
+                        },
+                        {
+                            "question": "If a human participant is systematically awakened every time they enter REM sleep over several nights, what occurs on the subsequent recovery night?",
+                            "options": [
+                                "The person permanently stops having dreams",
+                                "A marked increase in the percentage and intensity of REM sleep, known as REM Rebound",
+                                "Immediate coma-like Delta sleep lasting 24 hours",
+                                "Total destruction of the suprachiasmatic nucleus"
+                            ],
+                            "correct": 1,
+                            "explanation": "REM rebound demonstrates an essential biological homeostatic need for REM sleep; when deprived, the body compensates by entering REM sleep faster and spending more time in it."
+                        },
+                        {
+                            "question": "A chronic sleep disorder characterized by persistent difficulty in falling asleep, staying asleep, or awakening prematurely is:",
+                            "options": [
+                                "Sleep apnea",
+                                "Insomnia",
+                                "Narcolepsy",
+                                "Night terrors"
+                            ],
+                            "correct": 1,
+                            "explanation": "Insomnia involves chronic dissatisfaction with sleep quantity or quality, causing daytime fatigue, impaired concentration, and distress."
+                        },
+                        {
+                            "question": "A potentially dangerous medical condition in which a sleeper repeatedly stops breathing for tens of seconds throughout the night, causing frequent momentary arousals and loud snoring, is:",
+                            "options": [
+                                "Cataplexy",
+                                "Obstructive Sleep Apnea",
+                                "Somnambulism",
+                                "Restless Leg Syndrome"
+                            ],
+                            "correct": 1,
+                            "explanation": "Sleep apnea occurs when the airway collapses during sleep, leading to oxygen desaturation, hundreds of micro-awakenings per night, and severe daytime exhaustion."
+                        },
+                        {
+                            "question": "Narcolepsy is a neurological sleep disorder marked by:",
+                            "options": [
+                                "Inability to achieve deep delta wave sleep",
+                                "Sudden, uncontrollable sleep attacks directly into REM sleep during daytime wakefulness, often triggered by strong emotions",
+                                "Violent acting out of dreams due to lack of muscle atonia",
+                                "Walking for miles during non-REM sleep without awakening"
+                            ],
+                            "correct": 1,
+                            "explanation": "Narcolepsy involves a deficiency in orexin/hypocretin neurons, causing irresistible daytime sleep attacks, sudden muscle collapses (cataplexy), and intrusion of REM phenomena into wakefulness."
+                        },
+                        {
+                            "question": "How do pediatric Night Terrors differ from ordinary nightmares?",
+                            "options": [
+                                "Night terrors occur during deep Stage 3 NREM sleep with intense autonomic panic and no recalled dream plot, whereas nightmares occur during REM sleep with recalled storylines",
+                                "Nightmares occur exclusively in elderly adults",
+                                "Night terrors cause permanent memory loss",
+                                "Nightmares involve sleep paralysis while night terrors involve sleep spindles"
+                            ],
+                            "correct": 0,
+                            "explanation": "Night terrors occur in early-night Stage 3 deep NREM sleep; the child awakens screaming with tachycardia and sweating, usually has no memory of a dream, and returns to sleep quickly."
+                        },
+                        {
+                            "question": "In Sigmund Freud's psychoanalytic theory of dreaming, what is the distinction between the manifest content and the latent content of a dream?",
+                            "options": [
+                                "Manifest content is the conscious, literal storyline; latent content is the hidden, disguised symbolic psychological meaning",
+                                "Manifest content occurs during REM; latent content occurs during NREM",
+                                "Manifest content represents actual future prophecies; latent content represents past memories",
+                                "Manifest content is generated by the left hemisphere; latent content by the right"
+                            ],
+                            "correct": 0,
+                            "explanation": "Freud asserted that the manifest content is the censorship-screened literal storyline of the dream, while the latent content embodies the repressed unconscious wish or sexual/aggressive impulse."
+                        },
+                        {
+                            "question": "The Activation-Synthesis Hypothesis of dreaming (Hobson & McCarley) proposes that dreams are:",
+                            "options": [
+                                "Divine prophetic warnings transmitted to the cerebral cortex",
+                                "The cerebral cortex's attempt to weave a coherent narrative from random neural discharges originating in the brainstem during REM sleep",
+                                "Repressed sexual drives masquerading as symbolic disguises",
+                                "Direct replays of identical daytime memories in chronological order"
+                            ],
+                            "correct": 1,
+                            "explanation": "Activation-synthesis argues that periodic spontaneous bursts of neural activity from the pons (activation) stimulate sensory and emotional cortical areas, which the cortex synthesizes into a dream narrative."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_11",
+            "title": "Chapter 11: Motivated Behaviors",
+            "description": "Module 11.1: Work Motivation | Module 11.2: Hunger | Module 11.3: Sexual Motivation",
+            "activities": [
+                {
+                    "id": "act_psych_11_1",
+                    "type": "page",
+                    "title": "Module 11.1: Work Motivation and General Theories",
+                    "completed": false,
+                    "content": "### Theories of Motivation\n\n- **Drive-Reduction Theory:** Internal physiological needs create unpleasant states of tension (drives) that organisms are compelled to reduce to maintain **homeostasis**.\n- **Arousal Theory (Yerkes-Dodson Law):** Performance peaks at intermediate levels of physiological arousal.\n- **Maslow's Hierarchy of Needs:** Physiological $\\rightarrow$ Safety $\\rightarrow$ Belongingness $\\rightarrow$ Esteem $\\rightarrow$ Self-Actualization.\n- **Intrinsic vs. Extrinsic:** The *Overjustification Effect* occurs when external incentives undermine intrinsic interest in an intrinsically enjoyable activity.\n\n### In Closing: Work and Ambition\nEffective motivation involves setting specific, challenging, yet attainable goals with clear feedback."
+                },
+                {
+                    "id": "act_psych_11_2",
+                    "type": "page",
+                    "title": "Module 11.2: Hunger and Feeding Regulation",
+                    "completed": false,
+                    "content": "### Neural and Chemical Control of Hunger\n\n- **Hypothalamic Nuclei:**\n  - *Lateral Hypothalamus (LH):* The 'start eating' center (lesions cause cessation of feeding).\n  - *Ventromedial Hypothalamus (VMH):* The 'stop eating' center (lesions cause extreme hyperphagia).\n- **Hormonal Messengers:**\n  - *Ghrelin:* Released by empty stomach; triggers hunger cravings.\n  - *Leptin:* Secreted by fat tissue; signals adequate energy stores and suppresses appetite.\n  - *Insulin:* Secreted by pancreas; regulates glucose uptake.\n- **Eating Disorders:** Anorexia Nervosa (severe dietary restriction), Bulimia Nervosa (binge-purge cycle), Binge-Eating Disorder.\n\n### In Closing: The Complexities of Hunger\nHunger is regulated by an intricate balance of endocrine hormones, hypothalamic circuits, and cultural cues."
+                },
+                {
+                    "id": "act_psych_11_3",
+                    "type": "page",
+                    "title": "Module 11.3: Sexual Motivation",
+                    "completed": false,
+                    "content": "### Physiology and Social Dimensions\n\n- **Masters and Johnson Sexual Response Cycle:** 1. Excitement, 2. Plateau, 3. Orgasm, 4. Resolution (accompanied by male refractory period).\n- **Evolutionary Perspectives:** Sexual strategies theory analyzes differential parental investment and reproductive strategies.\n\n### In Closing: The Biology and Sociology of Sex\nHuman sexual behavior represents an interaction between biological neuroendocrinology and socio-cultural values."
+                },
+                {
+                    "id": "quiz_psych_11",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 11 Checkpoint: Motivation & Physiological Drives",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In psychology, motivation is defined as:",
+                            "options": [
+                                "A static score measured exclusively on personality tests",
+                                "The biological and psychological processes that initiate, direct, and sustain goal-oriented behavior",
+                                "A conscious verbal intention that never involves unconscious drives",
+                                "An involuntary spinal reflex action"
+                            ],
+                            "correct": 1,
+                            "explanation": "Motivation refers to the internal and external forces that energize, guide, and maintain goal-directed actions toward fulfilling physiological or psychological needs."
+                        },
+                        {
+                            "question": "Clark Hull's Drive-Reduction Theory of motivation proposes that:",
+                            "options": [
+                                "Humans are motivated exclusively by financial wealth and social status",
+                                "Biological needs create an internal state of physiological tension or arousal (a drive) that motivates an organism to satisfy the need and restore balance",
+                                "Organisms seek out maximum levels of danger to stimulate adrenaline",
+                                "Behaviors occur without any underlying biological motivation"
+                            ],
+                            "correct": 1,
+                            "explanation": "Drive-reduction theory posits that physiological deprivation (e.g., lack of water) creates an uncomfortable internal drive (thirst), prompting behaviors to reduce the drive and re-establish homeostasis."
+                        },
+                        {
+                            "question": "The body's tendency to maintain a constant, balanced internal physiological state (such as stable body temperature, blood glucose, and hydration) is known as:",
+                            "options": [
+                                "Homeostasis",
+                                "Allostasis",
+                                "Metabolism",
+                                "Equilibration"
+                            ],
+                            "correct": 0,
+                            "explanation": "Homeostasis (from Greek 'same state') is the physiological self-regulating mechanism that keeps the body's internal variables within a narrow, life-sustaining range."
+                        },
+                        {
+                            "question": "The Yerkes-Dodson Law describes the relationship between physiological arousal and task performance as:",
+                            "options": [
+                                "A continuously rising straight linear line where maximum arousal always yields maximum performance",
+                                "An inverted U-shaped curve, where moderate arousal produces optimal performance, while extremely high or low arousal impairs performance",
+                                "A negative correlation where any arousal immediately destroys performance",
+                                "A flat horizontal line showing arousal has no effect on performance"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Yerkes-Dodson Law dictates that performance peaks at intermediate arousal levels; excessive anxiety degrades complex performance, whereas insufficient arousal causes sluggishness."
+                        },
+                        {
+                            "question": "In Abraham Maslow's Hierarchy of Needs, which category of needs must be satisfied first before higher-level needs can motivate behavior?",
+                            "options": [
+                                "Self-actualization needs",
+                                "Esteem needs",
+                                "Basic physiological needs (food, water, warmth, sleep)",
+                                "Belongingness and love needs"
+                            ],
+                            "correct": 2,
+                            "explanation": "Maslow's hierarchy states that fundamental survival needs (food, hydration, oxygen) form the base and must be substantially met before psychological and self-fulfillment needs emerge."
+                        },
+                        {
+                            "question": "Which hypothalamic nucleus acts as a primary 'hunger center' such that destroying it in laboratory animals causes aphagia (refusal to eat to the point of starvation)?",
+                            "options": [
+                                "The Lateral Hypothalamus (LH)",
+                                "The Ventromedial Hypothalamus (VMH)",
+                                "The Suprachiasmatic Nucleus",
+                                "The Arcuate Fossa"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Lateral Hypothalamus (LH) stimulates feeding; lesions to the LH eliminate hunger and eating behavior, whereas stimulating it induces compulsive eating."
+                        },
+                        {
+                            "question": "Lesioning which hypothalamic area causes hyperphagia (uncontrollable, extreme overeating) and dramatic obesity in laboratory rats?",
+                            "options": [
+                                "The Ventromedial Hypothalamus (VMH)",
+                                "The Lateral Hypothalamus",
+                                "The Hippocampus",
+                                "The Corpus Callosum"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Ventromedial Hypothalamus (VMH) serves as a primary satiety center that signals when to stop eating; destroying it destroys satiety signaling, leading to obesity."
+                        },
+                        {
+                            "question": "Which peptide hormone is secreted by an empty stomach into the bloodstream to stimulate hunger and trigger meal initiation in the brain?",
+                            "options": [
+                                "Leptin",
+                                "Ghrelin",
+                                "Cholecystokinin (CCK)",
+                                "Insulin"
+                            ],
+                            "correct": 1,
+                            "explanation": "Ghrelin is known as the 'hunger hormone'; its levels surge before meals when the stomach is empty, acting on the hypothalamus to stimulate appetite."
+                        },
+                        {
+                            "question": "Which hormone, synthesized and released by adipose (fat) tissue, travels to the hypothalamus to signal long-term energy reserves and suppress appetite?",
+                            "options": [
+                                "Ghrelin",
+                                "Leptin",
+                                "Gastrin",
+                                "Glucagon"
+                            ],
+                            "correct": 1,
+                            "explanation": "Leptin is produced by fat cells; higher body fat increases circulating leptin, which signals satiety and dampens hunger over prolonged periods."
+                        },
+                        {
+                            "question": "The biological theory proposing that the body possesses a genetically predisposed, homeostatically regulated weight range that it actively defends against dieting or overfeeding is:",
+                            "options": [
+                                "Set-Point Theory",
+                                "Basal Metabolic Constancy",
+                                "Caloric Determinism",
+                                "Dual-Center Homeostasis"
+                            ],
+                            "correct": 0,
+                            "explanation": "Set-Point Theory suggests that the brain monitors body weight and adjusts appetite and basal metabolic rate to defend a biologically predetermined weight target."
+                        },
+                        {
+                            "question": "An eating disorder characterized by restriction of food intake, an intense fear of gaining weight, and a significantly distorted perception of body shape is:",
+                            "options": [
+                                "Bulimia Nervosa",
+                                "Anorexia Nervosa",
+                                "Binge-Eating Disorder",
+                                "Orthorexia"
+                            ],
+                            "correct": 1,
+                            "explanation": "Anorexia nervosa involves severe restriction of caloric intake resulting in dangerously low body weight, relentless drive for thinness, and distorted body self-image."
+                        },
+                        {
+                            "question": "Bulimia Nervosa is clinically distinguished from Anorexia Nervosa primarily by the presence of:",
+                            "options": [
+                                "Recurrent episodes of binge eating followed by inappropriate compensatory behaviors (e.g., self-induced vomiting, laxative abuse, excessive exercise), typically while maintaining normal or near-normal body weight",
+                                "Severe emaciation and absolute refusal to consume any food",
+                                "Total absence of body image concerns",
+                                "Genetic duplication of the 21st chromosome"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bulimia involves cycles of uncontrolled binging followed by purging or excessive fasting to prevent weight gain, with individuals typically falling within normal weight parameters."
+                        },
+                        {
+                            "question": "In William Masters and Virginia Johnson's pioneering research on the Human Sexual Response Cycle, what are the four sequential physiological phases?",
+                            "options": [
+                                "Desire, Arousal, Climax, Sleep",
+                                "Excitement, Plateau, Orgasm, and Resolution",
+                                "Arousal, Fluctuation, Catharsis, and Refractory",
+                                "Intimacy, Stimulation, Release, and Quiescence"
+                            ],
+                            "correct": 1,
+                            "explanation": "Masters and Johnson identified four physiological stages of human sexual response: Excitement (vasocongestion), Plateau, Orgasm, and Resolution."
+                        },
+                        {
+                            "question": "Following orgasm, human males experience a physiological period during which they are temporarily incapable of achieving another erection or ejaculation. This is the:",
+                            "options": [
+                                "Plateau phase",
+                                "Refractory period",
+                                "Allostatic window",
+                                "Vasocongestive cycle"
+                            ],
+                            "correct": 1,
+                            "explanation": "The refractory period is a physiological recovery duration in males following ejaculation during which restimulation cannot produce orgasm."
+                        },
+                        {
+                            "question": "A student who practices playing classical guitar for hours simply for the pure personal joy, intellectual challenge, and aesthetic satisfaction it provides is demonstrating:",
+                            "options": [
+                                "Extrinsic motivation",
+                                "Intrinsic motivation",
+                                "Drive reduction",
+                                "Homeostatic compulsion"
+                            ],
+                            "correct": 1,
+                            "explanation": "Intrinsic motivation arises from internal, inherent interest and enjoyment of the activity itself, independent of external tangible rewards or social praise."
+                        },
+                        {
+                            "question": "Providing a large cash reward to a child who already loves reading books, causing the child to subsequently read only when paid and lose their initial organic love for reading, illustrates:",
+                            "options": [
+                                "The Overjustification Effect",
+                                "The Yerkes-Dodson Law",
+                                "Social Facilitation",
+                                "The Garcia Effect"
+                            ],
+                            "correct": 0,
+                            "explanation": "The overjustification effect occurs when an extrinsic reward diminishes intrinsic motivation by shifting an individual's perceived reason for engaging in the behavior."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_12",
+            "title": "Chapter 12: Emotions, Stress, and Health",
+            "description": "Module 12.1: Nature of Emotion | Module 12.2: Specific Experiences | Module 12.3: Stress & Health",
+            "activities": [
+                {
+                    "id": "act_psych_12_1",
+                    "type": "page",
+                    "title": "Module 12.1: The Nature of Emotion",
+                    "completed": false,
+                    "content": "### Major Theories of Emotion\n\n1. **James-Lange Theory:** Bodily arousal precedes and determines subjective feeling (*'We are afraid because we run'*).\n2. **Cannon-Bard Theory:** Physiological arousal and conscious emotion occur simultaneously and independently via the thalamus.\n3. **Schachter-Singer Two-Factor Theory:** Emotion requires both physiological arousal AND a cognitive appraisal/label of that arousal within the current context.\n\n### In Closing: Research on Emotions\nSubjective feelings reflect the brain's interpretation of peripheral autonomic sensations."
+                },
+                {
+                    "id": "act_psych_12_2",
+                    "type": "page",
+                    "title": "Module 12.2: Fear, Anger, and Emotional Expression",
+                    "completed": false,
+                    "content": "### Expression and Threat Detection\n\n- **The Amygdala:** Processes rapid, non-conscious visual inputs to trigger sympathetic threat alarms (*fight or flight*).\n- **Universal Expressions (Paul Ekman):** Primary emotional facial expressions (happiness, sadness, anger, fear, disgust, surprise) are cross-culturally universal.\n- **Facial Feedback Hypothesis:** Facial muscle postures can directly modulate felt emotional states.\n\n### In Closing: Emotions and the Richness of Life\nEmotions provide rapid behavioral heuristics essential for social communication and survival."
+                },
+                {
+                    "id": "act_psych_12_3",
+                    "type": "page",
+                    "title": "Module 12.3: Stress, Health, and Coping",
+                    "completed": false,
+                    "content": "### Stress Physiology (Hans Selye)\n\n- **General Adaptation Syndrome (GAS):**\n  1. *Alarm Stage:* Sympathetic fight-or-flight mobilization.\n  2. *Resistance Stage:* Sustained cortisol secretion via the HPA axis to cope with ongoing stress.\n  3. *Exhaustion Stage:* Biological breakdown; immune suppression, cardiovascular strain.\n- **Coping Mechanisms:**\n  - *Problem-Focused Coping:* Directly altering the stressor.\n  - *Emotion-Focused Coping:* Modifying emotional reactions to uncontrollable situations.\n\n### In Closing: Health Is Mental as Well as Medical\nPsychological perceptions of control profoundly influence immunological and cardiovascular health."
+                },
+                {
+                    "id": "quiz_psych_12",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 12 Checkpoint: Theories of Emotion & Stress Physiology",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "The James-Lange Theory of emotion famously asserts that:",
+                            "options": [
+                                "We feel angry because we attack, and we feel afraid because we tremble—our conscious emotional experience follows our physiological body reactions",
+                                "Physiological arousal and subjective emotional feeling occur simultaneously through thalamic activation",
+                                "Emotions are determined exclusively by cognitive labeling of unexplained arousal",
+                                "Facial expressions have no connection to physiological feelings"
+                            ],
+                            "correct": 0,
+                            "explanation": "The James-Lange theory holds that perceiving a stimulus directly evokes visceral autonomic bodily responses, and our conscious awareness of those physiological changes IS the emotion."
+                        },
+                        {
+                            "question": "Which emotion theory argues that bodily physiological arousal and the subjective conscious feeling of emotion occur simultaneously and independently, mediated by the thalamus?",
+                            "options": [
+                                "James-Lange Theory",
+                                "Cannon-Bard Theory",
+                                "Schachter-Singer Two-Factor Theory",
+                                "Opponent-Process Theory"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Cannon-Bard theory points out that bodily changes are too slow and non-specific to cause distinct emotions; sensory signals split at the thalamus to trigger arousal and feeling concurrently."
+                        },
+                        {
+                            "question": "According to the Schachter-Singer Two-Factor Theory of emotion, what two ingredients are required to experience an emotion?",
+                            "options": [
+                                "Instinctual drives and superego defense mechanisms",
+                                "Physiological arousal and a cognitive interpretation/label of that arousal based on environmental context",
+                                "Facial muscle contractions and genetic neurotransmitter levels",
+                                "Unconscious trauma and sensory habituation"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Two-Factor Theory states that generalized autonomic arousal provides the emotional intensity, while cognitive situational appraisal provides the specific qualitative emotional label."
+                        },
+                        {
+                            "question": "In Donald Dutton and Arthur Aron's classic suspension bridge study, male participants who were approached by an attractive female interviewer on a terrifying, wobbly high suspension bridge were more likely to call her later than those approached on a safe low bridge. This finding demonstrates:",
+                            "options": [
+                                "The Facial Feedback Hypothesis",
+                                "Misattribution of physiological arousal",
+                                "The Overjustification Effect",
+                                "Sensory adaptation"
+                            ],
+                            "correct": 1,
+                            "explanation": "Misattribution of arousal occurs when people mistakenly interpret physiological arousal generated by one source (fear of heights) as romantic or sexual attraction toward a salient person."
+                        },
+                        {
+                            "question": "Holding a pen horizontally between your teeth forces your facial muscles into a smile-like configuration, which has been shown to induce subtle positive mood changes. This phenomenon supports:",
+                            "options": [
+                                "The Facial Feedback Hypothesis",
+                                "The Cannon-Bard Theory",
+                                "The Catharsis Hypothesis",
+                                "The General Adaptation Syndrome"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Facial Feedback Hypothesis proposes that feedback signals from our own facial musculature communicate with the brain to activate and modulate emotional states."
+                        },
+                        {
+                            "question": "Cross-cultural research conducted by Paul Ekman with isolated tribal populations in Papua New Guinea demonstrated that:",
+                            "options": [
+                                "Facial expressions for basic emotions (happiness, sadness, anger, fear, surprise, disgust) are universally recognized across all human cultures",
+                                "Non-Western cultures cannot distinguish between fear and happiness",
+                                "Facial expressions are 100% culturally constructed with zero biological evolutionary basis",
+                                "Only literate societies experience distinct emotional states"
+                            ],
+                            "correct": 0,
+                            "explanation": "Ekman proved that primary facial expressions for basic emotions are biologically evolved, innate, and universally recognized across literate and preliterate human societies."
+                        },
+                        {
+                            "question": "Why do standard polygraph ('lie detector') machines fail to achieve high scientific validity in psychological courts?",
+                            "options": [
+                                "They measure non-specific autonomic nervous system arousal (heart rate, perspiration, respiration) that can be triggered by anxiety, fear, or embarrassment just as easily as deception",
+                                "They can only detect lies spoken in English",
+                                "They measure brain wave patterns that change every millisecond",
+                                "They are 100% accurate and therefore eliminate the constitutional need for juries"
+                            ],
+                            "correct": 0,
+                            "explanation": "Polygraphs record generalized sympathetic arousal; because innocence and indignation can evoke identical physiological spikes as lying, false-positive rates are scientifically unacceptably high."
+                        },
+                        {
+                            "question": "Hans Selye's General Adaptation Syndrome (GAS) outlines the body's universal physiological response to chronic, severe stressors through which three stages?",
+                            "options": [
+                                "Denial, Anger, and Acceptance",
+                                "Alarm Reaction, Resistance, and Exhaustion",
+                                "Arousal, Mobilization, and Homeostasis",
+                                "Fight, Flight, and Freeze"
+                            ],
+                            "correct": 1,
+                            "explanation": "Selye's GAS describes three phases: Alarm (shock and sympathetic mobilization), Resistance (sustained endocrine adaptation with cortisol), and Exhaustion (depletion leading to illness)."
+                        },
+                        {
+                            "question": "During the initial Alarm stage of the General Adaptation Syndrome, which system coordinates the immediate rapid release of epinephrine and norepinephrine?",
+                            "options": [
+                                "The Sympathetic-Adrenal-Medullary (SAM) axis",
+                                "The Hypothalamic-Pituitary-Adrenal (HPA) axis",
+                                "The Parasympathetic digestive tract",
+                                "The Pineal circadian matrix"
+                            ],
+                            "correct": 0,
+                            "explanation": "The SAM axis triggers instantaneous 'fight-or-flight' activation, releasing adrenaline from the adrenal medulla to rapidly elevate heart rate, respiration, and blood pressure."
+                        },
+                        {
+                            "question": "During prolonged chronic stress, which endocrine pathway releases glucocorticoid hormones (primarily cortisol) into the bloodstream to sustain elevated glucose?",
+                            "options": [
+                                "The Hypothalamic-Pituitary-Adrenal (HPA) axis",
+                                "The Cerebellar Motor Loop",
+                                "The Somatic Reflex Arc",
+                                "The Autonomic Parasympathetic Loop"
+                            ],
+                            "correct": 0,
+                            "explanation": "The HPA axis coordinates chronic stress: the hypothalamus releases CRH, stimulating the pituitary to release ACTH, which signals the adrenal cortex to release cortisol."
+                        },
+                        {
+                            "question": "What is the long-term biological consequence of chronically sustained high levels of cortisol in the human body?",
+                            "options": [
+                                "Suppression of the immune system (reduced lymphocyte and T-cell counts), hippocampal atrophy, and elevated cardiovascular disease risk",
+                                "Permanent immunity against all infectious bacteria and viruses",
+                                "Rapid proliferation of healthy new neurons across the entire cortex",
+                                "Permanent drop in blood pressure and instantaneous muscle building"
+                            ],
+                            "correct": 0,
+                            "explanation": "Prolonged cortisol elevation dampens inflammatory and immune responses, damages hippocampal memory neurons, and promotes arterial damage and hypertension."
+                        },
+                        {
+                            "question": "Cardiologists Meyer Friedman and Ray Rosenman discovered that individuals with a 'Type A' personality pattern were significantly more prone to coronary heart disease. What specific toxic component of Type A is most predictive of heart attacks?",
+                            "options": [
+                                "Ambition and hard work",
+                                "Hostility, cynical mistrust, and chronic anger",
+                                "Time urgency and rapid speech",
+                                "High athletic competitiveness"
+                            ],
+                            "correct": 1,
+                            "explanation": "Subsequent research revealed that cynical hostility and frequent explosive anger are the primary lethal components of the Type A behavior pattern driving cardiovascular disease."
+                        },
+                        {
+                            "question": "A student who receives a failing grade on a midterm exam copes by meeting with the professor, organizing a new daily study schedule, and hiring a peer tutor. This is an example of:",
+                            "options": [
+                                "Problem-focused coping",
+                                "Emotion-focused coping",
+                                "Denial defense mechanism",
+                                "Learned helplessness"
+                            ],
+                            "correct": 0,
+                            "explanation": "Problem-focused coping targets the root source of the stressor directly by taking actionable, constructive steps to alter or resolve the external problem."
+                        },
+                        {
+                            "question": "A person who deals with the grief of losing a loved one by seeking emotional support from friends, practicing mindfulness meditation, and reframing the experience positively is utilizing:",
+                            "options": [
+                                "Emotion-focused coping",
+                                "Problem-focused coping",
+                                "Displacement",
+                                "Sublimation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Emotion-focused coping regulates the internal affective distress, anxiety, or emotional reaction associated with a stressor when the external situation itself cannot be changed."
+                        },
+                        {
+                            "question": "Julian Rotter described the 'locus of control'. An individual who believes that their academic success or life outcomes depend primarily on their own effort, decisions, and abilities possesses:",
+                            "options": [
+                                "An internal locus of control",
+                                "An external locus of control",
+                                "A self-serving bias",
+                                "An authoritarian personality"
+                            ],
+                            "correct": 0,
+                            "explanation": "An internal locus of control is the conviction that outcomes are governed by one's own actions and choices; it strongly predicts resilience, health habits, and achievement."
+                        },
+                        {
+                            "question": "What did Martin Seligman discover about dogs that were subjected to inescapable electric shocks before being placed in a shuttlebox where escape was simple?",
+                            "options": [
+                                "They easily jumped over the barrier to safety on the very first shock",
+                                "They developed 'learned helplessness'—passively laying down and whining without attempting to escape, having learned that their actions had no effect",
+                                "They attacked the experimenter with violent fury",
+                                "They learned twice as fast as dogs that had never been shocked"
+                            ],
+                            "correct": 1,
+                            "explanation": "Learned helplessness occurs when organisms subjected to uncontrollable painful events develop a passive resignation and give up trying to escape, even when escape becomes possible."
+                        },
+                        {
+                            "question": "The psychological and physiological study of how mental states, emotional stress, and the central nervous system interact to influence the immune system is called:",
+                            "options": [
+                                "Psychoneuroimmunology (PNI)",
+                                "Biomedical Phrenology",
+                                "Neuroethology",
+                                "Neuroplastic Epidemiology"
+                            ],
+                            "correct": 0,
+                            "explanation": "Psychoneuroimmunology (PNI) investigates the intricate bidirectional pathways linking psychological processes, neural and endocrine activity, and immune system defenses."
+                        },
+                        {
+                            "question": "Which of the following describes the 'Tend-and-Befriend' stress response, often observed more frequently in females as an alternative to fight-or-flight?",
+                            "options": [
+                                "Freezing in place and playing dead to avoid predator detection",
+                                "Nurturing offspring, seeking social support, and bonding with mutual social groups, mediated in part by the hormone oxytocin",
+                                "Engaging in aggressive physical retaliation against group leaders",
+                                "Fleeing into isolation and severing all communication"
+                            ],
+                            "correct": 1,
+                            "explanation": "Shelley Taylor proposed the 'tend-and-befriend' model: under stress, individuals (particularly females) protect young (tend) and seek social networks (befriend), influenced by oxytocin."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_13",
+            "title": "Chapter 13: Social Behavior",
+            "description": "Module 13.1: Prosocial | Module 13.2: Perception | Module 13.3: Persuasion | Module 13.4: Attraction | Module 13.5: Influence",
+            "activities": [
+                {
+                    "id": "act_psych_13_1",
+                    "type": "page",
+                    "title": "Module 13.1: Prosocial and Antisocial Behavior",
+                    "completed": false,
+                    "content": "### Altruism and the Bystander Effect\n\n- **Bystander Effect (Darley & Latané):** The presence of other people decreases the likelihood that any single individual will intervene to help someone in distress.\n- **Underlying Causes:**\n  - *Diffusion of Responsibility:* Believing someone else will take action.\n  - *Pluralistic Ignorance:* Looking to others to define an ambiguous situation; if others appear calm, concluding no emergency exists.\n\n### In Closing: Is Cooperative Behavior Logical?\nHuman cooperation evolved through kin selection, direct reciprocity, and reputational benefits."
+                },
+                {
+                    "id": "act_psych_13_2",
+                    "type": "page",
+                    "title": "Module 13.2: Social Perception and Cognition",
+                    "completed": false,
+                    "content": "### Attribution Theory\n\n- **Attribution:** Explaining the causes of behavior.\n  - *Internal (Dispositional):* Traits, personality, ability.\n  - *External (Situational):* Context, luck, environmental pressure.\n- **Attributional Biases:**\n  - *Fundamental Attribution Error (FAE):* Overestimating dispositional causes and underestimating situational pressures when explaining *others'* behavior.\n  - *Self-Serving Bias:* Attributing personal successes to internal ability and personal failures to external situational factors.\n\n### In Closing: How Social Perceptions Affect Behavior\nPeople routinely judge others as stable characters while explaining themselves through situational contexts."
+                },
+                {
+                    "id": "act_psych_13_3",
+                    "type": "page",
+                    "title": "Module 13.3: Attitudes and Persuasion",
+                    "completed": false,
+                    "content": "### Attitude Change and Dissonance\n\n- **Cognitive Dissonance (Leon Festinger):** Unpleasant mental tension experienced when holding two contradictory beliefs or when behavior conflicts with attitudes. Resolved by changing attitudes to match behavior.\n- **Elaboration Likelihood Model (ELM):**\n  - *Central Route:* Scrutinizing logical arguments (durable attitude change).\n  - *Peripheral Route:* Influenced by celebrity endorsers, attractiveness, or emotional tone.\n- **Compliance Techniques:** Foot-in-the-Door, Door-in-the-Face, Low-Balling.\n\n### In Closing: Persuasion and Manipulation\nAttitudes adjust to justify past actions and reduce internal psychological conflict."
+                },
+                {
+                    "id": "act_psych_13_4",
+                    "type": "page",
+                    "title": "Module 13.4: Interpersonal Attraction",
+                    "completed": false,
+                    "content": "### Determinants of Attraction\n\n- **Proximity:** Proximity breeds familiarity via the *Mere Exposure Effect*.\n- **Similarity:** People choose partners with matching values, socioeconomic status, and attitudes.\n- **Sternberg's Triangular Theory of Love:** Intimacy (closeness), Passion (romance/physical drive), and Commitment (decision to maintain love). All three combine to form *Consummate Love*.\n\n### In Closing: Choosing Your Partners Carefully\nRomantic bonds rely on an evolutionarily honed balance of companionate trust and passionate attachment."
+                },
+                {
+                    "id": "act_psych_13_5",
+                    "type": "page",
+                    "title": "Module 13.5: Interpersonal Influence",
+                    "completed": false,
+                    "content": "### Conformity, Obedience, and Group Dynamics\n\n- **Solomon Asch (Conformity):** Over 75% of participants conformed at least once to an obviously incorrect majority line judgment.\n- **Stanley Milgram (Obedience):** 65% of normal adult participants obeyed experimenter commands to deliver lethal-level 450-volt shocks to an innocent confederate.\n- **Philip Zimbardo (Stanford Prison Experiment):** Demonstrated the power of assigned social roles and deindividuation in producing abusive behavior.\n- **Group Polarization & Groupthink:** Groups make more extreme decisions than individuals; cohesive groups suppress dissent to maintain consensus.\n\n### In Closing: Fix the Situation, Not Human Nature\nSituational pressures possess extraordinary power to override individual moral principles."
+                },
+                {
+                    "id": "quiz_psych_13",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 13 Checkpoint: Social Psychology & Influence",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In social psychology, Fritz Heider's Attribution Theory focuses on:",
+                            "options": [
+                                "How individuals explain the causes of other people's behavior and their own behavior (internal dispositions vs. external situations)",
+                                "How genetic sequences determine personality traits",
+                                "How sensory receptors process social faces",
+                                "The mechanical laws of physical attraction"
+                            ],
+                            "correct": 0,
+                            "explanation": "Attribution theory explores whether we credit someone's behavior to internal, enduring personal qualities (dispositional attribution) or to temporary external environmental circumstances (situational attribution)."
+                        },
+                        {
+                            "question": "Observing a driver cut in front of you in traffic and immediately assuming they are an aggressive, rude jerk, while failing to consider that they might be rushing a sick family member to the hospital, illustrates:",
+                            "options": [
+                                "The Fundamental Attribution Error",
+                                "The Actor-Observer Bias",
+                                "The Self-Serving Bias",
+                                "The Bystander Effect"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Fundamental Attribution Error (FAE) is the pervasive tendency to overestimate internal dispositional factors and underestimate external situational influences when judging others' actions."
+                        },
+                        {
+                            "question": "The Actor-Observer Bias refers to the psychological tendency to attribute:",
+                            "options": [
+                                "Our own actions to situational causes, but other people's identical actions to their enduring internal character traits",
+                                "All world events to divine karma",
+                                "Our own failures to internal character flaws",
+                                "Other people's achievements to their pure luck"
+                            ],
+                            "correct": 0,
+                            "explanation": "As actors, our attention is directed outward at our immediate environment (situational attributions); as observers of others, our attention focuses on the person (dispositional attributions)."
+                        },
+                        {
+                            "question": "A college student attributes their 'A' on an exam to their brilliant intellect and hard work (internal attribution), but blames their 'F' on another exam on an unfair professor and misleading questions (external attribution). This is:",
+                            "options": [
+                                "The Self-Serving Bias",
+                                "The Fundamental Attribution Error",
+                                "The Just-World Hypothesis",
+                                "Cognitive Dissonance"
+                            ],
+                            "correct": 0,
+                            "explanation": "The self-serving bias is the self-esteem-protecting tendency to take personal credit for favorable outcomes while deflecting blame for failures onto external scapegoats."
+                        },
+                        {
+                            "question": "Leon Festinger's Cognitive Dissonance Theory proposes that psychological distress arises when:",
+                            "options": [
+                                "Two sensory receptors fire simultaneously",
+                                "An individual holds two psychologically contradictory cognitions, or when their behavior directly conflicts with their held attitudes",
+                                "A person is placed in solitary confinement for more than 24 hours",
+                                "A participant recognizes that an experimenter is lying"
+                            ],
+                            "correct": 1,
+                            "explanation": "Cognitive dissonance occurs when an inconsistency between beliefs and actions produces an uncomfortable psychological tension, motivating the person to change their attitude or behavior to restore harmony."
+                        },
+                        {
+                            "question": "In Festinger and Carlsmith's famous $1 vs. $20 peg-turning experiment, why did participants paid only $1 to lie to the next subject subsequently report genuinely liking the boring task more than those paid $20?",
+                            "options": [
+                                "They experienced insufficient justification for their lie, creating high cognitive dissonance that they resolved by convincing themselves the task was actually enjoyable",
+                                "They were bribed into signing a legal confidentiality agreement",
+                                "Participants paid $1 were less intelligent than participants paid $20",
+                                "The $20 bill was found to be counterfeit"
+                            ],
+                            "correct": 0,
+                            "explanation": "Participants paid $20 had sufficient external justification for lying ('I did it for the money'). Those paid $1 had insufficient external justification, creating dissonance that forced them to genuinely alter their attitude."
+                        },
+                        {
+                            "question": "According to the Elaboration Likelihood Model (ELM), when a consumer is persuaded by the logical strength of an argument, factual evidence, and analytical reasoning, persuasion has occurred via the:",
+                            "options": [
+                                "Central Route",
+                                "Peripheral Route",
+                                "Subliminal Route",
+                                "Heuristic Route"
+                            ],
+                            "correct": 0,
+                            "explanation": "The central route to persuasion involves deep cognitive elaboration on the factual merit and content of the message, producing durable, long-lasting attitude changes."
+                        },
+                        {
+                            "question": "A car commercial featuring an attractive celebrity smiling and driving through scenic mountains with catchy music, without discussing the car's fuel efficiency, crash safety ratings, or engine mechanics, utilizes the:",
+                            "options": [
+                                "Peripheral Route to persuasion",
+                                "Central Route to persuasion",
+                                "Cognitive Dissonance pathway",
+                                "Normative attribution model"
+                            ],
+                            "correct": 0,
+                            "explanation": "The peripheral route to persuasion relies on superficial, emotional, or aesthetic cues (celebrity endorsements, attractiveness, catchy tunes) rather than substantive factual evidence."
+                        },
+                        {
+                            "question": "A telemarketer asks you to answer a quick 30-second survey (a small request), and after you agree, follows up by asking you to sign up for a costly monthly charitable subscription (a large request). This persuasion tactic is:",
+                            "options": [
+                                "The Foot-in-the-Door technique",
+                                "The Door-in-the-Face technique",
+                                "The Low-Ball technique",
+                                "The Bystander trap"
+                            ],
+                            "correct": 0,
+                            "explanation": "The foot-in-the-door technique secures compliance with a large request by first getting the individual to agree to a modest, minor request, activating a commitment to consistency."
+                        },
+                        {
+                            "question": "Asking a homeowner to volunteer 20 hours per week at a community center (an extreme request that is flatly rejected), followed immediately by asking them to donate $5 to the center (a smaller concession request), is:",
+                            "options": [
+                                "The Door-in-the-Face technique",
+                                "The Foot-in-the-Door technique",
+                                "The Reciprocal Dissonance trick",
+                                "Normative conformity"
+                            ],
+                            "correct": 0,
+                            "explanation": "The door-in-the-face technique starts with an extreme request expected to be refused, making the subsequent target request look like a reasonable compromise."
+                        },
+                        {
+                            "question": "In Solomon Asch's classic conformity studies, participants were asked to identify which of three comparison lines matched a standard reference line. What did the results show?",
+                            "options": [
+                                "Participants never conformed when the confederates gave obviously incorrect answers",
+                                "Over 70% of participants conformed to the unanimous incorrect group consensus on at least one critical trial",
+                                "All participants refused to answer out of moral protest",
+                                "Participants conformed only when threatened with physical shock"
+                            ],
+                            "correct": 1,
+                            "explanation": "Asch demonstrated powerful conformity: roughly 75% of subjects conformed at least once to the group's obviously incorrect unanimous judgment, even when the truth was plainly visible."
+                        },
+                        {
+                            "question": "Conforming to a group's behavior because you desire to fit in, gain social acceptance, and avoid peer ostracism is known as:",
+                            "options": [
+                                "Normative Social Influence",
+                                "Informational Social Influence",
+                                "Social Facilitation",
+                                "Deindividuation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Normative social influence stems from the human desire to be liked, approved of, and accepted by others, conforming to social norms even when privately disagreeing."
+                        },
+                        {
+                            "question": "Looking at other diners at an elegant banquet to see which fork they are using because you are unsure of proper etiquette illustrates:",
+                            "options": [
+                                "Informational Social Influence",
+                                "Normative Social Influence",
+                                "Social Loafing",
+                                "Diffusion of responsibility"
+                            ],
+                            "correct": 0,
+                            "explanation": "Informational social influence occurs when we conform because we accept others' actions as evidence of reality or correct knowledge in ambiguous situations."
+                        },
+                        {
+                            "question": "In Stanley Milgram's famous obedience experiments at Yale University, what percentage of ordinary adult male participants obeyed the experimenter's commands to deliver the maximum 450-volt electrical shock to an innocent learner?",
+                            "options": [
+                                "Less than 1%",
+                                "Approximately 15%",
+                                "Approximately 65%",
+                                "100% of participants"
+                            ],
+                            "correct": 2,
+                            "explanation": "Despite intense moral distress, 65% of Milgram's participants complied fully, delivering the lethal 450-volt maximum shock solely under the perceived authority of the researcher in a lab coat."
+                        },
+                        {
+                            "question": "Philip Zimbardo's 1971 Stanford Prison Experiment was terminated after only six days primarily because:",
+                            "options": [
+                                "College students assigned to the role of guards became unexpectedly cruel, abusive, and tyrannical, while prisoners showed extreme psychological breakdowns",
+                                "The participants became bored and walked out of the basement",
+                                "Local police shut down the university",
+                                "The prisoners overthrew the guards and escaped to Mexico"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Stanford Prison study illustrated the terrifying power of deindividuation and institutional roles: normal young men quickly adapted to abusive guard roles and helpless prisoner roles."
+                        },
+                        {
+                            "question": "An expert pool player makes more accurate shots when surrounded by an audience than when practicing alone, while a novice pool player performs worse in front of an audience. This phenomenon is:",
+                            "options": [
+                                "Social Facilitation and Social Inhibition",
+                                "Social Loafing",
+                                "Group Polarization",
+                                "Deindividuation"
+                            ],
+                            "correct": 0,
+                            "explanation": "Social facilitation shows that physiological arousal from an audience enhances dominant, well-mastered responses (experts improve), but disrupts complex, unmastered tasks (novices choke)."
+                        },
+                        {
+                            "question": "When students are assigned to a group project where all members receive the same shared grade and individual contributions are not measured, some students exert significantly less effort. This is:",
+                            "options": [
+                                "Social Loafing",
+                                "Social Facilitation",
+                                "Groupthink",
+                                "Cognitive Dissonance"
+                            ],
+                            "correct": 0,
+                            "explanation": "Social loafing is the tendency for individuals to expend less effort when working collectively in a group than when held individually accountable."
+                        },
+                        {
+                            "question": "During a nighttime soccer riot, otherwise law-abiding fans smash storefront windows and overturn cars while wearing face masks within a massive shouting crowd. Their loss of self-restraint is driven by:",
+                            "options": [
+                                "Deindividuation",
+                                "Groupthink",
+                                "The Actor-Observer effect",
+                                "Informational conformity"
+                            ],
+                            "correct": 0,
+                            "explanation": "Deindividuation is the loss of individual self-awareness and moral restraint that occurs in group settings that foster anonymity and high emotional arousal."
+                        },
+                        {
+                            "question": "When like-minded individuals discuss a controversial topic together and their resulting group attitude becomes far more extreme than their average initial beliefs, what has occurred?",
+                            "options": [
+                                "Group Polarization",
+                                "Groupthink",
+                                "Social Facilitation",
+                                "Bystander Apathy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Group polarization refers to the strengthening and radicalization of a group's prevailing inclinations and attitudes following internal discussion."
+                        },
+                        {
+                            "question": "Irving Janis coined the term 'Groupthink' to describe a dysfunctional decision-making process characterized by:",
+                            "options": [
+                                "An excessive desire for group harmony and unanimity that suppresses critical thinking, realistic appraisal, and dissenting viewpoints",
+                                "Loud arguments that prevent any decision from being made",
+                                "Submitting all policy decisions to an anonymous public vote",
+                                "Excessive scientific experimentation before launching a policy"
+                            ],
+                            "correct": 0,
+                            "explanation": "Groupthink occurs when a cohesive group prioritizes consensus and conformity over critical evaluation, leading to disastrous misjudgments (e.g., Bay of Pigs, Challenger disaster)."
+                        },
+                        {
+                            "question": "John Darley and Bibb Latané's classic research on the 'Bystander Effect' following the murder of Kitty Genovese revealed that:",
+                            "options": [
+                                "The presence of other people increases the speed of emergency intervention",
+                                "An individual is significantly less likely to offer help to a victim in an emergency when other passive bystanders are present, due to diffusion of responsibility",
+                                "People only help others if they are paid monetary rewards",
+                                "City dwellers are biologically incapable of experiencing empathy"
+                            ],
+                            "correct": 1,
+                            "explanation": "The bystander effect demonstrates that as the number of witnesses increases, the likelihood of any single witness intervening drops because personal responsibility is cognitively diffused."
+                        },
+                        {
+                            "question": "In social psychology, what is the crucial distinction among a stereotype, prejudice, and discrimination?",
+                            "options": [
+                                "A stereotype is a cognitive belief; prejudice is an affective/emotional attitude; discrimination is an overt behavioral action",
+                                "A stereotype is illegal; prejudice is legal; discrimination is subconscious",
+                                "There is no distinction; the three terms are identical synonyms",
+                                "Prejudice is positive, while discrimination is negative"
+                            ],
+                            "correct": 0,
+                            "explanation": "Stereotypes are cognitive generalizations about a group; prejudice is the unjustified negative feeling/attitude toward members of that group; discrimination is the unequal behavioral mistreatment."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_14",
+            "title": "Chapter 14: Personality",
+            "description": "Module 14.1: Personality Theories | Module 14.2: Traits | Module 14.3: Assessment",
+            "activities": [
+                {
+                    "id": "act_psych_14_1",
+                    "type": "page",
+                    "title": "Module 14.1: Personality Theories",
+                    "completed": false,
+                    "content": "### Psychodynamic and Humanistic Perspectives\n\n- **Sigmund Freud (Psychoanalysis):**\n  - *Id:* Unconscious, primal instinctual drives operating on the **Pleasure Principle**.\n  - *Ego:* Rational conscious executive operating on the **Reality Principle** to mediate between id and superego.\n  - *Superego:* Internalized moral standards, ideals, and conscience.\n  - *Defense Mechanisms:* Unconscious distortions of reality (Repression, Denial, Projection, Rationalization, Displacement, Sublimation, Reaction Formation).\n- **Humanistic Theories:**\n  - *Carl Rogers:* Person-centered theory; psychological health requires congruence between the *real self* and *ideal self*, fostered by **Unconditional Positive Regard**.\n  - *Abraham Maslow:* Focus on peak experiences and the drive toward **Self-Actualization**.\n\n### In Closing: In Search of Human Nature\nPsychodynamic theories prioritize unconscious conflicts, whereas humanistic models celebrate conscious self-determination."
+                },
+                {
+                    "id": "act_psych_14_2",
+                    "type": "page",
+                    "title": "Module 14.2: Personality Traits",
+                    "completed": false,
+                    "content": "### The Big Five Factor Model (OCEAN)\n\nPersonality traits are stable, enduring patterns of thinking, feeling, and behaving.\n\n1. **Openness to Experience:** Intellectual curiosity, artistic sensitivity, preference for novelty.\n2. **Conscientiousness:** Self-discipline, organization, dependability, goal-directed striving.\n3. **Extraversion:** Sociability, assertiveness, positive emotionality, energy.\n4. **Agreeableness:** Compassion, cooperativeness, trustworthiness, warmth.\n5. **Neuroticism:** Emotional instability, anxiety, moodiness, vulnerability to psychological distress.\n\n### In Closing: The Challenges of Classifying Personality\nThe Big Five dimensions demonstrate strong cross-cultural validity and stability across adult development."
+                },
+                {
+                    "id": "act_psych_14_3",
+                    "type": "page",
+                    "title": "Module 14.3: Personality Assessment",
+                    "completed": false,
+                    "content": "### Measuring Personality\n\n- **Objective Inventories:** Self-report questionnaires with standardized scoring.\n  - *Minnesota Multiphasic Personality Inventory (MMPI):* Empirically keyed to identify clinical psychopathology; includes lie and validity scales.\n  - *NEO-PI:* Measures the Big Five dimensions.\n- **Projective Tests:** Present ambiguous stimuli onto which participants project unconscious desires.\n  - *Rorschach Inkblot Test*\n  - *Thematic Apperception Test (TAT)*\n  - *Critique:* Projective tests suffer from low inter-rater reliability and questionable predictive validity.\n\n### In Closing: Possibilities and Limits of Personality Tests\nStandardized objective inventories provide dependable behavioral predictions; projective instruments remain clinically controversial."
+                },
+                {
+                    "id": "quiz_psych_14",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 14 Checkpoint: Personality Theories & The Big Five",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In psychology, personality is formally defined as an individual's:",
+                            "options": [
+                                "Fleeting emotional mood swings from hour to hour",
+                                "Characteristic, enduring pattern of thinking, feeling, and behaving that persists over time and across situations",
+                                "Physical attractiveness and social popularity ranking",
+                                "Performance on timed standardized academic tests"
+                            ],
+                            "correct": 1,
+                            "explanation": "Personality represents the stable, unique constellation of psychological traits, behaviors, and cognitive patterns that distinguish one individual from another."
+                        },
+                        {
+                            "question": "In Sigmund Freud's structural model of the psyche, which component operates entirely within the unconscious mind and is driven by the 'Pleasure Principle'?",
+                            "options": [
+                                "The Ego",
+                                "The Superego",
+                                "The Id",
+                                "The Persona"
+                            ],
+                            "correct": 2,
+                            "explanation": "The Id is present at birth, resides completely in the unconscious, and operates on the pleasure principle—demanding immediate gratification of primitive aggressive and sexual impulses."
+                        },
+                        {
+                            "question": "According to Freud, which structural component operates on the 'Reality Principle', mediating between instinctual biological demands and external environmental constraints?",
+                            "options": [
+                                "The Id",
+                                "The Ego",
+                                "The Superego",
+                                "The Archetype"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Ego functions as the conscious executive of personality, operating on the reality principle to satisfy the Id's urges in realistic, socially acceptable ways."
+                        },
+                        {
+                            "question": "Which component of Freud's personality structure represents internalized societal moral standards, values, ideals, and the conscience?",
+                            "options": [
+                                "The Superego",
+                                "The Ego",
+                                "The Id",
+                                "The Libido"
+                            ],
+                            "correct": 0,
+                            "explanation": "The Superego develops around age 4-5 as children internalize parental and societal rules; it acts as the moral watchdog, inducing guilt when moral standards are violated."
+                        },
+                        {
+                            "question": "In psychoanalytic theory, what is the primary purpose of ego defense mechanisms?",
+                            "options": [
+                                "To permanently eradicate biological drives from the body",
+                                "To protect the conscious ego from overwhelming anxiety generated by conflicts between the id and superego",
+                                "To accelerate cognitive intelligence scores",
+                                "To communicate thoughts through lucid dreaming"
+                            ],
+                            "correct": 1,
+                            "explanation": "Defense mechanisms are unconscious psychological strategies employed by the ego to distort reality and shield the conscious self from unacceptable urges and crippling anxiety."
+                        },
+                        {
+                            "question": "A person who experiences intense, unacceptable hostile impulses toward a coworker but consciously behaves in an exaggeratedly sweet, overly flattering manner toward them is utilizing:",
+                            "options": [
+                                "Projection",
+                                "Reaction Formation",
+                                "Sublimation",
+                                "Regression"
+                            ],
+                            "correct": 1,
+                            "explanation": "Reaction formation is the unconscious defense mechanism wherein the ego transforms an unacceptable impulse into its direct, diametric opposite in conscious behavior."
+                        },
+                        {
+                            "question": "A man who is denied a promotion by his corporate boss goes home and kicks his pet dog and yells at his children. This defense mechanism is:",
+                            "options": [
+                                "Displacement",
+                                "Sublimation",
+                                "Repression",
+                                "Rationalization"
+                            ],
+                            "correct": 0,
+                            "explanation": "Displacement redirects emotional or aggressive impulses from their original threatening source (the boss) toward a safer, less threatening substitute target (family or pet)."
+                        },
+                        {
+                            "question": "Channeling aggressive or sexual impulses into highly productive, socially admired activities—such as an aggressive individual becoming a champion martial artist or surgeon—is known as:",
+                            "options": [
+                                "Sublimation",
+                                "Projection",
+                                "Denial",
+                                "Regression"
+                            ],
+                            "correct": 0,
+                            "explanation": "Sublimation is considered the most adaptive and mature defense mechanism, transforming unacceptable instinctual drives into culturally constructive and creative outlets."
+                        },
+                        {
+                            "question": "An insecure student who cheats on every exam constantly accuses all other classmates of being dishonest cheaters. This defense mechanism is:",
+                            "options": [
+                                "Projection",
+                                "Reaction formation",
+                                "Repression",
+                                "Displacement"
+                            ],
+                            "correct": 0,
+                            "explanation": "Projection involves disguising one's own threatening, unacceptable traits or impulses by falsely attributing them onto other people."
+                        },
+                        {
+                            "question": "In Freud's psychosexual stage theory, unresolved psychological conflicts during a stage can cause an individual to become fixated. What did Freud claim occurs in an 'anal retentive' fixation?",
+                            "options": [
+                                "Excessive smoking, nail-biting, and overeating",
+                                "Compulsive neatness, extreme stinginess, stubbornness, and perfectionism",
+                                "Total inability to walk or balance",
+                                "Fear of the opposite sex"
+                            ],
+                            "correct": 1,
+                            "explanation": "Anal fixation (associated with harsh toilet training) was theorized to produce adult traits of rigid perfectionism, obsessive tidiness, and stubborn control ('anal-retentive')."
+                        },
+                        {
+                            "question": "Carl Jung broke away from Sigmund Freud and proposed the concept of the 'Collective Unconscious', which he defined as:",
+                            "options": [
+                                "A shared, inherited reservoir of evolutionary memory traces and universal psychological symbols (archetypes) common to all humans",
+                                "The conscious consensus reached during democratic group discussions",
+                                "Suppressed memories of birth trauma unique to each individual",
+                                "A telepathic link connecting twin siblings"
+                            ],
+                            "correct": 0,
+                            "explanation": "Jung's collective unconscious contains universal ancestral archetypes (e.g., the Shadow, the Anima/Animus, the Hero) reflected across worldwide mythologies, dreams, and art."
+                        },
+                        {
+                            "question": "Humanistic psychologist Carl Rogers asserted that healthy psychological development and self-actualization require experiencing:",
+                            "options": [
+                                "Unconditional Positive Regard",
+                                "Rigid moral punishment during infancy",
+                                "Sublimation of violent death instincts",
+                                "High scores on the Minnesota Multiphasic Personality Inventory"
+                            ],
+                            "correct": 0,
+                            "explanation": "Rogers believed that receiving unconditional positive regard—genuine acceptance and warmth from others without qualifying conditions—is crucial for congruence and growth."
+                        },
+                        {
+                            "question": "In the Five-Factor Model of personality (the 'Big Five' / OCEAN framework), what are the five core trait dimensions?",
+                            "options": [
+                                "Optimism, Courage, Empathy, Ambition, and Neuroticism",
+                                "Openness to Experience, Conscientiousness, Extraversion, Agreeableness, and Neuroticism",
+                                "Oral, Anal, Phallic, Latency, and Genital",
+                                "Analytical, Creative, Practical, Emotional, and Spatial"
+                            ],
+                            "correct": 1,
+                            "explanation": "The Big Five traits represent the broad dimensions of human personality: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism (acronym: OCEAN)."
+                        },
+                        {
+                            "question": "An individual who is highly organized, disciplined, dependable, detail-oriented, and shows strong impulse control scores high on which Big Five dimension?",
+                            "options": [
+                                "Conscientiousness",
+                                "Agreeableness",
+                                "Extraversion",
+                                "Openness to experience"
+                            ],
+                            "correct": 0,
+                            "explanation": "Conscientiousness reflects self-discipline, planfulness, responsibility, and goal-directed persistence versus carelessness and disorganization."
+                        },
+                        {
+                            "question": "High scores on the Big Five dimension of Neuroticism are primarily characterized by:",
+                            "options": [
+                                "High intellectual curiosity and appreciation for avant-garde art",
+                                "Frequent experiences of emotional instability, anxiety, moodiness, and negative affectivity",
+                                "Sociability, outgoing talkativeness, and assertiveness",
+                                "Compassionate helpfulness and empathy toward others"
+                            ],
+                            "correct": 1,
+                            "explanation": "Neuroticism (often termed emotional instability) refers to a chronic tendency to experience distressing negative emotions like anxiety, anger, sadness, and vulnerability to stress."
+                        },
+                        {
+                            "question": "The Minnesota Multiphasic Personality Inventory (MMPI-2) is classified as what kind of psychological assessment?",
+                            "options": [
+                                "A projective test based on free association",
+                                "An objective, empirically keyed personality inventory featuring true/false questions and embedded validity scales",
+                                "An observational assessment of childhood play behavior",
+                                "A biological measurement of prefrontal dopamine turnover"
+                            ],
+                            "correct": 1,
+                            "explanation": "The MMPI-2 is the most widely utilized objective clinical personality test; its items were selected because clinical populations answered them differently from normal controls, and it features validity scales to catch lying."
+                        },
+                        {
+                            "question": "The Rorschach Inkblot Test and the Thematic Apperception Test (TAT) are examples of:",
+                            "options": [
+                                "Projective personality tests",
+                                "Objective behavioral checklists",
+                                "Standardized aptitude batteries",
+                                "Neuroimaging diagnostic protocols"
+                            ],
+                            "correct": 0,
+                            "explanation": "Projective tests present ambiguous stimuli (inkblots or ambiguous scenes) onto which the test-taker is assumed to project unconscious conflicts, motives, and psychological dynamics."
+                        },
+                        {
+                            "question": "Why have projective tests such as the Rorschach faced severe criticism from contemporary empirical psychometricians?",
+                            "options": [
+                                "They take less than 10 seconds to administer",
+                                "They suffer from low inter-rater reliability, questionable construct validity, and a tendency to over-pathologize normal individuals",
+                                "They can only be administered to children under age 5",
+                                "They have been completely banned by federal law in all 50 states"
+                            ],
+                            "correct": 1,
+                            "explanation": "Extensive scientific reviews indicate that many projective scoring systems lack adequate reliability, standardized scoring consistency, and predictive validity compared to objective inventories."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sec_psych_15",
+            "title": "Chapter 15: Abnormal Psychology: Disorders and Treatment",
+            "description": "Module 15.1: Overview | Module 15.2: Anxiety | Module 15.3: Substances | Module 15.4: Mood & Schizophrenia | Module 15.5: Treatment",
+            "activities": [
+                {
+                    "id": "act_psych_15_1",
+                    "type": "page",
+                    "title": "Module 15.1: An Overview of Abnormal Behavior",
+                    "completed": false,
+                    "content": "### Criteria for Abnormality\n\n- **The 4 D's:** Deviance, Distress, Dysfunction, Danger.\n- **Diagnostic and Statistical Manual of Mental Disorders (DSM-5):** Standardized nosology outlining explicit diagnostic criteria, symptom duration thresholds, and differential exclusions.\n- **Biopsychosocial Model:** Integrates biological predispositions, cognitive styles, and sociocultural stressors (*Diathesis-Stress Model*).\n\n### In Closing: Is Anyone Normal?\nMental health exists on a continuum rather than an absolute binary division."
+                },
+                {
+                    "id": "act_psych_15_2",
+                    "type": "page",
+                    "title": "Module 15.2: Anxiety Disorders and OCD",
+                    "completed": false,
+                    "content": "### Anxiety and Compulsive Disorders\n\n- **Generalized Anxiety Disorder (GAD):** Chronic, diffuse, pervasive worry for at least 6 months.\n- **Panic Disorder:** Recurrent unexpected panic attacks accompanied by agoraphobia (fear of inescapable places).\n- **Specific Phobia:** Irrational, persistent fear of a specific object or situation that prompts active avoidance.\n- **Obsessive-Compulsive Disorder (OCD):**\n  - *Obsessions:* Intrusive, distressing recurrent thoughts or impulses.\n  - *Compulsions:* Repetitive ritualistic behaviors performed to alleviate the anxiety provoked by obsessions.\n- **PTSD:** Intrusive trauma memories, hyperarousal, and emotional numbing following severe trauma.\n\n### In Closing: Emotions and Avoidance\nAvoidant behaviors maintain anxiety disorders through negative reinforcement."
+                },
+                {
+                    "id": "act_psych_15_3",
+                    "type": "page",
+                    "title": "Module 15.3: Substance-Use Disorders",
+                    "completed": false,
+                    "content": "### Neurobiology of Addiction\n\n- **Tolerance:** Reduced responsiveness requiring progressively larger doses.\n- **Withdrawal:** Aversive physiological and psychological symptoms upon substance cessation.\n- **Neural Pathway:** Addictive substances hyperactivate the mesolimbic dopamine pathway from the ventral tegmental area (VTA) to the nucleus accumbens.\n\n### In Closing: Substances, the Individual, and Society\nAddiction involves neurobiological hijacking of natural reward pathways compounded by social vulnerabilities."
+                },
+                {
+                    "id": "act_psych_15_4",
+                    "type": "page",
+                    "title": "Module 15.4: Mood Disorders, Schizophrenia, and Autism",
+                    "completed": false,
+                    "content": "### Severe Psychological Disorders\n\n- **Major Depressive Disorder (MDD):** Depressed mood, anhedonia (loss of pleasure), sleep and appetite disturbances, feelings of worthlessness, fatigue lasting $\\ge 2$ weeks. Aaron Beck's cognitive triad and Martin Seligman's learned helplessness.\n- **Bipolar Disorder:** Alternating episodes of depression and mania (grandiosity, decreased sleep need, flight of ideas, risky behavior).\n- **Schizophrenia:**\n  - *Positive Symptoms:* Delusions (grandeur, persecution), hallucinations (auditory), disorganized speech.\n  - *Negative Symptoms:* Flat affect, avolition, social withdrawal, poverty of speech.\n  - *Biological Mechanisms:* Dopamine dysregulation, enlarged ventricles, genetic heritability (~50% in identical twins).\n- **Autism Spectrum Disorder:** Persistent deficits in social communication combined with restricted, repetitive patterns of behavior.\n\n### In Closing: Disabling Psychological Disorders\nSevere psychiatric illnesses involve measurable neurochemical and structural brain anomalies interacting with environmental triggers."
+                },
+                {
+                    "id": "act_psych_15_5",
+                    "type": "page",
+                    "title": "Module 15.5: Treatment of Mental Illness",
+                    "completed": false,
+                    "content": "### Psychotherapeutic and Biomedical Modalities\n\n1. **Cognitive-Behavioral Therapy (CBT):** Highly empirical; identifies maladaptive automatic thoughts (*cognitive restructuring*) and pairs it with behavioral exposure (systematic desensitization for phobias).\n2. **Psychodynamic Psychotherapy:** Explores unresolved childhood conflicts, defense mechanisms, and transference.\n3. **Humanistic Therapy (Carl Rogers):** Client-centered therapy utilizing empathy, active listening, and unconditional positive regard.\n4. **Biomedical Treatments:**\n   - *SSRIs:* Selectively block serotonin reuptake (used for depression and anxiety).\n   - *Antipsychotics (Neuroleptics):* Dopamine receptor antagonists for schizophrenia.\n   - *Mood Stabilizers (Lithium):* Standard treatment for bipolar disorder.\n   - *Electroconvulsive Therapy (ECT):* Highly effective for severe treatment-resistant depression.\n\n### In Closing: The Science and Politics of Mental Illness\nCombining cognitive-behavioral therapy with targeted pharmacotherapy often provides optimal long-term clinical recovery."
+                },
+                {
+                    "id": "quiz_psych_15",
+                    "type": "quiz",
+                    "title": "🧠 Chapter 15 Checkpoint: Clinical Psychology & Treatments",
+                    "completed": false,
+                    "questions": [
+                        {
+                            "question": "In clinical psychology, what are the 'Four D's' commonly used as diagnostic criteria to distinguish abnormal behavior from normal variation?",
+                            "options": [
+                                "Delusion, Dementia, Depression, and Dissonance",
+                                "Deviance, Distress, Dysfunction, and Danger",
+                                "Diagnostic, Dynamic, Dualistic, and Differential",
+                                "Displacement, Denial, Dissociation, and Despair"
+                            ],
+                            "correct": 1,
+                            "explanation": "Clinicians evaluate behavior based on Deviance (departure from statistical/cultural norms), Distress (personal suffering), Dysfunction (interference with daily life), and Danger (harm to self/others)."
+                        },
+                        {
+                            "question": "The Diagnostic and Statistical Manual of Mental Disorders (DSM-5) is published by the American Psychiatric Association primarily to:",
+                            "options": [
+                                "Provide standardized diagnostic criteria, descriptions, and categories for mental health disorders to ensure diagnostic reliability among clinicians",
+                                "List the legal criminal penalties for mental illness",
+                                "Explain the exact biochemical cause of every human thought",
+                                "Provide a guide for psychoanalyzing literary authors"
+                            ],
+                            "correct": 0,
+                            "explanation": "The DSM-5 provides a standardized categorical system of clinical criteria to enable mental health professionals to reliably identify, diagnose, and communicate about psychiatric disorders."
+                        },
+                        {
+                            "question": "A chronic, debilitating psychiatric condition marked by continuous, excessive, unfocused anxiety and worry across multiple life domains for at least six months is:",
+                            "options": [
+                                "Panic Disorder",
+                                "Generalized Anxiety Disorder (GAD)",
+                                "Specific Phobia",
+                                "Obsessive-Compulsive Disorder"
+                            ],
+                            "correct": 1,
+                            "explanation": "GAD features persistent 'free-floating' anxiety and worry that is generalized across daily events, accompanied by muscle tension, restlessness, fatigue, and sleep disturbances."
+                        },
+                        {
+                            "question": "Unpredictable, recurrent minutes-long episodes of intense terror accompanied by chest pains, heart palpitations, shortness of breath, trembling, and fear of imminent death characterize:",
+                            "options": [
+                                "Panic Disorder",
+                                "Social Anxiety Disorder",
+                                "Major Depressive Disorder",
+                                "Schizophrenia"
+                            ],
+                            "correct": 0,
+                            "explanation": "Panic disorder is characterized by recurrent unexpected panic attacks that mimic heart attacks, causing chronic anticipatory worry about when the next attack will strike."
+                        },
+                        {
+                            "question": "An intense, irrational fear and avoidance of public places, crowds, or open spaces where escape might be difficult or help unavailable during a panic attack is:",
+                            "options": [
+                                "Claustrophobia",
+                                "Agoraphobia",
+                                "Acrophobia",
+                                "Xenophobia"
+                            ],
+                            "correct": 1,
+                            "explanation": "Agoraphobia involves fear and avoidance of situations (public transport, shopping malls, open parking lots) where panic-like symptoms could lead to entrapment or humiliation."
+                        },
+                        {
+                            "question": "In Obsessive-Compulsive Disorder (OCD), what is the primary functional difference between an obsession and a compulsion?",
+                            "options": [
+                                "Obsessions are persistent, intrusive, anxiety-provoking thoughts; compulsions are repetitive, ritualistic behaviors performed to neutralize the anxiety",
+                                "Obsessions are physical hand movements; compulsions are silent daydreams",
+                                "Obsessions occur only in children; compulsions occur only in elderly adults",
+                                "Obsessions reduce anxiety; compulsions increase fear"
+                            ],
+                            "correct": 0,
+                            "explanation": "Obsessions are unwanted, distressing recurring thoughts or impulses (e.g., contamination fears); compulsions are rigid repetitive behaviors (e.g., washing hands 50 times) executed to relieve obsession-induced anxiety."
+                        },
+                        {
+                            "question": "Following exposure to a life-threatening traumatic event (e.g., warfare, sexual assault, severe car crash), developing recurrent flashbacks, nightmares, emotional numbness, and hyperarousal indicates:",
+                            "options": [
+                                "Post-Traumatic Stress Disorder (PTSD)",
+                                "Bipolar II Disorder",
+                                "Schizotypal Personality Disorder",
+                                "Dissociative Fugue"
+                            ],
+                            "correct": 0,
+                            "explanation": "PTSD is a trauma- and stressor-related disorder marked by intrusive re-experiencing of the trauma, avoidance of trauma reminders, negative alterations in mood/cognition, and heightened autonomic arousal."
+                        },
+                        {
+                            "question": "A clinical diagnosis of Major Depressive Disorder (MDD) requires experiencing persistent depressed mood or loss of interest/pleasure (anhedonia) for at least:",
+                            "options": [
+                                "Three consecutive days",
+                                "Two consecutive weeks",
+                                "Six consecutive months",
+                                "One full year"
+                            ],
+                            "correct": 1,
+                            "explanation": "The DSM-5 requires that symptoms (depressed mood, anhedonia, fatigue, sleep changes, suicidal ideation) persist for at least two consecutive weeks and represent a clear change from previous functioning."
+                        },
+                        {
+                            "question": "The Monoamine Hypothesis of depression suggests that depressive episodes are associated with reduced availability or transmission of which neurotransmitters?",
+                            "options": [
+                                "Serotonin and Norepinephrine",
+                                "GABA and Acetylcholine",
+                                "Glutamate and Glycine",
+                                "Endorphin and Substance P"
+                            ],
+                            "correct": 0,
+                            "explanation": "The monoamine hypothesis proposes that depression involves underactivity in brain serotonin and norepinephrine pathways, providing the rationale for SSRI and SNRI medications."
+                        },
+                        {
+                            "question": "Cognitive theorist Aaron Beck proposed that depression is maintained by a 'Cognitive Triad' of automatic negative thoughts regarding:",
+                            "options": [
+                                "The self, the world (ongoing experiences), and the future",
+                                "Parents, siblings, and friends",
+                                "Past crimes, current punishments, and eternal damnation",
+                                "The id, ego, and superego"
+                            ],
+                            "correct": 0,
+                            "explanation": "Beck's cognitive triad posits that depressed individuals possess negative cognitive schemas that generate automatic pessimistic interpretations of themselves ('I am worthless'), the world ('everything is cruel'), and the future ('it will never improve')."
+                        },
+                        {
+                            "question": "How does Bipolar I Disorder differ from Major Depressive Disorder?",
+                            "options": [
+                                "Bipolar I involves full-blown manic episodes (marked by euphoric grandiosity, decreased need for sleep, and reckless behavior), often alternating with depressive episodes",
+                                "Bipolar I never involves feelings of sadness or depression",
+                                "Bipolar I occurs exclusively in children under age 10",
+                                "Major Depressive Disorder is treated with brain surgery while Bipolar I is not"
+                            ],
+                            "correct": 0,
+                            "explanation": "Bipolar I disorder is defined by the occurrence of at least one full manic episode characterized by inflated self-esteem, grandiosity, racing thoughts, and extreme impulsivity, typically cycling with depressive crashes."
+                        },
+                        {
+                            "question": "In Schizophrenia, symptoms that represent an excess or distortion of normal functioning (such as hallucinations, delusions, and disorganized speech) are classified as:",
+                            "options": [
+                                "Positive symptoms",
+                                "Negative symptoms",
+                                "Cognitive deficits",
+                                "Catatonic states"
+                            ],
+                            "correct": 0,
+                            "explanation": "Positive symptoms are pathological additions to normal mental operations (hallucinations, delusions, erratic motor behavior); negative symptoms are pathological subtractions or deficits."
+                        },
+                        {
+                            "question": "A patient with schizophrenia who holds the firm, unshakeable conviction that government satellites are beaming secret radio thoughts directly into their teeth is experiencing:",
+                            "options": [
+                                "A hallucination",
+                                "A delusion",
+                                "A compulsion",
+                                "Anhedonia"
+                            ],
+                            "correct": 1,
+                            "explanation": "A delusion is a fixed, false idiosyncratic belief held firmly despite incontrovertible contradictory evidence; hallucinations, by contrast, are false sensory perceptions without external stimuli."
+                        },
+                        {
+                            "question": "Hearing imaginary voices commenting negatively on one's actions when no one is speaking is classified as an auditory:",
+                            "options": [
+                                "Delusion",
+                                "Hallucination",
+                                "Aura",
+                                "Obsession"
+                            ],
+                            "correct": 1,
+                            "explanation": "Hallucinations are sensory perceptions experienced in the absence of any external environmental stimulus; auditory hallucinations are the most frequent type in schizophrenia."
+                        },
+                        {
+                            "question": "Which of the following represents a 'Negative Symptom' of schizophrenia?",
+                            "options": [
+                                "Vivid visual hallucinations",
+                                "Flat affect (diminished emotional expression) and avolition (lack of motivation)",
+                                "Bizarre paranoid delusions",
+                                "Disorganized, rhyming speech ('clang associations')"
+                            ],
+                            "correct": 1,
+                            "explanation": "Negative symptoms involve behavioral deficits or absences: flat/blunted affect, alogia (poverty of speech), avolition (inability to initiate goal-directed action), and asociality."
+                        },
+                        {
+                            "question": "The Dopamine Hypothesis of schizophrenia posits that the positive symptoms of the disorder are linked to:",
+                            "options": [
+                                "An absolute absence of all dopamine in the cerebellum",
+                                "Excessive dopamine receptor activity or hyper-sensitivity (particularly D2 receptors) in subcortical brain pathways",
+                                "Degeneration of the myelin sheath around motor nerves",
+                                "Deficiencies in thyroid hormone"
+                            ],
+                            "correct": 1,
+                            "explanation": "The dopamine hypothesis was supported by the discovery that first-generation antipsychotic drugs that block dopamine D2 receptors successfully alleviate positive psychotic symptoms."
+                        },
+                        {
+                            "question": "Neuroimaging scans of patients with severe, chronic schizophrenia consistently reveal which structural brain abnormality?",
+                            "options": [
+                                "Enlarged lateral ventricles and loss of cerebral cortical gray matter",
+                                "An abnormally oversized hippocampus",
+                                "Complete calcification of the optic nerve",
+                                "Fusion of the frontal lobes into a single mass"
+                            ],
+                            "correct": 0,
+                            "explanation": "CT and MRI scans demonstrate enlarged lateral and third cerebral ventricles, indicating progressive atrophy and loss of surrounding cortical brain tissue."
+                        },
+                        {
+                            "question": "A personality disorder characterized by a pervasive pattern of disregard for and violation of the rights of others, deceitfulness, impulsivity, and a total lack of empathy or remorse is:",
+                            "options": [
+                                "Borderline Personality Disorder",
+                                "Antisocial Personality Disorder",
+                                "Schizoid Personality Disorder",
+                                "Narcissistic Personality Disorder"
+                            ],
+                            "correct": 1,
+                            "explanation": "Antisocial personality disorder features chronic noncompliance with social/legal norms, exploitation of others, manipulative conduct, and remorseless disregard for the safety and feelings of others."
+                        },
+                        {
+                            "question": "Borderline Personality Disorder (BPD) is centrally marked by:",
+                            "options": [
+                                "Pervasive instability in interpersonal relationships, self-image, and emotional states, accompanied by impulsivity and frantic efforts to avoid real or imagined abandonment",
+                                "Extreme social detachment and total lack of interest in forming relationships",
+                                "A delusional belief that one is an omnipotent deity",
+                                "Compulsive counting and checking rituals"
+                            ],
+                            "correct": 0,
+                            "explanation": "Borderline personality disorder features severe affective instability, chronic feelings of emptiness, extreme fear of abandonment, idealization/devaluation splitting, and recurrent self-harm or suicidal gestures."
+                        },
+                        {
+                            "question": "In Sigmund Freud's classical psychoanalysis, the technique where a patient relaxes on a couch and speaks aloud whatever thoughts, feelings, or memories enter their mind without self-censorship is:",
+                            "options": [
+                                "Free Association",
+                                "Systematic Desensitization",
+                                "Cognitive Restructuring",
+                                "Active Listening"
+                            ],
+                            "correct": 0,
+                            "explanation": "Free association allows uncensored mental content to emerge into consciousness, enabling the psychoanalyst to detect unconscious conflicts, defenses, and repressed desires."
+                        },
+                        {
+                            "question": "In psychoanalytic therapy, when a client begins projecting unresolved feelings, expectations, and attitudes regarding their own parents onto the therapist, this process is called:",
+                            "options": [
+                                "Resistance",
+                                "Transference",
+                                "Counter-conditioning",
+                                "Catharsis"
+                            ],
+                            "correct": 1,
+                            "explanation": "Transference occurs when a client unconsciously transfers feelings, conflicts, and relationship dynamics experienced with significant early childhood figures onto the therapist."
+                        },
+                        {
+                            "question": "In Carl Rogers' Client-Centered (Humanistic) therapy, the therapist facilitates the client's self-healing by providing:",
+                            "options": [
+                                "Dream decoding and Freudian interpretations",
+                                "Unconditional positive regard, accurate empathetic understanding, and genuine congruence",
+                                "Direct advice and behavioral punishment schedules",
+                                "Electroconvulsive memory erasure"
+                            ],
+                            "correct": 1,
+                            "explanation": "Rogers believed that therapeutic growth occurs when the therapist provides three core conditions: unconditional positive regard (nonjudgmental acceptance), empathy, and genuineness."
+                        },
+                        {
+                            "question": "Joseph Wolpe developed Systematic Desensitization to treat phobias. This behavioral therapy works by:",
+                            "options": [
+                                "Pairing progressive muscle relaxation with gradual exposure to an ascending hierarchy of fear-inducing stimuli (counter-conditioning)",
+                                "Forcing the patient into direct physical contact with their greatest fear until they faint",
+                                "Analyzing childhood dreams about phobic animals",
+                                "Administering electrical shocks whenever the phobic object appears"
+                            ],
+                            "correct": 0,
+                            "explanation": "Systematic desensitization employs classical counter-conditioning: because profound physiological relaxation and acute panic cannot coexist, pairing relaxed states with an anxiety hierarchy extinguishes the phobia."
+                        },
+                        {
+                            "question": "Cognitive-Behavioral Therapy (CBT) operates on the core principle that:",
+                            "options": [
+                                "Psychological disorders are driven by unconscious sexual instincts that cannot be altered",
+                                "Psychological distress is maintained by distorted, maladaptive thoughts that can be systematically identified, tested, and modified alongside behavioral changes",
+                                "Mental illnesses must be treated strictly with pharmaceutical drugs",
+                                "Human behavior is entirely determined by childhood trauma before age 3"
+                            ],
+                            "correct": 1,
+                            "explanation": "CBT focuses on cognitive restructuring and behavioral experiments, teaching clients to recognize automatic cognitive distortions (e.g., catastrophizing) and replace them with objective, functional habits."
+                        },
+                        {
+                            "question": "Selective Serotonin Reuptake Inhibitors (SSRIs, such as Prozac or Zoloft) alleviate clinical depression and anxiety primarily by:",
+                            "options": [
+                                "Permanently destroying serotonin receptor sites in the brain",
+                                "Blocking the presynaptic reuptake transporter protein for serotonin, thereby increasing the concentration of serotonin in the synaptic cleft",
+                                "Stimulating rapid adrenaline secretion from the adrenal glands",
+                                "Sedating the central nervous system like general anesthesia"
+                            ],
+                            "correct": 1,
+                            "explanation": "SSRIs inhibit the presynaptic reuptake transporter pump, preventing serotonin from being reabsorbed, thereby prolonging its availability to stimulate postsynaptic receptors."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "id": "course_1",
+    "code": "GOALS-101",
+    "title": "Goals & Planning",
+    "category": "General",
+    "description": "Resources, plans, and workspace.",
+    "image": "📓",
+    "progress": 25,
+    "sections": [
+        {
+            "id": "sec_1",
+            "title": "General",
+            "description": "",
+            "activities": [
+                {
+                    "id": "act_letter_page",
+                    "type": "page",
+                    "title": "Letter",
+                    "completed": true,
+                    "content": "Happy 20th Birthday Elizabeth!\n\nI hope I can atleast help you in a way to achieve your dreams!"
+                },
+                {
+                    "id": "act_goals_assign",
+                    "type": "assignment",
+                    "title": "Goals for this year",
+                    "dueDate": "Open",
+                    "completed": false,
+                    "instructions": "Write down your goals or anything you'd like to work on.",
+                    "submission": null
+                }
+            ]
+        },
+        {
+            "id": "sec_2",
+            "title": "Resources & Materials",
+            "description": "",
+            "activities": [
+                {
+                    "id": "act_resource_notes",
+                    "type": "resource",
+                    "title": "Shared Notes & Links",
+                    "completed": false,
+                    "content": "Shared study materials, documents, and reference links."
+                }
+            ]
+        }
+    ]
+},
+{
+    "id": "course_2",
+    "code": "DEV-201",
+    "title": "Web Development & Projects",
+    "category": "Computer Science",
+    "description": "Course materials, exercises, and project submissions.",
+    "image": "💻",
+    "progress": 0,
+    "sections": [
+        {
+            "id": "sec_dev_1",
+            "title": "Course Overview",
+            "description": "",
+            "activities": [
+                {
+                    "id": "act_dev_intro",
+                    "type": "page",
+                    "title": "Getting Started",
+                    "completed": false,
+                    "content": "Course syllabus, project outlines, and software setup guide."
+                }
+            ]
+        }
+    ]
+}
+      ],
+      announcements: []
+    };
+  }
+
+  async init() {
+    try {
+      const res = await fetch('/api/state?t=' + Date.now(), { method: 'GET', cache: 'no-store' });
+      if (res.ok) {
+        this.state = await res.json();
+        this.isServerAvailable = true;
+      }
+    } catch (e) {
+      this.isServerAvailable = false;
+    }
+
+    if (!this.state) {
+      const stored = localStorage.getItem(this.storageKey);
+      if (stored) {
+        try {
+          this.state = JSON.parse(stored);
+        } catch (e) {
+          this.state = this.getDefaultData();
+        }
+      } else {
+        this.state = this.getDefaultData();
+        this.saveLocal();
+      }
+    }
+
+    const savedUser = sessionStorage.getItem(this.sessionKey) || localStorage.getItem(this.sessionKey);
+    if (savedUser) {
+      try {
+        this.currentUser = JSON.parse(savedUser);
+      } catch (e) {
+        this.currentUser = null;
+      }
+    }
+  }
+
+  saveLocal() {
+    try {
+      localStorage.setItem(this.storageKey, JSON.stringify(this.state));
+    } catch (e) {}
+  }
+
+  async login(username, password) {
+    const cleanUser = String(username).trim();
+
+    if (this.isServerAvailable) {
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: cleanUser, password })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          this.currentUser = data.user;
+          sessionStorage.setItem(this.sessionKey, JSON.stringify(data.user));
+          return { success: true, user: data.user };
+        } else {
+          return { success: false, error: data.error || 'Invalid login, please try again.' };
+        }
+      } catch (e) {}
+    }
+
+    const users = this.state.users || this.getDefaultData().users;
+    const match = users.find(u => u.username.toLowerCase() === cleanUser.toLowerCase() && u.password === password);
+
+    if (match) {
+      const safe = {
+        id: match.id,
+        username: match.name || match.username,
+        name: match.name || match.username,
+        role: match.role,
+        avatar: match.avatar,
+        email: match.email
+      };
+      this.currentUser = safe;
+      sessionStorage.setItem(this.sessionKey, JSON.stringify(safe));
+      return { success: true, user: safe };
+    }
+
+    return { success: false, error: 'Invalid login, please try again.' };
+  }
+
+  logout() {
+    this.currentUser = null;
+    sessionStorage.removeItem(this.sessionKey);
+    localStorage.removeItem(this.sessionKey);
+  }
+
+  async submitAssignment(courseId, activityId, text) {
+    if (this.isServerAvailable) {
+      try {
+        const res = await fetch('/api/assignment/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ courseId, activityId, text })
+        });
+        if (res.ok) {
+          const sRes = await fetch('/api/state');
+          this.state = await sRes.json();
+          return true;
+        }
+      } catch (e) {}
+    }
+
+    const course = this.state.courses.find(c => c.id === courseId);
+    if (!course) return false;
+    for (const sec of course.sections) {
+      const act = sec.activities.find(a => a.id === activityId);
+      if (act) {
+        act.submission = {
+          submitted: true,
+          text,
+          submittedDate: new Date().toISOString().split('T')[0],
+          grade: act.submission?.grade || null,
+          feedback: act.submission?.feedback || null,
+          feedbackDate: act.submission?.feedbackDate || null,
+          gradedBy: act.submission?.gradedBy || null
+        };
+        act.completed = true;
+        this.saveLocal();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  async gradeAssignment(courseId, activityId, grade, feedback) {
+    if (this.isServerAvailable) {
+      try {
+        const res = await fetch('/api/assignment/grade', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ courseId, activityId, grade, feedback, gradedBy: this.currentUser?.name || 'Admin' })
+        });
+        if (res.ok) {
+          const sRes = await fetch('/api/state');
+          this.state = await sRes.json();
+          return true;
+        }
+      } catch (e) {}
+    }
+
+    const course = this.state.courses.find(c => c.id === courseId);
+    if (!course) return false;
+    for (const sec of course.sections) {
+      const act = sec.activities.find(a => a.id === activityId);
+      if (act) {
+        if (!act.submission) act.submission = { submitted: false, text: '' };
+        act.submission.grade = grade;
+        act.submission.feedback = feedback;
+        act.submission.feedbackDate = new Date().toISOString().split('T')[0];
+        act.submission.gradedBy = this.currentUser?.name || 'Admin';
+        this.saveLocal();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  async toggleActivity(courseId, activityId, completed) {
+    if (this.isServerAvailable) {
+      try {
+        await fetch('/api/activity/toggle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ courseId, activityId, completed })
+        });
+      } catch (e) {}
+    }
+
+    const course = this.state.courses.find(c => c.id === courseId);
+    if (course) {
+      for (const sec of course.sections) {
+        const act = sec.activities.find(a => a.id === activityId);
+        if (act) {
+          act.completed = completed !== undefined ? completed : !act.completed;
+          break;
+        }
+      }
+      this.saveLocal();
+    }
+  }
+
+  async submitQuiz(courseId, activityId, quizResult) {
+    if (this.isServerAvailable) {
+      try {
+        await fetch('/api/quiz/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ courseId, activityId, quizResult })
+        });
+      } catch (e) {}
+    }
+
+    const course = this.state.courses.find(c => c.id === courseId);
+    if (course) {
+      for (const sec of course.sections) {
+        const act = sec.activities.find(a => a.id === activityId);
+        if (act) {
+          act.quizResult = quizResult;
+          act.completed = (quizResult !== null);
+          break;
+        }
+      }
+      this.saveLocal();
+    }
+  }
+
+  async updateSettings(newSettings) {
+    this.state.settings = { ...this.state.settings, ...newSettings };
+    if (this.isServerAvailable) {
+      try {
+        await fetch('/api/settings/update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newSettings)
+        });
+      } catch (e) {}
+    }
+    this.saveLocal();
+  }
+
+  async sendMessage(text, recipient = 'Admin') {
+    const msg = {
+      id: 'msg_' + Date.now(),
+      sender: this.currentUser ? this.currentUser.name : 'Elizabeth',
+      recipient,
+      text,
+      timestamp: new Date().toISOString(),
+      read: false
+    };
+
+    if (this.isServerAvailable) {
+      try {
+        await fetch('/api/messages/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(msg)
+        });
+      } catch (e) {}
+    }
+
+    this.state.messages.push(msg);
+    this.saveLocal();
+    return msg;
+  }
+
+  async addActivity(courseId, sectionId, activity) {
+    activity.id = 'act_' + Date.now();
+    activity.completed = false;
+
+    if (this.isServerAvailable) {
+      try {
+        await fetch('/api/activity/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ courseId, sectionId, activity })
+        });
+      } catch (e) {}
+    }
+
+    const course = this.state.courses.find(c => c.id === courseId);
+    if (course) {
+      const section = course.sections.find(s => s.id === sectionId);
+      if (section) {
+        section.activities.push(activity);
+        this.saveLocal();
+      }
+    }
+  }
+
+  async addCourse(course) {
+    course.id = 'course_' + Date.now();
+    course.progress = 0;
+    course.sections = course.sections || [];
+
+    if (this.isServerAvailable) {
+      try {
+        await fetch('/api/course/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(course)
+        });
+      } catch (e) {}
+    }
+
+    this.state.courses.push(course);
+    this.saveLocal();
+  }
+}
+
+window.store = new Store();

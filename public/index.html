@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moodle | Happy 20th Birthday Elizabeth!</title>
+  <link rel="stylesheet" href="css/moodle.css?v=10">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+</head>
+<body>
+
+  <!-- ==========================================
+       TOP MOODLE NAVBAR
+       ========================================== -->
+  <header class="moodle-navbar">
+    <div class="moodle-nav-left">
+      <div class="moodle-brand" id="moodleBrand">
+        <span class="moodle-brand-icon">🎓</span>
+        <span class="moodle-brand-name">moodle</span>
+      </div>
+
+      <nav>
+        <ul class="moodle-nav-links">
+          <li><a class="moodle-nav-item active" id="navItemHome">Home</a></li>
+          <li><a class="moodle-nav-item" id="navItemDashboard">Dashboard</a></li>
+          <li><a class="moodle-nav-item" id="navItemMyCourses">My courses</a></li>
+          <li><a class="moodle-nav-item" id="navAdminTab" style="display: none;">Site administration</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="moodle-nav-right">
+      <!-- Edit Mode Toggle Switch (Admin only) -->
+      <div class="moodle-edit-mode-wrap" id="editModeWrap" style="display: none;">
+        <span class="edit-mode-label">Edit mode</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="editModeToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <!-- Messages Drawer Toggle -->
+      <button class="nav-icon-btn" id="btnToggleMsg" title="Messages">💬</button>
+
+      <!-- Log in button (when logged out) -->
+      <button class="btn-moodle-primary" id="btnNavLogin" style="padding: 6px 14px; font-size: 0.85rem;">Log in</button>
+
+      <!-- User Dropdown (when logged in) -->
+      <div class="user-profile-menu-btn" id="navUserBtn" style="display: none;">
+        <div class="user-nav-avatar" id="navAvatar">👤</div>
+        <span class="user-nav-name" id="navUserName">User</span>
+        <span style="font-size: 0.75rem; color: #64748b;">▼</span>
+      </div>
+
+      <!-- User Dropdown Menu -->
+      <div class="user-dropdown" id="userDropdown">
+        <div class="dropdown-header">
+          <div style="font-weight: 700; color: #111827;" id="dropdownUserName">User</div>
+          <div class="dropdown-user-role" id="navUserRole">Student</div>
+        </div>
+        <div class="dropdown-item" id="dropItemGrades">Grades</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item" id="dropItemLogout" style="color: #dc2626;">Log out</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subnav / Breadcrumbs -->
+  <div class="moodle-subnav" id="moodleSubnav">
+    <div class="moodle-breadcrumbs" id="moodleBreadcrumbs">
+      <a id="bcHome">Home</a>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MAIN CONTENT CONTAINER
+       ========================================== -->
+  <main class="moodle-page-container">
+
+    <!-- TAB 1: HOME (Frontpage with Letter & Available Courses) -->
+    <section id="paneHome">
+      <div class="moodle-letter-banner">
+        <h1 class="banner-title" id="homeTitle">Happy 20th Birthday Elizabeth!</h1>
+        <p class="banner-letter" id="homeLetter">I hope I can atleast help you in a way to achieve your dreams!</p>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">Available courses</h2>
+      </div>
+      <div class="course-grid" id="homeCourseGrid"></div>
+    </section>
+
+    <!-- TAB 2: DASHBOARD (Enrolled Courses, Timeline, Calendar) -->
+    <section id="paneDashboard" style="display: none;">
+      <div class="moodle-layout-grid">
+        <div class="moodle-main-col">
+          <div class="section-header">
+            <h2 class="section-title">Dashboard</h2>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: #1f2937; margin: 0 0 14px 0;">Course overview</h3>
+            <div class="course-grid" id="dashCourseGrid"></div>
+          </div>
+        </div>
+
+        <aside class="moodle-sidebar-col">
+          <div class="moodle-block">
+            <h4 class="block-title">Timeline</h4>
+            <div id="sidebarTimeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                  <div class="timeline-title">Goals for this year</div>
+                  <div class="timeline-due">GOALS-101 • Assignment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="moodle-block">
+            <h4 class="block-title">Calendar</h4>
+            <div style="text-align: center; padding: 6px 0;">
+              <div style="font-weight: 700; color: #1e293b; margin-bottom: 8px;">November 2026</div>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; font-size: 0.78rem;">
+                <span style="color: #94a3b8;">Su</span>
+                <span style="color: #94a3b8;">Mo</span>
+                <span style="color: #94a3b8;">Tu</span>
+                <span style="color: #94a3b8;">We</span>
+                <span style="color: #94a3b8;">Th</span>
+                <span style="color: #94a3b8;">Fr</span>
+                <span style="color: #94a3b8;">Sa</span>
+
+                <span>15</span><span>16</span><span>17</span><span>18</span>
+                <span style="background: #0f6cbf; color: white; border-radius: 50%; font-weight: 700;">19</span>
+                <span>20</span><span>21</span>
+                <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TAB 3: COURSE VIEW -->
+    <section id="paneCourse" style="display: none;">
+      <div class="course-detail-view">
+        <div class="course-hero">
+          <div class="course-hero-cat" id="courseViewCategory">Category</div>
+          <h2 class="course-hero-title" id="courseViewTitle">Course Title</h2>
+          <p class="course-hero-desc" id="courseViewDesc">Course description.</p>
+        </div>
+
+        <!-- Dedicated Textbook Quick-Access Bar at Top of Course -->
+        <div id="courseTextbookHero"></div>
+
+        <div id="courseSectionsList"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: SITE ADMINISTRATION (Admin only) -->
+    <section id="paneAdmin" style="display: none;">
+      <div id="adminViewContent"></div>
+    </section>
+
+    <!-- TAB 5: GRADES -->
+    <section id="paneGrades" style="display: none;">
+      <div id="gradesViewContent"></div>
+    </section>
+  </main>
+
+
+  <!-- ==========================================
+       MESSAGE DRAWER
+       ========================================== -->
+  <aside class="message-drawer" id="msgDrawer">
+    <div class="drawer-header">
+      <h3>Messages</h3>
+      <button class="drawer-close" id="btnCloseMsg">✕</button>
+    </div>
+    <div class="drawer-messages-body" id="drawerMsgList"></div>
+    <div class="drawer-input-row">
+      <input type="text" id="inputChat" placeholder="Write a message...">
+      <button class="btn-moodle-primary" id="btnSendChat">Send</button>
+    </div>
+  </aside>
+
+
+  <!-- ==========================================
+       AUTHENTIC MOODLE LOGIN MODAL
+       ========================================== -->
+  <div class="moodle-modal-overlay" id="loginModal">
+    <div class="moodle-modal-box" style="max-width: 380px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Log in</h3>
+        <button class="modal-close-btn" id="btnLoginClose">✕</button>
+      </div>
+      <form id="loginForm">
+        <div class="modal-body">
+          <div id="loginErrorBox" style="display: none; background: #fef2f2; border: 1px solid #fecdd3; color: #991b1b; padding: 10px 14px; border-radius: 6px; font-size: 0.88rem; margin-bottom: 16px;"></div>
+
+          <div style="margin-bottom: 14px;">
+            <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 6px; color: #1f2937;">Username</label>
+            <input type="text" id="loginUsername" required autocomplete="username" placeholder="Username" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem;">
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 6px; color: #1f2937;">Password</label>
+            <input type="password" id="loginPassword" required autocomplete="current-password" placeholder="Password" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem;">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn-moodle-primary" style="width: 100%;">Log in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       ACTIVITY VIEWER MODAL
+       ========================================== -->
+  <div class="moodle-modal-overlay" id="activityModal">
+    <div class="moodle-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="activityModalTitle">Activity Title</h3>
+        <button class="modal-close-btn" id="btnActivityModalCross">✕</button>
+      </div>
+      <div class="modal-body" id="activityModalBody"></div>
+      <div class="modal-footer" id="activityModalFooter"></div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       ADD ACTIVITY MODAL (Admin Edit Mode)
+       ========================================== -->
+  <div class="moodle-modal-overlay" id="addActivityModal">
+    <div class="moodle-modal-box" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Add an activity or resource</h3>
+        <button class="modal-close-btn" id="btnAddActCross">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="addActCourseId">
+        <input type="hidden" id="addActSectionId">
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 4px;">Activity Type:</label>
+          <select id="addActType" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px;">
+            <option value="assignment">Assignment</option>
+            <option value="page">Page</option>
+            <option value="resource">Resource</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 4px;">Title:</label>
+          <input type="text" id="addActTitle" placeholder="Title" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px;">
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 4px;">Content / Description:</label>
+          <textarea id="addActContent" rows="4" placeholder="Description or instructions..." style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px;"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-moodle-secondary" id="btnAddActCancel">Cancel</button>
+        <button class="btn-moodle-primary" id="btnAddActConfirm">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/store.js?v=10"></script>
+  <script src="js/app.js?v=10"></script>
+</body>
+</html>
