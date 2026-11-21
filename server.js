@@ -31,26 +31,41 @@ const MIME_TYPES = {
   '.wav': 'audio/wav'
 };
 
-// In-memory store cached from database.json
+const { getCloudState, saveCloudState } = require('./data/turso');
+
+// In-memory store cached from database.json & Turso Cloud
 let db = null;
 
 function loadDatabase() {
   try {
     const raw = fs.readFileSync(DB_PATH, 'utf8');
     db = JSON.parse(raw);
-    console.log('[Server] Database loaded successfully.');
+    console.log('[Server] Local database loaded.');
   } catch (err) {
-    console.error('[Server] Error loading database:', err);
+    console.error('[Server] Error loading local database:', err);
   }
+
+  // Asynchronously sync latest from Turso Cloud
+  getCloudState().then(cloud => {
+    if (cloud) {
+      db = cloud;
+      console.log('[Server] Synced with Turso Cloud database.');
+    }
+  }).catch(() => {});
 }
 
 function saveDatabase() {
   try {
     fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2), 'utf8');
-    console.log('[Server] Database saved.');
+    console.log('[Server] Database saved locally.');
   } catch (err) {
-    console.error('[Server] Error saving database:', err);
+    console.error('[Server] Error saving local database:', err);
   }
+
+  // Push to Turso Cloud
+  saveCloudState(db).catch(err => {
+    console.error('[Server] Turso cloud sync error:', err.message);
+  });
 }
 
 loadDatabase();
